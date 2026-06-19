@@ -282,33 +282,14 @@ export function About() {
           />
         </div>
 
-        {/* Diagonal glowing vector line animation */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" xmlns="http://www.w3.org/2000/svg">
-          <path 
-            d="M -100,200 Q 300,50 800,400 T 1800,200" 
-            fill="none" 
-            stroke="url(#hero-line-grad)" 
-            strokeWidth="2.5" 
-            className="animate-draw-svg"
-          />
-          <defs>
-            <linearGradient id="hero-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0057B8" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#D4A437" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl space-y-8 text-center mx-auto">
             <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3.5 py-1.5 rounded-full inline-block">
               ABOUT MULTIVISTA
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
               Manufacturing Knowledge.<br />
-              Built on Trust.<br />
-              Driven by Responsibility.
+              Built on Trust. Driven by Responsibility.
             </h1>
             <p className="text-lg md:text-xl text-gray-650 font-sans font-light leading-relaxed max-w-3xl mx-auto">
               For nearly five decades, Multivista has partnered with publishers across the world to manufacture books that educate, inspire and endure.

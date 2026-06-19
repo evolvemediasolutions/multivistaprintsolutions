@@ -12,6 +12,7 @@ import { Sustainability } from "./pages/Sustainability";
 import { Industries } from "./pages/Industries";
 import { Careers } from "./pages/Careers";
 import { Contact } from "./pages/Contact";
+import { Infrastructure } from "./pages/Infrastructure";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="products" element={<Products />} />
+          <Route path="infrastructure" element={<Infrastructure />} />
           <Route path="sustainability" element={<Sustainability />} />
           <Route path="markets" element={<Industries />} />
           <Route path="careers" element={<Careers />} />

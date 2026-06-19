@@ -13,7 +13,7 @@ export function GlobalRecognition() {
   ];
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden select-text">
+    <section className="relative py-32 bg-[#f0f7ff] overflow-hidden select-text">
       {/* Subtle background printing alignment grids */}
       <div className="absolute inset-0 bg-print-grid opacity-60 pointer-events-none"></div>
       
@@ -46,7 +46,7 @@ export function GlobalRecognition() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-deep-navy mt-4 mb-6 leading-tight font-heading">
             Recognised for Responsible Manufacturing
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light font-sans">
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-light font-sans">
             Our commitment to ethical manufacturing, sustainability, and operational excellence has earned recognition from globally respected organisations and industry leaders.
           </p>
         </AnimatedSection>
@@ -91,7 +91,7 @@ export function GlobalRecognition() {
                 <h3 className="text-xl font-bold text-deep-navy font-heading mb-2">
                   2023 Winner
                 </h3>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light">
+                <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
                   Awarded for outstanding carbon footprint reduction efforts, introduction of energy-efficient printing presses, and localized green logistics operations.
                 </p>
               </div>
@@ -116,7 +116,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">EcoVadis Gold Assessment</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Ranking in the top 5% of companies worldwide for environmental responsibility, fair labor, and supply chain ethics.
                 </p>
               </div>
@@ -144,7 +144,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">Science Based Targets initiative</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Adopting strict, science-aligned targets to systematically reduce global scope 1, 2, and 3 carbon emissions.
                 </p>
               </div>
@@ -171,7 +171,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">UN Global Compact Network</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Committed to aligning strategies and operations with universal principles on human rights, labor, environment, and anti-corruption.
                 </p>
               </div>
@@ -182,7 +182,7 @@ export function GlobalRecognition() {
           {/* CENTER COLUMN: Vertical line / Trust Pillar with Staggered floating badges */}
           <div className="lg:col-span-1 relative min-h-[500px] hidden lg:flex flex-col items-center justify-between py-24 pointer-events-none">
             {/* Draw-down line */}
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2.5px] bg-gray-100 rounded-full">
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[2.5px] bg-slate-200 rounded-full">
               <motion.div 
                 className="w-full bg-gradient-to-b from-royal-blue via-gold-accent to-royal-blue rounded-full origin-top"
                 initial={{ scaleY: 0 }}
@@ -258,7 +258,7 @@ export function GlobalRecognition() {
                 <h3 className="text-xl font-bold text-deep-navy font-heading mb-2 lg:text-right">
                   2024 Winner
                 </h3>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light lg:text-right">
+                <p className="text-slate-600 font-sans text-xs leading-relaxed font-light lg:text-right">
                   Retained our global title for our waste-to-energy conversion systems and eco-friendly FSC book manufacturing lines which recycle 100% of scrap paper.
                 </p>
               </div>
@@ -282,7 +282,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">Great Place to Work®</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Certified for our supportive workplace culture, employee development programs, and gender-inclusive safety systems.
                 </p>
               </div>
@@ -306,7 +306,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">FSC® Chain of Custody</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Fully certified to track and source paper from responsibly managed forests that provide environmental, social, and economic benefits.
                 </p>
               </div>
@@ -330,7 +330,7 @@ export function GlobalRecognition() {
               </div>
               <div>
                 <h4 className="font-bold text-deep-navy font-heading text-sm mb-1">PEFC Certified Sourcing</h4>
-                <p className="text-gray-500 font-sans text-xs font-light leading-relaxed">
+                <p className="text-slate-600 font-sans text-xs font-light leading-relaxed">
                   Confirming that our print operations adhere to the highest global standards for sustainable forest management.
                 </p>
               </div>

@@ -49,20 +49,6 @@ export function Products() {
       phase: "Paper"
     },
     {
-      id: "flexibound",
-      label: "FLEXIBLE INTEGRITY",
-      title: "Flexi-Bound Books",
-      subhead: "Lightweight sophistication. Soft-touch durability.",
-      description: "Combining the lightweight flexibility of a softcover with the wrap-around protection of a hardcover. Flexi-bound formats are highly tactile, laying flatter than a standard paperback and wrapped in flexible, soft-touch board stocks.",
-      image: "/Images/products/flexibound_showcase.png",
-      idealFor: ["Executive Notebooks", "Luxury Journals", "Travel Guides", "Novelty Publications", "Premium Cookbooks"],
-      capabilities: ["Round Spine Cover", "Flexible Board Core", "Spot Gloss Embellishing", "Custom Endpapers", "Cover Debossing", "Head/Tail Bands"],
-      bgStyle: "bg-light-gray/60 border-y border-gray-200/50",
-      visualTheme: "warm-grey",
-      layout: "reverse",
-      phase: "Printing"
-    },
-    {
       id: "softcover",
       label: "EVERYDAY PUBLISHING",
       title: "Softcover Books",
@@ -73,50 +59,8 @@ export function Products() {
       capabilities: ["Perfect Binding", "Section Sewn Bindings", "PUR Adhesives", "Gloss/Matte/Soft-touch Laminations", "Custom Gatefold Covers"],
       bgStyle: "bg-blueprint-grid bg-white border-b border-gray-200/50",
       visualTheme: "blueprint",
-      layout: "standard",
+      layout: "reverse",
       phase: "Printing"
-    },
-    {
-      id: "perfectbound",
-      label: "COMMERCIAL BINDINGS",
-      title: "Perfect Bound Books",
-      subhead: "Modern commercial publishing.",
-      description: "Our perfect binding processes use advanced thermal gluing systems to attach softcovers seamlessly to book block backs. Offers flat squared spines, clean edge trimming, and highly competitive unit economics.",
-      image: "/Images/products/perfectbound_showcase.png",
-      idealFor: ["Corporate Reports", "Literary Magazines", "Fiction paperbacks", "Independent novels", "Company profiles"],
-      capabilities: ["Thermal EVA Gluing", "Spine Scoring", "Inline Trimming", "Heidelberg Creasing", "Reinforced Paper Covers"],
-      bgStyle: "bg-white",
-      visualTheme: "minimal-shadow",
-      layout: "reverse",
-      phase: "Binding"
-    },
-    {
-      id: "boardbooks",
-      label: "CHILDREN'S PUBLISHING",
-      title: "Board Books",
-      subhead: "Durability meets safety and creativity.",
-      description: "Heavy-grade, layered board leaves bound together securely. Specially constructed for early learners, all board books are finished with rounded corners, heavy board sheets, and child-safe, non-toxic soy inks.",
-      image: "/Images/products/boardbook_showcase.png",
-      idealFor: ["Toddler Storybooks", "Interactive Touch-and-Feel", "Early Learning Cards", "Alphabet & Shape Guides"],
-      capabilities: ["Thick Laminated Boards", "Rounded Corner Trimming", "Child-Safe Ink Coatings", "Interactive Flaps", "Custom Board Folds"],
-      bgStyle: "bg-gradient-to-br from-amber-50/20 via-orange-50/20 to-sky-50/20",
-      visualTheme: "playful-gradient",
-      layout: "standard",
-      phase: "Binding"
-    },
-    {
-      id: "wireo",
-      label: "FUNCTIONAL FORMATS",
-      title: "Spiral & Wire-O Bound Books",
-      subhead: "Everyday usability & hands-free reading.",
-      description: "Ideal for documents that must lay completely flat and fold 360 degrees. We manufacture heavy-duty spiral binders and wire-o loops embedded into soft or hardcover panels for absolute corporate utility.",
-      image: "/Images/products/wireo_showcase.png",
-      idealFor: ["Training Manuals", "Academic Planners", "Daily Cookbooks", "Technical References", "Product Guides"],
-      capabilities: ["Double-Loop Wire-O", "Durable Plastic Coils", "Tab Dividers", "Hardcover Wire-O Wrappers", "Concealed Spine binding"],
-      bgStyle: "bg-print-grid bg-white border-b border-gray-150",
-      visualTheme: "technical-pattern",
-      layout: "reverse",
-      phase: "Finishing"
     },
     {
       id: "layflat",

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Shield, Leaf, CheckCircle2, Globe } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function FoundationPrinciples() {
@@ -49,14 +49,7 @@ export function FoundationPrinciples() {
       title: "Ethical Manufacturing",
       description:
         "Integrity shapes every decision we make from responsible sourcing and transparent operations to long-term partnerships built on trust.",
-      icon: Shield,
-      renderSVG: (
-        <svg viewBox="0 0 120 120" className="w-16 h-16 text-deep-navy transition-all duration-300">
-          <path d="M 60,20 C 80,20 95,28 95,45 C 95,75 60,95 60,95 C 60,95 25,75 25,45 C 25,28 40,20 60,20 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M 45,55 L 55,65 L 75,45" fill="none" stroke="#D4A437" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="60" cy="55" r="30" fill="none" stroke="#0057B8" strokeWidth="0.75" strokeDasharray="3 3" opacity="0.4" />
-        </svg>
-      ),
+      imagePath: "/Images/principle_integrity.png",
     },
     {
       index: 1,
@@ -64,16 +57,7 @@ export function FoundationPrinciples() {
       title: "Sustainability Leadership",
       description:
         "Environmental responsibility isn't an initiative; it's embedded into the way we manufacture. Every process is continuously refined to reduce impact while creating lasting value for customers and communities.",
-      icon: Leaf,
-      renderSVG: (
-        <svg viewBox="0 0 120 120" className="w-16 h-16 text-emerald-600 transition-all duration-300">
-          <circle cx="60" cy="60" r="35" fill="none" stroke="#E2E8F0" strokeWidth="1.5" />
-          <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="220" strokeDashoffset="55" strokeLinecap="round" />
-          <path d="M 60,35 C 75,50 75,70 60,75 C 45,70 45,50 60,35 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="60" y1="75" x2="60" y2="45" stroke="currentColor" strokeWidth="1" />
-          <circle cx="95" cy="60" r="4.5" fill="#D4A437" className="animate-pulse" />
-        </svg>
-      ),
+      imagePath: "/Images/principle_sustainability.png",
     },
     {
       index: 2,
@@ -81,17 +65,7 @@ export function FoundationPrinciples() {
       title: "Uncompromising Quality",
       description:
         "With advanced technology, integrated manufacturing and rigorous quality systems, every book leaving our facility reflects the precision our global partners expect.",
-      icon: CheckCircle2,
-      renderSVG: (
-        <svg viewBox="0 0 120 120" className="w-16 h-16 text-royal-blue transition-all duration-300">
-          <circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="5 3" />
-          <path d="M 60,15 L 63,22 L 70,22 L 65,26 L 67,33 L 60,29 L 53,33 L 55,26 L 50,22 L 57,22 Z" fill="#D4A437" />
-          <line x1="20" y1="60" x2="100" y2="60" stroke="#CBD5E1" strokeWidth="0.75" strokeDasharray="2 2" />
-          <rect x="52" y="52" width="16" height="16" fill="white" stroke="currentColor" strokeWidth="1" />
-          <text x="60" y="63" textAnchor="middle" className="text-[8px] font-bold fill-deep-navy font-heading">QA</text>
-        </svg>
-      ),
+      imagePath: "/Images/principle_quality.png",
     },
     {
       index: 3,
@@ -99,16 +73,7 @@ export function FoundationPrinciples() {
       title: "Global Export Excellence",
       description:
         "Our focus has always been international. We manufacture exclusively for export, serving publishers across the world with dependable production, efficient logistics and consistent delivery.",
-      icon: Globe,
-      renderSVG: (
-        <svg viewBox="0 0 120 120" className="w-16 h-16 text-deep-navy transition-all duration-300">
-          <circle cx="60" cy="60" r="35" fill="none" stroke="#E2E8F0" strokeWidth="1.5" />
-          <ellipse cx="60" cy="60" rx="15" ry="35" fill="none" stroke="#0057B8" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-          <line x1="25" y1="60" x2="95" y2="60" stroke="#0057B8" strokeWidth="1" opacity="0.6" />
-          <path d="M 30,80 Q 60,30 90,40" fill="none" stroke="#D4A437" strokeWidth="1.5" strokeDasharray="5 4" className="animate-[dash_8s_linear_infinite]" />
-          <circle cx="90" cy="40" r="3" fill="#D4A437" />
-        </svg>
-      ),
+      imagePath: "/Images/principle_global.png",
     },
   ];
 
@@ -130,7 +95,7 @@ export function FoundationPrinciples() {
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-deep-navy mt-4 mb-6 leading-tight font-heading">
                 Built on Four Enduring Principles
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed font-light font-sans max-w-md">
+              <p className="text-lg text-slate-700 leading-relaxed font-light font-sans max-w-md">
                 For nearly five decades, our growth has been guided by a clear set of values that shape how we manufacture, innovate and serve publishing partners around the world.
               </p>
               
@@ -153,7 +118,7 @@ export function FoundationPrinciples() {
                   key={p.index}
                   ref={cardRefs[p.index]}
                   data-index={p.index}
-                  className={`scroll-mt-48 transition-all duration-500 rounded-[24px] border p-6 flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center min-h-[180px] lg:min-h-[200px] ${
+                  className={`scroll-mt-48 transition-all duration-500 rounded-[24px] border p-8 flex flex-col sm:flex-row gap-8 justify-between items-start sm:items-center min-h-[260px] lg:min-h-[280px] ${
                     isActive
                       ? "bg-white/95 border-royal-blue/30 shadow-xl opacity-100 scale-100"
                       : "bg-white/50 border-gray-100/80 opacity-60 scale-[0.97] hover:opacity-80"
@@ -177,14 +142,18 @@ export function FoundationPrinciples() {
                     <h3 className="text-2xl font-bold text-deep-navy font-heading mb-3">
                       {p.title}
                     </h3>
-                    <p className="text-gray-500 font-sans text-sm font-light leading-relaxed">
+                    <p className="text-slate-650 font-sans text-sm font-light leading-relaxed">
                       {p.description}
                     </p>
                   </div>
 
-                  {/* Right part of card: Icon visual indicator */}
-                  <div className="shrink-0 flex items-center justify-center p-3 rounded-2xl bg-light-gray/40 border border-gray-100 group-hover:scale-105 transition-transform duration-300">
-                    {p.renderSVG}
+                  {/* Right part of card: Real-time image according to the content */}
+                  <div className="shrink-0 w-full sm:w-80 h-52 sm:h-48 rounded-2xl overflow-hidden border border-gray-100 transition-transform duration-500 group-hover:scale-105 shadow-sm">
+                    <img 
+                      src={p.imagePath} 
+                      alt={p.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               );

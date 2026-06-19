@@ -36,7 +36,7 @@ export function FoundationOfExcellence() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-deep-navy mt-4 mb-6 leading-tight font-heading">
             Built on Responsibility, Quality, Talent & Innovation
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light font-sans">
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-light font-sans">
             Every book we manufacture is backed by sustainable practices, rigorous quality systems, skilled professionals, and continuous technological advancement.
           </p>
         </AnimatedSection>
@@ -107,31 +107,18 @@ export function FoundationOfExcellence() {
                 <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
                   Science-Based Sustainability Commitments
                 </h4>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light">
+                <p className="text-slate-650 font-sans text-xs leading-relaxed font-light">
                   Driving measurable environmental impact through responsible sourcing, carbon reduction, and internationally recognized sustainability initiatives.
                 </p>
               </div>
 
               {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[100px] flex items-center justify-center overflow-hidden">
-                <svg viewBox="0 0 160 100" className="w-full h-full text-emerald-600">
-                  {/* Rotating eco loop */}
-                  <g className="animate-[spin_20s_linear_infinite]" style={{ transformOrigin: '80px 50px' }}>
-                    <circle cx="80" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 4" opacity="0.4" />
-                    <path d="M 106,35 A 30,30 0 0,1 95,76 L 91,71 M 95,76 L 99,80" fill="none" stroke="currentColor" strokeWidth="1" />
-                    <path d="M 54,65 A 30,30 0 0,1 65,24 L 69,29 M 65,24 L 61,20" fill="none" stroke="currentColor" strokeWidth="1" />
-                  </g>
-                  {/* Central pulsing leaf */}
-                  <g className="animate-pulse">
-                    <path d="M 80,38 C 90,48 90,60 80,62 C 70,60 70,48 80,38 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                    <line x1="80" y1="62" x2="80" y2="40" stroke="currentColor" strokeWidth="1" />
-                  </g>
-                  {/* Subtle carbon stats indicator lines */}
-                  <line x1="15" y1="50" x2="40" y2="50" stroke="#CBD5E1" strokeWidth="0.75" />
-                  <line x1="120" y1="50" x2="145" y2="50" stroke="#CBD5E1" strokeWidth="0.75" />
-                  <circle cx="15" cy="50" r="1.5" fill="#CBD5E1" />
-                  <circle cx="145" cy="50" r="1.5" fill="#CBD5E1" />
-                </svg>
+              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/pillar_sustainability.png" 
+                  alt="Sustainability" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
             </motion.div>
 
@@ -168,53 +155,18 @@ export function FoundationOfExcellence() {
                 <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
                   Integrated Quality Systems
                 </h4>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light">
+                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
                   From prepress to final dispatch, every stage is monitored to meet the highest global publishing standards for durability and color precision.
                 </p>
               </div>
 
               {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[100px] flex items-center justify-center overflow-hidden">
-                <svg viewBox="0 0 160 100" className="w-full h-full text-royal-blue">
-                  {/* Caliper Measuring tool overlay wireframe */}
-                  <g stroke="currentColor" strokeWidth="0.75" fill="none">
-                    {/* Isometric book outline */}
-                    <polygon points="50,60 110,35 110,65 50,90" opacity="0.3" />
-                    <polygon points="50,60 110,35 110,40 50,65" opacity="0.4" />
-                    {/* Measurement slide bar */}
-                    <line x1="30" y1="35" x2="130" y2="35" strokeWidth="1.5" />
-                    {/* Measurement lines */}
-                    <line x1="40" y1="35" x2="40" y2="30" />
-                    <line x1="50" y1="35" x2="50" y2="30" />
-                    <line x1="60" y1="35" x2="60" y2="30" />
-                    <line x1="70" y1="35" x2="70" y2="30" stroke="#D4A437" />
-                    <line x1="80" y1="35" x2="80" y2="30" />
-                    <line x1="90" y1="35" x2="90" y2="30" />
-                    <line x1="100" y1="35" x2="100" y2="30" />
-                    <line x1="110" y1="35" x2="110" y2="30" stroke="#D4A437" />
-                    <line x1="120" y1="35" x2="120" y2="30" />
-                    
-                    {/* Moving Vernier jaw caliper scale slider */}
-                    <g className="animate-[wiggle_6s_ease-in-out_infinite]">
-                      <rect x="68" y="27" width="8" height="16" fill="white" stroke="currentColor" strokeWidth="0.75" />
-                      <line x1="72" y1="27" x2="72" y2="43" stroke="#D4A437" />
-                      {/* Downward caliper indicator wire */}
-                      <path d="M 72,43 L 72,55" />
-                    </g>
-                  </g>
-                  {/* Stamp detail */}
-                  <circle cx="135" cy="70" r="8" fill="none" stroke="#D4A437" strokeWidth="1" strokeDasharray="2 2" />
-                  <path d="M 131,70 L 134,73 L 139,67" fill="none" stroke="#D4A437" strokeWidth="1" />
-                  
-                  <style>
-                    {`
-                      @keyframes wiggle {
-                        0%, 100% { transform: translateX(0px); }
-                        50% { transform: translateX(35px); }
-                      }
-                    `}
-                  </style>
-                </svg>
+              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/pillar_quality.png" 
+                  alt="Quality" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
             </motion.div>
 
@@ -251,38 +203,18 @@ export function FoundationOfExcellence() {
                 <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
                   Skilled Professionals
                 </h4>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light">
+                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
                   Combining decades of industrial craftsmanship with advanced modern printing technologies to manage complex print orders.
                 </p>
               </div>
 
               {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[100px] flex items-center justify-center overflow-hidden">
-                <svg viewBox="0 0 160 100" className="w-full h-full text-gold-accent">
-                  {/* Skill coordinate nodes network */}
-                  <g stroke="currentColor" strokeWidth="0.75" fill="none" opacity="0.3">
-                    <line x1="80" y1="50" x2="40" y2="30" />
-                    <line x1="80" y1="50" x2="120" y2="30" />
-                    <line x1="80" y1="50" x2="80" y2="80" />
-                    <line x1="40" y1="30" x2="120" y2="30" />
-                    <line x1="40" y1="30" x2="80" y2="80" />
-                    <line x1="120" y1="30" x2="80" y2="80" />
-                  </g>
-                  
-                  {/* Node points */}
-                  <circle cx="80" cy="50" r="5" fill="#D4A437" />
-                  <circle cx="80" cy="50" r="10" fill="none" stroke="#D4A437" strokeWidth="0.5" className="animate-ping" style={{ transformOrigin: '80px 50px' }} />
-                  
-                  <circle cx="40" cy="30" r="4.5" fill="#0A2342" stroke="white" strokeWidth="1.5" />
-                  <circle cx="120" cy="30" r="4.5" fill="#0057B8" stroke="white" strokeWidth="1.5" />
-                  <circle cx="80" cy="80" r="4.5" fill="#0057B8" stroke="white" strokeWidth="1.5" />
-                  
-                  {/* Text descriptors */}
-                  <text x="40" y="20" textAnchor="middle" className="text-[6.5px] font-bold fill-deep-navy font-sans">Craft</text>
-                  <text x="120" y="20" textAnchor="middle" className="text-[6.5px] font-bold fill-deep-navy font-sans">Tech</text>
-                  <text x="80" y="91" textAnchor="middle" className="text-[6.5px] font-bold fill-deep-navy font-sans">Precision</text>
-                  <text x="80" y="42" textAnchor="middle" className="text-[7px] font-bold fill-gold-accent font-sans">Expertise</text>
-                </svg>
+              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/pillar_people.png" 
+                  alt="People" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
             </motion.div>
 
@@ -319,40 +251,18 @@ export function FoundationOfExcellence() {
                 <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
                   Investment in Innovation
                 </h4>
-                <p className="text-gray-500 font-sans text-xs leading-relaxed font-light">
+                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
                   Continuous investments in world-class offset presses, digital binding, and automated workflows ensure consistency and scale.
                 </p>
               </div>
 
               {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[100px] flex items-center justify-center overflow-hidden">
-                <svg viewBox="0 0 160 100" className="w-full h-full text-royal-blue">
-                  {/* Intersecting rotating cogs */}
-                  {/* Gear 1 (Main Left) */}
-                  <g className="animate-[spin_10s_linear_infinite]" style={{ transformOrigin: '55px 45px' }}>
-                    <circle cx="55" cy="45" r="20" fill="none" stroke="currentColor" strokeWidth="5" strokeDasharray="5 3" />
-                    <circle cx="55" cy="45" r="14" fill="none" stroke="currentColor" strokeWidth="1" />
-                    <circle cx="55" cy="45" r="5" fill="currentColor" />
-                  </g>
-                  
-                  {/* Gear 2 (Small Top Right - Reverse Spin) */}
-                  <g className="animate-[spin_8s_linear_reverse_infinite]" style={{ transformOrigin: '87px 30px' }}>
-                    <circle cx="87" cy="30" r="12" fill="none" stroke="#D4A437" strokeWidth="4.5" strokeDasharray="4 2.5" />
-                    <circle cx="87" cy="30" r="8" fill="none" stroke="#D4A437" strokeWidth="1" />
-                    <circle cx="87" cy="30" r="3" fill="#D4A437" />
-                  </g>
-
-                  {/* Gear 3 (Medium Bottom Right) */}
-                  <g className="animate-[spin_14s_linear_infinite]" style={{ transformOrigin: '92px 65px' }}>
-                    <circle cx="92" cy="65" r="16" fill="none" stroke="currentColor" strokeWidth="5" strokeDasharray="4.5 3.5" opacity="0.6" />
-                    <circle cx="92" cy="65" r="11" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-                    <circle cx="92" cy="65" r="4" fill="currentColor" opacity="0.6" />
-                  </g>
-                  
-                  {/* Automated dashboard signal overlay */}
-                  <path d="M 20,70 L 40,70 L 48,55 L 56,80 L 64,65 L 72,70 L 140,70" stroke="#CBD5E1" strokeWidth="0.75" fill="none" strokeDasharray="3 3" />
-                  <circle cx="140" cy="70" r="2" fill="#D4A437" />
-                </svg>
+              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/pillar_technology.png" 
+                  alt="Technology" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
             </motion.div>
 

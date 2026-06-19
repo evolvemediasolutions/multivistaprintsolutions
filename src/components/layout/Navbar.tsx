@@ -28,20 +28,16 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-  { name: "Home", href: "/" },
   { 
-    name: "Products", 
+    name: "Capabilities", 
     href: "/products",
     children: [
       { name: "Hardcover Books", href: "/products#hardcover", description: "Timeless craftsmanship. Built to last.", icon: BookOpen },
-      { name: "Flexi-Bound Books", href: "/products#flexibound", description: "Lightweight sophistication & durability.", icon: Book },
       { name: "Softcover Books", href: "/products#softcover", description: "High-volume production excellence.", icon: FileText },
-      { name: "Perfect Bound Books", href: "/products#perfectbound", description: "Modern commercial publishing.", icon: Layers },
-      { name: "Board Books", href: "/products#boardbooks", description: "Durability meets safety and creativity.", icon: Sparkles },
-      { name: "Spiral & Wire-O Books", href: "/products#wireo", description: "Everyday usability & hands-free reading.", icon: Grid },
       { name: "Lay-Flat Books", href: "/products#layflat", description: "Uninterrupted visual storytelling.", icon: Maximize },
     ]
   },
+  { name: "Infrastructure", href: "/infrastructure" },
   { name: "Markets", href: "/markets" },
   { name: "About Us", href: "/about" },
   { name: "Sustainability", href: "/sustainability" },
@@ -95,7 +91,7 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className={logoClass}>
-            <img src="/Images/MVGL-Logo.png" alt="Multivista Printers Logo" className={cn("h-8 w-auto object-contain transition-all duration-200", isScrolled || !isDarkHero ? "brightness-100" : "brightness-0 invert")} />
+            <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className={cn("h-8 w-auto object-contain transition-all duration-200", isScrolled || !isDarkHero ? "brightness-100" : "brightness-0 invert")} />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -137,7 +133,7 @@ export function Navbar() {
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
                         className={cn(
-                          "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[32rem] rounded-2xl p-4 shadow-2xl border backdrop-blur-md transition-all duration-300 grid grid-cols-1 gap-2 z-50",
+                          "absolute top-full left-0 mt-2 w-[32rem] rounded-2xl p-4 shadow-2xl border backdrop-blur-md transition-all duration-300 grid grid-cols-1 gap-2 z-50",
                           isScrolled || !isDarkHero
                             ? "bg-white/95 border-gray-200/50 text-navy-900"
                             : "bg-navy-900/95 border-white/10 text-white"
@@ -225,7 +221,7 @@ export function Navbar() {
             >
               <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
                 <Link to="/" className="flex items-center gap-2 font-heading font-bold text-xl text-white">
-                  <img src="/Images/MVGL-Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
+                  <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
                 </Link>
                 <button
                   type="button"
@@ -268,7 +264,7 @@ export function Navbar() {
                                     }}
                                     className="block rounded-lg py-2 px-3 text-sm font-semibold text-brand-blue hover:text-white hover:bg-white/5 transition-colors"
                                   >
-                                    All Products View
+                                    Capabilities Overview
                                   </Link>
                                   {item.children.map((child) => (
                                     <Link

@@ -32,7 +32,7 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-2 font-heading font-bold text-2xl text-white">
-              <img src="/Images/MVGL-Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
+              <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
             </Link>
             <p className="text-sm leading-6 text-gray-300 max-w-sm">
               From children's books and educational publishing to premium print production,
