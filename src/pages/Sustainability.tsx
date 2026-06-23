@@ -488,7 +488,7 @@ export function Sustainability() {
           <span className="text-[10px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block">
             RESPONSIBILITY & PROGRESS
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight font-heading leading-tight max-w-4xl mx-auto text-white">
+          <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold tracking-tight font-heading leading-tight max-w-5xl mx-auto text-white">
             Manufacturing a Better Future,<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-300">One Book at a Time</span>
           </h1>
@@ -519,7 +519,7 @@ export function Sustainability() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Left: Headline & editorial typography */}
             <div className="lg:col-span-5 space-y-6 text-left">
-              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-md inline-block">
+              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-3.5 py-1.5 rounded-full inline-block">
                 PHILOSOPHY
               </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
@@ -954,7 +954,7 @@ export function Sustainability() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
             <div className="lg:col-span-6 text-left space-y-4">
-              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-md inline-block">
+              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-3.5 py-1.5 rounded-full inline-block">
                 ANALYTICS
               </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-2">

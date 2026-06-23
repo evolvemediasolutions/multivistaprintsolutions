@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Printer, MapPin, Phone, Mail, Linkedin, Twitter, Facebook } from "lucide-react";
+import { MapPin, Mail, Linkedin } from "lucide-react";
 
 const navigation = {
   company: [
@@ -39,17 +39,14 @@ export function Footer() {
               delivering quality print manufacturing built on consistency and responsible sourcing.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a 
+                href="https://www.linkedin.com/company/multivista-global-print-solutions/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-6 w-6" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <span className="sr-only">Twitter</span>
-                <Twitter className="h-6 w-6" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <span className="sr-only">Facebook</span>
-                <Facebook className="h-6 w-6" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -98,15 +95,21 @@ export function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   <li className="flex gap-3 text-sm leading-6 text-gray-300">
                     <MapPin className="h-5 w-5 shrink-0 text-brand-blue" />
-                    <span>123 Print House Avenue,<br/>Publishing District, 10001</span>
-                  </li>
-                  <li className="flex gap-3 text-sm leading-6 text-gray-300">
-                    <Phone className="h-5 w-5 shrink-0 text-brand-blue" />
-                    <span>+1 (234) 567-8900</span>
+                    <span>43, Vandalur Kelambakkam Road,<br/>Pudupakkam, Chennai - 603 103, India</span>
                   </li>
                   <li className="flex gap-3 text-sm leading-6 text-gray-300">
                     <Mail className="h-5 w-5 shrink-0 text-brand-blue" />
-                    <span>info@multivista.com</span>
+                    <div className="flex flex-col">
+                      <a href="mailto:csepress@multivistaglobal.com" className="hover:text-white transition-colors">csepress@multivistaglobal.com</a>
+                      <span className="text-[10px] text-gray-400">Customer Service (K Saranya)</span>
+                    </div>
+                  </li>
+                  <li className="flex gap-3 text-sm leading-6 text-gray-300">
+                    <Mail className="h-5 w-5 shrink-0 text-brand-blue" />
+                    <div className="flex flex-col">
+                      <a href="mailto:pnkrishna@multivistaglobal.com" className="hover:text-white transition-colors">pnkrishna@multivistaglobal.com</a>
+                      <span className="text-[10px] text-gray-400">Sales & Sustainability (P N Krishna Moorthy)</span>
+                    </div>
                   </li>
                 </ul>
               </div>

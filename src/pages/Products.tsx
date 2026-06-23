@@ -11,7 +11,11 @@ import {
   Globe, 
   Scissors, 
   FolderCheck,
-  ChevronRight
+  ChevronRight,
+  Droplet,
+  Zap,
+  Settings,
+  Package
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
@@ -314,7 +318,7 @@ export function Products() {
           
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[10px] font-bold text-emerald-600 tracking-widest font-heading uppercase bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full inline-block">
+            <span className="text-[10px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-50 border border-sky-100 px-3 py-1 rounded-full inline-block">
               Eco-Friendly Commitments
             </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-6 mb-4">
@@ -330,40 +334,49 @@ export function Products() {
             {[
               {
                 title: "Responsibly Sourced Paper",
-                desc: "100% FSC® Certified papers sourced strictly from responsibly managed forests and recycled origins."
+                desc: "100% FSC® Certified papers sourced strictly from responsibly managed forests and recycled origins.",
+                icon: Leaf
               },
               {
                 title: "Environmentally Conscious Inks",
-                desc: "Strict utilization of non-toxic, child-safe, and eco-friendly soy and vegetable-based ink stocks."
+                desc: "Strict utilization of non-toxic, child-safe, and eco-friendly soy and vegetable-based ink stocks.",
+                icon: Droplet
               },
               {
                 title: "Resource-Efficient Manufacturing",
-                desc: "Integrated water filtration, paper recycling lines, and thermal heat recovery in high-volume press runs."
+                desc: "Integrated water filtration, paper recycling lines, and thermal heat recovery in high-volume press runs.",
+                icon: Zap
               },
               {
                 title: "Waste Reduction Initiatives",
-                desc: "High precision offset printing plates and computerized bindery trims reduce paper scrap margins to under 2.5%."
+                desc: "High precision offset printing plates and computerized bindery trims reduce paper scrap margins to under 2.5%.",
+                icon: Settings
               },
               {
                 title: "Carbon Reduction Programmes",
-                desc: "Sourcing regional paper plates and optimizing logistics routes to minimize manufacturing carbon margins."
+                desc: "Sourcing regional paper plates and optimizing logistics routes to minimize manufacturing carbon margins.",
+                icon: Globe
               },
               {
                 title: "Sustainable Packaging",
-                desc: "Recyclable carton packs, bio-degradable shrink wrap wrappers, and wooden pallets shipped responsibly."
+                desc: "Recyclable carton packs, bio-degradable shrink wrap wrappers, and wooden pallets shipped responsibly.",
+                icon: Package
               }
-            ].map((commit, idx) => (
-              <div 
-                key={idx} 
-                className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm flex flex-col justify-start hover:shadow-md hover:border-emerald-200/50 hover:translate-y-[-2px] transition-all duration-300 group"
-              >
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                  <Leaf className="w-5 h-5" />
+            ].map((commit, idx) => {
+              const Icon = commit.icon;
+              return (
+                <div 
+                  key={idx} 
+                  className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm flex flex-col justify-start hover:shadow-md hover:border-sky-200/50 hover:translate-y-[-2px] transition-all duration-300 group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4 group-hover:bg-sky-600 group-hover:text-white transition-colors duration-300">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-deep-navy font-heading mb-2">{commit.title}</h3>
+                  <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">{commit.desc}</p>
                 </div>
-                <h3 className="font-bold text-deep-navy font-heading mb-2">{commit.title}</h3>
-                <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">{commit.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Closing serif statement */}

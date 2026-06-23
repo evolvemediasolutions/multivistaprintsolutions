@@ -8,11 +8,12 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, className, align = "left" }: SectionHeaderProps) {
   return (
-    <div className={cn("inline-flex items-center space-x-2 text-brand-blue font-semibold tracking-wider uppercase mb-4 text-sm", className)}>
-      {align === "center" && <span className="w-8 md:w-12 h-[2px] bg-brand-blue"></span>}
-      <span className={align !== "center" ? "w-12 h-[2px] bg-brand-blue" : ""}></span>
-      <span>{title}</span>
-      {align === "center" && <span className="w-8 md:w-12 h-[2px] bg-brand-blue"></span>}
-    </div>
+    <span className={cn(
+      "inline-flex items-center justify-center px-3.5 py-1.5 border border-royal-blue/20 text-royal-blue text-[10px] font-bold uppercase tracking-widest rounded-full bg-royal-blue/5 mb-4",
+      align === "center" ? "mx-auto" : "",
+      className
+    )}>
+      {title}
+    </span>
   );
 }

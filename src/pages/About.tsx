@@ -10,7 +10,6 @@ import {
   Leaf,
   Cpu,
   Handshake,
-  Milestone,
   CheckCircle,
   FileText,
   MapPin,
@@ -19,6 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { CountUp } from "@/components/ui/CountUp";
 
 // Story Evolution
 const evolutionJourney = [
@@ -27,35 +27,35 @@ const evolutionJourney = [
     year: "1976",
     title: "The Founding Era",
     description: "Multivista began as a localized printing unit in Chennai. Driven by standard letterpress and offset machinery, we committed to precision and reliability from day one.",
-    image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/story_1976.png"
   },
   {
     phase: "Expansion",
     year: "1980s",
     title: "Scaling Capabilities",
     description: "During the 1980s, we moved into high-speed printing capabilities. We expanded the factory workspace and brought on expert technicians to support scaling educational runs.",
-    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/story_1980s.png"
   },
   {
     phase: "Technology Investments",
     year: "1990s",
     title: "Automation & CTP Systems",
     description: "We digitalized prepress operations, investing heavily in state-of-the-art Computer-to-Plate (CTP) engines, automated color scanners, and initial multi-color web offset systems.",
-    image: "https://images.unsplash.com/photo-1544382835-06a3656c1756?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/story_1990s.png"
   },
   {
     phase: "Export Growth",
     year: "2000s",
     title: "Global Footprint Integration",
     description: "With certifications and high-volume consistency in hand, Multivista entered global exports. We established dedicated cargo channels to Europe, North America, and Australia.",
-    image: "https://images.unsplash.com/photo-1494707924440-294d5d8525da?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/story_2000s.png"
   },
   {
     phase: "Global Manufacturing Partner",
     year: "Present",
     title: "The Modern Ecosystem",
     description: "Today, we operate a 100,000+ sq ft integrated plant shipping over 15 million books annually. We are a trusted partner to tier-1 educational, academic, and trade publishers globally.",
-    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/story_present.png"
   }
 ];
 
@@ -103,16 +103,7 @@ const values = [
   }
 ];
 
-// Milestones
-const milestones = [
-  { year: "1976", label: "Company Founded", desc: "Multivista established in Chennai, starting small-format letterpress runs." },
-  { year: "1980s", label: "Manufacturing Expansion", desc: "Acquired large-scale single-color sheetfed offset presses to support textbooks." },
-  { year: "1990s", label: "Technology Investments", desc: "Digitalized layout systems and upgraded to multi-color Heidelberg presses." },
-  { year: "2000s", label: "Export Growth", desc: "Integrated global quality benchmarks and initiated direct exports to the UK & Europe." },
-  { year: "2010s", label: "Integrated Ecosystem", desc: "Built our 100,000+ sq ft consolidated factory and unified bindery setups." },
-  { year: "2020s", label: "Sustainability Leadership", desc: "Became a leading FSC-certified provider utilizing solar energy and non-toxic soy inks." },
-  { year: "Future", label: "Innovation & Ethics", desc: "Pioneering robotic material logistics and print carbon footprint tracing systems." }
-];
+
 
 // Differentiators
 const differentiators = [
@@ -163,13 +154,10 @@ const mapPins = [
 
 export function About() {
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
-  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState(0);
   const [activeRegion, setActiveRegion] = useState<string | null>("Asia-Pacific (HQ)");
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const valuesRef = useRef<HTMLDivElement>(null);
-  const milestoneSectionRef = useRef<HTMLDivElement>(null);
-  const [milestoneProgress, setMilestoneProgress] = useState(0);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<number | null>(null);
 
@@ -183,26 +171,9 @@ export function About() {
     }
   };
 
-  // Scroll event hook for Section 05 Milestones vertical progress track & Section 02 Story scroll spy
+  // Scroll event hook for Section 02 Story scroll spy
   useEffect(() => {
     const handleScroll = () => {
-      // Milestones progress calculation
-      if (milestoneSectionRef.current) {
-        const rect = milestoneSectionRef.current.getBoundingClientRect();
-        const elementHeight = rect.height;
-        const viewportHeight = window.innerHeight;
-
-        const startOffset = viewportHeight * 0.8;
-        const endOffset = viewportHeight * 0.2;
-
-        const totalScrollable = elementHeight + startOffset - endOffset;
-        const scrolledAmount = startOffset - rect.top;
-        const rawProgress = scrolledAmount / totalScrollable;
-        const progress = Math.min(Math.max(rawProgress, 0), 1);
-
-        setMilestoneProgress(progress);
-      }
-
       // Dynamic Active Story Era Scroll Spy
       if (!isScrollingRef.current) {
         const targetOffset = window.innerHeight * 0.35; // 35% from top of viewport
@@ -679,247 +650,144 @@ export function About() {
         </div>
       </section>
 
-      {/* SECTION 05: THE MULTIVISTA JOURNEY (Interactive Vertical Scroll-Spy Timeline) */}
-      <section className="relative py-24 bg-white select-text">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block">
-              MILESTONES
+      {/* SECTION 06: BY THE NUMBERS (Homepage Stats Section Style) */}
+      <section className="relative py-20 bg-[#f0f7ff] overflow-hidden select-text border-y border-gray-250/20">
+        {/* Subtle printing marks/grid paper background */}
+        <div className="absolute inset-0 bg-print-grid opacity-70 pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-3">
+              BENCHMARKS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 mb-2 leading-tight">
-              The Multivista Journey
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 mb-4 leading-tight">
+              By The Numbers
             </h2>
-            <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
-              Since our inception, every milestone has been driven by one principle: continuous improvement.
+            <p className="text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed">
+              Our operational capabilities measured by manufacturing scale and printing volume.
             </p>
           </div>
 
-          <div className="relative mt-12 max-w-4xl mx-auto" ref={milestoneSectionRef}>
-            {/* Continuous track line */}
-            <div className="absolute left-[104px] md:left-[152px] top-8 bottom-8 w-[2px] bg-slate-100 pointer-events-none">
-              <div
-                className="absolute top-0 left-0 w-full bg-royal-blue rounded-full transition-all duration-300 ease-out origin-top"
-                style={{
-                  height: `${milestoneProgress * 100}%`
-                }}
-              />
-            </div>
-
-            {/* Timeline items */}
-            <div className="space-y-2">
-              {milestones.map((m, idx) => {
-                const threshold = idx / (milestones.length - 1);
-                const isActive = milestoneProgress >= threshold;
-
-                return (
-                  <div key={m.year} className="flex items-start">
-                    {/* Year */}
-                    <div className="w-20 md:w-32 text-right pt-3 shrink-0">
-                      <span className={cn(
-                        "text-base md:text-2xl font-bold font-heading transition-all duration-500 block",
-                        isActive ? "text-royal-blue scale-105" : "text-gray-300"
-                      )}>
-                        {m.year}
-                      </span>
-                    </div>
-
-                    {/* Dot / Line center marker */}
-                    <div className="w-12 md:w-12 flex justify-center shrink-0 relative self-stretch pt-3">
-                      <div className={cn(
-                        "w-5 h-5 rounded-full border bg-white transition-all duration-500 flex items-center justify-center z-10",
-                        isActive
-                          ? "border-royal-blue bg-royal-blue ring-4 ring-royal-blue/15 shadow-sm"
-                          : "border-slate-200"
-                      )}>
-                        {isActive && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content Card */}
-                    <div className="flex-grow pb-10">
-                      <div className={cn(
-                        "p-6 rounded-2xl border transition-all duration-500 text-left bg-white",
-                        isActive
-                          ? "border-royal-blue/20 shadow-md shadow-royal-blue/[0.02] bg-gradient-to-br from-white to-royal-blue/[0.01]"
-                          : "border-slate-100 hover:border-slate-200 shadow-sm"
-                      )}>
-                        <span className={cn(
-                          "text-[9px] font-bold tracking-widest font-heading uppercase px-2.5 py-1 rounded-md inline-block mb-3 transition-colors duration-500",
-                          isActive
-                            ? "bg-royal-blue/5 text-royal-blue border border-royal-blue/10"
-                            : "bg-slate-50 text-gray-400 border border-slate-100"
-                        )}>
-                          Milestone {idx + 1}
-                        </span>
-                        <h4 className={cn(
-                          "text-lg md:text-xl font-bold font-heading mb-2 transition-colors duration-500",
-                          isActive ? "text-deep-navy" : "text-gray-700"
-                        )}>
-                          {m.label}
-                        </h4>
-                        <p className={cn(
-                          "text-xs md:text-sm font-sans font-light leading-relaxed transition-colors duration-500",
-                          isActive ? "text-gray-650" : "text-gray-400"
-                        )}>
-                          {m.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 06: BY THE NUMBERS (Command Dashboard) */}
-      <section className="relative py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block">
-              BENCHMARKS
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
-              By The Numbers
-            </h2>
-          </div>
-
-          {/* Command Dashboard structure */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
-
-            {/* Stat Block 1: Scale */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-white to-slate-50 border border-gray-200/60 rounded-3xl p-8 shadow-sm hover:shadow-md hover:border-royal-blue/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
-              {/* Micro-grid overlay */}
-              <div className="absolute inset-0 bg-blueprint-grid opacity-[0.03] pointer-events-none" />
+          {/* Grid Layout matching Homepage design Stats section (2-column custom split) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto">
+            
+            {/* Card 1: Scale */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-gradient-to-br from-white via-white to-light-gray/50 p-6 shadow-sm hover:shadow-xl hover:border-royal-blue/30 hover:-translate-y-1.5 transition-all duration-400 ease-out min-h-[380px] text-left lg:col-span-5"
+            >
               <div>
-                <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3 py-1 rounded-full inline-block">
-                  BENCHMARK 01 // AREA SCALE
+                <span className="px-2.5 py-0.5 border border-royal-blue/20 text-royal-blue text-[9px] font-bold uppercase tracking-widest rounded-full bg-royal-blue/5 w-fit block mb-3">
+                  Benchmark 01 // Area Scale
                 </span>
-                <div className="mt-8 mb-4">
-                  <div className="text-6xl font-bold font-heading text-deep-navy tracking-tight group-hover:scale-105 transition-transform duration-300 inline-block">
-                    100,000<span className="text-royal-blue font-sans">+</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-deep-navy font-heading mt-1">Sq Ft Integrated Plant</h3>
+                <div className="text-5xl font-bold tracking-tight text-deep-navy font-heading mb-1.5 mt-4">
+                  <CountUp to={100000} suffix="+" />
                 </div>
-                <p className="text-xs text-gray-500 font-sans leading-relaxed font-light mt-4">
+                <h3 className="text-base font-bold text-deep-navy mb-1 font-heading leading-snug">
+                  Sq Ft Integrated Plant
+                </h3>
+                <p className="text-slate-650 font-sans text-xs leading-relaxed font-light mb-4">
                   Consolidated state-of-the-art print plant situated in Chennai, India. Houses prepress, offset presses, binding lines, and logistics under a single secure roof.
                 </p>
+                
+                {/* Coordinates */}
+                <div className="flex items-center justify-between text-slate-400 text-[10px] font-mono pt-4 border-t border-slate-100">
+                  <span className="flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-royal-blue" />
+                    <span>LAT: 13.0827° N</span>
+                  </span>
+                  <span>LON: 80.2707° E</span>
+                </div>
               </div>
-              {/* Visual layout element: sketch of dimensions */}
-              <div className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between text-slate-400 text-[10px] font-mono">
-                <span className="flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-royal-blue" />
-                  <span>LAT: 13.0827° N</span>
-                </span>
-                <span>LON: 80.2707° E</span>
-              </div>
-            </div>
 
-            {/* Stat Block 2: Volume */}
-            <div className="lg:col-span-7 bg-gradient-to-br from-white to-slate-50 border border-gray-200/60 rounded-3xl p-8 shadow-sm hover:shadow-md hover:border-royal-blue/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
+              {/* Bottom Visual Element */}
+              <div className="mt-6 pt-3 border-t border-gray-100/80 h-[160px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/about_scale.png" 
+                  alt="Area Scale" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
+              </div>
+            </motion.div>
+
+            {/* Card 2: Volume */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-gradient-to-br from-white via-white to-light-gray/50 p-6 shadow-sm hover:shadow-xl hover:border-royal-blue/30 hover:-translate-y-1.5 transition-all duration-400 ease-out min-h-[380px] text-left lg:col-span-7"
+            >
               <div>
-                <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3 py-1 rounded-full inline-block">
-                  BENCHMARK 02 // OUTPUT DENSITY
+                <span className="px-2.5 py-0.5 border border-royal-blue/20 text-royal-blue text-[9px] font-bold uppercase tracking-widest rounded-full bg-royal-blue/5 w-fit block mb-3">
+                  Benchmark 02 // Output Density
                 </span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div>
-                    <div className="text-6xl font-bold font-heading text-deep-navy tracking-tight group-hover:scale-105 transition-transform duration-300 inline-block">
-                      15M<span className="text-royal-blue font-sans">+</span>
+                
+                {/* Responsive internal split grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start mt-4">
+                  {/* Left part: Text details */}
+                  <div className="md:col-span-7">
+                    <div className="text-5xl font-bold tracking-tight text-deep-navy font-heading mb-1.5">
+                      <CountUp to={15} suffix="M+" />
                     </div>
-                    <h3 className="text-lg font-bold text-deep-navy font-heading mt-1">Books Manufactured</h3>
-                    <p className="text-xs text-gray-500 font-sans leading-relaxed font-light mt-2">
+                    <h3 className="text-base font-bold text-deep-navy mb-1 font-heading leading-snug">
+                      Books Manufactured
+                    </h3>
+                    <p className="text-slate-650 font-sans text-xs leading-relaxed font-light">
                       High-speed perfect bindings, mechanical binds, and sewn hardbounds shipped globally to leading educational publishers.
                     </p>
                   </div>
-                  {/* Dynamic graph bar indicators */}
-                  <div className="flex flex-col justify-end space-y-3 pt-4 md:pt-0">
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-[10px] font-bold text-gray-400">
+                  
+                  {/* Right part: Progress bars */}
+                  <div className="md:col-span-5 flex flex-col space-y-4 pt-2 md:pt-0">
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between text-[10px] font-bold text-slate-400">
                         <span>EDUCATIONAL RUNS</span>
                         <span className="text-royal-blue font-sans">65%</span>
                       </div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-royal-blue rounded-full transition-all duration-500" style={{ width: '65%' }} />
+                        <div className="h-full bg-royal-blue rounded-full" style={{ width: "65%" }} />
                       </div>
                     </div>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-[10px] font-bold text-gray-400">
+                    
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between text-[10px] font-bold text-slate-400">
                         <span>TRADE & NOVELS</span>
                         <span className="text-royal-blue font-sans">20%</span>
                       </div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-royal-blue rounded-full transition-all duration-500" style={{ width: '20%' }} />
+                        <div className="h-full bg-royal-blue rounded-full" style={{ width: "20%" }} />
                       </div>
                     </div>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-[10px] font-bold text-gray-400">
+                    
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between text-[10px] font-bold text-slate-400">
                         <span>ACADEMIC TEXTS</span>
                         <span className="text-royal-blue font-sans">15%</span>
                       </div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-royal-blue rounded-full transition-all duration-500" style={{ width: '15%' }} />
+                        <div className="h-full bg-royal-blue rounded-full" style={{ width: "15%" }} />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Stat Block 3: People */}
-            <div className="lg:col-span-7 bg-gradient-to-br from-white to-slate-50 border border-gray-200/60 rounded-3xl p-8 shadow-sm hover:shadow-md hover:border-royal-blue/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
-              <div>
-                <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3 py-1 rounded-full inline-block">
-                  BENCHMARK 03 // EXPERT STAFF
-                </span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div>
-                    <div className="text-6xl font-bold font-heading text-deep-navy tracking-tight group-hover:scale-105 transition-transform duration-300 inline-block">
-                      200<span className="text-royal-blue font-sans">+</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-deep-navy font-heading mt-1">Print Professionals</h3>
-                    <p className="text-xs text-gray-500 font-sans leading-relaxed font-light mt-2">
-                      Skilled preflight technicians, expert press operators, bindery specialists, and certified QA controllers.
-                    </p>
-                  </div>
-                  {/* Skill tags */}
-                  <div className="flex flex-wrap gap-2 content-center">
-                    {['Prepress QC', 'Offset Lithography', 'Case Binding', 'Saddle Stitching', 'Color Calibration', 'FSC Logistics'].map(skill => (
-                      <span key={skill} className="text-[10px] font-semibold text-gray-650 bg-slate-100/80 px-3 py-1.5 rounded-lg border border-slate-200/40">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {/* Bottom Visual Element */}
+              <div className="mt-6 pt-3 border-t border-gray-100/80 h-[160px] rounded-b-[20px] overflow-hidden">
+                <img 
+                  src="/Images/about_volume.png" 
+                  alt="Output Density" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>
-            </div>
-
-            {/* Stat Block 4: Export Control */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-deep-navy to-[#0D253F] border border-navy-800 rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[300px] text-white">
-              <div>
-                <span className="text-[10px] font-bold text-gold-accent tracking-widest font-heading uppercase bg-white/10 border border-white/20 px-3 py-1 rounded-full inline-block">
-                  BENCHMARK 04 // EXPORT CONTROL
-                </span>
-                <div className="mt-8 mb-4">
-                  <div className="text-5xl font-bold font-heading text-gold-accent tracking-tight group-hover:scale-105 transition-transform duration-300 inline-block">
-                    100%
-                  </div>
-                  <h3 className="text-lg font-bold text-white font-heading mt-1">Export Calibration</h3>
-                </div>
-                <p className="text-xs text-slate-300 font-sans leading-relaxed font-light mt-2">
-                  Optimized ocean cargo pathways meeting stringent international guidelines and fast port-dispatch clearance workflows.
-                </p>
-              </div>
-              <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-gold-accent text-xs font-bold uppercase tracking-wider">
-                <span>50+ Years Global Trade</span>
-                <ArrowRight className="w-4 h-4 text-gold-accent group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
+            </motion.div>
 
           </div>
 
@@ -1062,7 +930,7 @@ export function About() {
                 <h4 className="text-[10px] font-bold text-deep-navy font-heading uppercase tracking-widest mb-3">
                   Export Regions
                 </h4>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {globalRegions.map((region) => (
                     <button
                       key={region.name}
@@ -1084,7 +952,7 @@ export function About() {
 
             {/* Right Column: World Map SVG backdrop + interactive overlay */}
             <div className="lg:col-span-7 flex justify-center items-center">
-              <div 
+              <div
                 className="relative w-full max-w-[500px] select-none"
                 style={{ aspectRatio: "99/50" }}
               >

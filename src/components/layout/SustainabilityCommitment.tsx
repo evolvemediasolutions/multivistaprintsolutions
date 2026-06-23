@@ -71,7 +71,7 @@ export function SustainabilityCommitment() {
           
           {/* LEFT COLUMN: Sustainability copy (40% space / lg:col-span-5) */}
           <div className="lg:col-span-5 flex flex-col justify-center text-white">
-            <span className="text-gold-accent font-semibold tracking-widest uppercase mb-4 text-xs lg:text-sm font-heading">
+            <span className="inline-block px-3.5 py-1.5 border border-gold-accent/20 text-gold-accent text-[10px] font-bold uppercase tracking-widest rounded-full bg-gold-accent/5 mb-4 self-start">
               Sustainability Commitment
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8 leading-[1.1] font-heading">

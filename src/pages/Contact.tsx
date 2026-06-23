@@ -421,8 +421,9 @@ export function Contact() {
                 </div>
                 <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
                   Multivista Global Ltd.<br />
-                  No. 36-A, Velachery Tambaram Main Road,<br />
-                  Velachery, Chennai - 600 042, India.
+                  43, Vandalur Kelambakkam Road,<br />
+                  Pudupakkam, Chennai - 603 103,<br />
+                  Tamil Nadu, India.
                 </p>
               </div>
               <a 
@@ -444,8 +445,8 @@ export function Contact() {
                   <Building className="w-5 h-5 text-royal-blue" />
                 </div>
                 <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
-                  Plot No. 120, Chennai Industrial Corridor,<br />
-                  Segment C-4, Chennai - 600 110,<br />
+                  43, Vandalur Kelambakkam Road,<br />
+                  Pudupakkam, Chennai - 603 103,<br />
                   Tamil Nadu, India.
                 </p>
               </div>
@@ -472,57 +473,62 @@ export function Contact() {
               </span>
             </div>
 
-            {/* Panel 4: Hotlines */}
+            {/* Panel 4: Customer Service Contact */}
             <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Inquiry Hotlines</h4>
-                  <Phone className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-deep-navy text-lg">Customer Service</h4>
+                  <Users className="w-5 h-5 text-royal-blue" />
                 </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
-                  General: +91 44 4208 0000<br />
-                  Export Estimating: +91 44 4208 1234<br />
-                  Customer Support: +91 44 4208 5678
+                <div className="space-y-1">
+                  <h5 className="font-semibold text-deep-navy text-sm font-sans">K Saranya</h5>
+                  <p className="text-slate-500 font-sans text-xs font-light">Senior Executive – Customer Service</p>
+                </div>
+                <p className="text-slate-600 font-sans text-sm font-light">
+                  Email: <a href="mailto:csepress@multivistaglobal.com" className="text-royal-blue hover:underline font-medium">csepress@multivistaglobal.com</a>
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                Calls monitored for QA compliance.
+                Dedicated post-press order tracking.
               </span>
             </div>
 
-            {/* Panel 5: Email Channels */}
+            {/* Panel 5: Sales & Sustainability Contact */}
+            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+              <div className="space-y-4">
+                <div className="flex justify-between items-start">
+                  <h4 className="font-heading font-bold text-deep-navy text-lg">Sales & Sustainability</h4>
+                  <Users className="w-5 h-5 text-royal-blue" />
+                </div>
+                <div className="space-y-1">
+                  <h5 className="font-semibold text-deep-navy text-sm font-sans">P N Krishna Moorthy</h5>
+                  <p className="text-slate-500 font-sans text-xs font-light">Head of Sales & Sustainability</p>
+                </div>
+                <p className="text-slate-600 font-sans text-sm font-light">
+                  Email: <a href="mailto:pnkrishna@multivistaglobal.com" className="text-royal-blue hover:underline font-medium">pnkrishna@multivistaglobal.com</a>
+                </p>
+              </div>
+              <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
+                Global contracts & ESG alignment.
+              </span>
+            </div>
+
+            {/* Panel 6: Email Directory */}
             <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
                   <h4 className="font-heading font-bold text-deep-navy text-lg">Email Directory</h4>
                   <Mail className="w-5 h-5 text-royal-blue" />
                 </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
-                  General Info: info@multivista.in<br />
-                  Export & Sales: sales@multivista.in<br />
-                  Careers Desk: careers@multivista.in
+                <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
+                  General Info: <a href="mailto:info@multivista.in" className="text-royal-blue hover:underline font-medium">info@multivista.in</a><br />
+                  Export & Sales: <a href="mailto:sales@multivista.in" className="text-royal-blue hover:underline font-medium">sales@multivista.in</a><br />
+                  Logistics: <a href="mailto:shipping@multivista.in" className="text-royal-blue hover:underline font-medium">shipping@multivista.in</a><br />
+                  Careers Desk: <a href="mailto:careers@multivista.in" className="text-royal-blue hover:underline font-medium">careers@multivista.in</a>
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                Average reply cycle: &lt; 4 hours.
-              </span>
-            </div>
-
-            {/* Panel 6: Executive Escalation */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
-              <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Export Operations</h4>
-                  <Users className="w-5 h-5 text-royal-blue" />
-                </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
-                  Overseas Account Desk: global@multivista.in<br />
-                  Container Clearances: shipping@multivista.in<br />
-                  QA Escalations: executive@multivista.in
-                </p>
-              </div>
-              <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                Direct coordinator allocation.
+                Centralized general inquiries.
               </span>
             </div>
 

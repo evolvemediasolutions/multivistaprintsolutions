@@ -654,16 +654,16 @@ export function Careers() {
             </p>
           </div>
 
-          {/* Pinterest Editorial Grid */}
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 max-w-6xl mx-auto">
+          {/* Standard Aligned Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {galleryItems.map((g) => {
               const Icon = g.icon;
               return (
                 <div 
                   key={g.theme}
-                  className="break-inside-avoid bg-white rounded-3xl overflow-hidden border border-slate-150 shadow-sm hover:shadow-xl transition-all duration-300 group relative flex flex-col justify-end"
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-150 shadow-sm hover:shadow-xl transition-all duration-300 group relative flex flex-col justify-end"
                 >
-                  <div className={cn("relative w-full overflow-hidden", g.size)}>
+                  <div className="relative w-full overflow-hidden h-[340px]">
                     <SafeImage 
                       src={g.image} 
                       alt={g.theme} 

@@ -12,7 +12,7 @@ interface Category {
   title: string;
   description: string;
   icon: any;
-  renderSVG: ReactNode;
+  image: string;
 }
 
 export function PublishingEcosystem() {
@@ -28,17 +28,7 @@ export function PublishingEcosystem() {
       description:
         "Peer-reviewed scientific journals, research manuals, monographs, and academic books printed with precise typesetting and crisp layout grids.",
       icon: FileText,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-royal-blue animate-pulse">
-          <rect x="25" y="25" width="50" height="60" rx="3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="35" y1="38" x2="65" y2="38" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="35" y1="48" x2="65" y2="48" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="35" y1="58" x2="55" y2="58" stroke="currentColor" strokeWidth="1.5" />
-          {/* Scientific node outline */}
-          <circle cx="65" cy="68" r="6" fill="#0057B8" />
-          <line x1="55" y1="68" x2="59" y2="68" stroke="#0057B8" strokeWidth="1" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 1,
@@ -49,14 +39,7 @@ export function PublishingEcosystem() {
       description:
         "Specialized healthcare references, clinical documentations, and anatomy atlases manufactured with superior color reproduction and durable heavy-duty paper grades.",
       icon: Activity,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-red-600">
-          <rect x="25" y="20" width="50" height="60" rx="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          {/* Heartbeat pulse graphic */}
-          <path d="M 32,50 L 42,50 L 46,38 L 50,62 L 54,46 L 58,50 L 68,50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="50" cy="50" r="25" fill="none" stroke="#0057B8" strokeWidth="0.75" strokeDasharray="3 3" opacity="0.4" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 2,
@@ -67,16 +50,7 @@ export function PublishingEcosystem() {
       description:
         "Case-bound hardcovers, collector editions, and premium volumes featuring custom cloth wrappers, embossed foil lettering, headbands, and gold gilding.",
       icon: Layers,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-gold-accent">
-          {/* Layered book stacks */}
-          <polygon points="20,40 50,28 80,40 50,52" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <polygon points="20,50 50,38 80,50 50,62" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M 20,40 L 20,65 C 20,65 50,77 50,77 L 80,65 L 80,40" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="50" y1="52" x2="50" y2="77" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="50" cy="28" r="4" fill="#0057B8" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 3,
@@ -87,20 +61,7 @@ export function PublishingEcosystem() {
       description:
         "Premium print options including gloss/matte laminations, metallic foil stamping, spot UV textures, die-cuts, and custom-engineered binding solutions built to specifications.",
       icon: Award,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-royal-blue">
-          {/* Foil shine rays */}
-          <g stroke="#0057B8" strokeWidth="1" opacity="0.8">
-            <line x1="50" y1="15" x2="50" y2="25" />
-            <line x1="50" y1="75" x2="50" y2="85" />
-            <line x1="15" y1="50" x2="25" y2="50" />
-            <line x1="75" y1="50" x2="85" y2="50" />
-          </g>
-          {/* Custom stamp badge */}
-          <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="2" />
-          <polygon points="50,38 53,45 61,45 55,49 57,56 50,52 43,56 45,49 39,45 47,45" fill="#0057B8" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 4,
@@ -111,15 +72,7 @@ export function PublishingEcosystem() {
       description:
         "High-volume commercial softcovers, paperbacks, and retail fiction manufactured on high-speed perfect binding lines ensuring fast turnaround and competitive pricing.",
       icon: Book,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-deep-navy">
-          {/* Overlapping trade books */}
-          <rect x="20" y="30" width="35" height="50" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <rect x="45" y="20" width="35" height="50" rx="2" fill="none" stroke="#0057B8" strokeWidth="1.5" />
-          <line x1="55" y1="30" x2="70" y2="30" stroke="#0057B8" strokeWidth="1.5" />
-          <line x1="55" y1="40" x2="70" y2="40" stroke="#0057B8" strokeWidth="1.5" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 5,
@@ -130,14 +83,7 @@ export function PublishingEcosystem() {
       description:
         "Vibrant illustrated storybooks, heavy-grade board books, and pop-up novelty editions manufactured using strictly certified non-toxic, child-safe inks.",
       icon: Sparkles,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-emerald-600">
-          <rect x="25" y="25" width="50" height="50" rx="8" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          {/* Sparkles stars */}
-          <path d="M 40,40 L 42,45 L 47,45 L 43,48 L 45,53 L 40,50 L 35,53 L 37,48 L 33,45 L 38,45 Z" fill="#0057B8" />
-          <path d="M 60,55 L 61,58 L 64,58 L 62,60 L 63,63 L 60,61 L 57,63 L 58,60 L 56,58 L 59,58 Z" fill="#0057B8" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800"
     },
     {
       index: 6,
@@ -148,14 +94,7 @@ export function PublishingEcosystem() {
       description:
         "High-durability school textbooks, educational workbooks, map sheets, and curriculum materials printed on premium FSC-sourced stocks built for high usage.",
       icon: BookOpen,
-      renderSVG: (
-        <svg viewBox="0 0 100 100" className="w-20 h-20 text-royal-blue">
-          {/* Open book icon illustration */}
-          <path d="M 15,70 C 30,65 50,70 50,70 C 50,70 70,65 85,70 L 85,30 C 70,25 50,30 50,30 C 50,30 30,25 15,30 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M 22,40 H 42 M 22,48 H 42 M 22,56 H 42" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800"
     },
   ];
 
@@ -203,13 +142,17 @@ export function PublishingEcosystem() {
                   <h3 className="text-2xl font-bold text-deep-navy mt-6 mb-4 font-heading">
                     {active.title}
                   </h3>
-                  <p className="text-gray-600 font-sans text-sm font-light leading-relaxed mb-6">
+                  <p className="text-gray-650 font-sans text-xs font-light leading-relaxed mb-6">
                     {active.description}
                   </p>
                   
-                  {/* Custom Graphic */}
-                  <div className="h-[120px] bg-white border border-gray-100 rounded-xl flex items-center justify-center shadow-inner">
-                    {active.renderSVG}
+                  {/* Category Content Image */}
+                  <div className="h-[150px] w-full rounded-2xl overflow-hidden border border-gray-150 shadow-inner relative bg-slate-50">
+                    <img 
+                      src={active.image} 
+                      alt={active.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </motion.div>
               ) : (
@@ -218,15 +161,23 @@ export function PublishingEcosystem() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="p-8 rounded-[24px] border border-gray-100 bg-white/80 shadow-sm flex flex-col justify-center text-center lg:text-left"
+                  className="p-8 rounded-[24px] border border-gray-100 bg-white/85 shadow-sm flex flex-col justify-center text-center lg:text-left"
                 >
-                  <ShieldCheck className="w-12 h-12 text-gold-accent mx-auto lg:mx-0 mb-4" />
                   <h3 className="text-xl font-bold text-deep-navy font-heading mb-3">
                     Integrated Production Platform
                   </h3>
-                  <p className="text-gray-500 font-sans text-sm font-light leading-relaxed">
+                  <p className="text-gray-500 font-sans text-xs font-light leading-relaxed mb-6">
                     Hover over any of the publishing categories in the orbital map to explore our customized manufacturing solutions, paper standards, and specialized bindery systems.
                   </p>
+                  
+                  {/* Default Ecosystem Image */}
+                  <div className="h-[150px] w-full rounded-2xl overflow-hidden border border-gray-150 shadow-inner relative bg-slate-50">
+                    <img 
+                      src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=800" 
+                      alt="Integrated Facility Floor" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -265,12 +216,12 @@ export function PublishingEcosystem() {
 
               {/* Central Core Hub */}
               <div 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-full bg-deep-navy border-[3px] border-gold-accent flex flex-col justify-center items-center p-4 text-center shadow-lg z-20"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-full bg-deep-navy border-[3px] border-royal-blue flex flex-col justify-center items-center p-4 text-center shadow-lg z-20"
               >
                 {/* Pulse Ring waves */}
-                <div className="absolute inset-0 rounded-full border border-gold-accent/40 animate-ping opacity-75 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-full border border-royal-blue/40 animate-ping opacity-75 pointer-events-none"></div>
                 
-                <span className="text-[7.5px] font-bold text-gold-accent tracking-widest uppercase mb-1.5 font-heading">
+                <span className="text-[7.5px] font-bold text-sky-400 tracking-widest uppercase mb-1.5 font-heading">
                   HQ Hub
                 </span>
                 <span className="text-[10.5px] font-bold text-white leading-tight font-heading">
