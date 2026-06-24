@@ -7,7 +7,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ManufacturingImpact } from "@/components/layout/ManufacturingImpact";
 import { FoundationOfExcellence } from "@/components/layout/FoundationOfExcellence";
 import { Certifications } from "@/components/layout/Certifications";
-import { GlobalRecognition } from "@/components/layout/GlobalRecognition";
 import { FoundationPrinciples } from "@/components/layout/FoundationPrinciples";
 import { SustainabilityCommitment } from "@/components/layout/SustainabilityCommitment";
 import { PublishingEcosystem } from "@/components/layout/PublishingEcosystem";
@@ -91,9 +90,6 @@ export function Home() {
 
       {/* SECTION - ACCREDITATIONS & CERTIFICATIONS */}
       <Certifications />
-
-      {/* SECTION - GLOBAL RECOGNITION */}
-      <GlobalRecognition />
 
       {/* SECTION - FOUNDATION PRINCIPLES */}
       <FoundationPrinciples />

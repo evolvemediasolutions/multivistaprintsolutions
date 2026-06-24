@@ -50,19 +50,19 @@ export function Certifications() {
   ];
 
   return (
-    <section className="relative py-28 bg-[#f8fafc] border-t border-b border-slate-100 overflow-hidden select-text">
-      {/* Subtle print grid background */}
-      <div className="absolute inset-0 bg-print-grid opacity-30 pointer-events-none"></div>
+    <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden select-text">
+      {/* Subtle print grid background (inverted for dark background) */}
+      <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <SectionHeader title="Global Accreditations" align="center" />
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy mt-4 mb-5 leading-tight font-heading">
+          <SectionHeader title="Global Accreditations" align="center" className="text-white border-white/30 bg-white/10" />
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-5 leading-tight font-heading">
             Certified Quality, Safety & Sustainability
           </h2>
-          <p className="text-base text-slate-650 leading-relaxed font-light font-sans">
+          <p className="text-base text-blue-50 leading-relaxed font-light font-sans">
             We operate in alignment with leading international standards, ensuring responsible sourcing, 
             information security compliance, and secure logistics for our global publishing partners.
           </p>

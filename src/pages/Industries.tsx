@@ -447,7 +447,7 @@ export function Industries() {
                             variant={isActive ? "primary" : "outline"}
                             className={cn(
                               "rounded-full px-5 py-3 text-xs shadow-sm transition-all duration-300",
-                              isActive ? "bg-royal-blue text-white" : "border-gray-250 text-gray-450 hover:bg-slate-50"
+                              isActive ? "bg-gradient-to-r from-[#0057B8] via-[#007cdb] to-[#0EA5E9] text-white hover:brightness-110" : "border-gray-250 text-gray-450 hover:bg-slate-50"
                             )}
                           >
                             Inquire Sector Capabilities
@@ -491,21 +491,21 @@ export function Industries() {
           </div>
 
         </div>
-      </section>
-
-      {/* SECTION 03: INTEGRATED PRODUCTION STAGES (Tabs Layout matching Infrastructure) */}
-      <section className="relative py-20 md:py-28 bg-white text-left">
+      </section>      {/* SECTION 03: INTEGRATED PRODUCTION STAGES (Tabs Layout matching Infrastructure) */}
+      <section className="relative py-20 md:py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden text-left">
+        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-2.5 py-1 rounded-md inline-block mb-3">
+            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-3">
               FACILITY STAGES
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy font-heading mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading mb-4">
               Integrated Production Stages
             </h2>
-            <p className="text-base text-gray-650 font-sans font-light">
+            <p className="text-base text-blue-50 font-sans font-light">
               Click through our main facility stages to explore the technology and machinery configurations supporting our daily output.
             </p>
           </div>
@@ -524,8 +524,8 @@ export function Industries() {
                   key={tab.id}
                   onClick={() => setActiveZone(tab.id as any)}
                   className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-300 cursor-pointer ${isActive
-                      ? "bg-deep-navy text-white shadow-lg scale-105"
-                      : "bg-slate-100 text-gray-650 border border-slate-200/50 hover:bg-slate-200 hover:text-deep-navy"
+                    ? "bg-white text-royal-blue shadow-lg scale-105"
+                    : "bg-white/10 text-white border border-white/15 hover:bg-white/20 hover:text-white"
                     }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -546,30 +546,30 @@ export function Industries() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full"
               >
-                
+
                 {/* Left side: content detail */}
                 <div className="lg:col-span-6 space-y-6 text-left">
-                  <span className="text-[10px] font-bold text-royal-blue tracking-wider font-heading uppercase">
+                  <span className="text-[10px] font-bold text-cyan-300 tracking-wider font-heading uppercase">
                     {zones[activeZone].subtitle}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-deep-navy font-heading leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white font-heading leading-tight">
                     {zones[activeZone].title}
                   </h3>
-                  <p className="text-base text-gray-650 font-sans font-light leading-relaxed">
+                  <p className="text-base text-blue-100/90 font-sans font-light leading-relaxed">
                     {zones[activeZone].description}
                   </p>
 
-                  <div className="h-[1px] w-full bg-gray-200/60 my-6" />
+                  <div className="h-[1px] w-full bg-white/15 my-6" />
 
                   {/* Feature Lists */}
                   <div className="space-y-3">
-                    <p className="text-xs font-bold text-deep-navy uppercase tracking-wide">Key Technologies & Controls</p>
+                    <p className="text-xs font-bold text-white uppercase tracking-wide">Key Technologies & Controls</p>
                     {zones[activeZone].capabilities.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2.5">
-                        <div className="p-1 rounded-full bg-royal-blue/10 text-royal-blue mt-0.5 shrink-0">
+                        <div className="p-1 rounded-full bg-cyan-500/10 text-cyan-300 mt-0.5 shrink-0">
                           <ShieldCheck className="w-3.5 h-3.5" />
                         </div>
-                        <p className="text-sm text-gray-600 font-sans font-light">{feat}</p>
+                        <p className="text-sm text-blue-100/85 font-sans font-light">{feat}</p>
                       </div>
                     ))}
                   </div>
@@ -577,9 +577,9 @@ export function Industries() {
                   {/* Stats Grid */}
                   <div className="pt-6 grid grid-cols-2 gap-4">
                     {zones[activeZone].stats.map((stat, idx) => (
-                      <div key={idx} className={`p-4 rounded-xl border border-gray-200/50 bg-gradient-to-br ${zones[activeZone].colorClass} text-left`}>
-                        <p className="text-[10px] text-gray-500 font-sans uppercase tracking-wider mb-1">{stat.label}</p>
-                        <p className="text-lg md:text-xl font-bold text-deep-navy font-heading">{stat.value}</p>
+                      <div key={idx} className="p-4 rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm text-left">
+                        <p className="text-[10px] text-blue-100/70 font-sans uppercase tracking-wider mb-1">{stat.label}</p>
+                        <p className="text-lg md:text-xl font-bold text-cyan-300 font-heading">{stat.value}</p>
                       </div>
                     ))}
                   </div>
@@ -588,13 +588,13 @@ export function Industries() {
                 {/* Right side: capability showcase image */}
                 <div className="lg:col-span-6 relative">
                   {/* Decorative frame */}
-                  <div className="absolute -inset-4 border border-dashed border-gray-200 rounded-3xl pointer-events-none z-0" />
+                  <div className="absolute -inset-4 border border-dashed border-white/20 rounded-3xl pointer-events-none z-0" />
 
-                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[1.4/1] w-full bg-gray-50 z-10">
-                    <img 
-                      src={zones[activeZone].image} 
-                      alt={zones[activeZone].title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[1.4/1] w-full bg-slate-900/40 z-10">
+                    <img
+                      src={zones[activeZone].image}
+                      alt={zones[activeZone].title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/35 via-transparent to-transparent opacity-60 pointer-events-none" />
                   </div>
@@ -650,7 +650,7 @@ export function Industries() {
             <div className="h-[2px] w-24 bg-gradient-to-r from-royal-blue via-gold-accent to-royal-blue mx-auto"></div>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Button href="/contact" variant="secondary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-lg hover:bg-gold-accent hover:text-navy-900 transition-colors">
+              <Button href="/contact" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-lg">
                 Start a Conversation
               </Button>
               <Button href="/products" variant="outline" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto border-white text-white hover:bg-white/10 transition-colors">

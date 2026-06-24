@@ -406,7 +406,7 @@ export function Careers() {
           </p>
           
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button href="#open-openings" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider bg-sky-500 hover:bg-sky-600 border-none shadow-md w-full sm:w-auto">
+            <Button href="#open-openings" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider shadow-md w-full sm:w-auto">
               Explore Opportunities
             </Button>
             <Button href="#life-at-multivista" variant="secondary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider border-white/20 text-white hover:bg-white/10 w-full sm:w-auto shadow-sm">
@@ -1055,7 +1055,7 @@ export function Careers() {
           <div className="h-[2px] w-24 bg-gradient-to-r from-sky-500 via-indigo-300 to-sky-500 mx-auto" />
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button href="#open-openings" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider bg-sky-500 hover:bg-sky-600 border-none w-full sm:w-auto shadow-md">
+            <Button href="#open-openings" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-md">
               Start Your Journey
             </Button>
             <Button href="/sustainability" variant="secondary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider border-white/20 text-white hover:bg-white/10 w-full sm:w-auto shadow-sm">

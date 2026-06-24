@@ -182,16 +182,19 @@ export function Infrastructure() {
       </section>
 
       {/* SECTION 2: INFRASTRUCTURE CATEGORIES */}
-      <section className="relative py-24 bg-[#f0f7ff]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-24 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden">
+        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-4">
+            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-4">
               PLANT AREAS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
               Infrastructure Categories
             </h2>
-            <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-1 bg-cyan-300 mx-auto mt-4 rounded-full" />
           </div>
 
           {/* Clean 3-column card layout with light backgrounds */}
@@ -205,7 +208,7 @@ export function Infrastructure() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group bg-white border border-gray-150 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:border-gray-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[420px] text-left"
+                  className="group bg-white border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[420px] text-left"
                 >
                   <div className="p-8">
                     {/* Header: Name, Icon & Small Accent Line */}
@@ -295,16 +298,19 @@ export function Infrastructure() {
 
 
       {/* SECTION 5: KEY CAPABILITIES */}
-      <section className="relative py-24 bg-[#f0f7ff] border-t border-gray-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-24 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden border-t border-white/10">
+        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-4">
+            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-4">
               PERFORMANCE
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
               Key Capabilities
             </h2>
-            <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-1 bg-cyan-300 mx-auto mt-4 rounded-full" />
           </div>
 
           {/* 4 modern feature cards */}
@@ -318,7 +324,7 @@ export function Infrastructure() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-8 bg-white border border-gray-150 rounded-2xl text-left hover:border-gray-300 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+                  className="p-8 bg-white border border-white/10 rounded-2xl text-left shadow-lg hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between"
                 >
                   <div className="space-y-4">
                     <div className="w-10 h-10 rounded-xl bg-sky-50 text-royal-blue border border-sky-100 flex items-center justify-center group-hover:bg-royal-blue group-hover:text-white transition-all duration-350">
@@ -434,7 +440,8 @@ export function Infrastructure() {
           <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               href="/contact"
-              className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider bg-royal-blue hover:bg-royal-blue/90 border-none shadow-lg text-white w-full sm:w-auto inline-flex items-center justify-center gap-2"
+              variant="primary"
+              className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider shadow-lg w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-4 h-4" />

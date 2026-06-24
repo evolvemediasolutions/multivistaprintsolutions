@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { CountUp } from "@/components/ui/CountUp";
+import { GlobalRecognition } from "@/components/layout/GlobalRecognition";
 
 // Story Evolution
 const evolutionJourney = [
@@ -463,21 +464,23 @@ export function About() {
 
 
       {/* SECTION 03: PURPOSE • VISION • MISSION (Interconnected Glass Pillars) */}
-      <section className="relative py-28 bg-[#F8FAFC] overflow-hidden">
+      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden">
+        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
 
         {/* Connected vector backdrop */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 150,150 L 500,200 L 900,100" fill="none" stroke="#0057B8" strokeWidth="1" strokeDasharray="3 3" />
-          <path d="M 500,200 L 900,300 L 1200,100" fill="none" stroke="#0057B8" strokeWidth="1" strokeDasharray="3 3" />
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 150,150 L 500,200 L 900,100" fill="none" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="3 3" />
+          <path d="M 500,200 L 900,300 L 1200,100" fill="none" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="3 3" />
         </svg>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block">
+            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block">
               FOUNDATIONAL PILLARS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
               Our Core Purpose
             </h2>
           </div>
@@ -485,55 +488,55 @@ export function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch relative">
 
             {/* Panel 1: Purpose */}
-            <div className="p-8 rounded-[24px] border border-white/30 bg-white/70 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300 relative group">
-              <div className="absolute top-4 right-4 text-royal-blue/20 font-heading text-4xl font-bold group-hover:text-royal-blue/30 transition-colors">
+            <div className="p-8 rounded-[24px] border border-white/20 bg-white/10 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 relative group text-left">
+              <div className="absolute top-6 right-6 text-white/30 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-white/70 group-hover:scale-105 select-none">
                 01
               </div>
               <div className="space-y-6">
-                <span className="text-[9px] font-bold text-royal-blue font-heading tracking-widest uppercase bg-royal-blue/5 border border-royal-blue/10 px-2 py-0.5 rounded">
+                <span className="inline-block text-[10px] font-bold text-cyan-200 font-heading tracking-widest uppercase bg-cyan-500/20 border border-cyan-400/35 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
                   PURPOSE
                 </span>
-                <h3 className="text-2xl font-bold text-deep-navy font-heading leading-tight pt-2">
+                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
                   Empowering Global Publishing Through Responsible Manufacturing
                 </h3>
               </div>
-              <p className="text-xs text-gray-500 font-sans leading-relaxed pt-8 font-light border-t border-gray-100/60 mt-8">
+              <p className="text-xs text-blue-100/90 font-sans leading-relaxed pt-8 font-light border-t border-white/10 mt-8">
                 Supporting the distribution of critical ideas, curriculum, and stories with high ethics, solar offsets, and paper loops.
               </p>
             </div>
 
             {/* Panel 2: Vision */}
-            <div className="p-8 rounded-[24px] border border-white/30 bg-white/70 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300 relative group">
-              <div className="absolute top-4 right-4 text-gold-accent/20 font-heading text-4xl font-bold group-hover:text-gold-accent/30 transition-colors">
+            <div className="p-8 rounded-[24px] border border-white/20 bg-white/10 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 relative group text-left">
+              <div className="absolute top-6 right-6 text-white/30 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-white/70 group-hover:scale-105 select-none">
                 02
               </div>
               <div className="space-y-6">
-                <span className="text-[9px] font-bold text-gold-accent font-heading tracking-widest uppercase bg-gold-accent/5 border border-gold-accent/10 px-2 py-0.5 rounded">
+                <span className="inline-block text-[10px] font-bold text-amber-200 font-heading tracking-widest uppercase bg-amber-500/20 border border-amber-400/35 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
                   VISION
                 </span>
-                <h3 className="text-2xl font-bold text-deep-navy font-heading leading-tight pt-2">
+                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
                   Preferred Global Manufacturing Partner for Publishers
                 </h3>
               </div>
-              <p className="text-xs text-gray-500 font-sans leading-relaxed pt-8 font-light border-t border-gray-100/60 mt-8">
+              <p className="text-xs text-blue-100/90 font-sans leading-relaxed pt-8 font-light border-t border-white/10 mt-8">
                 Continuously setting global benchmarks for print fidelity, workflow digitalizations, and zero-defect quality parameters.
               </p>
             </div>
 
             {/* Panel 3: Mission */}
-            <div className="p-8 rounded-[24px] border border-white/30 bg-white/70 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300 relative group">
-              <div className="absolute top-4 right-4 text-royal-blue/20 font-heading text-4xl font-bold group-hover:text-royal-blue/30 transition-colors">
+            <div className="p-8 rounded-[24px] border border-white/20 bg-white/10 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-white/15 hover:border-white/30 transition-all duration-300 relative group text-left">
+              <div className="absolute top-6 right-6 text-white/30 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-white/70 group-hover:scale-105 select-none">
                 03
               </div>
               <div className="space-y-6">
-                <span className="text-[9px] font-bold text-royal-blue font-heading tracking-widest uppercase bg-royal-blue/5 border border-royal-blue/10 px-2 py-0.5 rounded">
+                <span className="inline-block text-[10px] font-bold text-cyan-200 font-heading tracking-widest uppercase bg-cyan-500/20 border border-cyan-400/35 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
                   MISSION
                 </span>
-                <h3 className="text-2xl font-bold text-deep-navy font-heading leading-tight pt-2">
+                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
                   Delivering World-Class Book Manufacturing Solutions
                 </h3>
               </div>
-              <p className="text-xs text-gray-500 font-sans leading-relaxed pt-8 font-light border-t border-gray-100/60 mt-8">
+              <p className="text-xs text-blue-100/90 font-sans leading-relaxed pt-8 font-light border-t border-white/10 mt-8">
                 Providing consistent color density, premium cover styling, dependable logistics, and environmentally friendly outputs.
               </p>
             </div>
@@ -657,7 +660,7 @@ export function About() {
         <div className="absolute inset-0 bg-print-grid opacity-70 pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-3">
@@ -673,7 +676,7 @@ export function About() {
 
           {/* Grid Layout matching Homepage design Stats section (2-column custom split) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto">
-            
+
             {/* Card 1: Scale */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -695,7 +698,7 @@ export function About() {
                 <p className="text-slate-650 font-sans text-xs leading-relaxed font-light mb-4">
                   Consolidated state-of-the-art print plant situated in Chennai, India. Houses prepress, offset presses, binding lines, and logistics under a single secure roof.
                 </p>
-                
+
                 {/* Coordinates */}
                 <div className="flex items-center justify-between text-slate-400 text-[10px] font-mono pt-4 border-t border-slate-100">
                   <span className="flex items-center gap-1">
@@ -708,10 +711,10 @@ export function About() {
 
               {/* Bottom Visual Element */}
               <div className="mt-6 pt-3 border-t border-gray-100/80 h-[160px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/about_scale.png" 
-                  alt="Area Scale" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                <img
+                  src="/Images/about_scale.png"
+                  alt="Area Scale"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </motion.div>
@@ -728,7 +731,7 @@ export function About() {
                 <span className="px-2.5 py-0.5 border border-royal-blue/20 text-royal-blue text-[9px] font-bold uppercase tracking-widest rounded-full bg-royal-blue/5 w-fit block mb-3">
                   Benchmark 02 // Output Density
                 </span>
-                
+
                 {/* Responsive internal split grid */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start mt-4">
                   {/* Left part: Text details */}
@@ -743,7 +746,7 @@ export function About() {
                       High-speed perfect bindings, mechanical binds, and sewn hardbounds shipped globally to leading educational publishers.
                     </p>
                   </div>
-                  
+
                   {/* Right part: Progress bars */}
                   <div className="md:col-span-5 flex flex-col space-y-4 pt-2 md:pt-0">
                     <div className="space-y-1.5">
@@ -755,7 +758,7 @@ export function About() {
                         <div className="h-full bg-royal-blue rounded-full" style={{ width: "65%" }} />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-1.5">
                       <div className="flex justify-between text-[10px] font-bold text-slate-400">
                         <span>TRADE & NOVELS</span>
@@ -765,7 +768,7 @@ export function About() {
                         <div className="h-full bg-royal-blue rounded-full" style={{ width: "20%" }} />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-1.5">
                       <div className="flex justify-between text-[10px] font-bold text-slate-400">
                         <span>ACADEMIC TEXTS</span>
@@ -781,10 +784,10 @@ export function About() {
 
               {/* Bottom Visual Element */}
               <div className="mt-6 pt-3 border-t border-gray-100/80 h-[160px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/about_volume.png" 
-                  alt="Output Density" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                <img
+                  src="/Images/about_volume.png"
+                  alt="Output Density"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </motion.div>
@@ -848,7 +851,7 @@ export function About() {
             <div className="lg:col-span-5 relative">
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] border border-gray-200/50 bg-slate-50">
                 <img
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800"
+                  src="/Images/Karthick_Narayan.jpeg"
                   alt="Managing Director"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                 />
@@ -1016,6 +1019,8 @@ export function About() {
         </div>
       </section>
 
+      {/* GLOBAL RECOGNITION (Recognised for Responsible Manufacturing) */}
+      <GlobalRecognition />
 
       {/* SECTION 11: FINAL BRAND STATEMENT (Cinematic CTA) */}
       <section className="relative py-28 md:py-36 bg-gradient-to-br from-deep-navy via-navy-900 to-[#07172B] text-white overflow-hidden">
@@ -1054,7 +1059,7 @@ export function About() {
             <div className="h-[2px] w-24 bg-gradient-to-r from-royal-blue via-gold-accent to-royal-blue mx-auto"></div>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Button href="/contact" variant="secondary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-lg hover:bg-gold-accent hover:text-navy-900 transition-colors">
+              <Button href="/contact" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-lg">
                 Partner With Multivista
               </Button>
             </div>

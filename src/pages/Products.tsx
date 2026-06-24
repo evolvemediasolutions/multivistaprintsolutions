@@ -47,7 +47,7 @@ export function Products() {
       image: "/Images/products/hardcover_showcase.png",
       idealFor: ["Trade Books", "Coffee Table Books", "Collector's Editions", "Academic References", "Children's Premium Editions"],
       capabilities: ["Case Binding", "Thread Sewing", "Jacket Covers", "Cloth Binding", "Foil Stamping", "Embossing", "Spot UV", "Ribbon Markers", "Slip Cases"],
-      bgStyle: "bg-gradient-to-br from-deep-navy via-navy-900 to-[#07172B] text-white",
+      bgStyle: "bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] text-white",
       visualTheme: "luxury-blue",
       layout: "standard",
       phase: "Paper"
@@ -75,7 +75,7 @@ export function Products() {
       image: "/Images/products/layflat_showcase.png",
       idealFor: ["Photography Folios", "Fine Art Portfolios", "Architectural Portfolios", "Luxury Brand Monographs"],
       capabilities: ["Specialist Lay-Flat Bindings", "Continuous Image spreads", "Heavyweight Art Stocks", "Slipcase packaging"],
-      bgStyle: "bg-gradient-to-b from-[#121E2E] to-deep-navy text-white",
+      bgStyle: "bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] text-white",
       visualTheme: "dark-gallery",
       layout: "full-width",
       phase: "Distribution"
@@ -130,7 +130,7 @@ export function Products() {
 
       {/* RENDER THE 7 SECTIONS */}
       {sections.map((sec, idx) => {
-        const isDark = sec.bgStyle.includes("deep-navy") || sec.bgStyle.includes("navy-900") || sec.id === "layflat";
+        const isDark = sec.bgStyle.includes("text-white") || sec.bgStyle.includes("deep-navy") || sec.bgStyle.includes("navy-900") || sec.id === "layflat";
         
         return (
           <section 
@@ -138,6 +138,11 @@ export function Products() {
             id={sec.id}
             className={`relative py-32 overflow-hidden scroll-mt-20 ${sec.bgStyle}`}
           >
+            {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+            {isDark && (
+              <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none" />
+            )}
+
             {/* Background design graphics for specific themes */}
             {sec.visualTheme === "luxury-blue" && (
               <div className="absolute right-0 top-0 w-[300px] h-full bg-gradient-to-l from-gold-accent/[0.03] to-transparent pointer-events-none" />
@@ -150,7 +155,7 @@ export function Products() {
                 <div className="space-y-16">
                   <div className="grid lg:grid-cols-12 gap-8 items-end">
                     <div className="lg:col-span-7 space-y-4">
-                      <span className={`text-[10px] font-bold tracking-widest font-heading uppercase px-3 py-1 rounded-full ${isDark ? 'text-gold-accent bg-gold-accent/5 border border-gold-accent/10' : 'text-royal-blue bg-royal-blue/5 border border-royal-blue/10'}`}>
+                      <span className={`text-[10px] font-bold tracking-widest font-heading uppercase px-3 py-1 rounded-full ${isDark ? 'bg-white text-royal-blue shadow-sm' : 'text-royal-blue bg-royal-blue/5 border border-royal-blue/10'}`}>
                         {sec.label}
                       </span>
                       <h2 className={`text-3xl md:text-5xl font-bold tracking-tight font-heading mt-4 ${isDark ? 'text-white' : 'text-navy-900'}`}>
@@ -181,20 +186,20 @@ export function Products() {
                   {/* Meta Capabilities/Ideal Footer */}
                   <div className="grid md:grid-cols-2 gap-12 pt-8 border-t border-white/10">
                     <div>
-                      <h4 className="text-xs font-bold font-heading uppercase tracking-widest text-gold-accent mb-4">Ideal For</h4>
+                      <h4 className={`text-xs font-bold font-heading uppercase tracking-widest mb-4 ${isDark ? 'text-white/80' : 'text-royal-blue'}`}>Ideal For</h4>
                       <div className="flex flex-wrap gap-2.5">
                         {sec.idealFor.map(item => (
-                          <span key={item} className="text-xs font-sans font-light px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-gray-300">
+                          <span key={item} className={`text-xs font-sans font-light px-3 py-1.5 rounded-md border ${isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-gray-250 text-gray-600'}`}>
                             {item}
                           </span>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold font-heading uppercase tracking-widest text-gold-accent mb-4">Technical Capabilities</h4>
+                      <h4 className={`text-xs font-bold font-heading uppercase tracking-widest mb-4 ${isDark ? 'text-white/80' : 'text-royal-blue'}`}>Technical Capabilities</h4>
                       <div className="flex flex-wrap gap-2">
                         {sec.capabilities.map(cap => (
-                          <span key={cap} className="text-xs font-sans font-semibold px-3 py-1.5 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent">
+                          <span key={cap} className={`text-xs font-sans font-semibold px-3 py-1.5 rounded-full ${isDark ? 'bg-white/15 border border-white/25 text-white' : 'bg-royal-blue/5 border border-royal-blue/10 text-royal-blue'}`}>
                             {cap}
                           </span>
                         ))}
@@ -226,25 +231,25 @@ export function Products() {
                   {/* CONTENT PANEL (occupies 40% on desktop) */}
                   <div className={`lg:col-span-5 space-y-8 ${sec.layout === "reverse" ? "lg:order-1" : "lg:order-2"}`}>
                     <div className="space-y-4">
-                      <span className={`text-[10px] font-bold tracking-widest font-heading uppercase px-3.5 py-1.5 rounded-full inline-block ${isDark ? 'text-gold-accent bg-gold-accent/5 border border-gold-accent/10' : 'text-royal-blue bg-royal-blue/5 border border-royal-blue/10'}`}>
+                      <span className={`text-[10px] font-bold tracking-widest font-heading uppercase px-3.5 py-1.5 rounded-full inline-block ${isDark ? 'bg-white text-royal-blue shadow-sm' : 'text-royal-blue bg-royal-blue/5 border border-royal-blue/10'}`}>
                         {sec.label}
                       </span>
                       <h2 className={`text-3xl md:text-4xl font-bold tracking-tight font-heading mt-4 ${isDark ? 'text-white' : 'text-navy-900'}`}>
                         {sec.title}
                       </h2>
-                      <p className={`text-lg font-light font-sans leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      <p className={`text-lg font-light font-sans leading-relaxed ${isDark ? 'text-white/90' : 'text-gray-600'}`}>
                         {sec.subhead}
                       </p>
                     </div>
 
-                    <p className={`text-sm font-sans font-light leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <p className={`text-sm font-sans font-light leading-relaxed ${isDark ? 'text-blue-100/90' : 'text-gray-500'}`}>
                       {sec.description}
                     </p>
 
                     {/* Features checklist details */}
                     <div className="space-y-6 pt-4">
                       <div>
-                        <h4 className={`text-[10px] font-bold font-heading uppercase tracking-widest mb-3 ${isDark ? 'text-gold-accent' : 'text-royal-blue'}`}>
+                        <h4 className={`text-[10px] font-bold font-heading uppercase tracking-widest mb-3 ${isDark ? 'text-white/80' : 'text-royal-blue'}`}>
                           Ideal Applications
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -253,7 +258,7 @@ export function Products() {
                               key={item} 
                               className={`text-[11px] font-sans font-light px-2.5 py-1 rounded border ${
                                 isDark 
-                                  ? 'bg-white/5 border-white/10 text-gray-300' 
+                                  ? 'bg-white/10 border-white/20 text-white' 
                                   : 'bg-white border-gray-200 text-gray-600'
                               }`}
                             >
@@ -264,7 +269,7 @@ export function Products() {
                       </div>
 
                       <div>
-                        <h4 className={`text-[10px] font-bold font-heading uppercase tracking-widest mb-3 ${isDark ? 'text-gold-accent' : 'text-royal-blue'}`}>
+                        <h4 className={`text-[10px] font-bold font-heading uppercase tracking-widest mb-3 ${isDark ? 'text-white/80' : 'text-royal-blue'}`}>
                           Production Details
                         </h4>
                         <div className="flex flex-wrap gap-1.5">
@@ -273,7 +278,7 @@ export function Products() {
                               key={cap} 
                               className={`text-[10px] font-sans font-semibold px-2.5 py-1 rounded-full ${
                                 isDark 
-                                  ? 'bg-gold-accent/15 border border-gold-accent/30 text-gold-accent' 
+                                  ? 'bg-white/15 border border-white/25 text-white' 
                                   : 'bg-royal-blue/5 border border-royal-blue/10 text-royal-blue'
                               }`}
                             >

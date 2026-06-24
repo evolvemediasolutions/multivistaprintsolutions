@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { 
   Leaf, 
   Recycle, 
@@ -115,56 +115,56 @@ const initiatives = [
     num: "01",
     title: "FSC® & PEFC Certified Paper", 
     desc: "Over 90% of book runs printed on ethically traceable forest products.", 
-    image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/fsc_certified_paper.png?v=1",
     icon: TreePine
   },
   { 
     num: "02",
     title: "Compostable Packaging", 
     desc: "Replacing shrink wraps with 100% bio-degradable organic wrappers.", 
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/compostable_packaging.png?v=1",
     icon: Recycle
   },
   { 
     num: "03",
     title: "Water-Based Varnish", 
     desc: "Eco-friendly, chemical-free coatings that ensure easy paper decomposition.", 
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/water_based_varnish.png?v=1",
     icon: Droplet
   },
   { 
     num: "04",
     title: "Green Factory Initiative", 
     desc: "Chennai facility utilizing low-energy thermal chiller arrays and solar rooftops.", 
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/green_factory_initiative.png?v=1",
     icon: Zap
   },
   { 
     num: "05",
     title: "No Plastic Zone", 
     desc: "Eliminating single-use plastics across our entire administrative and press floors.", 
-    image: "https://images.unsplash.com/photo-1526951914841-389f4142f360?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/no_plastic_zone.png?v=1",
     icon: ShieldCheck
   },
   { 
     num: "06",
     title: "Process-Less Plates", 
     desc: "Saving thousands of liters of chemical developer fluids in prepress setups.", 
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/processless_plates.png?v=1",
     icon: Layers
   },
   { 
     num: "07",
     title: "Sustainable Procurement", 
     desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.", 
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/sustainable_procurement.png?v=1",
     icon: Heart
   },
   { 
     num: "08",
     title: "Water Chiller Plant", 
     desc: "Closed-loop industrial refrigeration saving 80% water on press cooling.", 
-    image: "https://images.unsplash.com/photo-1473643080040-61799b2e043b?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/water_chiller_plant.png?v=1",
     icon: Droplet
   }
 ];
@@ -218,13 +218,7 @@ const certifications = [
   { title: "PEFC Certified", org: "Endorsement of Forest Certification", desc: "Guaranteed sustainable paper pathways.", icon: Leaf }
 ];
 
-// Reports
-const reports = [
-  { title: "Sustainability Report 2024", type: "Annual ESG Report", size: "4.2 MB", desc: "Full performance disclosures on our carbon offset loops, water metrics, and social audits." },
-  { title: "Carbon Footprint Report 2023", type: "Scope 1, 2 & 3 Audit", size: "2.8 MB", desc: "Detailed breakdown of greenhouse gas metrics validated against carbon offsets." },
-  { title: "ESG & Compliance Policy", type: "Corporate Policy", size: "1.1 MB", desc: "Our environmental guidelines, ethical standards, and code of conduct for suppliers." },
-  { title: "FSC® & PEFC Certifications", type: "Certificate Document", size: "0.9 MB", desc: "Official forest product tracking certifications and registration keys." }
-];
+
 
 const footprintReports = [
   {
@@ -337,6 +331,16 @@ export function Sustainability() {
   // Timeline horizontal scroll state
   const journeySectionRef = useRef<HTMLDivElement>(null);
   const [journeyProgress, setJourneyProgress] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [maxTranslate, setMaxTranslate] = useState(0);
+
+  // Background Parallax: Move background image slower than scroll
+  const { scrollYProgress } = useScroll({
+    target: journeySectionRef,
+    offset: ["start end", "end start"],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
 
   // Pillars Scroll Spy states & refs
   const [activePillarIndex, setActivePillarIndex] = useState(0);
@@ -394,6 +398,26 @@ export function Sustainability() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  // Update horizontal track widths dynamically for complete responsiveness
+  useEffect(() => {
+    const updateWidths = () => {
+      if (sliderRef.current && viewportRef.current) {
+        const sliderWidth = sliderRef.current.scrollWidth;
+        const viewportWidth = viewportRef.current.clientWidth;
+        setMaxTranslate(Math.max(sliderWidth - viewportWidth, 0));
+      }
+    };
+
+    updateWidths();
+    window.addEventListener("resize", updateWidths);
+    const timer = setTimeout(updateWidths, 100);
+
+    return () => {
+      window.removeEventListener("resize", updateWidths);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -496,7 +520,7 @@ export function Sustainability() {
             At Multivista, sustainability is more than a responsibility; it is a business philosophy that shapes every decision we make.
           </p>
           <div className="pt-6 flex justify-center">
-            <Button href="#philosophy" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider bg-sky-500 hover:bg-sky-600 border-none shadow-md inline-flex items-center gap-2 group">
+            <Button href="#philosophy" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider shadow-md inline-flex items-center gap-2 group">
               <span>Explore Our Journey</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
@@ -538,7 +562,7 @@ export function Sustainability() {
               
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[1.5/1] bg-slate-50 z-10">
                 <img 
-                  src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200" 
+                  src="/Images/progress_with_purpose.png?v=1" 
                   alt="Responsible forestry paper production sourcing" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" 
                 />
@@ -676,15 +700,17 @@ export function Sustainability() {
         {/* Sticky element wrapper */}
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
           
-          {/* Animated Background Overlay changing index based */}
-          <div className="absolute inset-0 z-0 transition-all duration-700 ease-in-out">
-            <img 
-              src={milestones[activeTimelineIndex].image} 
-              alt="" 
-              className="w-full h-full object-cover opacity-15 filter transition-all duration-700" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A121E] via-[#0A121E]/85 to-transparent" />
-          </div>
+          {/* Background Parallax Layer */}
+          <motion.div
+            className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
+            style={{
+              backgroundImage: "url('/Images/Sus1.jpg')",
+              y: backgroundY,
+              scale: 1.15,
+              opacity: 0.15,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A121E] via-[#0A121E]/85 to-transparent z-0 pointer-events-none" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
             <div className="text-left max-w-2xl mb-12">
@@ -697,10 +723,11 @@ export function Sustainability() {
             </div>
 
             {/* Horizontal Timeline Slider Frame */}
-            <div className="relative w-full overflow-hidden py-8">
+            <div ref={viewportRef} className="relative w-full overflow-hidden py-8">
               <div 
+                ref={sliderRef}
                 className="flex gap-8 transition-transform duration-300 ease-out"
-                style={{ transform: `translateX(-${journeyProgress * 65}%)` }}
+                style={{ transform: `translateX(-${journeyProgress * maxTranslate}px)` }}
               >
                 {milestones.map((m, idx) => {
                   const isActive = activeTimelineIndex === idx;
@@ -916,17 +943,20 @@ export function Sustainability() {
       </section>
 
       {/* SECTION 06: SUSTAINABILITY INITIATIVES (Editorial Visual Panels) */}
-      <section className="relative py-28 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden">
+        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-full inline-block">
+            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block">
               GALLERY
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
               Sustainability Initiatives
             </h2>
-            <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
+            <p className="text-xs md:text-sm text-blue-50 font-sans font-light leading-relaxed">
               Every print run we execute is backed by actionable carbon and resources mitigation programs.
             </p>
           </div>
@@ -1083,64 +1113,7 @@ export function Sustainability() {
         </div>
       </section>
 
-      {/* SECTION 09: SUSTAINABILITY REPORTS */}
-      <section className="relative py-28 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-full inline-block">
-              RESOURCES
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
-              Sustainability Reports
-            </h2>
-            <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
-              Explore and download our certified environmental disclosures and ESG papers.
-            </p>
-          </div>
 
-          {/* Book Library shelf layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {reports.map((rep) => (
-              <div 
-                key={rep.title}
-                className="bg-white rounded-2xl border border-slate-150 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left relative group"
-              >
-                <div className="space-y-4">
-                  {/* Decorative book binder line */}
-                  <div className="h-1.5 w-12 bg-sky-500 rounded-full" />
-                  
-                  <span className="text-[9px] font-bold text-sky-600 uppercase tracking-widest font-heading">
-                    {rep.type}
-                  </span>
-                  
-                  <h3 className="text-base font-bold text-deep-navy font-heading leading-tight group-hover:text-sky-600 transition-colors">
-                    {rep.title}
-                  </h3>
-                  
-                  <p className="text-xs text-gray-450 font-sans leading-relaxed font-light">
-                    {rep.desc}
-                  </p>
-                </div>
-                
-                <div className="pt-6 border-t border-slate-100 flex items-center justify-between mt-6">
-                  <span className="text-[10px] font-bold text-gray-400 font-mono">
-                    PDF — {rep.size}
-                  </span>
-                  <button 
-                    type="button"
-                    className="w-8 h-8 rounded-lg bg-sky-50 hover:bg-sky-500 text-sky-600 hover:text-white transition-all flex items-center justify-center cursor-pointer border border-sky-100"
-                    aria-label="Download Document"
-                  >
-                    <Download className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* FINAL SECTION: THE FUTURE WE ARE BUILDING */}
       <section className="relative py-28 bg-gradient-to-br from-deep-navy via-navy-900 to-[#0A121E] text-white overflow-hidden">
@@ -1168,7 +1141,7 @@ export function Sustainability() {
           <div className="h-[2px] w-24 bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 mx-auto" />
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button href="/contact" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider bg-sky-500 hover:bg-sky-600 border-none w-full sm:w-auto shadow-md">
+            <Button href="/contact" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider w-full sm:w-auto shadow-md">
               Partner With Multivista
             </Button>
             <Button href="#philosophy" variant="secondary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider border-white/20 text-white hover:bg-white/10 w-full sm:w-auto">

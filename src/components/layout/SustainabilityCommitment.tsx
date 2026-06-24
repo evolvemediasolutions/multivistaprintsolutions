@@ -4,7 +4,7 @@ import { ArrowRight, Leaf, Recycle, Globe } from "lucide-react";
 
 export function SustainabilityCommitment() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Track scroll position relative to the section element
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,15 +21,15 @@ export function SustainabilityCommitment() {
 
   // Text Selection and legibility is guaranteed
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative min-h-[90vh] lg:min-h-[100vh] flex items-center overflow-hidden py-28 bg-deep-navy select-text"
     >
       {/* Background Parallax Layer */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=2000')`,
+        style={{
+          backgroundImage: "url('/Images/Sustainability-Home.png')",
           y: backgroundY,
           scale: 1.15 // Scaled up slightly to prevent white margins during parallax offset
         }}
@@ -68,7 +68,7 @@ export function SustainabilityCommitment() {
       {/* Main Grid Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* LEFT COLUMN: Sustainability copy (40% space / lg:col-span-5) */}
           <div className="lg:col-span-5 flex flex-col justify-center text-white">
             <span className="inline-block px-3.5 py-1.5 border border-gold-accent/20 text-gold-accent text-[10px] font-bold uppercase tracking-widest rounded-full bg-gold-accent/5 mb-4 self-start">
@@ -91,11 +91,11 @@ export function SustainabilityCommitment() {
             </div>
 
             <div className="mt-10 self-start">
-              <a 
-                href="/sustainability" 
+              <a
+                href="/sustainability"
                 className="inline-flex items-center gap-2.5 px-6 py-3 border border-white/80 text-white rounded-full font-medium hover:bg-gold-accent hover:border-gold-accent hover:text-deep-navy hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group font-sans text-sm"
               >
-                Explore Our Sustainability Journey 
+                Explore Our Sustainability Journey
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
@@ -103,9 +103,9 @@ export function SustainabilityCommitment() {
 
           {/* RIGHT COLUMN: Floating Glass Metrics Cards (60% space / lg:col-span-7) */}
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6 relative min-h-[420px] items-center">
-            
+
             {/* Card 1: Responsible Sourcing */}
-            <motion.div 
+            <motion.div
               style={{ y: card1Y }}
               className="backdrop-blur-md bg-white/10 border border-white/20 shadow-lg p-6 rounded-[20px] md:translate-y-[-24px] transition-all hover:border-sky-300/30 hover:bg-white/15 duration-300"
             >
@@ -121,7 +121,7 @@ export function SustainabilityCommitment() {
             </motion.div>
 
             {/* Card 2: Resource Efficiency */}
-            <motion.div 
+            <motion.div
               style={{ y: card2Y }}
               className="backdrop-blur-md bg-white/10 border border-white/20 shadow-lg p-6 rounded-[20px] md:translate-y-[0px] transition-all hover:border-sky-300/30 hover:bg-white/15 duration-300"
             >
@@ -137,7 +137,7 @@ export function SustainabilityCommitment() {
             </motion.div>
 
             {/* Card 3: Carbon Reduction */}
-            <motion.div 
+            <motion.div
               style={{ y: card3Y }}
               className="backdrop-blur-md bg-white/10 border border-white/20 shadow-lg p-6 rounded-[20px] md:translate-y-[24px] transition-all hover:border-sky-300/30 hover:bg-white/15 duration-300"
             >

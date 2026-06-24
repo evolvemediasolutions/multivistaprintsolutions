@@ -1,9 +1,74 @@
-import { motion } from "motion/react";
-import { Leaf, CheckCircle2, Users, Settings } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Leaf, CheckCircle2, Users, Settings, ChevronDown } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function FoundationOfExcellence() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(0);
+
+  const pillars = [
+    {
+      tag: "Pillar 01",
+      badge: "Science-Based",
+      badgeStyle: "border-emerald-600/30 text-emerald-600 bg-emerald-50/70",
+      Icon: Leaf,
+      iconBg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+      title: "Sustainability",
+      subtitle: "Science-Based Sustainability Commitments",
+      description:
+        "Driving measurable environmental impact through responsible sourcing, carbon reduction, and internationally recognized sustainability initiatives.",
+      imagePath: "/Images/pillar_sustainability.png",
+    },
+    {
+      tag: "Pillar 02",
+      badge: "End-to-End",
+      badgeStyle: "border-royal-blue/30 text-royal-blue bg-royal-blue/5",
+      Icon: CheckCircle2,
+      iconBg: "bg-royal-blue/5",
+      iconColor: "text-royal-blue",
+      title: "Quality",
+      subtitle: "Integrated Quality Systems",
+      description:
+        "From prepress to final dispatch, every stage is monitored to meet the highest global publishing standards for durability and color precision.",
+      imagePath: "/Images/pillar_quality.png",
+    },
+    {
+      tag: "Pillar 03",
+      badge: "200+ Experts",
+      badgeStyle: "border-gold-accent/40 text-gold-accent bg-gold-accent/5",
+      Icon: Users,
+      iconBg: "bg-gold-accent/5",
+      iconColor: "text-gold-accent",
+      title: "People",
+      subtitle: "Skilled Professionals",
+      description:
+        "Combining decades of industrial craftsmanship with advanced modern printing technologies to manage complex print orders.",
+      imagePath: "/Images/pillar_people.png",
+    },
+    {
+      tag: "Pillar 04",
+      badge: "Continuous Investment",
+      badgeStyle: "border-royal-blue/30 text-royal-blue bg-royal-blue/5",
+      Icon: Settings,
+      iconBg: "bg-royal-blue/5",
+      iconColor: "text-royal-blue",
+      title: "Technology",
+      subtitle: "Investment in Innovation",
+      description:
+        "Continuous investments in world-class offset presses, digital binding, and automated workflows ensure consistency and scale.",
+      imagePath: "/Images/pillar_technology.png",
+    },
+  ];
+
+  const handleMobileToggle = (index: number) => {
+    setMobileExpandedIndex(mobileExpandedIndex === index ? null : index);
+  };
+
+  const activePillar = pillars[activeIndex];
+
   return (
     <section className="relative py-32 bg-gray-50 border-t border-gray-100 overflow-hidden select-text">
       {/* Background paper dot grid texture */}
@@ -29,9 +94,8 @@ export function FoundationOfExcellence() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        
         {/* Section Header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-24">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-20">
           <SectionHeader title="Our Foundation of Excellence" align="center" />
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-deep-navy mt-4 mb-6 leading-tight font-heading">
             Built on Responsibility, Quality, Talent & Innovation
@@ -42,232 +106,200 @@ export function FoundationOfExcellence() {
         </AnimatedSection>
 
         {/* Pillars Layout Area */}
-        <div className="relative">
+        <div className="relative z-10">
           
-          {/* Desktop Wavy Connector Line (Wavy sine wave connecting centers of the staggered cards) */}
-          <svg viewBox="0 0 1000 200" className="absolute top-1/2 left-0 w-full h-[200px] -translate-y-1/2 hidden lg:block pointer-events-none z-0">
-            <motion.path 
-              d="M 125 50 C 250 50, 250 150, 375 150 C 500 150, 500 50, 625 50 C 750 50, 750 150, 875 150"
-              fill="none"
-              stroke="url(#journey-grad)"
-              strokeWidth="2.5"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 2.2, ease: "easeInOut" }}
-            />
+          {/* DESKTOP LAYOUT: Split-Panel Tabs Accordion */}
+          <div className="hidden lg:grid grid-cols-12 gap-8 items-stretch min-h-[480px]">
             
-            <defs>
-              <linearGradient id="journey-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0057B8" opacity="0.3" />
-                <stop offset="33%" stopColor="#0A2342" opacity="0.5" />
-                <stop offset="66%" stopColor="#0057B8" opacity="0.5" />
-                <stop offset="100%" stopColor="#0057B8" opacity="0.3" />
-              </linearGradient>
-            </defs>
-          </svg>
+            {/* Left Tabs Stack */}
+            <div className="col-span-5 flex flex-col gap-4 justify-center">
+              {pillars.map((pillar, index) => {
+                const isActive = activeIndex === index;
+                const Icon = pillar.Icon;
 
-          {/* Mobile Vertical Connector Line */}
-          <div className="absolute left-10 top-16 bottom-16 w-[2px] border-l-2 border-dashed border-royal-blue/20 lg:hidden pointer-events-none z-0"></div>
+                return (
+                  <button
+                    key={index}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onClick={() => setActiveIndex(index)}
+                    className={`group relative flex items-center text-left rounded-[20px] p-5 border transition-all duration-300 ease-out select-none cursor-pointer w-full ${
+                      isActive
+                        ? "bg-white border-royal-blue/30 shadow-md ring-1 ring-royal-blue/5"
+                        : "bg-transparent border-transparent hover:bg-white/40 hover:border-gray-200/50"
+                    }`}
+                  >
+                    {/* Left vertical active border indicator */}
+                    <div
+                      className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-10 rounded-r-full transition-all duration-300 origin-left ${
+                        isActive ? "bg-royal-blue scale-y-100" : "bg-transparent scale-y-50 group-hover:bg-gray-300"
+                      }`}
+                    ></div>
 
-          {/* Pillars Cards (Staggered Grid) */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 items-stretch relative z-10">
-            
-            {/* Pillar 1: Sustainability (Offset Up) */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-white p-7 shadow-sm hover:shadow-xl hover:border-royal-blue/30 lg:-translate-y-8 hover:-translate-y-12 transition-all duration-500 ease-out"
-            >
-              <div>
-                {/* Header Info */}
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase">
-                    Pillar 01
-                  </span>
-                  <span className="px-2.5 py-0.5 border border-emerald-600/30 text-emerald-600 text-[9px] font-semibold uppercase tracking-widest rounded-full bg-emerald-50">
-                    Science-Based
-                  </span>
-                </div>
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600 group-hover:scale-110 transition-transform">
-                    <Leaf className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-deep-navy font-heading">
-                    Sustainability
-                  </h3>
-                </div>
+                    {/* Content Container */}
+                    <div className="flex items-center gap-4 pl-3 w-full">
+                      {/* Icon with colored circle backdrop */}
+                      <div
+                        className={`p-3 rounded-xl transition-all duration-300 shadow-sm ${
+                          isActive
+                            ? `${pillar.iconBg} ${pillar.iconColor} scale-110`
+                            : "bg-white text-slate-400 group-hover:text-slate-600"
+                        }`}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </div>
 
-                {/* Subtitle & Description */}
-                <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
-                  Science-Based Sustainability Commitments
-                </h4>
-                <p className="text-slate-650 font-sans text-xs leading-relaxed font-light">
-                  Driving measurable environmental impact through responsible sourcing, carbon reduction, and internationally recognized sustainability initiatives.
-                </p>
+                      {/* Labels */}
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase mb-0.5">
+                          {pillar.tag}
+                        </span>
+                        <h3 className={`text-lg font-bold font-heading transition-colors duration-300 ${
+                          isActive ? "text-deep-navy" : "text-slate-500 group-hover:text-slate-700"
+                        }`}>
+                          {pillar.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Showcase Card */}
+            <div className="col-span-7 flex">
+              <div className="w-full bg-white rounded-[28px] border border-gray-100 p-8 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                    className="flex flex-col h-full justify-between"
+                  >
+                    <div>
+                      {/* Top Header Row with Pillar Tag and Badge */}
+                      <div className="flex justify-between items-center mb-6 border-b border-gray-50 pb-4">
+                        <span className="text-xs font-bold text-gray-400 tracking-wider font-heading uppercase">
+                          {activePillar.tag} Overview
+                        </span>
+                        <span
+                          className={`px-3 py-1 border text-[10px] font-bold uppercase tracking-widest rounded-full shadow-sm ${activePillar.badgeStyle}`}
+                        >
+                          {activePillar.badge}
+                        </span>
+                      </div>
+
+                      {/* Main Title & Subtitle */}
+                      <h3 className="text-2xl font-bold text-deep-navy font-heading mb-2">
+                        {activePillar.title}
+                      </h3>
+                      <h4 className="text-base font-semibold text-royal-blue mb-4 font-heading leading-snug">
+                        {activePillar.subtitle}
+                      </h4>
+
+                      {/* Long Description */}
+                      <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
+                        {activePillar.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Image Showcase */}
+                    <div className="mt-8 h-[200px] rounded-[20px] overflow-hidden border border-gray-100 shadow-sm relative group/img">
+                      <img
+                        src={activePillar.imagePath}
+                        alt={activePillar.title}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-103"
+                      />
+                      {/* Soft overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
-
-              {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/pillar_sustainability.png" 
-                  alt="Sustainability" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
-            </motion.div>
-
-            {/* Pillar 2: Quality (Offset Down) */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-white p-7 shadow-sm hover:shadow-xl hover:border-royal-blue/30 lg:translate-y-8 hover:translate-y-4 transition-all duration-500 ease-out"
-            >
-              <div>
-                {/* Header Info */}
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase">
-                    Pillar 02
-                  </span>
-                  <span className="px-2.5 py-0.5 border border-royal-blue/30 text-royal-blue text-[9px] font-semibold uppercase tracking-widest rounded-full bg-royal-blue/5">
-                    End-to-End
-                  </span>
-                </div>
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-xl bg-royal-blue/5 text-royal-blue group-hover:scale-110 transition-transform">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-deep-navy font-heading">
-                    Quality
-                  </h3>
-                </div>
-
-                {/* Subtitle & Description */}
-                <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
-                  Integrated Quality Systems
-                </h4>
-                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
-                  From prepress to final dispatch, every stage is monitored to meet the highest global publishing standards for durability and color precision.
-                </p>
-              </div>
-
-              {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/pillar_quality.png" 
-                  alt="Quality" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
-            </motion.div>
-
-            {/* Pillar 3: People (Offset Up) */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-white p-7 shadow-sm hover:shadow-xl hover:border-royal-blue/30 lg:-translate-y-8 hover:-translate-y-12 transition-all duration-500 ease-out"
-            >
-              <div>
-                {/* Header Info */}
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase">
-                    Pillar 03
-                  </span>
-                  <span className="px-2.5 py-0.5 border border-gold-accent/40 text-gold-accent text-[9px] font-semibold uppercase tracking-widest rounded-full bg-gold-accent/5">
-                    200+ Experts
-                  </span>
-                </div>
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-xl bg-gold-accent/5 text-gold-accent group-hover:scale-110 transition-transform">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-deep-navy font-heading">
-                    People
-                  </h3>
-                </div>
-
-                {/* Subtitle & Description */}
-                <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
-                  Skilled Professionals
-                </h4>
-                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
-                  Combining decades of industrial craftsmanship with advanced modern printing technologies to manage complex print orders.
-                </p>
-              </div>
-
-              {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/pillar_people.png" 
-                  alt="People" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
-            </motion.div>
-
-            {/* Pillar 4: Technology (Offset Down) */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-white p-7 shadow-sm hover:shadow-xl hover:border-royal-blue/30 lg:translate-y-8 hover:translate-y-4 transition-all duration-500 ease-out"
-            >
-              <div>
-                {/* Header Info */}
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase">
-                    Pillar 04
-                  </span>
-                  <span className="px-2.5 py-0.5 border border-royal-blue/30 text-royal-blue text-[9px] font-semibold uppercase tracking-widest rounded-full bg-royal-blue/5">
-                    Continuous Investment
-                  </span>
-                </div>
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-xl bg-royal-blue/5 text-royal-blue group-hover:scale-110 transition-transform">
-                    <Settings className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-deep-navy font-heading">
-                    Technology
-                  </h3>
-                </div>
-
-                {/* Subtitle & Description */}
-                <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading">
-                  Investment in Innovation
-                </h4>
-                <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
-                  Continuous investments in world-class offset presses, digital binding, and automated workflows ensure consistency and scale.
-                </p>
-              </div>
-
-              {/* Interactive Illustration */}
-              <div className="mt-8 pt-4 border-t border-gray-50 h-[185px] rounded-b-[20px] overflow-hidden">
-                <img 
-                  src="/Images/pillar_technology.png" 
-                  alt="Technology" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
-            </motion.div>
+            </div>
 
           </div>
+
+          {/* MOBILE & TABLET LAYOUT: Stacked Vertical Accordion */}
+          <div className="lg:hidden flex flex-col gap-4">
+            {pillars.map((pillar, index) => {
+              const isExpanded = mobileExpandedIndex === index;
+              const Icon = pillar.Icon;
+
+              return (
+                <div
+                  key={index}
+                  className={`rounded-[20px] border bg-white overflow-hidden transition-all duration-300 ${
+                    isExpanded
+                      ? "border-royal-blue/30 shadow-md ring-1 ring-royal-blue/5"
+                      : "border-gray-200/70 shadow-sm"
+                  }`}
+                >
+                  {/* Collapsible Header */}
+                  <button
+                    onClick={() => handleMobileToggle(index)}
+                    className="flex justify-between items-center w-full p-5 text-left select-none cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2.5 rounded-xl ${pillar.iconBg} ${pillar.iconColor}`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[9px] font-bold text-gray-400 tracking-wider uppercase">
+                          {pillar.tag}
+                        </span>
+                        <h3 className="text-base font-bold text-deep-navy font-heading">
+                          {pillar.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className={`px-2 py-0.5 border text-[8px] font-bold uppercase tracking-widest rounded-full ${pillar.badgeStyle}`}>
+                        {pillar.badge}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${
+                          isExpanded ? "transform rotate-180 text-royal-blue" : ""
+                        }`}
+                      />
+                    </div>
+                  </button>
+
+                  {/* Collapsible Body */}
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${
+                      isExpanded ? "max-h-[500px] border-t border-gray-50 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <div className="p-5 flex flex-col gap-4">
+                      <div>
+                        <h4 className="text-sm font-semibold text-deep-navy mb-2 font-heading leading-snug">
+                          {pillar.subtitle}
+                        </h4>
+                        <p className="text-slate-655 font-sans text-xs leading-relaxed font-light">
+                          {pillar.description}
+                        </p>
+                      </div>
+
+                      <div className="h-[160px] rounded-[16px] overflow-hidden border border-gray-100 shadow-sm">
+                        <img
+                          src={pillar.imagePath}
+                          alt={pillar.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
         </div>
+
       </div>
     </section>
   );
