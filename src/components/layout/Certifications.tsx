@@ -55,7 +55,7 @@ export function Certifications() {
       <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        
+
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <SectionHeader title="Global Accreditations" align="center" className="text-white border-white/30 bg-white/10" />
@@ -63,7 +63,7 @@ export function Certifications() {
             Certified Quality, Safety & Sustainability
           </h2>
           <p className="text-base text-blue-50 leading-relaxed font-light font-sans">
-            We operate in alignment with leading international standards, ensuring responsible sourcing, 
+            We operate in alignment with leading international standards, ensuring responsible sourcing,
             information security compliance, and secure logistics for our global publishing partners.
           </p>
         </div>
@@ -87,7 +87,7 @@ export function Certifications() {
                     <div className={`p-3 rounded-2xl border ${cert.colorClass} group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-bold text-slate-400 tracking-wider font-heading uppercase">
+                    <span className="text-[10px] font-bold text-slate-450 tracking-wider font-heading uppercase">
                       Certificate 0{index + 1}
                     </span>
                   </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
   Cpu,
@@ -21,39 +21,45 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const categories = [
   {
     name: "Pre Press",
-    desc: "CTP systems and plate-making technologies for accurate print preparation.",
+    desc: "Our state-of-the-art prepress facility handles high-volume processing with surgical precision. Through computer-to-plate automation, we translate digital manuscripts into production-ready printing plates with zero detail loss.",
     icon: Cpu,
-    image: "/Images/prepress_capability_showcase.png"
+    image: "/Images/prepress_capability_showcase.png",
+    equipment: ["Kodak Trendsetter CTP systems", "Processless thermal plate technologies", "Automated pre-flight validation software", "High-fidelity digital proofing units"]
   },
   {
     name: "Printing",
-    desc: "Advanced Heidelberg and RMGT presses for high-quality production.",
+    desc: "Featuring industry-leading multi-colour presses, our press floor operates 24/7 to deliver crisp, vibrant, and uniform colour replication. Ideal for fine art books, textbooks, and trade publications.",
     icon: Printer,
-    image: "/Images/printing_capability_showcase.png"
+    image: "/Images/printing_capability_showcase.png",
+    equipment: ["Heidelberg Speedmaster 102 8-Colour Perfector", "RMGT high-efficiency printing presses", "In-line color measurement scan systems", "Environmentally safe soy & vegetable inks"]
   },
   {
     name: "Folding",
-    desc: "Precision folding systems for efficient post-print processing.",
+    desc: "Post-print precision begins with computerized folding loops. We offer diverse pagination setups and layouts, preparing printed sheets seamlessly for binding collation.",
     icon: Layers,
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    equipment: ["Horizon automated folding arrays", "High-speed signatures folding machines", "Rotary suction feed folding platforms", "Continuous feed operations"]
   },
   {
     name: "Binding",
-    desc: "Perfect binding, thread sewing, and book finishing solutions.",
+    desc: "From case-bound hardcovers to flexible paperbacks, our high-volume automated bindery preserves structurally resilient books built to stand the test of time.",
     icon: BookOpen,
-    image: "/Images/binding_capability_showcase.png"
+    image: "/Images/binding_capability_showcase.png",
+    equipment: ["Muller Martini perfect binding lines", "Thread-sewing binding hardware", "Automated hardcover case-making equipment", "Three-knife trimming units"]
   },
   {
     name: "Finishing",
-    desc: "Spot UV, punching, and specialty enhancement technologies.",
+    desc: "Add visual depth and tactile luxury to dust jackets and covers. Premium finishes raise customer perception and market impact for prestige publications.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+    equipment: ["Sakurai Spot UV screen coating lines", "Embossing and foil-stamping hardware", "Matte & gloss lamination equipment", "Precision die-cutting capabilities"]
   },
   {
     name: "Packaging",
-    desc: "Automated wrapping, sealing, and packaging systems.",
+    desc: "Safe logistics begin inside the factory. Our automated wrapping and packing systems ensure complete protection against environmental factors during shipping.",
     icon: Package,
-    image: "/Images/manufacturing_capabilities_showcase.png"
+    image: "/Images/manufacturing_capabilities_showcase.png",
+    equipment: ["Automated poly-shrink wrapping setups", "Heavy-duty custom pallet strapping", "Moisture-controlled transport packing", "Integrated shipping label scanners"]
   }
 ];
 
@@ -92,31 +98,9 @@ const machines = [
 ];
 
 
-// Section 5: Key Capabilities Data
-const capabilities = [
-  {
-    title: "High-Speed Printing",
-    desc: "8 Colour Perfecting Technology for exceptional print quality.",
-    icon: Printer
-  },
-  {
-    title: "Precision Binding",
-    desc: "Advanced binding systems for durable and premium publications.",
-    icon: BookOpen
-  },
-  {
-    title: "Premium Finishing",
-    desc: "Spot UV and specialty finishing solutions for enhanced presentation.",
-    icon: Sparkles
-  },
-  {
-    title: "Automated Packaging",
-    desc: "Efficient packaging systems ensuring safe and reliable delivery.",
-    icon: Package
-  }
-];
-
 export function Infrastructure() {
+  const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -124,27 +108,38 @@ export function Infrastructure() {
   return (
     <div className="bg-white text-gray-800 min-h-screen selection:bg-royal-blue selection:text-white font-sans overflow-x-hidden">
 
-      {/* SECTION 1: HERO SECTION (Styled like Industries Hero Section) */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-blueprint-grid bg-white py-24 md:py-32 border-b border-gray-200/50">
+      {/* SECTION 1: HERO SECTION (Styled like Sustainability Hero Section) */}
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center bg-[#0A121E] text-white py-24 md:py-32 border-b border-gray-900 overflow-hidden">
+
+        {/* Layer 1: Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
+          style={{
+            backgroundImage: `url('/Images/infra_hero_bg.png')`
+          }}
+        />
+
+        {/* Layer 2: Overlay Dark Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#0A121E]/75 to-[#0A121E] pointer-events-none" />
 
         {/* Radial graphic lights */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-royal-blue/[0.03] blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-royal-blue/[0.05] blur-3xl pointer-events-none z-10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center w-full mt-12">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 text-center w-full mt-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-[10px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block">
               Advanced Manufacturing
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-deep-navy font-heading mt-6 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-heading mt-6 mb-6">
               World-Class Printing & <br className="hidden md:block" />
               Packaging Infrastructure
             </h1>
-            <p className="text-base md:text-lg text-gray-650 font-sans font-light leading-relaxed max-w-3xl mx-auto pt-2">
+            <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-3xl mx-auto pt-2">
               Equipped with industry-leading printing, binding, finishing, and packaging technologies, our integrated facility delivers precision, quality, and speed at every stage of production.
             </p>
             <div className="h-[2px] w-32 bg-gradient-to-r from-royal-blue to-sky-400 mx-auto mt-8"></div>
@@ -165,101 +160,166 @@ export function Infrastructure() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-gray-150 p-6 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-350 relative group"
+                className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:bg-white/10 transition-all duration-350 relative group"
               >
                 {/* Micro Light Blue Accent Dot in the corner */}
                 <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-sky-400/40 group-hover:bg-sky-500 transition-colors" />
-                <div className="text-3xl md:text-4xl font-extrabold text-deep-navy mb-2 font-heading">
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-2 font-heading">
                   {stat.val}
                 </div>
-                <div className="text-[10px] text-gray-500 font-sans font-bold uppercase tracking-wider">
+                <div className="text-[10px] text-gray-300 font-sans font-bold uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
+
+        {/* Scroll indicator & Visual effect line representing manuscript to book */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Discover Our Plant</span>
+          <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
+            <motion.div 
+              animate={{ x: [-120, 120] }} 
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
+            />
+          </div>
+        </div>
       </section>
 
-      {/* SECTION 2: INFRASTRUCTURE CATEGORIES */}
-      <section className="relative py-24 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden">
+      {/* SECTION 2: PRODUCTION PIPELINE SHOWCASE */}
+      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden select-text">
         {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
         <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          
+          {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-4">
-              PLANT AREAS
+              Production Lifecycle
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
-              Infrastructure Categories
+              Integrated Production Stages
             </h2>
             <div className="w-12 h-1 bg-cyan-300 mx-auto mt-4 rounded-full" />
           </div>
 
-          {/* Clean 3-column card layout with light backgrounds */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Stepper Tabs */}
+          <div className="flex flex-nowrap lg:flex-wrap items-center justify-start lg:justify-center gap-3 mb-16 pb-4 overflow-x-auto scrollbar-none border-b border-white/15">
             {categories.map((cat, index) => {
+              const Icon = cat.icon;
+              const isActive = activeCategoryIdx === index;
+              return (
+                <button
+                  key={cat.name}
+                  onClick={() => setActiveCategoryIdx(index)}
+                  className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wide transition-all duration-300 border shrink-0 ${
+                    isActive
+                      ? "bg-white text-royal-blue border-white shadow-xl scale-103"
+                      : "bg-white/5 text-white/80 border-white/10 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <Icon className="w-4.5 h-4.5" />
+                  <span>{cat.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Stage Display Panel */}
+          <div className="min-h-[480px]">
+            {categories.map((cat, index) => {
+              if (index !== activeCategoryIdx) return null;
               const Icon = cat.icon;
               return (
                 <motion.div
                   key={cat.name}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group bg-white border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[420px] text-left"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
                 >
-                  <div className="p-8">
-                    {/* Header: Name, Icon & Small Accent Line */}
-                    <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <span className="text-[9px] font-bold text-royal-blue uppercase tracking-wider font-sans block mb-1">
-                          STAGE 0{index + 1}
+                  {/* Left content block (Glassmorphic) */}
+                  <div className="lg:col-span-6 bg-white/10 backdrop-blur-lg border border-white/20 p-8 md:p-10 rounded-[28px] text-white text-left shadow-2xl flex flex-col justify-between min-h-[420px]">
+                    <div>
+                      {/* Step Header */}
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="text-[10px] font-bold text-cyan-200 tracking-wider font-sans uppercase">
+                          Stage 0{index + 1} of 06
                         </span>
-                        <h3 className="text-xl font-bold text-deep-navy font-heading">
-                          {cat.name}
-                        </h3>
+                        <div className="p-3 rounded-2xl bg-white/10 border border-white/10 text-white">
+                          <Icon className="w-6 h-6" />
+                        </div>
                       </div>
-                      <div className="p-2.5 rounded-xl bg-sky-50 text-royal-blue border border-sky-100">
-                        <Icon className="w-5 h-5" />
-                      </div>
+
+                      {/* Title & Description */}
+                      <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight font-heading mb-4 text-white">
+                        {cat.name} Stage
+                      </h3>
+                      <p className="text-sm md:text-base text-blue-50 font-sans font-light leading-relaxed mb-8">
+                        {cat.desc}
+                      </p>
                     </div>
 
-                    {/* Small Light Blue Accent Line */}
-                    <div className="w-10 h-0.5 bg-royal-blue mb-4" />
-
-                    <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed mb-6">
-                      {cat.desc}
-                    </p>
+                    {/* Stage capabilities list */}
+                    <div>
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-cyan-200 mb-4 font-sans">
+                        Key Capabilities & Assets
+                      </h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                        {cat.equipment.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2 text-xs md:text-sm text-white/95 font-sans font-light">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  {/* Machine Image */}
-                  <div className="h-48 w-full overflow-hidden border-t border-gray-100 relative bg-slate-50">
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                  {/* Right image block */}
+                  <div className="lg:col-span-6">
+                    <div className="relative group overflow-hidden rounded-[28px] border-4 border-white/15 bg-white/5 backdrop-blur-md shadow-2xl aspect-[4/3] w-full">
+                      {/* Image zoom effect */}
+                      <img
+                        src={cat.image}
+                        alt={`${cat.name} equipment`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* Interactive shine overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
+
         </div>
       </section>
 
       {/* SECTION 3: FEATURED MACHINERY */}
-      <section className="relative py-24 bg-[#F8FAFC] border-y border-gray-200/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative py-32 bg-slate-950 overflow-hidden border-y border-slate-900 select-text">
+        {/* Parallax Background container */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-30"
+            style={{ backgroundImage: `url('/Images/featured_machinery_dark_bg.png')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-sky-950/20 to-slate-950/95"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-4">
+            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-950/80 border border-sky-800/50 px-2.5 py-1 rounded-full inline-block mb-4">
               HARDWARE ASSETS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
               Featured Machinery
             </h2>
-            <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-1 bg-sky-500 mx-auto mt-4 rounded-full" />
           </div>
 
           {/* Simple grid showcasing key machines with large images */}
@@ -271,22 +331,22 @@ export function Infrastructure() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="group bg-white border border-gray-150 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-gray-250 transition-all duration-300 text-left"
+                className="group bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:bg-slate-900/60 hover:border-sky-500/30 hover:translate-y-[-4px] transition-all duration-300 text-left flex flex-col h-full"
               >
                 {/* Large Machine Image */}
-                <div className="h-60 w-full overflow-hidden bg-slate-100 relative">
+                <div className="h-60 w-full overflow-hidden bg-slate-950/50 relative border-b border-white/5">
                   <img
                     src={mac.image}
                     alt={mac.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 {/* Text details */}
-                <div className="p-6 md:p-8 space-y-2">
-                  <h3 className="text-lg font-bold text-deep-navy font-heading group-hover:text-royal-blue transition-colors duration-300">
+                <div className="p-6 md:p-8 space-y-2 flex-grow">
+                  <h3 className="text-lg font-bold text-white font-heading group-hover:text-sky-300 transition-colors duration-300">
                     {mac.name}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
+                  <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
                     {mac.desc}
                   </p>
                 </div>
@@ -297,116 +357,96 @@ export function Infrastructure() {
       </section>
 
 
-      {/* SECTION 5: KEY CAPABILITIES */}
-      <section className="relative py-24 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden border-t border-white/10">
-        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
-        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+      {/* SECTION 6: CAPACITY & SCALE */}
+      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden border-t border-white/10 select-text">
+        {/* Inverted print grid background */}
+        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-4">
-              PERFORMANCE
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
-              Key Capabilities
-            </h2>
-            <div className="w-12 h-1 bg-cyan-300 mx-auto mt-4 rounded-full" />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Left Column: Heading & Narrative */}
+            <div className="lg:col-span-5 text-left space-y-6">
+              <span className="text-[10px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/25 px-3.5 py-1.5 rounded-full inline-block">
+                Production Scale
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-[1.15]">
+                Built for High-Volume Publishing
+              </h2>
+              <p className="text-base text-blue-50 font-sans font-light leading-relaxed">
+                Our plant is custom-engineered to execute complex, high-capacity printing tasks under strict timelines. With fully integrated preparation, offset press units, and automated binderies, we offer scalability that guarantees speed without sacrificing quality.
+              </p>
+              <div className="pt-4">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 border border-white/30 text-white rounded-full font-medium text-sm hover:bg-white hover:text-royal-blue hover:border-white transition-all duration-300 group font-sans"
+                >
+                  Request Plant Capacity Sheet
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
 
-          {/* 4 modern feature cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {capabilities.map((cap, index) => {
-              const Icon = cap.icon;
-              return (
+            {/* Right Column: Dynamic Asymmetric Metrics Grid */}
+            <div className="lg:col-span-7 grid grid-cols-6 gap-6 w-full">
+              {[
+                { 
+                  val: 30, 
+                  suffix: "+", 
+                  label: "Machinery Assets", 
+                  desc: "High-performance prepress, press, and post-press systems.",
+                  gridClass: "col-span-6 sm:col-span-3"
+                },
+                { 
+                  val: 8, 
+                  suffix: " Colour", 
+                  label: "Perfector Passes", 
+                  desc: "High-fidelity double-sided printing in a single pass.",
+                  gridClass: "col-span-6 sm:col-span-3"
+                },
+                { 
+                  val: 20, 
+                  suffix: " Station", 
+                  label: "Gathering loops", 
+                  desc: "Collation machinery with multi-station loops.",
+                  gridClass: "col-span-6 sm:col-span-2"
+                },
+                { 
+                  val: 10000, 
+                  suffix: "+", 
+                  label: "Covers / Hour", 
+                  desc: "High-speed cover wrapping and laminating.",
+                  gridClass: "col-span-6 sm:col-span-2"
+                },
+                { 
+                  val: 2, 
+                  suffix: "M+", 
+                  label: "Daily Punch Capacity", 
+                  desc: "Dynamic punching and die-cutting.",
+                  gridClass: "col-span-6 sm:col-span-2"
+                }
+              ].map((stat, idx) => (
                 <motion.div
-                  key={cap.title}
+                  key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-8 bg-white border border-white/10 rounded-2xl text-left shadow-lg hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between"
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className={`${stat.gridClass} bg-white/10 border border-white/20 backdrop-blur-lg rounded-[20px] p-6 text-left hover:bg-white/15 hover:border-white/35 hover:scale-[1.02] transition-all duration-300 group`}
                 >
-                  <div className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-sky-50 text-royal-blue border border-sky-100 flex items-center justify-center group-hover:bg-royal-blue group-hover:text-white transition-all duration-350">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-deep-navy font-heading">
-                      {cap.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
-                      {cap.desc}
-                    </p>
-                  </div>
-                  {/* Subtle light blue bottom accent decoration */}
-                  <div className="w-0 h-[2px] bg-royal-blue mt-6 group-hover:w-full transition-all duration-500" />
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: STATISTICS */}
-      <section className="relative py-24 bg-[#F8FAFC] border-y border-gray-200/50 font-sans">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Section Header */}
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/15 px-2.5 py-1 rounded-full inline-block mb-4">
-              Operation Scale
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy mt-4 mb-4 leading-tight font-heading">
-              High-Capacity Manufacturing Infrastructure
-            </h2>
-            <p className="text-base text-slate-650 leading-relaxed font-light font-sans">
-              Equipped with advanced multi-color offset presses and automated bindery systems, our production lines are engineered to execute high-volume publishing runs with uncompromising precision and speed.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch max-w-7xl mx-auto">
-            {[
-              { val: 30, suffix: "+", label: "Machines", eyebrow: "MACHINERY", desc: "High-performance prepress, press, and post-press systems.", image: "/Images/infra_machines.png" },
-              { val: 8, suffix: " Colour", label: "Printing", eyebrow: "TECHNOLOGY", desc: "High-fidelity double-sided printing in a single pass.", image: "/Images/infra_printing.png" },
-              { val: 20, suffix: " Station", label: "Gathering System", eyebrow: "BINDERY", desc: "Synchronized collection of multi-station loops.", image: "/Images/infra_gathering.png" },
-              { val: 10000, suffix: "+", label: "Covers Per Hour", eyebrow: "SPEED", desc: "High-speed cover wrapping and laminating execution.", image: "/Images/infra_covers.png" },
-              { val: 2, suffix: "M+", label: "Punch Capacity / Day", eyebrow: "VOLUME", desc: "High-capacity dynamic punching and die-cutting output.", image: "/Images/infra_punch.png" }
-            ].map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-gray-100 bg-gradient-to-br from-white via-white to-light-gray/50 p-6 shadow-sm hover:shadow-xl hover:border-royal-blue/30 hover:-translate-y-1.5 transition-all duration-400 ease-out min-h-[380px] text-left"
-              >
-                <div>
-                  <span className={`px-2.5 py-0.5 border text-[9px] font-bold uppercase tracking-widest rounded-full w-fit block mb-3 ${
-                    idx % 2 === 0
-                      ? "border-royal-blue/20 text-royal-blue bg-royal-blue/5"
-                      : "border-sky-200 text-sky-600 bg-sky-50"
-                  }`}>
-                    {stat.eyebrow}
-                  </span>
-                  <div className="text-4xl font-bold tracking-tight text-deep-navy font-heading mb-1.5">
+                  <div className="text-3xl md:text-4xl font-extrabold text-white font-heading mb-1.5">
                     <CountUp to={stat.val} suffix={stat.suffix} />
                   </div>
-                  <h3 className="text-base font-bold text-deep-navy mb-1 font-heading leading-snug">
+                  <h3 className="text-white font-bold text-base font-heading mb-1">
                     {stat.label}
                   </h3>
-                  <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
+                  <p className="text-blue-50 font-sans text-xs font-light leading-relaxed">
                     {stat.desc}
                   </p>
-                </div>
+                </motion.div>
+              ))}
+            </div>
 
-                {/* Bottom Visual Element */}
-                <div className="mt-4 pt-3 border-t border-gray-100/80 h-[160px] rounded-b-[20px] overflow-hidden">
-                  <img 
-                    src={stat.image} 
-                    alt={stat.label} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                  />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

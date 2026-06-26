@@ -80,22 +80,32 @@ export function Contact() {
 
   return (
     <div className="bg-white select-text">
-      
-      {/* SECTION 01: CONTACT HERO */}
-      <section className="relative h-[92vh] flex items-center justify-center bg-blueprint-grid bg-white border-b border-gray-200/50 overflow-hidden">
-        {/* Radial graphic lights */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-royal-blue/[0.03] blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gold-accent/[0.02] blur-3xl pointer-events-none" />
+            {/* SECTION 01: CONTACT HERO - Styled like Sustainability Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-[#0A121E] text-white border-b border-gray-900 overflow-hidden">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-12">
+        {/* Layer 1: Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
+          style={{
+            backgroundImage: `url('/Images/contact_hero_bg.png')`
+          }}
+        />
+
+        {/* Layer 2: Overlay Dark Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#0A121E]/75 to-[#0A121E] pointer-events-none" />
+
+        {/* Radial graphic lights */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-royal-blue/[0.05] blur-3xl pointer-events-none z-10" />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-12">
           <AnimatedSection direction="up" className="max-w-3xl mx-auto">
-            <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-4 py-1.5 rounded-full inline-block mb-6">
+            <span className="text-[10px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-4 py-1.5 rounded-full inline-block mb-6">
               Get In Touch
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-deep-navy mb-6 font-heading leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 font-heading leading-tight">
               Let's Build the Next Chapter Together.
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-light font-sans max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-305 mb-10 leading-relaxed font-light font-sans max-w-2xl mx-auto">
               Whether you're seeking a trusted manufacturing partner, sustainability-focused production solutions or world-class print quality, our team is ready to help bring your publishing vision to life.
             </p>
             
@@ -111,13 +121,13 @@ export function Contact() {
         </div>
 
         {/* Scroll indicator & Visual effect line representing manuscript to book */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center pointer-events-none">
-          <span className="text-[10px] text-gray-450 font-bold uppercase tracking-widest mb-3">Manuscript to Publication</span>
-          <div className="w-[120px] h-[3px] bg-slate-200 rounded-full overflow-hidden relative">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Manuscript to Publication</span>
+          <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
             <motion.div 
               animate={{ x: [-120, 120] }} 
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="absolute left-0 top-0 h-full w-[40px] bg-royal-blue rounded-full"
+              className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
             />
           </div>
         </div>
@@ -396,16 +406,21 @@ export function Contact() {
 
 
       {/* SECTION 06: CONTACT INFORMATION */}
-      <section id="info-hub" className="relative py-28 bg-white border-b border-slate-100">
-        <div className="absolute inset-0 bg-print-grid opacity-30 pointer-events-none"></div>
+      <section id="info-hub" className="relative py-28 bg-slate-950 overflow-x-clip border-b border-white/5">
+        {/* Background Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-30 z-0 pointer-events-none"
+          style={{ backgroundImage: "url('/Images/contact_info_dark_bg.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/80 to-slate-950 pointer-events-none z-10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <SectionHeader title="Corporate Coordinates" align="center" />
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy mt-4 mb-5 leading-tight font-heading">
+            <SectionHeader title="Corporate Coordinates" align="center" className="text-sky-400 border-sky-500/20 bg-sky-500/10" />
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-5 leading-tight font-heading">
               Premium Information Hub
             </h2>
-            <p className="text-base text-slate-650 leading-relaxed font-light font-sans">
+            <p className="text-base text-slate-300 leading-relaxed font-light font-sans">
               Direct access channels to our corporate executives, plant managers, logistics coordinators, and customer representatives.
             </p>
           </div>
@@ -413,13 +428,13 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Panel 1: Office */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Corporate Office</h4>
-                  <MapPin className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Corporate Office</h4>
+                  <MapPin className="w-5 h-5 text-sky-400" />
                 </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
+                <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
                   Multivista Global Ltd.<br />
                   43, Vandalur Kelambakkam Road,<br />
                   Pudupakkam, Chennai - 603 103,<br />
@@ -430,7 +445,7 @@ export function Contact() {
                 href="https://maps.google.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-royal-blue mt-6 hover:text-deep-navy transition-colors font-sans"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 mt-6 hover:text-white transition-colors font-sans"
               >
                 <span>Google Maps Direction</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -438,13 +453,13 @@ export function Contact() {
             </div>
 
             {/* Panel 2: Facility */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Manufacturing Plant</h4>
-                  <Building className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Manufacturing Plant</h4>
+                  <Building className="w-5 h-5 text-sky-400" />
                 </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
+                <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
                   43, Vandalur Kelambakkam Road,<br />
                   Pudupakkam, Chennai - 603 103,<br />
                   Tamil Nadu, India.
@@ -456,13 +471,13 @@ export function Contact() {
             </div>
 
             {/* Panel 3: Operating Hours */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Operating Hours</h4>
-                  <Clock className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Operating Hours</h4>
+                  <Clock className="w-5 h-5 text-sky-400" />
                 </div>
-                <p className="text-slate-600 font-sans text-sm leading-relaxed font-light">
+                <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
                   Monday – Friday: 08:30 – 18:00 (IST)<br />
                   Saturday (Logistics Support): 09:00 – 13:00 (IST)<br />
                   Production pressroom operates 24/7.
@@ -474,18 +489,18 @@ export function Contact() {
             </div>
 
             {/* Panel 4: Customer Service Contact */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Customer Service</h4>
-                  <Users className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Customer Service</h4>
+                  <Users className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="space-y-1">
-                  <h5 className="font-semibold text-deep-navy text-sm font-sans">K Saranya</h5>
-                  <p className="text-slate-500 font-sans text-xs font-light">Senior Executive – Customer Service</p>
+                  <h5 className="font-semibold text-white text-sm font-sans">K Saranya</h5>
+                  <p className="text-slate-400 font-sans text-xs font-light">Senior Executive – Customer Service</p>
                 </div>
-                <p className="text-slate-600 font-sans text-sm font-light">
-                  Email: <a href="mailto:csepress@multivistaglobal.com" className="text-royal-blue hover:underline font-medium">csepress@multivistaglobal.com</a>
+                <p className="text-slate-300 font-sans text-sm font-light">
+                  Email: <a href="mailto:csepress@multivistaglobal.com" className="text-sky-400 hover:text-white hover:underline font-medium">csepress@multivistaglobal.com</a>
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
@@ -494,18 +509,18 @@ export function Contact() {
             </div>
 
             {/* Panel 5: Sales & Sustainability Contact */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Sales & Sustainability</h4>
-                  <Users className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Sales & Sustainability</h4>
+                  <Users className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="space-y-1">
-                  <h5 className="font-semibold text-deep-navy text-sm font-sans">P N Krishna Moorthy</h5>
-                  <p className="text-slate-500 font-sans text-xs font-light">Head of Sales & Sustainability</p>
+                  <h5 className="font-semibold text-white text-sm font-sans">P N Krishna Moorthy</h5>
+                  <p className="text-slate-400 font-sans text-xs font-light">Head of Sales & Sustainability</p>
                 </div>
-                <p className="text-slate-600 font-sans text-sm font-light">
-                  Email: <a href="mailto:pnkrishna@multivistaglobal.com" className="text-royal-blue hover:underline font-medium">pnkrishna@multivistaglobal.com</a>
+                <p className="text-slate-300 font-sans text-sm font-light">
+                  Email: <a href="mailto:pnkrishna@multivistaglobal.com" className="text-sky-400 hover:text-white hover:underline font-medium">pnkrishna@multivistaglobal.com</a>
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
@@ -514,17 +529,17 @@ export function Contact() {
             </div>
 
             {/* Panel 6: Email Directory */}
-            <div className="bg-slate-50/50 border border-slate-150 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg">
+            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-deep-navy text-lg">Email Directory</h4>
-                  <Mail className="w-5 h-5 text-royal-blue" />
+                  <h4 className="font-heading font-bold text-white text-lg">Email Directory</h4>
+                  <Mail className="w-5 h-5 text-sky-400" />
                 </div>
-                <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
-                  General Info: <a href="mailto:info@multivista.in" className="text-royal-blue hover:underline font-medium">info@multivista.in</a><br />
-                  Export & Sales: <a href="mailto:sales@multivista.in" className="text-royal-blue hover:underline font-medium">sales@multivista.in</a><br />
-                  Logistics: <a href="mailto:shipping@multivista.in" className="text-royal-blue hover:underline font-medium">shipping@multivista.in</a><br />
-                  Careers Desk: <a href="mailto:careers@multivista.in" className="text-royal-blue hover:underline font-medium">careers@multivista.in</a>
+                <p className="text-slate-300 font-sans text-xs leading-relaxed font-light">
+                  General Info: <a href="mailto:info@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">info@multivista.in</a><br />
+                  Export & Sales: <a href="mailto:sales@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">sales@multivista.in</a><br />
+                  Logistics: <a href="mailto:shipping@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">shipping@multivista.in</a><br />
+                  Careers Desk: <a href="mailto:careers@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">careers@multivista.in</a>
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">

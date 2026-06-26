@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, CheckCircle2, Leaf, BookOpen, Layers, MonitorPlay, Printer } from "lucide-react";
@@ -14,71 +15,72 @@ import { TheNextChapter } from "@/components/layout/TheNextChapter";
 import { SplashCursor } from "@/components/ui/SplashCursor";
 
 export function Home() {
-  const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth < 768) return;
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const px = (e.clientX - centerX) * -0.015;
-      const py = (e.clientY - centerY) * -0.015;
-      setParallaxOffset({ x: px, y: py });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <div className="bg-white">
       {/* SECTION 1 - HERO */}
-      <section className="relative min-h-[80vh] lg:min-h-[100dvh] flex items-center justify-center bg-blueprint-grid bg-white py-20 px-4 md:py-32 selection:bg-brand-blue selection:text-white border-b border-gray-200/50 overflow-hidden">
-        {/* Radial graphic lights */}
+      <section className="relative min-h-[80vh] lg:min-h-[100dvh] flex items-center justify-center bg-[#0A121E] text-white py-20 px-4 md:py-32 selection:bg-brand-blue selection:text-white border-b border-gray-900 overflow-hidden">
+        {/* Layer 1: Background Image */}
         <div 
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-royal-blue/[0.03] blur-3xl pointer-events-none transition-transform duration-300 ease-out z-0" 
-          style={{ transform: `translate(${parallaxOffset.x}px, ${parallaxOffset.y}px)` }}
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-25 pointer-events-none"
+          style={{
+            backgroundImage: `url('/Images/home_hero_bg.png')`
+          }}
         />
-        <div 
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gold-accent/[0.02] blur-3xl pointer-events-none transition-transform duration-300 ease-out z-0" 
-          style={{ transform: `translate(${parallaxOffset.x}px, ${parallaxOffset.y}px)` }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-          <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
-            <SplashCursor
-              SIM_RESOLUTION={128}
-              DYE_RESOLUTION={1440}
-              DENSITY_DISSIPATION={3.5}
-              VELOCITY_DISSIPATION={2}
-              PRESSURE={0.1}
-              CURL={3}
-              SPLAT_RADIUS={0.2}
-              SPLAT_FORCE={6000}
-              COLOR_UPDATE_SPEED={10}
-            />
-          </div>
+
+        {/* Layer 2: Overlay Dark Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0A121E]/40 via-[#0A121E]/80 to-[#0A121E]" />
+
+        {/* Glow lights */}
+        <div className="absolute top-10 left-10 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-3xl pointer-events-none z-0" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-blue-600/5 blur-3xl pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/3 w-[450px] h-[450px] rounded-full bg-emerald-500/5 blur-3xl pointer-events-none z-0" />
+
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-[12] overflow-hidden">
+          <SplashCursor
+            SIM_RESOLUTION={128}
+            DYE_RESOLUTION={1440}
+            DENSITY_DISSIPATION={2.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.3}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+          />
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-12 md:mt-20">
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-12 md:mt-20">
           <AnimatedSection direction="up" className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center justify-center px-5 py-1.5 border border-royal-blue/20 text-royal-blue text-xs font-bold uppercase tracking-widest rounded-full bg-royal-blue/5 mb-8">
+            <div className="inline-flex items-center justify-center px-5 py-1.5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest rounded-full bg-sky-950/40 backdrop-blur-sm mb-8">
               Trusted Worldwide
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-deep-navy mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
               Manufacturing Knowledge. Delivering Sustainability.
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-blue-100/90 mb-10 leading-relaxed font-light">
               For nearly five decades, Multivista has been the trusted manufacturing partner for leading publishers across the globe.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button href="/products" size="lg" className="w-full sm:w-auto rounded-full">
                 Explore Our Capabilities
               </Button>
-              <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto rounded-full">
+              <Button href="/contact" variant="outline" size="lg" className="w-full sm:w-auto rounded-full border-white/30 text-white hover:bg-white/10">
                 Partner With Us
               </Button>
             </div>
           </AnimatedSection>
+        </div>
+
+        {/* Scroll indicator & Visual effect line representing manuscript to book */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Discover Our Ecosystem</span>
+          <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
+            <motion.div 
+              animate={{ x: [-120, 120] }} 
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
+            />
+          </div>
         </div>
       </section>
 

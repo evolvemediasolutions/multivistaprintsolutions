@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
-import { 
-  Leaf, 
-  Recycle, 
-  Droplet, 
-  TreePine, 
-  ShieldCheck, 
-  ArrowRight, 
-  ChevronRight, 
-  Download, 
-  Award, 
-  Compass, 
+import {
+  Leaf,
+  Recycle,
+  Droplet,
+  TreePine,
+  ShieldCheck,
+  ArrowRight,
+  ChevronRight,
+  ChevronLeft,
+  Play,
+  Pause,
+  Download,
+  Award,
+  Compass,
   Heart,
   Globe,
   Sparkles,
@@ -27,41 +30,41 @@ import { cn } from "@/lib/utils";
 
 // Timeline data
 const milestones = [
-  { 
-    year: "2019–20", 
-    title: "First Carbon Footprint Analysis", 
+  {
+    year: "2019–20",
+    title: "First Carbon Footprint Analysis",
     desc: "Established our initial baseline measurement, tracking Scope 1 & 2 emissions across our printing facilities to begin our scientific decarbonization pathway.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200"
   },
-  { 
-    year: "2020–21", 
-    title: "Environmental Reporting", 
+  {
+    year: "2020–21",
+    title: "Environmental Reporting",
     desc: "Integrated clean material waste metrics into our corporate logs, initiating transparent auditing of paper trim outputs and starting 100% recycling loops.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
   },
-  { 
-    year: "2021–22", 
-    title: "SDGs + Sustainability Report", 
+  {
+    year: "2021–22",
+    title: "SDGs + Sustainability Report",
     desc: "Aligned our operations with the UN Sustainable Development Goals, launching our first comprehensive ESG policy detailing water recycling and soy ink transitions.",
-    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1200"
   },
-  { 
-    year: "2022", 
-    title: "EcoVadis + SBTi Alignment", 
+  {
+    year: "2022",
+    title: "EcoVadis + SBTi Alignment",
     desc: "Submitted our carbon reduction goals to the Science Based Targets initiative (SBTi) and underwent our first formal EcoVadis sustainability rating audits.",
-    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=1200"
   },
-  { 
-    year: "2023", 
-    title: "UN Global Compact & Green Printer", 
+  {
+    year: "2023",
+    title: "UN Global Compact & Green Printer",
     desc: "Became a signatory to the UN Global Compact, and recognized as the Green Printer of the Year for outstanding solar offset integrations.",
-    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1200"
   },
-  { 
-    year: "2024", 
-    title: "Green Printer of the Year", 
+  {
+    year: "2024",
+    title: "Green Printer of the Year",
     desc: "Secured back-to-back industry honors as Green Printer of the Year, completing our phase-1 transition to solar energy and introducing compostable cargo wraps.",
-    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200" 
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200"
   }
 ];
 
@@ -72,7 +75,7 @@ const pillars = [
     title: "Climate Action",
     desc: "Measuring our footprint to hit near-zero targets. We track Scopes 1, 2, and 3 meticulously, actively reducing emissions through logistics optimizations and solar energy infrastructure.",
     tags: ["SBTi Decarbonization", "Net-Zero Goals", "Carbon Audits"],
-    image: "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=1000",
     icon: Globe
   },
   {
@@ -111,61 +114,69 @@ const pillars = [
 
 // Initiatives
 const initiatives = [
-  { 
+  {
     num: "01",
-    title: "FSC® & PEFC Certified Paper", 
-    desc: "Over 90% of book runs printed on ethically traceable forest products.", 
+    title: "FSC® & PEFC Certified Paper",
+    desc: "Over 90% of book runs printed on ethically traceable forest products.",
     image: "/Images/fsc_certified_paper.png?v=1",
-    icon: TreePine
+    icon: TreePine,
+    category: "materials"
   },
-  { 
+  {
     num: "02",
-    title: "Compostable Packaging", 
-    desc: "Replacing shrink wraps with 100% bio-degradable organic wrappers.", 
+    title: "Compostable Packaging",
+    desc: "Replacing shrink wraps with 100% bio-degradable organic wrappers.",
     image: "/Images/compostable_packaging.png?v=1",
-    icon: Recycle
+    icon: Recycle,
+    category: "materials"
   },
-  { 
+  {
     num: "03",
-    title: "Water-Based Varnish", 
-    desc: "Eco-friendly, chemical-free coatings that ensure easy paper decomposition.", 
+    title: "Water-Based Varnish",
+    desc: "Eco-friendly, chemical-free coatings that ensure easy paper decomposition.",
     image: "/Images/water_based_varnish.png?v=1",
-    icon: Droplet
+    icon: Droplet,
+    category: "materials"
   },
-  { 
+  {
     num: "04",
-    title: "Green Factory Initiative", 
-    desc: "Chennai facility utilizing low-energy thermal chiller arrays and solar rooftops.", 
+    title: "Green Factory Initiative",
+    desc: "Chennai facility utilizing low-energy thermal chiller arrays and solar rooftops.",
     image: "/Images/green_factory_initiative.png?v=1",
-    icon: Zap
+    icon: Zap,
+    category: "production"
   },
-  { 
+  {
     num: "05",
-    title: "No Plastic Zone", 
-    desc: "Eliminating single-use plastics across our entire administrative and press floors.", 
+    title: "No Plastic Zone",
+    desc: "Eliminating single-use plastics across our entire administrative and press floors.",
     image: "/Images/no_plastic_zone.png?v=1",
-    icon: ShieldCheck
+    icon: ShieldCheck,
+    category: "supply"
   },
-  { 
+  {
     num: "06",
-    title: "Process-Less Plates", 
-    desc: "Saving thousands of liters of chemical developer fluids in prepress setups.", 
+    title: "Process-Less Plates",
+    desc: "Saving thousands of liters of chemical developer fluids in prepress setups.",
     image: "/Images/processless_plates.png?v=1",
-    icon: Layers
+    icon: Layers,
+    category: "production"
   },
-  { 
+  {
     num: "07",
-    title: "Sustainable Procurement", 
-    desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.", 
+    title: "Sustainable Procurement",
+    desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.",
     image: "/Images/sustainable_procurement.png?v=1",
-    icon: Heart
+    icon: Heart,
+    category: "supply"
   },
-  { 
+  {
     num: "08",
-    title: "Water Chiller Plant", 
-    desc: "Closed-loop industrial refrigeration saving 80% water on press cooling.", 
+    title: "Water Chiller Plant",
+    desc: "Closed-loop industrial refrigeration saving 80% water on press cooling.",
     image: "/Images/water_chiller_plant.png?v=1",
-    icon: Droplet
+    icon: Droplet,
+    category: "production"
   }
 ];
 
@@ -205,19 +216,6 @@ const emissionsData = {
     ]
   }
 };
-
-// Certifications
-const certifications = [
-  { title: "SBTi Validated", org: "Science Based Targets", desc: "Recognized 1.5°C reduction alignment pathway.", icon: Award },
-  { title: "UN Global Compact", org: "United Nations", desc: "Signatory to universal sustainable principles.", icon: ShieldCheck },
-  { title: "EcoVadis Silver/Gold", org: "EcoVadis Audits", desc: "Ranked in the top tier of printing companies.", icon: Compass },
-  { title: "Green Printer 2023", org: "National Print Awards", desc: "Honored for outstanding green energy swaps.", icon: Sparkles },
-  { title: "Green Printer 2024", org: "National Print Awards", desc: "Back-to-back award-winner for plant efficiency.", icon: Star },
-  { title: "Great Place to Work®", org: "GPTW® Institute", desc: "Certified for inclusive culture and safety.", icon: Heart },
-  { title: "FSC® Certified", org: "Forest Stewardship Council", desc: "Ethically managed wood fiber chain validation.", icon: TreePine },
-  { title: "PEFC Certified", org: "Endorsement of Forest Certification", desc: "Guaranteed sustainable paper pathways.", icon: Leaf }
-];
-
 
 
 const footprintReports = [
@@ -268,15 +266,15 @@ function InitiativeCard({ num, title, desc, image, icon: Icon }: InitiativeCardP
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="group bg-white rounded-3xl border border-slate-150 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full text-left relative">
+    <div className="group bg-white rounded-3xl border border-slate-150 overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full text-left relative">
       {/* Image / Fallback block */}
-      <div className="h-56 w-full bg-slate-50 relative overflow-hidden">
+      <div className="h-52 w-full bg-slate-50 relative overflow-hidden">
         {!imageError ? (
-          <img 
-            src={image} 
-            alt={title} 
+          <img
+            src={image}
+            alt={title}
             onError={() => setImageError(true)}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" 
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-sky-500/10 to-blue-500/5 flex items-center justify-center relative">
@@ -285,35 +283,35 @@ function InitiativeCard({ num, title, desc, image, icon: Icon }: InitiativeCardP
           </div>
         )}
         {/* Number Badge */}
-        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm border border-slate-200/50 rounded-xl px-3 py-1 shadow-sm flex items-center gap-1.5 z-20">
+        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-slate-200/50 rounded-xl px-3 py-1 shadow-sm flex items-center gap-1.5 z-20">
           <span className="text-[10px] font-bold text-sky-600 font-mono tracking-wider">
             {num}
           </span>
         </div>
-        
-        {/* Thin top gradient for subtle shadow */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/10 to-transparent pointer-events-none z-10" />
+
+        {/* Light cover gradient overlay */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/10 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Content */}
-      <div className="p-6 md:p-8 flex flex-col justify-between flex-grow space-y-4">
+      <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-[9px] font-bold text-sky-600 tracking-widest uppercase font-heading">
               INITIATIVE
             </span>
-            <div className="p-1.5 rounded-lg bg-sky-50 text-sky-600 border border-sky-100/50 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+            <div className="p-1.5 rounded-lg bg-sky-50 text-sky-600 border border-sky-100/50 group-hover:bg-sky-500 group-hover:text-white group-hover:border-sky-500 transition-all duration-300">
               <Icon className="w-4 h-4" />
             </div>
           </div>
-          <h3 className="text-lg md:text-xl font-bold text-deep-navy font-heading leading-snug group-hover:text-sky-600 transition-colors duration-300">
+          <h3 className="text-base font-bold text-deep-navy font-heading leading-snug group-hover:text-sky-600 transition-colors duration-300">
             {title}
           </h3>
-          <p className="text-xs md:text-sm text-gray-500 font-sans leading-relaxed font-light">
+          <p className="text-xs text-gray-500 font-sans leading-relaxed font-light">
             {desc}
           </p>
         </div>
-        
+
         {/* Subtle decorative line */}
         <div className="h-[2px] w-8 bg-sky-500/20 group-hover:w-16 group-hover:bg-sky-500 transition-all duration-300" />
       </div>
@@ -324,28 +322,30 @@ function InitiativeCard({ num, title, desc, image, icon: Icon }: InitiativeCardP
 export function Sustainability() {
   const [activeScope, setActiveScope] = useState<'scope1' | 'scope2' | 'scope3'>('scope1');
   const [activeReport, setActiveReport] = useState<any>(null);
-  
+
   // Parallax Hero state
   const [heroScroll, setHeroScroll] = useState(0);
-  
-  // Timeline horizontal scroll state
-  const journeySectionRef = useRef<HTMLDivElement>(null);
-  const [journeyProgress, setJourneyProgress] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const [maxTranslate, setMaxTranslate] = useState(0);
 
-  // Background Parallax: Move background image slower than scroll
-  const { scrollYProgress } = useScroll({
-    target: journeySectionRef,
-    offset: ["start end", "end start"],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  // Redesigned Sustainability Journey active index
+  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState(0); // Autoplay state for interactive timeline
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Category switch state for Initiatives Section
+  const [activeCategory, setActiveCategory] = useState<'all' | 'materials' | 'production' | 'supply'>('all');
 
   // Pillars Scroll Spy states & refs
   const [activePillarIndex, setActivePillarIndex] = useState(0);
   const isPillarScrollingRef = useRef(false);
   const pillarScrollTimeoutRef = useRef<number | null>(null);
+
+  // Autoplay effect for the timeline journey
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setActiveMilestoneIndex((prev) => (prev + 1) % milestones.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isPlaying]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -355,69 +355,41 @@ export function Sustainability() {
         setHeroScroll(scrolled);
       }
 
-      // Timeline Horizontal Scroll
-      if (journeySectionRef.current) {
-        const rect = journeySectionRef.current.getBoundingClientRect();
-        const elementHeight = rect.height;
-        const viewportHeight = window.innerHeight;
-        
-        const start = -rect.top;
-        const total = elementHeight - viewportHeight;
-        
-        if (total > 0) {
-          const progress = Math.min(Math.max(start / total, 0), 1);
-          setJourneyProgress(progress);
-        }
-      }
-
       // Dynamic Active Pillar Scroll Spy
       if (!isPillarScrollingRef.current) {
         const targetOffset = window.innerHeight * 0.35; // 35% from top of viewport
         let closestIdx = 0;
         let minDistance = Infinity;
 
-        pillars.forEach((_, idx) => {
-          const el = document.getElementById(`pillar-section-${idx}`);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            const distance = Math.abs(rect.top - targetOffset);
-            if (distance < minDistance) {
-              minDistance = distance;
-              closestIdx = idx;
+        // Check if we have scrolled to the bottom of the page
+        const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120;
+
+        if (isAtBottom) {
+          closestIdx = pillars.length - 1;
+        } else {
+          pillars.forEach((_, idx) => {
+            const el = document.getElementById(`pillar-section-${idx}`);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              const distance = Math.abs(rect.top - targetOffset);
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestIdx = idx;
+              }
             }
-          }
-        });
+          });
+        }
         setActivePillarIndex(closestIdx);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
     handleScroll();
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-  // Update horizontal track widths dynamically for complete responsiveness
-  useEffect(() => {
-    const updateWidths = () => {
-      if (sliderRef.current && viewportRef.current) {
-        const sliderWidth = sliderRef.current.scrollWidth;
-        const viewportWidth = viewportRef.current.clientWidth;
-        setMaxTranslate(Math.max(sliderWidth - viewportWidth, 0));
-      }
-    };
-
-    updateWidths();
-    window.addEventListener("resize", updateWidths);
-    const timer = setTimeout(updateWidths, 100);
-
-    return () => {
-      window.removeEventListener("resize", updateWidths);
-      clearTimeout(timer);
     };
   }, []);
 
@@ -439,14 +411,9 @@ export function Sustainability() {
     }, 800);
   };
 
-  const activeTimelineIndex = Math.min(
-    Math.floor(journeyProgress * milestones.length),
-    milestones.length - 1
-  );
-
   return (
     <div className="bg-white relative select-text overflow-x-clip">
-      
+
       {/* Inline styles for custom animations */}
       <style>
         {`
@@ -486,7 +453,7 @@ export function Sustainability() {
       {/* SECTION 01: SUSTAINABILITY HERO */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0A121E] text-white">
         {/* Layer 1: Forest Background Parallax */}
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-45 scale-105 transition-transform duration-100 ease-out"
           style={{
             transform: `translateY(${heroScroll * 0.4}px) scale(1.05)`,
@@ -527,11 +494,15 @@ export function Sustainability() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 opacity-60">
-          <span className="text-[8px] font-bold tracking-widest uppercase text-gray-400">SCROLL DOWN</span>
-          <div className="w-1.5 h-6 bg-white/20 rounded-full relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2.5 bg-sky-400 rounded-full animate-bounce" />
+        {/* Scroll indicator & Visual effect line representing manuscript to book */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Responsibility & Progress</span>
+          <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
+            <motion.div
+              animate={{ x: [-120, 120] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
+            />
           </div>
         </div>
       </section>
@@ -539,7 +510,7 @@ export function Sustainability() {
       {/* SECTION 02: OUR SUSTAINABILITY PHILOSOPHY */}
       <section id="philosophy" className="relative py-28 md:py-36 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Left: Headline & editorial typography */}
             <div className="lg:col-span-5 space-y-6 text-left">
@@ -559,12 +530,12 @@ export function Sustainability() {
             <div className="lg:col-span-7 relative">
               {/* Outer decoration border */}
               <div className="absolute -inset-4 border border-dashed border-slate-200 rounded-3xl pointer-events-none z-0" />
-              
+
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[1.5/1] bg-slate-50 z-10">
-                <img 
-                  src="/Images/progress_with_purpose.png?v=1" 
-                  alt="Responsible forestry paper production sourcing" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" 
+                <img
+                  src="/Images/progress_with_purpose.png?v=1"
+                  alt="Responsible forestry paper production sourcing"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/30 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -575,18 +546,30 @@ export function Sustainability() {
       </section>
 
       {/* SECTION 02.5: CARBON FOOTPRINT REPORTS */}
-      <section id="carbon-footprints" className="relative py-24 bg-[#F8FAFC] border-t border-b border-slate-100 font-sans scroll-mt-24">
-        <div className="absolute inset-0 bg-print-grid opacity-30 pointer-events-none"></div>
+      <section
+        id="carbon-footprints"
+        className="relative py-24 bg-slate-950 overflow-hidden font-sans scroll-mt-24"
+      >
+        {/* Background Image Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-35 z-0"
+          style={{ backgroundImage: "url('/Images/carbon_disclosures_dark_bg.png')" }}
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/80 to-slate-950 pointer-events-none z-10"></div>
+
+        <div className="absolute inset-0 bg-print-grid opacity-20 pointer-events-none z-10"></div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-full inline-block mb-4">
+            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded-full inline-block mb-4">
               CARBON AUDITS
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy mt-4 mb-4 leading-tight font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-4 leading-tight font-heading">
               Carbon Footprint Disclosures
             </h2>
-            <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed max-w-xl mx-auto">
+            <p className="text-xs md:text-sm text-slate-300 font-sans font-light leading-relaxed max-w-xl mx-auto">
               Access and preview our certified greenhouse gas accounting sheets and environmental assessment reports.
             </p>
           </div>
@@ -595,41 +578,41 @@ export function Sustainability() {
             {footprintReports.map((report) => {
               const Icon = report.icon;
               return (
-                <motion.div 
+                <motion.div
                   key={report.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-3xl border border-slate-150 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 text-left relative group min-h-[300px]"
+                  className="bg-slate-900/40 backdrop-blur-md rounded-3xl border border-white/10 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:bg-slate-900/60 hover:border-sky-500/30 transition-all duration-300 text-left relative group min-h-[300px]"
                 >
                   <div className="space-y-4">
                     {/* Icon Badge */}
-                    <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 flex items-center justify-center border border-sky-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center border border-sky-500/20 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-5 h-5" />
                     </div>
 
-                    <span className="text-[9px] font-bold text-sky-600 uppercase tracking-widest font-heading block">
+                    <span className="text-[9px] font-bold text-sky-400 uppercase tracking-widest font-heading block">
                       {report.subtitle}
                     </span>
 
-                    <h3 className="text-base font-bold text-deep-navy font-heading leading-tight group-hover:text-sky-600 transition-colors duration-300">
+                    <h3 className="text-base font-bold text-white font-heading leading-tight group-hover:text-sky-400 transition-colors duration-300">
                       {report.title}
                     </h3>
 
-                    <p className="text-xs text-gray-450 font-sans leading-relaxed font-light">
+                    <p className="text-xs text-slate-300 font-sans leading-relaxed font-light">
                       {report.description}
                     </p>
                   </div>
 
-                  <div className="pt-6 border-t border-slate-100 flex flex-col gap-3 mt-6">
-                    <div className="flex justify-between items-center text-[10px] font-bold text-gray-400 font-mono">
+                  <div className="pt-6 border-t border-white/5 flex flex-col gap-3 mt-6">
+                    <div className="flex justify-between items-center text-[10px] font-bold text-slate-400 font-mono">
                       <span>PDF — {report.size}</span>
                     </div>
-                    
+
                     <button
                       type="button"
                       onClick={() => setActiveReport(report)}
-                      className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl border border-slate-100 text-slate-655 font-medium text-xs bg-slate-50 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300 group/btn mt-1 cursor-pointer"
+                      className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl border border-white/10 text-white font-medium text-xs bg-slate-900/60 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all duration-300 group/btn mt-1 cursor-pointer"
                     >
                       <span>View Report</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
@@ -642,153 +625,222 @@ export function Sustainability() {
         </div>
       </section>
 
-      {/* SECTION 03: SUSTAINABILITY AT A GLANCE */}
-      <section className="relative py-28 text-white overflow-hidden bg-[#070E17]">
-        {/* Background Image with Aerial forestry */}
-        <div className="absolute inset-0 z-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1600')` }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070E17] via-transparent to-[#070E17] z-10" />
+
+      {/* SECTION 04: OUR SUSTAINABILITY JOURNEY (Interactive Showcase) */}
+      <section className="relative py-28 bg-white overflow-hidden font-sans select-text border-t border-b border-slate-100">
+        {/* Background Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-[0.04] z-0 pointer-events-none"
+          style={{ backgroundImage: "url('/Images/Sus1.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white z-10 pointer-events-none" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-full inline-block">
-              IMPACT WALL
+
+          {/* Header */}
+          <div className="text-left max-w-3xl mb-16">
+            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-full inline-block">
+              JOURNEY ROADMAP
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
-              Sustainability at a Glance
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
+              A Commitment That Continues to Grow
             </h2>
+            <p className="text-xs md:text-sm text-slate-500 font-sans font-light leading-relaxed max-w-xl mt-3">
+              Explore how we have scaled our ecological targets and green integrations step-by-step from 2019 to today.
+            </p>
           </div>
 
-          {/* Glassmorphism statistics items */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { val: "SBTi", label: "Validated Target Pathway", desc: "First Indian Printer to align and receive validation for a 1.5°C decarbonization target." },
-              { val: "UN Global Compact", label: "Global Signatory Member", desc: "Active member committing to universal principles on climate and human standards." },
-              { val: "90%+", label: "FSC® & PEFC Usage", desc: "Ethical paper inputs from responsibly managed forestry loops." },
-              { val: "EcoVadis", label: "Rated Sustainability", desc: "Independent ESG rating placing us in top metrics of printing companies." },
-              { val: "GPTW®", label: "Certified Great Workplace", desc: "Recognized for continuous workplace safety, employee loops, and diversity." },
-              { val: "Scope 1, 2, 3", label: "Carbon Measurement", desc: "Comprehensive Greenhouse Gas audits measured and published annually since 2019." },
-              { val: "Water-Free", label: "Chemical Free Prepress", desc: "Employing process-less plate sets to eliminate chemical fluids completely." },
-              { val: "100%", label: "Solar Operations Loop", desc: "Consolidated Chennai plant partially running on 450kW grid of solar energy." }
-            ].map((stat, idx) => (
-              <motion.div 
-                key={stat.val}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10% 0px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300 flex flex-col justify-between text-left"
-              >
-                <div>
-                  <div className="text-3xl font-bold font-heading text-sky-400 mb-1">
-                    {stat.val}
-                  </div>
-                  <h4 className="text-xs font-bold text-white font-heading uppercase tracking-wide mb-3">
-                    {stat.label}
-                  </h4>
-                </div>
-                <p className="text-xs text-gray-300 font-sans font-light leading-relaxed border-t border-white/5 pt-3 mt-4">
-                  {stat.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
-      {/* SECTION 04: OUR SUSTAINABILITY JOURNEY (Cinematic Horizontal Timeline) */}
-      <section ref={journeySectionRef} className="relative h-[300vh] bg-[#0A121E]">
-        {/* Sticky element wrapper */}
-        <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
-          
-          {/* Background Parallax Layer */}
-          <motion.div
-            className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
-            style={{
-              backgroundImage: "url('/Images/Sus1.jpg')",
-              y: backgroundY,
-              scale: 1.15,
-              opacity: 0.15,
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A121E] via-[#0A121E]/85 to-transparent z-0 pointer-events-none" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="text-left max-w-2xl mb-12">
-              <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded-full inline-block">
-                TIMELINE
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
-                A Commitment That Continues to Grow
-              </h2>
-            </div>
-
-            {/* Horizontal Timeline Slider Frame */}
-            <div ref={viewportRef} className="relative w-full overflow-hidden py-8">
-              <div 
-                ref={sliderRef}
-                className="flex gap-8 transition-transform duration-300 ease-out"
-                style={{ transform: `translateX(-${journeyProgress * maxTranslate}px)` }}
-              >
+            {/* LEFT COLUMN: Year Switcher Timeline */}
+            <div className="lg:col-span-4 flex flex-col justify-center">
+              <div className="relative pl-8 border-l-2 border-slate-100 space-y-6 py-4">
+                {/* Year indicators */}
                 {milestones.map((m, idx) => {
-                  const isActive = activeTimelineIndex === idx;
+                  const isActive = activeMilestoneIndex === idx;
                   return (
-                    <div 
+                    <button
                       key={m.year}
-                      className={cn(
-                        "w-[20rem] md:w-[26rem] shrink-0 p-8 rounded-3xl border transition-all duration-500 text-left relative overflow-hidden",
-                        isActive 
-                          ? "bg-white/10 backdrop-blur-md border-sky-500/40 shadow-xl shadow-sky-500/5" 
-                          : "bg-white/5 backdrop-blur-sm border-white/5 opacity-40 scale-98"
-                      )}
+                      type="button"
+                      onClick={() => {
+                        setActiveMilestoneIndex(idx);
+                        setIsPlaying(false); // Stop autoplay when clicked
+                      }}
+                      className="group flex items-center gap-4 text-left relative focus:outline-none cursor-pointer"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-bl-full pointer-events-none" />
-                      
-                      <span className={cn(
-                        "text-3xl font-bold font-heading transition-colors duration-500",
-                        isActive ? "text-sky-400 scale-105 inline-block" : "text-gray-400"
+                      {/* Active Year Line indicator */}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeTimelineIndicator"
+                          className="absolute -left-[35px] w-[5px] h-[32px] bg-sky-500 rounded-r-full shadow-[0_0_12px_rgba(14,165,233,0.3)]"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+
+                      {/* Year circle node */}
+                      <div className={cn(
+                        "w-5 h-5 rounded-full border-2 transition-all duration-300 flex items-center justify-center -ml-[43px] z-20",
+                        isActive
+                          ? "bg-sky-500 border-sky-500 scale-120 shadow-[0_0_8px_rgba(14,165,233,0.3)]"
+                          : "bg-white border-slate-200 group-hover:border-slate-400"
                       )}>
-                        {m.year}
-                      </span>
-                      <h3 className="text-lg md:text-xl font-bold text-white font-heading mt-4 mb-2 leading-tight">
-                        {m.title}
-                      </h3>
-                      <p className="text-xs md:text-sm text-gray-300 font-sans font-light leading-relaxed mt-2">
-                        {m.desc}
-                      </p>
-                    </div>
+                        {isActive && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+                      </div>
+
+                      {/* Year label text */}
+                      <div className="space-y-0.5">
+                        <span className={cn(
+                          "text-xl font-bold font-heading transition-colors duration-300 block",
+                          isActive ? "text-sky-600 text-2xl" : "text-slate-400 group-hover:text-slate-600"
+                        )}>
+                          {m.year}
+                        </span>
+                        <span className={cn(
+                          "text-[10px] font-sans font-light transition-colors duration-300 line-clamp-1 max-w-[200px]",
+                          isActive ? "text-slate-700 font-normal" : "text-slate-400 group-hover:text-slate-500"
+                        )}>
+                          {m.title}
+                        </span>
+                      </div>
+                    </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Horizontal Track line indicating scroll depth */}
-            <div className="mt-12 max-w-xl h-[2px] bg-white/10 rounded-full relative overflow-hidden">
-              <div 
-                className="absolute left-0 top-0 h-full bg-sky-400 rounded-full transition-all duration-300 ease-out"
-                style={{ width: `${journeyProgress * 100}%` }}
-              />
+            {/* RIGHT COLUMN: Active Card Details */}
+            <div className="lg:col-span-8 flex flex-col justify-between">
+
+              <div className="relative min-h-[380px] w-full flex items-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeMilestoneIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full bg-slate-50/80 backdrop-blur-md border border-slate-200/60 p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden flex flex-col md:flex-row gap-8 items-center"
+                  >
+                    {/* Corner decorative glow */}
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/[0.03] rounded-bl-full pointer-events-none" />
+
+                    {/* Image with zoom effect */}
+                    <div className="w-full md:w-2/5 shrink-0 relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-64 border border-slate-200/50 group bg-slate-100 shadow-md">
+                      <img
+                        src={milestones[activeMilestoneIndex].image}
+                        alt={milestones[activeMilestoneIndex].title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none" />
+                    </div>
+
+                    {/* Text descriptions */}
+                    <div className="flex-1 text-left space-y-4">
+                      <span className="text-sky-600 text-3xl font-extrabold font-heading block tracking-tight">
+                        {milestones[activeMilestoneIndex].year}
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-bold text-deep-navy font-heading leading-snug">
+                        {milestones[activeMilestoneIndex].title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-600 font-sans font-light leading-relaxed">
+                        {milestones[activeMilestoneIndex].desc}
+                      </p>
+
+                      {/* Metric visual pill */}
+                      <div className="pt-2">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sky-500/15 bg-sky-500/5 text-sky-600 text-[10px] font-bold uppercase tracking-wider font-heading">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          Validated Achievement
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* CONTROLS BAR: Play, Pause, Previous, Next */}
+              <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-6">
+
+                {/* Autoplay & Auto indicator */}
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    className={cn(
+                      "w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer",
+                      isPlaying
+                        ? "border-sky-500/20 text-sky-600 bg-sky-500/5 shadow-sm"
+                        : "border-slate-200 text-slate-400 hover:text-slate-655 hover:border-slate-300"
+                    )}
+                    aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
+                  >
+                    {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                  </button>
+                  <span className="text-[10px] text-slate-505 font-mono">
+                    {isPlaying ? "AUTOPLAYING ROADMAP" : "AUTOPLAY PAUSED"}
+                  </span>
+                </div>
+
+                {/* Left/Right switches */}
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveMilestoneIndex((prev) => (prev === 0 ? milestones.length - 1 : prev - 1));
+                      setIsPlaying(false);
+                    }}
+                    className="w-10 h-10 rounded-full border border-slate-200 text-slate-400 hover:text-slate-655 hover:border-slate-300 flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    aria-label="Previous milestone"
+                  >
+                    <ChevronLeft className="w-4.5 h-4.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveMilestoneIndex((prev) => (prev + 1) % milestones.length);
+                      setIsPlaying(false);
+                    }}
+                    className="w-10 h-10 rounded-full border border-slate-200 text-slate-400 hover:text-slate-655 hover:border-slate-300 flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    aria-label="Next milestone"
+                  >
+                    <ChevronRight className="w-4.5 h-4.5" />
+                  </button>
+                </div>
+
+              </div>
+
             </div>
+
           </div>
+
         </div>
       </section>
 
       {/* SECTION 05: THE FIVE SUSTAINABILITY PILLARS (Sticky Scroll Spy layout) */}
-      <section className="relative py-24 md:py-32 bg-white scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
+      <section className="relative py-24 md:py-32 bg-slate-950 overflow-x-clip scroll-mt-24">
+        {/* Background Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-30 z-0 pointer-events-none"
+          style={{ backgroundImage: "url('/Images/sustainability_pillars_dark_bg.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/80 to-slate-950 pointer-events-none z-10" />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            
+
             {/* Left Column: Sticky Pillar Navigation List */}
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-36 space-y-8">
                 <div className="space-y-4">
-                  <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-3 py-1 rounded-full inline-block">
+                  <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-full inline-block">
                     OUR PILLARS
                   </span>
-                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading font-bold">
+                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading font-bold">
                     Core Sustainability Pillars
                   </h2>
-                  <p className="text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-300 font-sans font-light leading-relaxed">
                     Our environmental commitment is built on five strategic operational focus areas. Click any pillar to explore details.
                   </p>
                 </div>
@@ -797,8 +849,8 @@ export function Sustainability() {
                 <div className="relative mt-8">
                   {/* Vertical Progress Line */}
                   <div className="absolute left-[18px] top-[36px] bottom-[36px] w-[2px] pointer-events-none">
-                    <div className="absolute inset-0 bg-slate-100 rounded-full" />
-                    <div 
+                    <div className="absolute inset-0 bg-white/10 rounded-full" />
+                    <div
                       className="absolute top-0 left-0 w-full bg-sky-500 rounded-full transition-all duration-500 ease-out"
                       style={{
                         height: `${(activePillarIndex / (pillars.length - 1)) * 100}%`
@@ -817,10 +869,10 @@ export function Sustainability() {
                             type="button"
                             onClick={() => scrollToPillar(idx)}
                             className={cn(
-                              "absolute left-[18px] -translate-x-1/2 w-4.5 h-4.5 rounded-full border-2 bg-white cursor-pointer transition-all duration-300 flex items-center justify-center z-20 outline-none",
-                              isActive 
-                                ? "border-sky-500 bg-sky-500 scale-110 ring-4 ring-sky-500/15 shadow-sm" 
-                                : "border-slate-200 hover:border-slate-400"
+                              "absolute left-[18px] -translate-x-1/2 w-4.5 h-4.5 rounded-full border-2 cursor-pointer transition-all duration-300 flex items-center justify-center z-20 outline-none",
+                              isActive
+                                ? "border-sky-500 bg-sky-500 scale-110 ring-4 ring-sky-500/15 shadow-sm"
+                                : "border-white/10 bg-slate-900/60 hover:border-white/30"
                             )}
                             aria-label={`Go to ${item.title}`}
                           >
@@ -832,31 +884,31 @@ export function Sustainability() {
                             type="button"
                             onClick={() => scrollToPillar(idx)}
                             className={cn(
-                              "w-full text-left ml-9 p-4 rounded-xl border transition-all duration-300 flex items-center justify-between group cursor-pointer",
-                              isActive 
-                                ? "bg-sky-500/[0.02] border-sky-500/30 shadow-md shadow-sky-500/5" 
-                                : "bg-white border-gray-100 hover:border-gray-200"
+                              "w-full text-left ml-9 p-4 rounded-xl border transition-all duration-300 flex items-center justify-between group cursor-pointer backdrop-blur-sm",
+                              isActive
+                                ? "bg-slate-900/60 border-sky-500/40 shadow-xl shadow-sky-500/5 text-white"
+                                : "bg-slate-900/20 border-white/5 hover:bg-slate-900/40 hover:border-white/10 text-slate-400"
                             )}
                           >
                             <div className="flex items-center gap-3">
                               <div className={cn(
                                 "w-8 h-8 rounded-lg flex items-center justify-center border transition-all duration-300",
-                                isActive 
-                                  ? "bg-sky-500/10 border-sky-500/20 text-sky-600" 
-                                  : "bg-slate-50 border-transparent text-gray-400"
+                                isActive
+                                  ? "bg-sky-500/10 border-sky-500/20 text-sky-400"
+                                  : "bg-slate-900/60 border-white/5 text-slate-500"
                               )}>
                                 <Icon className="w-4 h-4" />
                               </div>
                               <div className="space-y-0.5">
                                 <span className={cn(
                                   "text-[9px] font-bold font-heading tracking-widest uppercase block transition-colors duration-300",
-                                  isActive ? "text-sky-600" : "text-gray-400"
+                                  isActive ? "text-sky-400" : "text-slate-500"
                                 )}>
                                   Pillar {item.num}
                                 </span>
                                 <h4 className={cn(
                                   "text-sm font-bold font-heading transition-colors duration-300",
-                                  isActive ? "text-deep-navy" : "text-gray-500"
+                                  isActive ? "text-white" : "text-slate-400 group-hover:text-slate-200"
                                 )}>
                                   {item.title}
                                 </h4>
@@ -864,7 +916,7 @@ export function Sustainability() {
                             </div>
                             <ChevronRight className={cn(
                               "w-4 h-4 transition-transform duration-300",
-                              isActive ? "text-sky-500 translate-x-1" : "text-gray-300 group-hover:translate-x-0.5"
+                              isActive ? "text-sky-400 translate-x-1" : "text-slate-500 group-hover:translate-x-0.5"
                             )} />
                           </button>
                         </div>
@@ -889,30 +941,35 @@ export function Sustainability() {
                     )}
                   >
                     <div className={cn(
-                      "relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/3] border bg-slate-50 mb-6 transition-all duration-700",
-                      isActive ? "border-sky-500/30 shadow-sky-500/5 shadow-2xl" : "border-gray-200/60 shadow-md"
+                      "relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/3] border bg-slate-950/60 mb-6 transition-all duration-700",
+                      isActive ? "border-sky-500/30 shadow-sky-500/5 shadow-2xl" : "border-white/5 shadow-md"
                     )}>
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
+                      <img
+                        src={item.image}
+                        alt={item.title}
                         className={cn(
                           "w-full h-full object-cover transition-transform duration-1000 ease-out",
                           isActive ? "scale-105" : "scale-100"
-                        )} 
+                        )}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/30 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent pointer-events-none" />
                     </div>
 
-                    <div className="space-y-3 px-4 text-left transition-all duration-700">
+                    <div className={cn(
+                      "space-y-3 p-6 rounded-3xl text-left border backdrop-blur-md transition-all duration-700 mt-6",
+                      isActive
+                        ? "bg-slate-900/40 border-white/10 shadow-xl"
+                        : "bg-slate-900/10 border-white/5 opacity-50"
+                    )}>
                       <div className="flex flex-wrap gap-2 mb-2">
                         {item.tags.map(tag => (
-                          <span 
-                            key={tag} 
+                          <span
+                            key={tag}
                             className={cn(
                               "text-[10px] font-semibold px-2.5 py-1 rounded-md border transition-all duration-500",
-                              isActive 
-                                ? "text-sky-600 bg-sky-500/10 border-sky-500/20" 
-                                : "text-gray-400 bg-gray-50 border-gray-200"
+                              isActive
+                                ? "text-sky-400 bg-sky-500/10 border-sky-500/20"
+                                : "text-slate-500 bg-slate-900/40 border-white/5"
                             )}
                           >
                             {tag}
@@ -921,13 +978,13 @@ export function Sustainability() {
                       </div>
                       <h3 className={cn(
                         "text-2xl font-bold font-heading leading-tight transition-colors duration-500",
-                        isActive ? "text-deep-navy" : "text-gray-700"
+                        isActive ? "text-white" : "text-slate-400"
                       )}>
                         {item.title}
                       </h3>
                       <p className={cn(
-                        "text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed transition-colors duration-500",
-                        isActive ? "text-gray-650" : "text-gray-400"
+                        "text-sm md:text-base font-sans font-light leading-relaxed transition-colors duration-500",
+                        isActive ? "text-slate-300" : "text-slate-500"
                       )}>
                         {item.desc}
                       </p>
@@ -942,55 +999,121 @@ export function Sustainability() {
         </div>
       </section>
 
-      {/* SECTION 06: SUSTAINABILITY INITIATIVES (Editorial Visual Panels) */}
-      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden">
-        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
-        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+      {/* SECTION 06: SUSTAINABILITY INITIATIVES (Interactive Filter Dashboard) */}
+      <section className="relative py-28 bg-slate-50 overflow-hidden font-sans border-t border-b border-slate-100">
+        {/* Background print grid */}
+        <div className="absolute inset-0 bg-print-grid opacity-[0.04] pointer-events-none z-0"></div>
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-500/[0.01] rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/[0.01] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block">
-              GALLERY
+
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-50 border border-sky-100 px-3 py-1 rounded-full inline-block">
+              OPERATIONAL ACTIONS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-4 leading-tight">
               Sustainability Initiatives
             </h2>
-            <p className="text-xs md:text-sm text-blue-50 font-sans font-light leading-relaxed">
-              Every print run we execute is backed by actionable carbon and resources mitigation programs.
+            <p className="text-xs md:text-sm text-slate-500 font-sans font-light leading-relaxed mt-3">
+              Every print run we execute is backed by actionable, verified carbon and materials mitigation programs.
             </p>
           </div>
 
-          {/* Editorial Card Showcase Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {initiatives.map((init) => (
-              <InitiativeCard 
-                key={init.title}
-                num={init.num}
-                title={init.title}
-                desc={init.desc}
-                image={init.image}
-                icon={init.icon}
-              />
-            ))}
+          {/* Interactive Category Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-xl mx-auto">
+            {[
+              { id: "all", label: "All Initiatives" },
+              { id: "materials", label: "Eco Materials" },
+              { id: "production", label: "Clean Production" },
+              { id: "supply", label: "Responsible Supply" }
+            ].map((tab) => {
+              const count = tab.id === "all"
+                ? initiatives.length
+                : initiatives.filter(i => i.category === tab.id).length;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.id as any)}
+                  className={cn(
+                    "px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide border transition-all duration-300 cursor-pointer shadow-sm focus:outline-none flex items-center gap-2",
+                    activeCategory === tab.id
+                      ? "bg-sky-500 text-white border-sky-500 shadow-md shadow-sky-500/15"
+                      : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 hover:text-slate-700"
+                  )}
+                >
+                  <span>{tab.label}</span>
+                  <span className={cn(
+                    "text-[10px] font-mono rounded-full px-1.5 py-0.5",
+                    activeCategory === tab.id
+                      ? "bg-white/20 text-white"
+                      : "bg-slate-100 text-slate-400"
+                  )}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Filtered Grid display with Animating Cards */}
+          <div className="min-h-[400px]">
+            <motion.div
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            >
+              <AnimatePresence mode="popLayout">
+                {initiatives
+                  .filter(item => activeCategory === "all" || item.category === activeCategory)
+                  .map((init) => (
+                    <motion.div
+                      layout
+                      key={init.title}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <InitiativeCard
+                        num={init.num}
+                        title={init.title}
+                        desc={init.desc}
+                        image={init.image}
+                        icon={init.icon}
+                      />
+                    </motion.div>
+                  ))
+                }
+              </AnimatePresence>
+            </motion.div>
           </div>
 
         </div>
       </section>
 
       {/* SECTION 07: MEASURING OUR IMPACT (Apple-style Analytics) */}
-      <section className="relative py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          
+      <section 
+        className="relative py-28 bg-slate-950 overflow-hidden bg-cover bg-center bg-no-repeat select-text"
+        style={{ backgroundImage: "url('/Images/sustainability_design_dark_bg.png')" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/80 to-slate-950 pointer-events-none"></div>
+
+        {/* Subtle background printing alignment grids */}
+        <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
             <div className="lg:col-span-6 text-left space-y-4">
-              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-3.5 py-1.5 rounded-full inline-block">
+              <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block">
                 ANALYTICS
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading mt-2">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-2">
                 Measuring Our Impact
               </h2>
-              <p className="text-sm text-gray-500 font-sans font-light leading-relaxed">
+              <p className="text-sm text-slate-200 font-sans font-light leading-relaxed">
                 Decarbonization starts with transparency. Click standard scopes to view verified carbon metrics.
               </p>
             </div>
@@ -1006,7 +1129,7 @@ export function Sustainability() {
                     "px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-300 cursor-pointer shadow-sm focus:outline-none",
                     activeScope === s
                       ? "bg-sky-500 text-white border-sky-500"
-                      : "bg-slate-50 text-gray-650 border-slate-200 hover:border-slate-300"
+                      : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10 hover:text-white"
                   )}
                 >
                   {s === 'scope1' ? "Scope 1 (Direct)" : s === 'scope2' ? "Scope 2 (Indirect)" : "Scope 3 (Supply Chain)"}
@@ -1016,26 +1139,26 @@ export function Sustainability() {
           </div>
 
           {/* Interactive Chart Container */}
-          <div className="p-8 md:p-12 rounded-3xl border border-slate-100 bg-gradient-to-br from-slate-50/50 to-white shadow-sm text-left">
+          <div className="p-8 md:p-12 rounded-[32px] border border-white/15 bg-slate-900/80 backdrop-blur-xl shadow-2xl text-left hover:border-sky-500/20 transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
               <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2 text-sky-600">
+                <div className="flex items-center gap-2 text-sky-400">
                   <TrendingDown className="w-5 h-5" />
                   <span className="text-xs font-bold font-heading uppercase tracking-wide">
                     {emissionsData[activeScope].reduction}
                   </span>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-deep-navy font-heading">
+                <h3 className="text-xl md:text-2xl font-bold text-white font-heading">
                   {emissionsData[activeScope].title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed max-w-2xl">
+                <p className="text-xs md:text-sm text-slate-300 font-sans font-light leading-relaxed max-w-2xl">
                   {emissionsData[activeScope].desc}
                 </p>
               </div>
             </div>
 
             {/* Bar chart animations */}
-            <div className="space-y-4 pt-6 border-t border-slate-100">
+            <div className="space-y-4 pt-6 border-t border-white/10">
               {emissionsData[activeScope].chart.map((item) => {
                 // Compute width scaling
                 const maxValue = Math.max(...emissionsData[activeScope].chart.map(c => c.value));
@@ -1043,10 +1166,10 @@ export function Sustainability() {
 
                 return (
                   <div key={item.year} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                    <span className="md:col-span-2 text-sm font-bold text-gray-400 font-heading">
+                    <span className="md:col-span-2 text-sm font-bold text-slate-300 font-heading">
                       Year {item.year}
                     </span>
-                    <div className="md:col-span-8 h-8 w-full bg-slate-100 rounded-lg relative overflow-hidden flex items-center px-4">
+                    <div className="md:col-span-8 h-8 w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg relative overflow-hidden flex items-center px-4">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${widthPercent}%` }}
@@ -1066,52 +1189,7 @@ export function Sustainability() {
         </div>
       </section>
 
-      {/* SECTION 08: RECOGNISED FOR RESPONSIBLE MANUFACTURING (Museum Plaque Dark Wall) */}
-      <section className="relative py-28 bg-[#080E17] text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded-full inline-block">
-              EXHIBITION WALL
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
-              Recognized for Responsible Manufacturing
-            </h2>
-            <p className="text-xs md:text-sm text-gray-400 font-sans font-light leading-relaxed">
-              Our processes have undergone rigorous auditing and validation by global agencies.
-            </p>
-          </div>
 
-          {/* Museum floating plaque cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {certifications.map((cert, idx) => {
-              const Icon = cert.icon;
-              return (
-                <div 
-                  key={cert.title}
-                  className="p-6 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent shadow-lg hover:border-sky-500/30 hover:shadow-sky-500/5 transition-all duration-500 flex flex-col justify-between text-left group"
-                >
-                  <div>
-                    <div className="p-2.5 rounded-xl bg-white/5 text-sky-400 border border-white/5 self-start inline-block mb-4">
-                      <Icon className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <h3 className="text-base font-bold text-white font-heading leading-tight group-hover:text-sky-300 transition-colors">
-                      {cert.title}
-                    </h3>
-                    <p className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mt-1">
-                      {cert.org}
-                    </p>
-                  </div>
-                  <p className="text-[10px] text-gray-400 font-sans font-light leading-normal border-t border-white/5 pt-3 mt-6">
-                    {cert.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
 
 
 
@@ -1129,11 +1207,11 @@ export function Sustainability() {
           <span className="text-[10px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block">
             CREATING THE FUTURE
           </span>
-          
+
           <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white leading-tight font-heading">
             Together, We Are Building a More Sustainable Future
           </h2>
-          
+
           <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-2xl mx-auto">
             Together with our partners, we are creating a future where exceptional books are manufactured responsibly, ethically and sustainably.
           </p>

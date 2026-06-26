@@ -284,23 +284,46 @@ export function Industries() {
         `}
       </style>
 
-      {/* SECTION 01: PAGE INTRODUCTION (HERO) */}
-      <section className="relative min-h-[50vh] flex items-center bg-blueprint-grid bg-white py-24 md:py-32 border-b border-gray-200/50">
+      {/* SECTION 01: PAGE INTRODUCTION (HERO) - Styled like Sustainability Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-[#0A121E] text-white py-24 md:py-32 border-b border-gray-900 overflow-hidden">
+
+        {/* Layer 1: Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
+          style={{
+            backgroundImage: `url('/Images/industries_hero_bg.png')`
+          }}
+        />
+
+        {/* Layer 2: Overlay Dark Gradient */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-[#0A121E]/75 to-[#0A121E] pointer-events-none" />
 
         {/* Radial graphic lights */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-royal-blue/[0.03] blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-royal-blue/[0.05] blur-3xl pointer-events-none z-10" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3.5 py-1.5 rounded-full inline-block">
+        <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
+          <span className="text-[10px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block">
             MARKETS WE SERVE
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-deep-navy font-heading mt-6 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-heading mt-6 mb-6">
             Publishing Expertise Across Every Sector
           </h1>
-          <p className="text-base md:text-lg text-gray-650 font-sans font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-3xl mx-auto">
             Every publishing segment has unique production requirements. Our expertise enables us to deliver tailored manufacturing solutions that meet the quality, durability, and scalability expected by publishers around the world.
           </p>
           <div className="h-[2px] w-32 bg-gradient-to-r from-royal-blue to-sky-400 mx-auto mt-8"></div>
+        </div>
+
+        {/* Scroll indicator & Visual effect line representing manuscript to book */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Explore Sectors</span>
+          <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
+            <motion.div 
+              animate={{ x: [-120, 120] }} 
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
+            />
+          </div>
         </div>
       </section>
 

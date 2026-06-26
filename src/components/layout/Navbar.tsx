@@ -51,7 +51,7 @@ export function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const location = useLocation();
 
-  const isDarkHero = location.pathname === "/sustainability";
+  const isDarkHero = location.pathname === "/sustainability" || location.pathname === "/infrastructure" || location.pathname === "/markets" || location.pathname === "/about" || location.pathname === "/products" || location.pathname === "/careers" || location.pathname === "/contact" || location.pathname === "/";
 
   const getLinkClass = (href: string, hasChildren = false) => {
     const isActive = location.pathname === href || (hasChildren && location.pathname.startsWith(href));
