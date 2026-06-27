@@ -97,6 +97,20 @@ const machines = [
   }
 ];
 
+const machineImages = [
+  { path: "/Machines Image/Digital Print Inspection System (Automatic Print Inspection Machine).JPG", name: "Automatic Print Inspection System" },
+  { path: "/Machines Image/Digital Print Inspection System.JPG", name: "Digital Print Inspection System" },
+  { path: "/Machines Image/Freedom 5K Perfect Binder - 1.JPG", name: "Freedom 5K Perfect Binder" },
+  { path: "/Machines Image/Freedom 5K Perfect Binder.JPG", name: "High-Volume Perfect Binder" },
+  { path: "/Machines Image/Paper Folding Machine.JPG", name: "Automated Signature Folder" },
+  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Offset Printing Press - 4.JPG", name: "RMGT 9 Series Sheetfed Offset Press" },
+  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press - 1.JPG", name: "RMGT 9 Series Multi-Color Press" },
+  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press - 3.JPG", name: "RMGT 9 Series High-Speed Press" },
+  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press.JPG", name: "RMGT 9 Series Sheetfed Offset Printing Press" },
+  { path: "/Machines Image/RMGT 928PF-6+CC+LED (6-color with Coater) - with fouder.JPG", name: "RMGT 6-Color Offset Press with Coater" },
+  { path: "/Machines Image/RMGT 928PF-6+CC+LED (6-color with Coater).png", name: "RMGT 6-Color LED Offset Press" },
+  { path: "/Machines Image/SMT Pick-and-Place Machine.JPG", name: "SMT Pick-and-Place Machine" },
+];
 
 export function Infrastructure() {
   const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
@@ -188,26 +202,77 @@ export function Infrastructure() {
         </div>
       </section>
 
+      {/* SECTION: MACHINERY AUTO-SCROLL SHOWCASE */}
+      <section className="relative py-20 bg-slate-50 border-b border-slate-200/50 overflow-hidden select-none">
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
+          <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/20 px-2.5 py-1.5 rounded-full inline-block mb-3">
+            Hardware Assets
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy font-heading">
+            Our Machine Fleet
+          </h2>
+          <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
+        </div>
+
+        {/* Contained Slider Wrapper */}
+        <div className="relative max-w-6xl mx-auto rounded-[28px] overflow-hidden border border-slate-200/60 bg-white shadow-xl p-6 md:p-8">
+          
+          {/* Edge Gradient Fades for a premium floating transition */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
+          {/* Marquee track */}
+          <div className="overflow-hidden w-full">
+            <div className="animate-marquee flex gap-6">
+              {[...machineImages, ...machineImages].map((img, index) => (
+                <div
+                  key={index}
+                  className="relative shrink-0 w-[24rem] h-64 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-slate-50 group hover:shadow-lg transition-all duration-300"
+                >
+                  <img
+                    src={img.path}
+                    alt={img.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Subtle label overlay */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                    <span className="text-[9px] font-bold text-sky-300 tracking-wider uppercase mb-1">
+                      Operational Asset
+                    </span>
+                    <h4 className="text-sm font-bold text-white font-heading">
+                      {img.name}
+                    </h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2: PRODUCTION PIPELINE SHOWCASE */}
-      <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden select-text">
-        {/* Subtle printing marks/grid paper background (inverted white lines for vibrant blue background) */}
-        <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+      <section className="relative py-28 bg-[#EEEEEE] overflow-hidden select-text">
+        {/* Subtle printing marks/grid paper background (dark lines for light background) */}
+        <div className="absolute inset-0 bg-print-grid opacity-10 pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-white tracking-widest font-heading uppercase bg-white/10 border border-white/30 px-2.5 py-1 rounded-full inline-block mb-4">
+            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/20 px-2.5 py-1 rounded-full inline-block mb-4">
               Production Lifecycle
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
               Integrated Production Stages
             </h2>
-            <div className="w-12 h-1 bg-cyan-300 mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
           </div>
 
           {/* Stepper Tabs */}
-          <div className="flex flex-nowrap lg:flex-wrap items-center justify-start lg:justify-center gap-3 mb-16 pb-4 overflow-x-auto scrollbar-none border-b border-white/15">
+          <div className="flex flex-nowrap lg:flex-wrap items-center justify-start lg:justify-center gap-3 mb-16 pb-4 overflow-x-auto scrollbar-none border-b border-slate-200">
             {categories.map((cat, index) => {
               const Icon = cat.icon;
               const isActive = activeCategoryIdx === index;
@@ -217,8 +282,8 @@ export function Infrastructure() {
                   onClick={() => setActiveCategoryIdx(index)}
                   className={`flex items-center gap-2.5 px-6 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wide transition-all duration-300 border shrink-0 ${
                     isActive
-                      ? "bg-white text-royal-blue border-white shadow-xl scale-103"
-                      : "bg-white/5 text-white/80 border-white/10 hover:bg-white/10 hover:text-white"
+                      ? "bg-white text-royal-blue border-slate-200 shadow-lg scale-103"
+                      : "bg-white/30 text-slate-700 border-white/40 hover:bg-white/50 hover:text-royal-blue"
                   }`}
                 >
                   <Icon className="w-4.5 h-4.5" />
@@ -241,15 +306,15 @@ export function Infrastructure() {
                   transition={{ duration: 0.4 }}
                   className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
                 >
-                  {/* Left content block (Glassmorphic) */}
-                  <div className="lg:col-span-6 bg-white/10 backdrop-blur-lg border border-white/20 p-8 md:p-10 rounded-[28px] text-white text-left shadow-2xl flex flex-col justify-between min-h-[420px]">
+                  {/* Left content block (Glassmorphic Vibrant Blue) */}
+                  <div className="lg:col-span-6 bg-gradient-to-br from-[#0057B8] via-[#007CDB] to-[#0EA5E9] p-8 md:p-10 rounded-[28px] text-white text-left shadow-2xl flex flex-col justify-between min-h-[420px]">
                     <div>
                       {/* Step Header */}
                       <div className="flex items-center justify-between mb-6">
                         <span className="text-[10px] font-bold text-cyan-200 tracking-wider font-sans uppercase">
                           Stage 0{index + 1} of 06
                         </span>
-                        <div className="p-3 rounded-2xl bg-white/10 border border-white/10 text-white">
+                        <div className="p-3 rounded-2xl bg-white/15 border border-white/10 text-white shadow-sm">
                           <Icon className="w-6 h-6" />
                         </div>
                       </div>
@@ -281,7 +346,7 @@ export function Infrastructure() {
 
                   {/* Right image block */}
                   <div className="lg:col-span-6">
-                    <div className="relative group overflow-hidden rounded-[28px] border-4 border-white/15 bg-white/5 backdrop-blur-md shadow-2xl aspect-[4/3] w-full">
+                    <div className="relative group overflow-hidden rounded-[28px] border border-white/40 shadow-xl aspect-[4/3] w-full">
                       {/* Image zoom effect */}
                       <img
                         src={cat.image}
@@ -289,7 +354,7 @@ export function Infrastructure() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Interactive shine overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
                     </div>
                   </div>
                 </motion.div>

@@ -10,7 +10,7 @@ import { FoundationOfExcellence } from "@/components/layout/FoundationOfExcellen
 import { Certifications } from "@/components/layout/Certifications";
 import { FoundationPrinciples } from "@/components/layout/FoundationPrinciples";
 import { SustainabilityCommitment } from "@/components/layout/SustainabilityCommitment";
-import { PublishingEcosystem } from "@/components/layout/PublishingEcosystem";
+// import { PublishingEcosystem } from "@/components/layout/PublishingEcosystem";
 import { TheNextChapter } from "@/components/layout/TheNextChapter";
 import { SplashCursor } from "@/components/ui/SplashCursor";
 
@@ -21,14 +21,15 @@ export function Home() {
       <section className="relative min-h-[80vh] lg:min-h-[100dvh] flex items-center justify-center bg-[#0A121E] text-white py-20 px-4 md:py-32 selection:bg-brand-blue selection:text-white border-b border-gray-900 overflow-hidden">
         {/* Layer 1: Background Image */}
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-25 pointer-events-none"
+          className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
           style={{
             backgroundImage: `url('/Images/home_hero_bg.png')`
           }}
         />
 
-        {/* Layer 2: Overlay Dark Gradient */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0A121E]/40 via-[#0A121E]/80 to-[#0A121E]" />
+        {/* Layer 2: Dual Overlays for perfect text contrast & clear background image */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0A121E] via-transparent to-[#0A121E] opacity-80 pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,rgba(10,18,30,0.85)_0%,rgba(10,18,30,0.15)_80%)] pointer-events-none" />
 
         {/* Glow lights */}
         <div className="absolute top-10 left-10 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-3xl pointer-events-none z-0" />
@@ -93,14 +94,14 @@ export function Home() {
       {/* SECTION - ACCREDITATIONS & CERTIFICATIONS */}
       <Certifications />
 
-      {/* SECTION - FOUNDATION PRINCIPLES */}
-      <FoundationPrinciples />
-
       {/* SECTION - SUSTAINABILITY COMMITMENT */}
       <SustainabilityCommitment />
 
+      {/* SECTION - FOUNDATION PRINCIPLES */}
+      <FoundationPrinciples />
+
       {/* SECTION - PUBLISHING ECOSYSTEM */}
-      <PublishingEcosystem />
+      {/* <PublishingEcosystem /> */}
 
 
 

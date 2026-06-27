@@ -25,13 +25,11 @@ export function SustainabilityCommitment() {
       ref={containerRef}
       className="relative min-h-[90vh] lg:min-h-[100vh] flex items-center overflow-hidden py-28 bg-deep-navy select-text"
     >
-      {/* Background Parallax Layer */}
-      <motion.div
-        className="absolute inset-0 z-0 bg-cover bg-center"
+      {/* Background Image Layer with CSS Parallax (bg-fixed) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
         style={{
-          backgroundImage: "url('/Images/Sustainability-Home.png')",
-          y: backgroundY,
-          scale: 1.15 // Scaled up slightly to prevent white margins during parallax offset
+          backgroundImage: "url('/Images/Sustainability-Home.png')"
         }}
       />
 

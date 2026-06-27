@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Leaf, CheckCircle2, Lock, Shield, Globe, ArrowUpRight, X, ExternalLink } from "lucide-react";
+import { ArrowUpRight, X, ExternalLink } from "lucide-react";
 
 export function Certifications() {
   const [activeCert, setActiveCert] = useState<{ title: string; subtitle: string; pdfPath: string } | null>(null);
@@ -12,57 +12,52 @@ export function Certifications() {
       subtitle: "Forest Stewardship Council",
       description: "Verifies that our paper products are sourced from responsibly managed forests and verified recycled origins.",
       pdfPath: "/Certificates/FSC%20Certificate.pdf",
-      icon: Leaf,
-      colorClass: "bg-emerald-50 text-emerald-600 border-emerald-100/50",
+      logoPath: "/Certificate Logo/FSC1.jpg",
     },
     {
       title: "ISO 14001:2015",
       subtitle: "Environmental Management",
       description: "Certifies our adherence to rigorous global standards for reducing emissions, waste, and overall carbon footprint.",
       pdfPath: "/Certificates/ISO%20140001.pdf",
-      icon: CheckCircle2,
-      colorClass: "bg-royal-blue/5 text-royal-blue border-royal-blue/10",
+      logoPath: "/Certificate Logo/ISO 14001.jpg",
     },
     {
       title: "ISO 27001:2022",
       subtitle: "Information Security",
       description: "Guarantees robust safeguards for intellectual property, customer data, and secure digital manuscript files.",
       pdfPath: "/Certificates/ISO%2027001.pdf",
-      icon: Lock,
-      colorClass: "bg-blue-50 text-blue-600 border-blue-100/50",
+      logoPath: "/Certificate Logo/ISO 27001.jpg",
     },
     {
       title: "C-TPAT Certified",
       subtitle: "Customs-Trade Partnership",
       description: "Ensures highest supply chain security standards, facilitating expedited custom clearance for global shipping.",
       pdfPath: "/Certificates/CTPAT%20Certificate.pdf",
-      icon: Shield,
-      colorClass: "bg-indigo-50 text-indigo-600 border-indigo-100/50",
+      logoPath: "/Certificate Logo/CTPAT.jpg",
     },
     {
       title: "UNGC Participant",
       subtitle: "UN Global Compact",
       description: "Demonstrates active alignment with UN universal principles on human rights, labor protection, and fair practice.",
       pdfPath: "/Certificates/UNGC%20Participation%20Certificate%20-%20Multivista.pdf",
-      icon: Globe,
-      colorClass: "bg-cyan-50 text-cyan-600 border-cyan-100/50",
+      logoPath: "/Certificate Logo/UGC.jpg",
     },
   ];
 
   return (
-    <section className="relative py-28 bg-gradient-to-br from-[#0057B8] via-[#007cdb] to-[#0EA5E9] overflow-hidden select-text">
-      {/* Subtle print grid background (inverted for dark background) */}
-      <div className="absolute inset-0 bg-print-grid opacity-20 invert pointer-events-none"></div>
+    <section className="relative py-28 bg-[#EEEEEE] overflow-hidden select-text">
+      {/* Subtle print grid background (dark lines for light background) */}
+      <div className="absolute inset-0 bg-print-grid opacity-10 pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <SectionHeader title="Global Accreditations" align="center" className="text-white border-white/30 bg-white/10" />
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-5 leading-tight font-heading">
+          <SectionHeader title="Global Accreditations" align="center" className="text-royal-blue border-royal-blue/20 bg-royal-blue/5" />
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy mt-4 mb-5 leading-tight font-heading">
             Certified Quality, Safety & Sustainability
           </h2>
-          <p className="text-base text-blue-50 leading-relaxed font-light font-sans">
+          <p className="text-base text-slate-650 leading-relaxed font-light font-sans">
             We operate in alignment with leading international standards, ensuring responsible sourcing,
             information security compliance, and secure logistics for our global publishing partners.
           </p>
@@ -71,7 +66,6 @@ export function Certifications() {
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {certifications.map((cert, index) => {
-            const Icon = cert.icon;
             return (
               <motion.div
                 key={cert.title}
@@ -79,15 +73,19 @@ export function Certifications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-slate-100 bg-white p-6 shadow-sm hover:shadow-xl hover:border-royal-blue/30 transition-all duration-500 ease-out min-h-[320px]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-white/60 bg-gradient-to-br from-white/45 to-white/15 backdrop-blur-xl p-6 shadow-[0_8px_32px_0_rgba(0,0,0,0.06)] hover:shadow-2xl hover:from-white/60 hover:to-white/20 hover:border-white/80 hover:-translate-y-1.5 transition-all duration-500 ease-out min-h-[320px]"
               >
                 <div>
-                  {/* Icon and tag */}
+                  {/* Logo and tag */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className={`p-3 rounded-2xl border ${cert.colorClass} group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-6 h-6" />
+                    <div className="w-14 h-14 rounded-2xl border border-slate-200/50 bg-white shadow-sm flex items-center justify-center p-1.5 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                      <img 
+                        src={cert.logoPath} 
+                        alt={cert.title} 
+                        className="w-full h-full object-contain" 
+                      />
                     </div>
-                    <span className="text-[10px] font-bold text-slate-450 tracking-wider font-heading uppercase">
+                    <span className="text-[10px] font-bold text-slate-500 tracking-wider font-heading uppercase">
                       Certificate 0{index + 1}
                     </span>
                   </div>
@@ -96,7 +94,7 @@ export function Certifications() {
                   <h3 className="text-lg font-bold text-deep-navy font-heading mb-1 group-hover:text-royal-blue transition-colors">
                     {cert.title}
                   </h3>
-                  <h4 className="text-[11px] font-semibold text-slate-450 mb-3 tracking-wide uppercase font-sans">
+                  <h4 className="text-[11px] font-semibold text-slate-500 mb-3 tracking-wide uppercase font-sans">
                     {cert.subtitle}
                   </h4>
                   <p className="text-slate-600 font-sans text-[13px] leading-relaxed font-light mb-6">
@@ -107,7 +105,7 @@ export function Certifications() {
                 {/* View Certificate Modal Trigger Button */}
                 <button
                   onClick={() => setActiveCert(cert)}
-                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl border border-slate-100 text-slate-650 font-medium text-xs bg-slate-50 hover:bg-royal-blue hover:text-white hover:border-royal-blue transition-all duration-300 group/btn mt-auto"
+                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl border border-white/30 text-slate-600 font-medium text-xs bg-white/30 backdrop-blur-sm hover:bg-royal-blue hover:text-white hover:border-royal-blue transition-all duration-300 group/btn mt-auto"
                 >
                   <span>View Certificate</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

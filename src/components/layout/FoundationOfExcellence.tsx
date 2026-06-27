@@ -71,16 +71,17 @@ export function FoundationOfExcellence() {
 
   return (
     <section className="relative py-32 bg-[#0A121E] text-white border-t border-gray-900/50 overflow-hidden select-text">
-      {/* Background Image */}
+      {/* Background Image Layer with CSS Parallax (bg-fixed) */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-35 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
         style={{
           backgroundImage: `url('/Images/foundation_bg.png')`
         }}
       />
 
-      {/* Overlay Dark Gradient */}
-      <div className="absolute inset-0 z-5 bg-gradient-to-b from-[#0A121E]/85 via-[#0A121E]/65 to-[#0A121E] pointer-events-none" />
+      {/* Overlay Dark Gradients for perfect text contrast & blending */}
+      <div className="absolute inset-0 z-5 bg-gradient-to-b from-[#0A121E] via-transparent to-[#0A121E] opacity-80 pointer-events-none" />
+      <div className="absolute inset-0 z-5 bg-gradient-to-r from-[#0A121E]/95 via-[#0A121E]/70 to-transparent pointer-events-none" />
 
       {/* Background paper dot grid texture */}
       <div className="absolute inset-0 bg-paper-dots opacity-10 pointer-events-none z-10"></div>
@@ -134,8 +135,8 @@ export function FoundationOfExcellence() {
                     onMouseEnter={() => setActiveIndex(index)}
                     onClick={() => setActiveIndex(index)}
                     className={`group relative flex items-center text-left rounded-[20px] p-5 border transition-all duration-300 ease-out select-none cursor-pointer w-full ${isActive
-                        ? "bg-white/[0.07] border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl ring-1 ring-white/10"
-                        : "bg-transparent border-transparent hover:bg-white/[0.03] hover:border-white/5"
+                      ? "bg-white/[0.07] border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl ring-1 ring-white/10"
+                      : "bg-transparent border-transparent hover:bg-white/[0.03] hover:border-white/5"
                       }`}
                   >
                     {/* Left vertical active border indicator */}
@@ -149,8 +150,8 @@ export function FoundationOfExcellence() {
                       {/* Icon with colored circle backdrop */}
                       <div
                         className={`p-3 rounded-xl transition-all duration-300 shadow-sm ${isActive
-                            ? `${pillar.iconBg} ${pillar.iconColor} scale-110 ring-1 ring-white/10`
-                            : "bg-white/5 text-gray-400 group-hover:text-white group-hover:bg-white/10"
+                          ? `${pillar.iconBg} ${pillar.iconColor} scale-110 ring-1 ring-white/10`
+                          : "bg-white/10 text-slate-300 group-hover:text-white group-hover:bg-white/20"
                           }`}
                       >
                         <Icon className="w-5 h-5" />
@@ -158,12 +159,11 @@ export function FoundationOfExcellence() {
 
                       {/* Labels */}
                       <div className="flex flex-col">
-                        <span className={`text-[10px] font-bold tracking-wider font-heading uppercase mb-0.5 transition-colors duration-300 ${
-                          isActive ? 'text-sky-400' : 'text-gray-400'
-                        }`}>
+                        <span className={`text-[10px] font-bold tracking-wider font-heading uppercase mb-0.5 transition-colors duration-300 ${isActive ? 'text-sky-400' : 'text-slate-400 group-hover:text-sky-300'
+                          }`}>
                           {pillar.tag}
                         </span>
-                        <h3 className={`text-lg font-bold font-heading transition-colors duration-300 ${isActive ? "text-white" : "text-gray-400 group-hover:text-gray-200"
+                        <h3 className={`text-lg font-bold font-heading transition-colors duration-300 ${isActive ? "text-white" : "text-slate-200 group-hover:text-white"
                           }`}>
                           {pillar.title}
                         </h3>
@@ -243,8 +243,8 @@ export function FoundationOfExcellence() {
                 <div
                   key={index}
                   className={`rounded-[20px] border overflow-hidden transition-all duration-300 ${isExpanded
-                      ? "bg-white/[0.07] border-white/20 backdrop-blur-xl shadow-lg ring-1 ring-white/10"
-                      : "bg-white/5 border-white/5 shadow-sm"
+                    ? "bg-white/[0.07] border-white/20 backdrop-blur-xl shadow-lg ring-1 ring-white/10"
+                    : "bg-white/5 border-white/5 shadow-sm"
                     }`}
                 >
                   {/* Collapsible Header */}

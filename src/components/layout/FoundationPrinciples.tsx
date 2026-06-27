@@ -78,9 +78,9 @@ export function FoundationPrinciples() {
   ];
 
   return (
-    <section className="relative py-32 bg-white select-text">
+    <section className="relative py-32 bg-[#EEEEEE] select-text">
       {/* Background printing marks overlay */}
-      <div className="absolute inset-0 bg-print-grid opacity-50 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-print-grid opacity-10 pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
@@ -120,20 +120,22 @@ export function FoundationPrinciples() {
                   data-index={p.index}
                   className={`scroll-mt-48 transition-all duration-500 rounded-[24px] border p-8 flex flex-col sm:flex-row gap-8 justify-between items-start sm:items-center min-h-[260px] lg:min-h-[280px] ${
                     isActive
-                      ? "bg-white/95 border-royal-blue/30 shadow-xl opacity-100 scale-100"
-                      : "bg-white/50 border-gray-100/80 opacity-60 scale-[0.97] hover:opacity-80"
+                      ? "bg-white border-white/80 shadow-2xl opacity-100 scale-100"
+                      : "bg-white/35 border-white/30 backdrop-blur-sm opacity-60 scale-[0.97] hover:opacity-85 hover:bg-white/50"
                   }`}
                 >
                   {/* Left part of card */}
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[10px] font-bold text-gray-400 tracking-wider font-heading uppercase">
+                      <span className={`text-[10px] font-bold tracking-wider font-heading uppercase transition-colors ${
+                        isActive ? "text-slate-500" : "text-slate-400"
+                      }`}>
                         Principle 0{p.index + 1}
                       </span>
                       <span className={`px-2.5 py-0.5 border text-[9px] font-semibold uppercase tracking-widest rounded-full transition-all duration-300 ${
                         isActive
                           ? "border-royal-blue/30 text-royal-blue bg-royal-blue/5"
-                          : "border-gray-200 text-gray-400 bg-gray-50"
+                          : "border-white/40 text-slate-500 bg-white/20"
                       }`}>
                         {p.tag}
                       </span>
@@ -148,7 +150,7 @@ export function FoundationPrinciples() {
                   </div>
 
                   {/* Right part of card: Real-time image according to the content */}
-                  <div className="shrink-0 w-full sm:w-80 h-52 sm:h-48 rounded-2xl overflow-hidden border border-gray-100 transition-transform duration-500 group-hover:scale-105 shadow-sm">
+                  <div className="shrink-0 w-full sm:w-80 h-52 sm:h-48 rounded-2xl overflow-hidden border border-white/30 transition-transform duration-500 group-hover:scale-105 shadow-sm">
                     <img 
                       src={p.imagePath} 
                       alt={p.title} 

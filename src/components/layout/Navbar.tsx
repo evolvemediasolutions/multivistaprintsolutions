@@ -143,13 +143,13 @@ export function Navbar() {
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.15, ease: "easeOut" }}
                           className={cn(
-                            "absolute top-full left-0 mt-2 w-[45rem] rounded-2xl p-4 shadow-2xl border backdrop-blur-md transition-all duration-300 grid grid-cols-1 gap-2 z-50",
+                            "absolute top-full left-0 mt-2 w-80 rounded-2xl p-3 shadow-2xl border backdrop-blur-md transition-all duration-300 flex flex-col gap-1 z-50",
                             isScrolled || !isDarkHero
                               ? "bg-white/95 border-gray-200/50 text-navy-900"
                               : "bg-navy-900/95 border-white/10 text-white"
                           )}
                         >
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className="flex flex-col gap-1">
                             {item.children.map((child, idx) => {
                               const Icon = child.icon;
                               return (
@@ -158,7 +158,7 @@ export function Navbar() {
                                   to={child.href}
                                   onClick={() => setIsProductsDropdownOpen(false)}
                                   className={cn(
-                                    "flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 group",
+                                    "flex items-center gap-3.5 p-2.5 rounded-xl transition-all duration-200 group",
                                     isScrolled || !isDarkHero
                                       ? "hover:bg-brand-blue/5 text-navy-800"
                                       : "hover:bg-white/5 text-white/90"
