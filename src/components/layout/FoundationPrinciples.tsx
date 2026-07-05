@@ -100,10 +100,10 @@ export function FoundationPrinciples() {
               </p>
               
               <a 
-                href="/about" 
+                href="/products" 
                 className="inline-flex items-center gap-2 text-royal-blue font-semibold hover:text-deep-navy transition-colors mt-8 group font-sans text-base"
               >
-                Discover Our Approach 
+                Explore Our Capabilities 
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

@@ -97,13 +97,13 @@ export function ManufacturingImpact() {
                 Global Reach
               </span>
               <div className="text-5xl font-bold tracking-tight text-royal-blue font-heading mb-1.5 animate-pulse-slow">
-                <CountUp to={100} suffix="%" />
+                <CountUp to={40} suffix="+" />
               </div>
               <h3 className="text-base font-bold text-deep-navy mb-1 font-heading leading-snug">
-                Export-Focused
+                Countries Served
               </h3>
               <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
-                Serving leading publishers across North America, Europe, Australia, and Africa.
+                Supporting publishers across North America, Europe, Australia, Africa, Asia, and India with reliable print manufacturing solutions.
               </p>
             </div>
 

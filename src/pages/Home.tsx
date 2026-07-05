@@ -8,7 +8,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ManufacturingImpact } from "@/components/layout/ManufacturingImpact";
 import { FoundationOfExcellence } from "@/components/layout/FoundationOfExcellence";
 import { Certifications } from "@/components/layout/Certifications";
-import { FoundationPrinciples } from "@/components/layout/FoundationPrinciples";
 import { SustainabilityCommitment } from "@/components/layout/SustainabilityCommitment";
 // import { PublishingEcosystem } from "@/components/layout/PublishingEcosystem";
 import { TheNextChapter } from "@/components/layout/TheNextChapter";
@@ -69,6 +68,22 @@ export function Home() {
                 Partner With Us
               </Button>
             </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="mt-12 flex flex-col items-center justify-center gap-2 select-none"
+            >
+              <img 
+                src="/Logo/GPTW 1.svg" 
+                alt="Great Place To Work Certified" 
+                className="h-16 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300 pointer-events-none" 
+              />
+              <span className="text-[10px] text-blue-200/50 uppercase tracking-widest font-bold font-sans">
+                Great Place to Work Certified
+              </span>
+            </motion.div>
           </AnimatedSection>
         </div>
 
@@ -96,9 +111,6 @@ export function Home() {
 
       {/* SECTION - SUSTAINABILITY COMMITMENT */}
       <SustainabilityCommitment />
-
-      {/* SECTION - FOUNDATION PRINCIPLES */}
-      <FoundationPrinciples />
 
       {/* SECTION - PUBLISHING ECOSYSTEM */}
       {/* <PublishingEcosystem /> */}

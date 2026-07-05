@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/Logo";
 import { AnimatePresence, motion } from "motion/react";
 
 interface NavigationItem {
@@ -101,7 +102,7 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to="/" className={logoClass}>
-              <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className={cn("h-8 w-auto object-contain transition-all duration-200", isScrolled || !isDarkHero ? "brightness-100" : "brightness-0 invert")} />
+              <Logo invertText={!(isScrolled || !isDarkHero)} height={48} />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -201,7 +202,12 @@ export function Navbar() {
               );
             })}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-6">
+            <img 
+              src="/Logo/GPTW 1.svg" 
+              alt="Great Place To Work Certified" 
+              className="h-14 w-auto object-contain transition-all duration-300 hover:scale-105" 
+            />
             <Button href="/contact" variant={isScrolled || !isDarkHero ? "primary" : "secondary"} className="rounded-full">
               Get In Touch
             </Button>
@@ -229,7 +235,7 @@ export function Navbar() {
             >
               <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
                 <Link to="/" className="flex items-center gap-2 font-heading font-bold text-xl text-white">
-                  <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
+                  <Logo invertText={true} height={48} />
                 </Link>
                 <button
                   type="button"
@@ -329,7 +335,12 @@ export function Navbar() {
                       );
                     })}
                   </div>
-                  <div className="py-6">
+                  <div className="py-6 flex flex-col items-center gap-4">
+                    <img 
+                      src="/Logo/GPTW 1.svg" 
+                      alt="Great Place To Work Certified" 
+                      className="h-16 w-auto object-contain filter drop-shadow-md" 
+                    />
                     <Button href="/contact" variant="secondary" className="w-full rounded-full">Get In Touch</Button>
                   </div>
                 </div>

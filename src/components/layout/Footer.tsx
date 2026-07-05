@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Mail, Linkedin } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const navigation = {
   company: [
@@ -35,7 +36,7 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-2 font-heading font-bold text-2xl text-white">
-              <img src="/Logo/Logo.png" alt="Multivista Printers Logo" className="h-8 w-auto object-contain brightness-0 invert" />
+              <Logo invertText={true} />
             </Link>
             <p className="text-sm leading-6 text-blue-50/90 max-w-sm font-sans font-light">
               From children's books and educational publishing to premium print production,

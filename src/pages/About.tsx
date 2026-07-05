@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { CountUp } from "@/components/ui/CountUp";
+import { FoundationPrinciples } from "@/components/layout/FoundationPrinciples";
 
 // Story Evolution
 const evolutionJourney = [
@@ -896,6 +897,9 @@ export function About() {
 
         </div>
       </section>
+
+      {/* SECTION - FOUNDATION PRINCIPLES */}
+      <FoundationPrinciples />
 
       {/* SECTION 09: GLOBAL MANUFACTURING PARTNER (Interactive Map) */}
       <section className="relative py-24 bg-white select-text">
