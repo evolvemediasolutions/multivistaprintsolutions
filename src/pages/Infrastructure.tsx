@@ -23,93 +23,67 @@ const categories = [
     name: "Pre Press",
     desc: "Our state-of-the-art prepress facility handles high-volume processing with surgical precision. Through computer-to-plate automation, we translate digital manuscripts into production-ready printing plates with zero detail loss.",
     icon: Cpu,
-    image: "/Images/prepress_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/PRE PRESS.jpg",
     equipment: ["Kodak Trendsetter CTP systems", "Processless thermal plate technologies", "Automated pre-flight validation software", "High-fidelity digital proofing units"]
   },
   {
-    name: "Printing",
+    name: "Press",
     desc: "Featuring industry-leading multi-colour presses, our press floor operates 24/7 to deliver crisp, vibrant, and uniform colour replication. Ideal for fine art books, textbooks, and trade publications.",
     icon: Printer,
-    image: "/Images/printing_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/PRESS.jpg",
     equipment: ["Heidelberg Speedmaster 102 8-Colour Perfector", "RMGT high-efficiency printing presses", "In-line color measurement scan systems", "Environmentally safe soy & vegetable inks"]
   },
   {
-    name: "Folding",
+    name: "Post Press",
     desc: "Post-print precision begins with computerized folding loops. We offer diverse pagination setups and layouts, preparing printed sheets seamlessly for binding collation.",
     icon: Layers,
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/PRODUCTION STAGE/POST PRESS.jpg",
     equipment: ["Horizon automated folding arrays", "High-speed signatures folding machines", "Rotary suction feed folding platforms", "Continuous feed operations"]
   },
   {
     name: "Binding",
     desc: "From case-bound hardcovers to flexible paperbacks, our high-volume automated bindery preserves structurally resilient books built to stand the test of time.",
     icon: BookOpen,
-    image: "/Images/binding_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/BINDING.jpg",
     equipment: ["Muller Martini perfect binding lines", "Thread-sewing binding hardware", "Automated hardcover case-making equipment", "Three-knife trimming units"]
   },
   {
     name: "Finishing",
     desc: "Add visual depth and tactile luxury to dust jackets and covers. Premium finishes raise customer perception and market impact for prestige publications.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+    image: "/Images/PRODUCTION STAGE/FINISHING.jpg",
     equipment: ["Sakurai Spot UV screen coating lines", "Embossing and foil-stamping hardware", "Matte & gloss lamination equipment", "Precision die-cutting capabilities"]
   },
   {
     name: "Packaging",
     desc: "Safe logistics begin inside the factory. Our automated wrapping and packing systems ensure complete protection against environmental factors during shipping.",
     icon: Package,
-    image: "/Images/manufacturing_capabilities_showcase.png",
+    image: "/Images/PRODUCTION STAGE/PACKAGING.jpg",
     equipment: ["Automated poly-shrink wrapping setups", "Heavy-duty custom pallet strapping", "Moisture-controlled transport packing", "Integrated shipping label scanners"]
   }
 ];
 
-// Section 3: Featured Machinery Data
-const machines = [
-  {
-    name: "Digital Print Inspection System",
-    desc: "Automated digital inspection system ensuring zero-defect printing and binding quality control.",
-    image: "/Machines Image/Digital Print Inspection System.JPG"
-  },
-  {
-    name: "Freedom 5K Perfect Binder",
-    desc: "High-speed perfect binder for case-bound and softcover books with precise hot-melt gluing.",
-    image: "/Machines Image/Freedom 5K Perfect Binder.JPG"
-  },
-  {
-    name: "Paper Folding Machine",
-    desc: "Precision signature folding machine for automated pagination setups and high-speed signature folding.",
-    image: "/Machines Image/Paper Folding Machine.JPG"
-  },
-  {
-    name: "RMGT 9 Series Sheetfed Offset Press",
-    desc: "Industry-leading multi-colour perfecting offset printing press for high-volume commercial runs.",
-    image: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press.JPG"
-  },
-  {
-    name: "RMGT 928PF-6+CC+LED Press",
-    desc: "High-efficiency 6-color LED-UV printing press equipped with inline coater and LED instant curing.",
-    image: "/Machines Image/RMGT 928PF-6+CC+LED (6-color with Coater).png"
-  },
-  {
-    name: "SMT Pick-and-Place Machine",
-    desc: "Industrial pick-and-place placement system for precision electronics manufacturing and assembly.",
-    image: "/Machines Image/SMT Pick-and-Place Machine.JPG"
-  }
-];
 
 const machineImages = [
-  { path: "/Machines Image/Digital Print Inspection System (Automatic Print Inspection Machine).JPG", name: "Automatic Print Inspection System" },
-  { path: "/Machines Image/Digital Print Inspection System.JPG", name: "Digital Print Inspection System" },
-  { path: "/Machines Image/Freedom 5K Perfect Binder - 1.JPG", name: "Freedom 5K Perfect Binder" },
-  { path: "/Machines Image/Freedom 5K Perfect Binder.JPG", name: "High-Volume Perfect Binder" },
-  { path: "/Machines Image/Paper Folding Machine.JPG", name: "Automated Signature Folder" },
-  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Offset Printing Press - 4.JPG", name: "RMGT 9 Series Sheetfed Offset Press" },
-  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press - 1.JPG", name: "RMGT 9 Series Multi-Color Press" },
-  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press - 3.JPG", name: "RMGT 9 Series High-Speed Press" },
-  { path: "/Machines Image/RMGT 9 Series Sheetfed Offset Printing Press.JPG", name: "RMGT 9 Series Sheetfed Offset Printing Press" },
-  { path: "/Machines Image/RMGT 928PF-6+CC+LED (6-color with Coater) - with fouder.JPG", name: "RMGT 6-Color Offset Press with Coater" },
-  { path: "/Machines Image/RMGT 928PF-6+CC+LED (6-color with Coater).png", name: "RMGT 6-Color LED Offset Press" },
-  { path: "/Machines Image/SMT Pick-and-Place Machine.JPG", name: "SMT Pick-and-Place Machine" },
+  { path: "/Images/MACHINE/MACHINE 1.jpg", name: "Advanced Offset Press (Unit 1)" },
+  { path: "/Images/MACHINE/MACHINE 2.jpg", name: "Precision Plate Processing" },
+  { path: "/Images/MACHINE/MACHINE 3.jpg", name: "High-Speed Signature Folder" },
+  { path: "/Images/MACHINE/MACHINE 4.jpg", name: "Integrated Binding Line" },
+  { path: "/Images/MACHINE/MACHINE 5.jpg", name: "Digital Inspection Station" },
+  { path: "/Images/MACHINE/MACHINE 6.jpg", name: "Multi-Color Press System" },
+  { path: "/Images/MACHINE/MACHINE 7.jpg", name: "Automated Finishing System" },
+  { path: "/Images/MACHINE/MACHINE 8.jpg", name: "Industrial Guillotine Trimmer" },
+  { path: "/Images/MACHINE/MACHINE 9.jpg", name: "Heidelberg Speedmaster Press" },
+  { path: "/Images/MACHINE/MACHINE 10.jpg", name: "Muller Martini Ventura Sewing" },
+  { path: "/Images/MACHINE/MACHINE 11.jpg", name: "Prepress Platesetter Autoloader" },
+  { path: "/Images/MACHINE/MACHINE 12.jpg", name: "Automatic Print Inspection Line" },
+  { path: "/Images/MACHINE/MACHINE 13.jpg", name: "High-Volume Perfect Binder" },
+  { path: "/Images/MACHINE/MACHINE 14.jpg", name: "Environmentally Safe Ink Controls" },
+  { path: "/Images/MACHINE/MACHINE 15.jpg", name: "Poly-Shrink Wrap Packaging" },
+  { path: "/Images/MACHINE/MACHINE 16.jpg", name: "Pallet Strapping Station" },
+  { path: "/Images/MACHINE/MACHINE 17.jpg", name: "Processless Thermal Imaging" },
+  { path: "/Images/MACHINE/MACHINE 18.jpg", name: "RMGT 9 Series Offset Press" },
+  { path: "/Images/MACHINE/MACHINE 19.jpg", name: "Heavy-Duty Case Making Line" }
 ];
 
 export function Infrastructure() {
@@ -129,7 +103,7 @@ export function Infrastructure() {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
           style={{
-            backgroundImage: `url('/Images/infra_hero_bg.png')`
+            backgroundImage: `url('/Images/HERO SECTIONS/INFRASTRUCTURE HERO.jpeg')`
           }}
         />
 
@@ -167,10 +141,10 @@ export function Infrastructure() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-16"
           >
             {[
-              { val: "30+", label: "Industrial Machines" },
-              { val: "8", label: "Colour Perfecting Technology" },
-              { val: "End-to-End", label: "Production Workflow" },
-              { val: "Global", label: "Manufacturing Standards" }
+              { val: "1,400", label: "Plates Produced Per Day" },
+              { val: "15 Million", label: "Books Produced Annually" },
+              { val: "18–21 Days", label: "Standard Production Time" },
+              { val: "Capacity", label: "Annual Printing / Impressions" }
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -236,6 +210,7 @@ export function Infrastructure() {
                     src={img.path}
                     alt={img.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                   {/* Subtle label overlay */}
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 flex flex-col justify-end">
@@ -253,61 +228,6 @@ export function Infrastructure() {
         </div>
       </section>
 
-      {/* SECTION 3: FEATURED MACHINERY */}
-      <section className="relative py-32 bg-slate-950 overflow-hidden border-y border-slate-900 select-text">
-        {/* Parallax Background container */}
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-30"
-            style={{ backgroundImage: `url('/Images/featured_machinery_dark_bg.png')` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-sky-950/20 to-slate-950/95"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-950/80 border border-sky-800/50 px-2.5 py-1 rounded-full inline-block mb-4">
-              HARDWARE ASSETS
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
-              Featured Machinery
-            </h2>
-            <div className="w-12 h-1 bg-sky-500 mx-auto mt-4 rounded-full" />
-          </div>
-
-          {/* Simple grid showcasing key machines with large images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {machines.map((mac, index) => (
-              <motion.div
-                key={mac.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="group bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:bg-slate-900/60 hover:border-sky-500/30 hover:translate-y-[-4px] transition-all duration-300 text-left flex flex-col h-full"
-              >
-                {/* Large Machine Image */}
-                <div className="h-60 w-full overflow-hidden bg-slate-950/50 relative border-b border-white/5">
-                  <img
-                    src={mac.image}
-                    alt={mac.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                {/* Text details */}
-                <div className="p-6 md:p-8 space-y-2 flex-grow">
-                  <h3 className="text-lg font-bold text-white font-heading group-hover:text-sky-300 transition-colors duration-300">
-                    {mac.name}
-                  </h3>
-                  <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
-                    {mac.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 4: INTEGRATED PRODUCTION STAGES */}
       <section className="relative py-28 bg-[#EEEEEE] overflow-hidden select-text">

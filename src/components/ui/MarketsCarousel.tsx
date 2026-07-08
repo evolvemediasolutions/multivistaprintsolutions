@@ -2,12 +2,11 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ChevronRight as ChevronRightIcon } from "lucide-react";
 
 const industriesImg = [
-  { name: "Educational Publishing", image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600" },
-  { name: "Children's Publishing", image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600" },
-  { name: "Trade Publishing", image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" },
-  { name: "Commercial Printing", image: "https://images.unsplash.com/photo-1568205612837-017257d2310a?auto=format&fit=crop&q=80&w=600" },
-  { name: "Institutional", image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600" },
-  { name: "Independent Authors", image: "https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&q=80&w=600" },
+  { name: "Education", image: "/Images/MANUFACTURING PATH/EDUCATION.jpg" },
+  { name: "STM", image: "/Images/MANUFACTURING PATH/STM.jpg" },
+  { name: "Children's Books", image: "/Images/MANUFACTURING PATH/CHILDREN.jpg" },
+  { name: "Trade & Coffee Table Books", image: "/Images/MANUFACTURING PATH/TRADE & COFFE TABLE BOOKS.jpg" },
+  { name: "Travel Books", image: "/Images/MANUFACTURING PATH/TRAVEL.jpg" },
 ];
 
 export function MarketsCarousel() {
@@ -46,6 +45,7 @@ export function MarketsCarousel() {
               src={ind.image} 
               alt={ind.name} 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 text-white text-lg font-medium flex items-center justify-between gap-2">

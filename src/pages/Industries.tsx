@@ -39,71 +39,71 @@ const sectors: Sector[] = [
   {
     index: 0,
     id: "educational",
-    name: "Educational Publishing",
-    tag: "Primary & K-12",
+    name: "Education",
+    tag: "K-12 & Higher Ed",
     x: 50,
     y: 10,
     description: "Manufacturing high-volume textbooks and curriculum materials with consistent quality, durable binding, and reliable delivery schedules.",
     icon: BookOpen,
     accentColor: "text-royal-blue",
     capabilities: ["High-Volume Offset runs", "FSC-Sourced Papers", "Reinforced Softcover Bindings", "State-Aligned Specifications"],
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=1200",
+    image: "/Images/MANUFACTURING PATH/EDUCATION.jpg",
     visualTheme: "blueprint-bg"
   },
   {
     index: 1,
     id: "academic",
-    name: "Academic Publishing",
-    tag: "Scholarly Research",
+    name: "STM",
+    tag: "Scholarly & Professional",
     x: 77,
     y: 23,
-    description: "Precision manufacturing for university presses, peer-reviewed journals, and dense academic references requiring meticulous page layout fidelity.",
-    icon: GraduationCap,
+    description: "High-detail print production and precise color matching for technical diagrams. Engineered for exact visual representations in scientific journals and medical texts.",
+    icon: Database,
     accentColor: "text-[#0A2342]",
-    capabilities: ["Monograph Case Binding", "Short-run Digital Proofing", "High-density Text Grids", "Acid-Free Paper Stocks"],
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200",
+    capabilities: ["Extended Gamut CMYK", "Anatomy Atlas Formats", "Gloss & Matte Coated Stocks", "Coated Paper Calibration"],
+    image: "/Images/MANUFACTURING PATH/STM.jpg",
     visualTheme: "elegant-editorial"
   },
   {
     index: 2,
     id: "stm",
-    name: "Scientific, Technical & Medical (STM)",
-    tag: "Color Critical",
+    name: "Children's Books",
+    tag: "Durability & Safety",
     x: 88,
     y: 50,
-    description: "High-detail print production and medical diagram color matching. Engineered for precise visual representations in professional scientific journals.",
-    icon: Database,
-    accentColor: "text-brand-blue",
-    capabilities: ["Extended Gamut CMYK", "Anatomy Atlas Formats", "Gloss & Matte Coated Stocks", "Coated Paper Calibration"],
-    image: "https://images.unsplash.com/photo-1532187863486-abf9d39d66e8?auto=format&fit=crop&q=80&w=1200",
-    visualTheme: "scientific-grid"
+    description: "Heavy-grade board books and vibrant children's storybooks. Finished with child-safe, non-toxic soy inks and protective rounded corners for safe handling.",
+    icon: Sparkles,
+    accentColor: "text-emerald-600",
+    capabilities: ["Board Mounting & Glueing", "Die-Cut Board Folds", "Round-Corner Safety Cuts", "Soy-Based Ink Coating"],
+    image: "/Images/MANUFACTURING PATH/CHILDREN.jpg",
+    visualTheme: "playful-gradient"
   },
   {
     index: 3,
     id: "childrens",
-    name: "Children's Publishing",
-    tag: "Durability & Safety",
+    name: "Trade & Coffee Table Books",
+    tag: "Premium Finish",
     x: 77,
     y: 77,
-    description: "Heavy-grade board books and vibrant children's storybooks. Finished with child-safe, non-toxic soy inks and protective rounded corners.",
-    icon: Sparkles,
-    accentColor: "text-emerald-600",
-    capabilities: ["Board Mounting & Glueing", "Die-Cut Board Folds", "Round-Corner Safety Cuts", "Soy-Based Ink Coating"],
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1200",
-    visualTheme: "playful-gradient"
+    description: "High-end photography, custom portfolios, art showcases, and luxury coffee table editions with specialty paper and precise binding.",
+    icon: Book,
+    accentColor: "text-brand-blue",
+    capabilities: ["Custom Slipcase Sets", "Foil Stamping & Debossing", "Panoramic Lay-Flat Spreads", "Mixed Media Material Wraps"],
+    image: "/Images/MANUFACTURING PATH/TRADE & COFFE TABLE BOOKS.jpg",
+    visualTheme: "custom-experimental"
   },
   {
     index: 4,
     id: "custom",
-    name: "Custom Publishing",
-    tag: "Specialty Curation",
+    name: "Travel Books",
+    tag: "Durable & Flexible",
     x: 23,
     y: 23,
-    description: "Unique publishing designs, customized portfolio books, high-end artist collections, and complex binding solutions tailored to artistic briefs.",
-    icon: PenTool,
+    description: "Pocket guides, travel memoirs, maps, and tourist references engineered with flexible covers and lightweight, durable stocks for ease of transport.",
+    icon: Compass,
     accentColor: "text-purple-600",
-    capabilities: ["Custom Slipcase Sets", "Foil Stamping & Debossing", "Panoramic Lay-Flat Spreads", "Mixed Media Material Wraps"],
-    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=1200",
+    capabilities: ["Lightweight Flexi-Covers", "Water-Resistant Coating", "Fold-out Map Layouts", "Pocket-Sized Impositions"],
+    image: "/Images/MANUFACTURING PATH/TRAVEL.jpg",
     visualTheme: "custom-experimental"
   }
 ];
@@ -288,10 +288,10 @@ export function Industries() {
       <section className="relative h-screen flex items-center justify-center bg-[#0A121E] text-white py-24 md:py-32 border-b border-gray-900 overflow-hidden">
 
         {/* Layer 1: Background Image */}
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
           style={{
-            backgroundImage: `url('/Images/industries_hero_bg.png')`
+            backgroundImage: `url('/Images/HERO SECTIONS/MARKET HERO.jpg')`
           }}
         />
 
@@ -306,7 +306,7 @@ export function Industries() {
             MARKETS WE SERVE
           </span>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-heading mt-6 mb-6">
-            Publishing Expertise Across Every Sector
+            Printing Expertise Across Every Sector
           </h1>
           <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-3xl mx-auto">
             Every publishing segment has unique production requirements. Our expertise enables us to deliver tailored manufacturing solutions that meet the quality, durability, and scalability expected by publishers around the world.
@@ -318,8 +318,8 @@ export function Industries() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Explore Sectors</span>
           <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
-            <motion.div 
-              animate={{ x: [-120, 120] }} 
+            <motion.div
+              animate={{ x: [-120, 120] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
             />
@@ -500,6 +500,7 @@ export function Industries() {
                               "w-full h-full object-cover transition-transform duration-1000 ease-out",
                               isActive ? "scale-105" : "scale-100"
                             )}
+                            loading="lazy"
                           />
                         </div>
                       </div>

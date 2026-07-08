@@ -33,38 +33,44 @@ const milestones = [
   {
     year: "2019–20",
     title: "First Carbon Footprint Analysis",
-    desc: "Established our initial baseline measurement, tracking Scope 1 & 2 emissions across our printing facilities to begin our scientific decarbonization pathway.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200"
+    desc: "Established our initial baseline measurement, tracking Scope 1 & 2 emissions across our printing/manufacturing facilities to begin our scientific decarbonization pathway.",
+    image: "/Images/JOURNEY ROADMAP/2019–20.jpg"
   },
   {
     year: "2020–21",
     title: "Environmental Reporting",
     desc: "Integrated clean material waste metrics into our corporate logs, initiating transparent auditing of paper trim outputs and starting 100% recycling loops.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
+    image: "/Images/JOURNEY ROADMAP/2020–21.jpg"
   },
   {
     year: "2021–22",
     title: "SDGs + Sustainability Report",
     desc: "Aligned our operations with the UN Sustainable Development Goals, launching our first comprehensive ESG policy detailing water recycling and soy ink transitions.",
-    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1200"
+    image: "/Images/JOURNEY ROADMAP/2021–22.jpg"
   },
   {
     year: "2022",
     title: "EcoVadis + SBTi Alignment",
     desc: "Submitted our carbon reduction goals to the Science Based Targets initiative (SBTi) and underwent our first formal EcoVadis sustainability rating audits.",
-    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=1200"
+    image: "/Images/JOURNEY ROADMAP/2022.jpg"
   },
   {
     year: "2023",
     title: "UN Global Compact & Green Printer",
     desc: "Became a signatory to the UN Global Compact, and recognized as the Green Printer of the Year for outstanding solar offset integrations.",
-    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1200"
+    image: "/Images/JOURNEY ROADMAP/2023.jpg"
   },
   {
     year: "2024",
     title: "Green Printer of the Year",
     desc: "Secured back-to-back industry honors as Green Printer of the Year, completing our phase-1 transition to solar energy and introducing compostable cargo wraps.",
-    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200"
+    image: "/Images/JOURNEY ROADMAP/2024.jpg"
+  },
+  {
+    year: "2025 & 2026",
+    title: "First printer in India to receive Ecovadis Gold Award",
+    desc: "Achieved the prestigious EcoVadis Gold Medal rating, placing Multivista in the top tier of sustainable printing operations globally for environmental and ethical performance.",
+    image: "/Images/JOURNEY ROADMAP/2025-2026.jpg"
   }
 ];
 
@@ -118,60 +124,76 @@ const initiatives = [
     num: "01",
     title: "FSC® & PEFC Certified Paper",
     desc: "Over 90% of book runs printed on ethically traceable forest products.",
-    image: "/Images/fsc_certified_paper.png?v=1",
+    image: "/Images/SUSTAINABILITY INITIATIVE/FSC® & PEFC Certified Paper.jpg",
     icon: TreePine,
     category: "materials"
   },
   {
     num: "02",
-    title: "Compostable Packaging",
-    desc: "Replacing shrink wraps with 100% bio-degradable organic wrappers.",
-    image: "/Images/compostable_packaging.png?v=1",
+    title: "Paper Tape Packaging",
+    desc: "Replacing conventional plastic tape with paper-based alternatives to support environmentally responsible packaging.",
+    image: "/Images/SUSTAINABILITY INITIATIVE/PAPER TAPE PACKAGING.jpg",
     icon: Recycle,
     category: "materials"
   },
   {
     num: "03",
-    title: "Water-Based Varnish",
-    desc: "Eco-friendly, chemical-free coatings that ensure easy paper decomposition.",
-    image: "/Images/water_based_varnish.png?v=1",
-    icon: Droplet,
+    title: "Low Carbon Paper Sourcing",
+    desc: "Prioritising paper sourced from mills with lower carbon emissions to reduce the environmental impact of every print project.",
+    image: "/Images/SUSTAINABILITY INITIATIVE/LOW CARBON PAPER SOURCING.jpg",
+    icon: Leaf,
     category: "materials"
   },
   {
     num: "04",
     title: "Green Factory Initiative",
     desc: "Chennai facility utilizing low-energy thermal chiller arrays and solar rooftops.",
-    image: "/Images/green_factory_initiative.png?v=1",
+    image: "/Images/SUSTAINABILITY INITIATIVE/GREEN FACTORY INITIATIVE.jpeg",
     icon: Zap,
     category: "production"
   },
   {
     num: "05",
-    title: "No Plastic Zone",
-    desc: "Eliminating single-use plastics across our entire administrative and press floors.",
-    image: "/Images/no_plastic_zone.png?v=1",
-    icon: ShieldCheck,
-    category: "supply"
+    title: "Energy Audits & Motion Sensors",
+    desc: "Implementing regular energy audits and installing motion sensors to optimize electricity usage across facilities.",
+    image: "/Images/SUSTAINABILITY INITIATIVE/ENERGY AUDITS & MOTION SENSORS.jpg",
+    icon: Zap,
+    category: "production"
   },
   {
     num: "06",
     title: "Process-Less Plates",
     desc: "Saving thousands of liters of chemical developer fluids in prepress setups.",
-    image: "/Images/processless_plates.png?v=1",
+    image: "/Images/SUSTAINABILITY INITIATIVE/PROCESS LESS PLATES.jpg",
     icon: Layers,
     category: "production"
   },
   {
     num: "07",
-    title: "Sustainable Procurement",
-    desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.",
-    image: "/Images/sustainable_procurement.png?v=1",
-    icon: Heart,
+    title: "Responsible Procurement",
+    desc: "Partnering with certified paper mills that provide responsibly sourced, low-carbon paper while maintaining strict supplier assessment standards.",
+    image: "/Images/SUSTAINABILITY INITIATIVE/RESPONSIBLE PROCUREMENT.jpg",
+    icon: ShieldCheck,
     category: "supply"
   },
   {
     num: "08",
+    title: "Water Conservation",
+    desc: "Closed-loop water systems and efficient chiller technology help reduce water consumption across our manufacturing operations.",
+    image: "/Images/water_conservation.png",
+    icon: Droplet,
+    category: "production"
+  },
+  {
+    num: "09",
+    title: "Sustainable Procurement",
+    desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.",
+    image: "/Images/SUSTAINABILITY INITIATIVE/SUSTAINABLE PROCUREMENT.jpg",
+    icon: Heart,
+    category: "supply"
+  },
+  {
+    num: "10",
     title: "Water Chiller Plant",
     desc: "Closed-loop industrial refrigeration saving 80% water on press cooling.",
     image: "/Images/water_chiller_plant.png?v=1",
@@ -216,6 +238,66 @@ const emissionsData = {
     ]
   }
 };
+
+
+const sustainabilityTableData = [
+  {
+    year: "2019 Apr to 2020 Mar (BY)",
+    scope1: "255",
+    scope2: "1502",
+    scope3: "Not measured",
+    total: "1757",
+    perBook: "0.18"
+  },
+  {
+    year: "2020 Apr to 2021 Mar",
+    scope1: "230",
+    scope2: "460",
+    scope3: "Not measured",
+    total: "690",
+    perBook: "0.10"
+  },
+  {
+    year: "2021 Apr to 2022 Mar",
+    scope1: "152",
+    scope2: "112",
+    scope3: "Not measured",
+    total: "264",
+    perBook: "0.03"
+  },
+  {
+    year: "2022 Apr to 2023 Mar",
+    scope1: "288",
+    scope2: "271",
+    scope3: "Not measured",
+    total: "559",
+    perBook: "0.06"
+  },
+  {
+    year: "2023 Apr to 2024 Mar",
+    scope1: "276",
+    scope2: "143",
+    scope3: "4268",
+    total: "4687",
+    perBook: "0.04 Scope 1+2"
+  },
+  {
+    year: "2024 Apr to 2025 Mar",
+    scope1: "206",
+    scope2: "143",
+    scope3: "4901",
+    total: "5250",
+    perBook: "0.04 Scope 1+2"
+  },
+  {
+    year: "2025 Apr to 2026 Mar",
+    scope1: "184",
+    scope2: "89",
+    scope3: "4190",
+    total: "4463",
+    perBook: "0.03 Scope 1+2"
+  }
+];
 
 
 const footprintReports = [
@@ -533,9 +615,10 @@ export function Sustainability() {
 
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[1.5/1] bg-slate-50 z-10">
                 <img
-                  src="/Images/progress_with_purpose.png?v=1"
+                  src="/Images/SUSTAINABILITY/PHILOSOPHY.jpg"
                   alt="Responsible forestry paper production sourcing"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/30 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -1094,7 +1177,7 @@ export function Sustainability() {
         </div>
       </section>
 
-      <section 
+      <section
         className="relative py-28 bg-slate-950 overflow-hidden select-text"
       >
         {/* Background Image Parallax Layer */}
@@ -1111,85 +1194,136 @@ export function Sustainability() {
 
         <div className="relative z-20 max-w-6xl mx-auto px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-            <div className="lg:col-span-6 text-left space-y-4">
-              <span className="text-[9px] font-bold text-sky-300 tracking-widest font-heading uppercase bg-slate-950/90 border border-sky-500/30 px-3.5 py-1.5 rounded-full inline-block shadow-md">
-                ANALYTICS
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-2">
-                Measuring Our Impact
-              </h2>
-              <p className="text-sm text-slate-200 font-sans font-light leading-relaxed">
-                Decarbonization starts with transparency. Click standard scopes to view verified carbon metrics.
-              </p>
-            </div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[9px] font-bold text-sky-300 tracking-widest font-heading uppercase bg-slate-950/90 border border-sky-500/30 px-3.5 py-1.5 rounded-full inline-block shadow-md">
+              ANALYTICS
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4">
+              Measuring Our Impact
+            </h2>
+            <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed mt-3">
+              Decarbonization starts with transparency. Below is our verified greenhouse gas emissions audit and YoY comparison data.
+            </p>
+          </div>
 
-            {/* Apple style tabs */}
-            <div className="lg:col-span-6 flex flex-wrap gap-2 lg:justify-end">
-              {(['scope1', 'scope2', 'scope3'] as const).map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setActiveScope(s)}
-                  className={cn(
-                    "px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-300 cursor-pointer shadow-sm focus:outline-none",
-                    activeScope === s
-                      ? "bg-sky-500 text-white border-sky-500"
-                      : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10 hover:text-white"
-                  )}
-                >
-                  {s === 'scope1' ? "Scope 1 (Direct)" : s === 'scope2' ? "Scope 2 (Indirect)" : "Scope 3 (Supply Chain)"}
-                </button>
-              ))}
+          {/* Table Container */}
+          <div className="p-6 md:p-8 rounded-[32px] border border-white/15 bg-slate-900/80 backdrop-blur-xl shadow-2xl overflow-hidden hover:border-sky-500/20 transition-all duration-300">
+            <h3 className="text-xs md:text-sm font-bold text-white font-heading mb-6 border-b border-white/10 pb-4 uppercase tracking-wider text-center">
+              SUSTAINABILITY METRICS – SCOPE 1, 2 & 3 EMISSION LEVEL (6 YRS , YoY COMPARISON)
+            </h3>
+
+            <div className="overflow-x-auto w-full">
+              <table className="w-full border-collapse text-left text-xs md:text-sm text-slate-200">
+                <thead>
+                  <tr className="border-b border-white/20 bg-white/5 font-heading text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-350">
+                    <th className="p-4 border-r border-white/10 whitespace-nowrap text-slate-200">Year</th>
+                    <th className="p-4 border-r border-white/10 text-center">Scope 1 emissions<br /><span className="text-[9px] text-sky-400 font-sans font-light normal-case">Co2e (in MT)</span></th>
+                    <th className="p-4 border-r border-white/10 text-center">Scope 2 emissions<br /><span className="text-[9px] text-sky-400 font-sans font-light normal-case">Co2e (in MT)</span></th>
+                    <th className="p-4 border-r border-white/10 text-center">Scope 3 emissions Co2e<br /><span className="text-[9px] text-sky-400 font-sans font-light normal-case">(in MT)</span></th>
+                    <th className="p-4 border-r border-white/10 text-center">Total emissions<br /><span className="text-[9px] text-sky-400 font-sans font-light normal-case">Co2e (in MT)</span></th>
+                    <th className="p-4 text-center">Scope 1 & 2 Emission<br /><span className="text-[9px] text-sky-400 font-sans font-light normal-case">per book (in kgs)</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sustainabilityTableData.map((row, idx) => (
+                    <tr
+                      key={idx}
+                      className={cn(
+                        "border-b border-white/10 hover:bg-white/10 transition-colors duration-200 font-sans",
+                        idx % 2 === 0 ? "bg-white/[0.01]" : "bg-white/[0.03]"
+                      )}
+                    >
+                      <td className="p-4 font-semibold text-white border-r border-white/10 whitespace-nowrap">{row.year}</td>
+                      <td className="p-4 text-center border-r border-white/10 text-slate-100 font-medium">{row.scope1}</td>
+                      <td className="p-4 text-center border-r border-white/10 text-slate-100 font-medium">{row.scope2}</td>
+                      <td className="p-4 text-center border-r border-white/10 text-slate-100 font-medium">
+                        <span className={cn(
+                          row.scope3 === "Not measured" ? "text-slate-400/70 italic text-[11px]" : "text-slate-100"
+                        )}>
+                          {row.scope3}
+                        </span>
+                      </td>
+                      <td className="p-4 text-center border-r border-white/10 text-sky-300 font-bold">{row.total}</td>
+                      <td className="p-4 text-center text-emerald-400 font-semibold">{row.perBook}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
-          {/* Interactive Chart Container */}
-          <div className="p-8 md:p-12 rounded-[32px] border border-white/15 bg-slate-900/80 backdrop-blur-xl shadow-2xl text-left hover:border-sky-500/20 transition-all duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2 text-sky-400">
-                  <TrendingDown className="w-5 h-5" />
-                  <span className="text-xs font-bold font-heading uppercase tracking-wide">
-                    {emissionsData[activeScope].reduction}
-                  </span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white font-heading">
-                  {emissionsData[activeScope].title}
-                </h3>
-                <p className="text-xs md:text-sm text-slate-300 font-sans font-light leading-relaxed max-w-2xl">
-                  {emissionsData[activeScope].desc}
-                </p>
-              </div>
-            </div>
+        </div>
+      </section>
 
-            {/* Bar chart animations */}
-            <div className="space-y-4 pt-6 border-t border-white/10">
-              {emissionsData[activeScope].chart.map((item) => {
-                // Compute width scaling
-                const maxValue = Math.max(...emissionsData[activeScope].chart.map(c => c.value));
-                const widthPercent = (item.value / maxValue) * 100;
+      {/* SECTION 05.5: RESPONSIBLE PROCUREMENT */}
+      <section className="relative py-28 bg-white border-t border-b border-slate-200/50 overflow-hidden font-sans select-text">
+        {/* Background print grid */}
+        <div className="absolute inset-0 bg-print-grid opacity-[0.04] pointer-events-none z-0"></div>
 
-                return (
-                  <div key={item.year} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                    <span className="md:col-span-2 text-sm font-bold text-slate-300 font-heading">
-                      Year {item.year}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+
+          {/* Centered Header */}
+          <div className="max-w-3xl mx-auto space-y-6 mb-16">
+            <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-3.5 py-1.5 rounded-full inline-block">
+              Procurement Integrity
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+              Responsible Procurement
+            </h2>
+            <p className="text-base text-gray-650 font-sans font-light leading-relaxed max-w-2xl mx-auto">
+              We source paper from certified mills that follow responsible forestry and low-carbon manufacturing practices, ensuring sustainability begins with every raw material we procure.
+            </p>
+            <div className="h-[2px] w-16 bg-sky-500 mx-auto" />
+          </div>
+
+          {/* Centered grid cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
+            {[
+              {
+                title: "FSC Certified Papers",
+                desc: "Procuring materials strictly from FSC® and PEFC certified sources to support global biodiversity conservation.",
+                color: "border-emerald-500/25 bg-emerald-500/5 hover:border-emerald-500/50 hover:bg-emerald-500/10",
+                iconColor: "text-emerald-500"
+              },
+              {
+                title: "Low Carbon Paper Mills",
+                desc: "Partnering exclusively with manufacturing mills utilizing green energy loops to limit supply chain carbon footprints.",
+                color: "border-sky-500/25 bg-sky-500/5 hover:border-sky-500/50 hover:bg-sky-500/10",
+                iconColor: "text-sky-500"
+              },
+              {
+                title: "Ethical Supplier Network",
+                desc: "Enforcing zero-tolerance vendor audits regarding human rights, fair wages, and ethical labor standards.",
+                color: "border-amber-500/25 bg-amber-500/5 hover:border-amber-500/50 hover:bg-amber-500/10",
+                iconColor: "text-amber-500"
+              },
+              {
+                title: "Responsible Procurement Policy",
+                desc: "A structured, certified policy ensuring 100% accountability at every single stage of resource acquisition.",
+                color: "border-purple-500/25 bg-purple-500/5 hover:border-purple-500/50 hover:bg-purple-500/10",
+                iconColor: "text-purple-500"
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between text-left shadow-sm ${item.color} hover:-translate-y-1.5`}
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-slate-400 font-mono tracking-wider">
+                      PILLAR 0{idx + 1}
                     </span>
-                    <div className="md:col-span-8 h-8 w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg relative overflow-hidden flex items-center px-4">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${widthPercent}%` }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-400 to-blue-400 rounded-lg"
-                      />
-                      <span className="relative z-10 text-[10px] font-bold text-deep-navy uppercase tracking-wider font-heading">
-                        {item.label}
-                      </span>
-                    </div>
+                    <ShieldCheck className={`w-5 h-5 ${item.iconColor}`} />
                   </div>
-                );
-              })}
-            </div>
+                  <h3 className="text-base font-bold text-deep-navy font-heading">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 font-sans leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>

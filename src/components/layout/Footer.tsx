@@ -16,10 +16,11 @@ const navigation = {
     { name: "Commercial Printing", href: "/products#commercial" },
   ],
   markets: [
-    { name: "Educational Publishers", href: "/markets#educational" },
-    { name: "Trade Publishers", href: "/markets#trade" },
-    { name: "Children's Publishing", href: "/markets#childrens" },
-    { name: "Independent Authors", href: "/markets#independent" },
+    { name: "Education", href: "/markets#educational" },
+    { name: "STM", href: "/markets#academic" },
+    { name: "Children's Books", href: "/markets#stm" },
+    { name: "Trade & Coffee Table Books", href: "/markets#childrens" },
+    { name: "Travel Books", href: "/markets#custom" },
   ],
 };
 

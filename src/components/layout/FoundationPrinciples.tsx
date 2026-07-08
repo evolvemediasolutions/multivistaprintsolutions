@@ -49,7 +49,7 @@ export function FoundationPrinciples() {
       title: "Ethical Manufacturing",
       description:
         "Integrity shapes every decision we make from responsible sourcing and transparent operations to long-term partnerships built on trust.",
-      imagePath: "/Images/principle_integrity.png",
+      imagePath: "/Images/OUR FOUNDATION/ETHICAL MANUFACTURING.jpg",
     },
     {
       index: 1,
@@ -57,7 +57,7 @@ export function FoundationPrinciples() {
       title: "Sustainability Leadership",
       description:
         "Environmental responsibility isn't an initiative; it's embedded into the way we manufacture. Every process is continuously refined to reduce impact while creating lasting value for customers and communities.",
-      imagePath: "/Images/principle_sustainability.png",
+      imagePath: "/Images/OUR FOUNDATION/SUSTAINABILITY LEADERSHIP.jpg",
     },
     {
       index: 2,
@@ -65,7 +65,7 @@ export function FoundationPrinciples() {
       title: "Uncompromising Quality",
       description:
         "With advanced technology, integrated manufacturing and rigorous quality systems, every book leaving our facility reflects the precision our global partners expect.",
-      imagePath: "/Images/principle_quality.png",
+      imagePath: "/Images/OUR FOUNDATION/UNCOMPROMISING QUALITY.jpg",
     },
     {
       index: 3,
@@ -73,7 +73,7 @@ export function FoundationPrinciples() {
       title: "Global Export Excellence",
       description:
         "Our focus has always been international. We manufacture exclusively for export, serving publishers across the world with dependable production, efficient logistics and consistent delivery.",
-      imagePath: "/Images/principle_global.png",
+      imagePath: "/Images/OUR FOUNDATION/GLOBAL EXPORT EXCELLENCE.jpg",
     },
   ];
 
@@ -155,6 +155,7 @@ export function FoundationPrinciples() {
                       src={p.imagePath} 
                       alt={p.title} 
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
                 </div>

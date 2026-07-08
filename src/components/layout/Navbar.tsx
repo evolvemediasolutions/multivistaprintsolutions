@@ -30,7 +30,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
   {
-    name: "Capabilities",
+    name: "Products",
     href: "/products",
     children: [
       { name: "Hardcover Books", href: "/products#hardcover", description: "Timeless craftsmanship. Built to last.", icon: BookOpen },
@@ -289,7 +289,7 @@ export function Navbar() {
                                         : "text-brand-blue hover:text-white hover:bg-white/5"
                                     )}
                                   >
-                                    Capabilities Overview
+                                    Products Overview
                                   </Link>
                                   {item.children.map((child) => {
                                     const isChildActive = location.pathname + location.hash === child.href;

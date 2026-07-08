@@ -77,8 +77,9 @@ export function ManufacturingImpact() {
             {/* Bottom Visual Element */}
             <div className="mt-4 pt-3 border-t border-white/30 h-[160px] rounded-b-[20px] overflow-hidden">
               <img 
-                src="/Images/years_excellence.png" 
+                src="/Images/STATS/50YEARS.jpg" 
                 alt="Years of Excellence" 
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
@@ -110,8 +111,9 @@ export function ManufacturingImpact() {
             {/* Bottom Visual Element */}
             <div className="mt-4 pt-3 border-t border-white/30 h-[160px] rounded-b-[20px] overflow-hidden">
               <img 
-                src="/Images/global_reach.png" 
+                src="/Images/STATS/COUNTRY SERVED.jpg" 
                 alt="Global Reach" 
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
@@ -143,8 +145,9 @@ export function ManufacturingImpact() {
             {/* Bottom Visual Element */}
             <div className="mt-4 pt-3 border-t border-white/30 h-[160px] rounded-b-[20px] overflow-hidden relative">
               <img 
-                src="/Images/integrated_facility.png" 
+                src="/Images/STATS/INFRASCTRUCTURE.jpg" 
                 alt="Integrated Facility" 
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
@@ -176,8 +179,9 @@ export function ManufacturingImpact() {
             {/* Bottom Visual Element */}
             <div className="mt-4 pt-3 border-t border-white/30 h-[160px] rounded-b-[20px] overflow-hidden">
               <img 
-                src="/Images/books_manufactured.png" 
+                src="/Images/STATS/BOOKS.jpg" 
                 alt="Books Manufactured" 
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
             </div>

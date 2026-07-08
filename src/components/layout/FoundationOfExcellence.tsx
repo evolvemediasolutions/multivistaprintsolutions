@@ -20,7 +20,7 @@ export function FoundationOfExcellence() {
       subtitle: "Science-Based Sustainability Commitments",
       description:
         "Driving measurable environmental impact through responsible sourcing, carbon reduction, and internationally recognized sustainability initiatives.",
-      imagePath: "/Images/pillar_sustainability.png",
+      imagePath: "/Images/FOUNDATION OF EXCELLENCE/SUSTAINABILITY.jpg",
     },
     {
       tag: "Pillar 02",
@@ -33,7 +33,7 @@ export function FoundationOfExcellence() {
       subtitle: "Integrated Quality Systems",
       description:
         "From prepress to final dispatch, every stage is monitored to meet the highest global publishing standards for durability and color precision.",
-      imagePath: "/Images/pillar_quality.png",
+      imagePath: "/Images/FOUNDATION OF EXCELLENCE/QUALITY.jpg",
     },
     {
       tag: "Pillar 03",
@@ -46,7 +46,7 @@ export function FoundationOfExcellence() {
       subtitle: "Skilled Professionals",
       description:
         "Combining decades of industrial craftsmanship with advanced modern printing technologies to manage complex print orders.",
-      imagePath: "/Images/pillar_people.png",
+      imagePath: "/Images/FOUNDATION OF EXCELLENCE/PEOPLE.jpeg",
     },
     {
       tag: "Pillar 04",
@@ -59,7 +59,7 @@ export function FoundationOfExcellence() {
       subtitle: "Investment in Innovation",
       description:
         "Continuous investments in world-class offset presses, digital binding, and automated workflows ensure consistency and scale.",
-      imagePath: "/Images/pillar_technology.png",
+      imagePath: "/Images/FOUNDATION OF EXCELLENCE/TECHNOLOGY.jpg",
     },
   ];
 
@@ -75,7 +75,7 @@ export function FoundationOfExcellence() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed pointer-events-none"
         style={{
-          backgroundImage: `url('/Images/foundation_bg.png')`
+          backgroundImage: `url('/Images/FOUNDATION OF EXCELLENCE/FOE.JPG')`
         }}
       />
 
@@ -221,6 +221,7 @@ export function FoundationOfExcellence() {
                       <img
                         src={activePillar.imagePath}
                         alt={activePillar.title}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-103"
                       />
                       {/* Soft overlay gradient */}
@@ -297,6 +298,7 @@ export function FoundationOfExcellence() {
                         <img
                           src={pillar.imagePath}
                           alt={pillar.title}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                       </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import {
   BookOpen,
   ChevronRight,
@@ -24,38 +24,80 @@ import { FoundationPrinciples } from "@/components/layout/FoundationPrinciples";
 // Story Evolution
 const evolutionJourney = [
   {
-    phase: "Small Print Shop",
+    phase: "Founding",
     year: "1976",
-    title: "The Founding Era",
-    description: "Multivista began as a localized printing unit in Chennai. Driven by standard letterpress and offset machinery, we committed to precision and reliability from day one.",
+    title: "Ventured into Printing",
+    description: "Ventured our business as a small printing press, establishing our core foundation of quality and client service.",
     image: "/Images/story_1976.png"
   },
   {
+    phase: "Offset Printing",
+    year: "1983",
+    title: "First Offset Presses",
+    description: "Started our first Offset Print Presses, expanding our capabilities and efficiency beyond traditional letterpress systems.",
+    image: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    phase: "Greenfield Plant",
+    year: "1986",
+    title: "Velachery Plant Formation",
+    description: "Formed our first green field printing facility in Velachery, Chennai, creating a dedicated scale plant for publications.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    phase: "Modernization",
+    year: "2001",
+    title: "State-of-the-Art Upgrades",
+    description: "Upgraded to state-of-the-art infrastructure & machinery, integrating automated scanning systems and high-end binding workflows.",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800"
+  },
+  {
     phase: "Expansion",
-    year: "1980s",
-    title: "Scaling Capabilities",
-    description: "During the 1980s, we moved into high-speed printing capabilities. We expanded the factory workspace and brought on expert technicians to support scaling educational runs.",
-    image: "/Images/story_1980s.png"
+    year: "2006",
+    title: "Integrated Unit & Doubled Capacity",
+    description: "Moved into a fully integrated unit & doubled capacity to match the rapid production turnaround demands of global publishers.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
   },
   {
-    phase: "Technology Investments",
-    year: "1990s",
-    title: "Automation & CTP Systems",
-    description: "We digitalized prepress operations, investing heavily in state-of-the-art Computer-to-Plate (CTP) engines, automated color scanners, and initial multi-color web offset systems.",
-    image: "/Images/story_1990s.png"
+    phase: "Continuous Investment",
+    year: "2008",
+    title: "Constant Upgradation",
+    description: "Constant upgradation & investment towards best machinery & infrastructure, optimizing production line automation.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
   },
   {
-    phase: "Export Growth",
-    year: "2000s",
-    title: "Global Footprint Integration",
-    description: "With certifications and high-volume consistency in hand, Multivista entered global exports. We established dedicated cargo channels to Europe, North America, and Australia.",
-    image: "/Images/story_2000s.png"
+    phase: "Infrastructure",
+    year: "2014",
+    title: "Heidelberg 8-Color Addition",
+    description: "Addition in printing infrastructure by installing the high-speed HEIDELBERG 8 COLOR press, multiplying printing throughput.",
+    image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=800"
   },
   {
-    phase: "Global Manufacturing Partner",
-    year: "Present",
-    title: "The Modern Ecosystem",
-    description: "Today, we operate a 100,000+ sq ft integrated plant shipping over 15 million books annually. We are a trusted partner to tier-1 educational, academic, and trade publishers globally.",
+    phase: "Prepress Automation",
+    year: "2015",
+    title: "Heidelberg Supra Setter CTP",
+    description: "Addition in Pre Press HEIDELBERG Supra Setter CTP, bringing extreme plating accuracy and thermal imaging efficiency into our workflow.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    phase: "Multi-Press Capacity",
+    year: "2019-20",
+    title: "Ryobi & Heidelberg 8-Color",
+    description: "Addition of RYOBI 8 Color / HEIDELBERG 8 Color press systems, expanding print options for international publications.",
+    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    phase: "Binding & Press Addition",
+    year: "2022",
+    title: "Hard Case & RMGT 8-Color",
+    description: "Addition of Hard Case Binding, Kodak CTP, and an 8-color RMGT printing press, offering high-quality end-to-end hardcover book manufacturing.",
+    image: "/Images/books_manufactured.png"
+  },
+  {
+    phase: "Sewing Upgrades",
+    year: "2023",
+    title: "Muller Martini Ventura",
+    description: "Addition of New Muller Martini Ventura sewing machine, providing exceptional thread binding integrity for durable textbook runs.",
     image: "/Images/story_present.png"
   }
 ];
@@ -147,13 +189,21 @@ const mapPins = [
 
 
 export function About() {
-  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
   const [activeRegion, setActiveRegion] = useState<string | null>("Asia-Pacific (HQ)");
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 65%", "end 65%"]
+  });
+  const timelineScaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const valuesRef = useRef<HTMLDivElement>(null);
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
 
   const handleValuesScroll = () => {
     if (valuesRef.current) {
@@ -165,58 +215,6 @@ export function About() {
     }
   };
 
-  // Scroll event hook for Section 02 Story scroll spy
-  useEffect(() => {
-    const handleScroll = () => {
-      // Dynamic Active Story Era Scroll Spy
-      if (!isScrollingRef.current) {
-        const targetOffset = window.innerHeight * 0.35; // 35% from top of viewport
-        let closestIdx = 0;
-        let minDistance = Infinity;
-
-        evolutionJourney.forEach((_, idx) => {
-          const el = document.getElementById(`story-era-${idx}`);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            const distance = Math.abs(rect.top - targetOffset);
-            if (distance < minDistance) {
-              minDistance = distance;
-              closestIdx = idx;
-            }
-          }
-        });
-        setActiveStoryIndex(closestIdx);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-  const scrollToEra = (idx: number) => {
-    isScrollingRef.current = true;
-    setActiveStoryIndex(idx); // Update active state immediately for visual response
-
-    const el = document.getElementById(`story-era-${idx}`);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    if (scrollTimeoutRef.current) {
-      window.clearTimeout(scrollTimeoutRef.current);
-    }
-
-    scrollTimeoutRef.current = window.setTimeout(() => {
-      isScrollingRef.current = false;
-    }, 800); // Reset after smooth scroll finishes
-  };
-
   const scrollValues = (dir: "left" | "right") => {
     if (valuesRef.current) {
       const { scrollLeft, clientWidth } = valuesRef.current;
@@ -224,6 +222,7 @@ export function About() {
       valuesRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };
+
 
 
   return (
@@ -271,7 +270,7 @@ export function About() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
           style={{
-            backgroundImage: `url('/Images/about_hero_bg.png')`
+            backgroundImage: `url('/Images/HERO SECTIONS/ABOUT HERO.jpg')`
           }}
         />
 
@@ -291,7 +290,7 @@ export function About() {
               Built on Trust. Driven by Responsibility.
             </h1>
             <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-3xl mx-auto pt-2">
-              For nearly five decades, Multivista has partnered with publishers across the world to manufacture books that educate, inspire and endure.
+              Multivista print solutions  specializes in manufacturing high-quality books for global publishers.
             </p>
             <div className="pt-4 flex justify-center">
               <Button href="#story" variant="primary" className="rounded-full px-8 py-4 text-xs font-semibold uppercase tracking-wider shadow-md inline-flex items-center gap-2 group">
@@ -315,158 +314,109 @@ export function About() {
         </div>
       </section>
 
-      {/* SECTION 02: THE MULTIVISTA STORY (Split Screen Journey) */}
-      <section id="story" className="relative py-24 md:py-32 bg-white scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* SECTION 02: THE MULTIVISTA STORY (Vertical Timeline) */}
+      <section id="story" className="relative py-16 md:py-20 bg-slate-50/50 scroll-mt-24">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3 py-1 rounded-full inline-block">
+              OUR LEGACY
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-deep-navy mt-3 mb-3 font-heading">
+              The Print Story
+            </h2>
+            <p className="text-xs md:text-sm text-gray-550 font-sans font-light leading-relaxed">
+              What began in 1976 as a small printing operation has evolved into one of India's leading integrated book manufacturing companies. Explore our milestones below.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-            {/* Left Column: Outer Grid Item (stretches to fill grid height track) */}
-            <div className="lg:col-span-5">
-              {/* Sticky Timeline container (slides inside the column track) */}
-              <div className="lg:sticky lg:top-36 space-y-8">
-                <div className="space-y-4">
-                  <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3 py-1 rounded-full inline-block">
-                    OUR LEGACY
-                  </span>
-                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading">
-                    The Multivista Story
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed">
-                    What began in 1976 as a small printing operation has evolved into one of India's leading integrated book manufacturing companies. Scroll through our visual evolution eras.
-                  </p>
-                </div>
-
-                {/* Interactive evolution selector blocks */}
-                <div className="relative mt-8">
-                  {/* Vertical Track Line Container */}
-                  <div className="absolute left-[18px] top-[36px] bottom-[36px] w-[2px] pointer-events-none">
-                    {/* Background Track */}
-                    <div className="absolute inset-0 bg-slate-100 rounded-full" />
-
-                    {/* Active Progress */}
-                    <div
-                      className="absolute top-0 left-0 w-full bg-royal-blue rounded-full transition-all duration-500 ease-out"
-                      style={{
-                        height: `${(activeStoryIndex / (evolutionJourney.length - 1)) * 100}%`
-                      }}
-                    />
-                  </div>
-
-                  <div className="space-y-4">
-                    {evolutionJourney.map((item, idx) => {
-                      const isActive = activeStoryIndex === idx;
-                      return (
-                        <div key={item.phase} className="relative flex items-center min-h-[72px]">
-                          {/* Timeline Dot */}
-                          <button
-                            type="button"
-                            onClick={() => scrollToEra(idx)}
-                            className={cn(
-                              "absolute left-[18px] -translate-x-1/2 w-4.5 h-4.5 rounded-full border-2 bg-white cursor-pointer transition-all duration-300 flex items-center justify-center z-20 outline-none",
-                              isActive
-                                ? "border-royal-blue bg-royal-blue scale-110 ring-4 ring-royal-blue/15 shadow-sm"
-                                : "border-slate-200 hover:border-slate-400"
-                            )}
-                            aria-label={`Go to ${item.phase}`}
-                          >
-                            {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
-                          </button>
-
-                          {/* Button card */}
-                          <button
-                            type="button"
-                            onClick={() => scrollToEra(idx)}
-                            className={cn(
-                              "w-full text-left ml-9 p-4 rounded-xl border transition-all duration-300 flex items-center justify-between group cursor-pointer",
-                              isActive
-                                ? "bg-royal-blue/[0.02] border-royal-blue/30 shadow-md shadow-royal-blue/5"
-                                : "bg-white border-gray-100 hover:border-gray-200"
-                            )}
-                          >
-                            <div className="space-y-1">
-                              <span className={cn(
-                                "text-[9px] font-bold font-heading tracking-widest uppercase transition-colors duration-300",
-                                isActive ? "text-royal-blue" : "text-gray-400"
-                              )}>
-                                {item.year} — {item.phase}
-                              </span>
-                              <h4 className={cn(
-                                "text-sm font-bold font-heading transition-colors duration-300",
-                                isActive ? "text-deep-navy" : "text-gray-500"
-                              )}>
-                                {item.title}
-                              </h4>
-                            </div>
-                            <ChevronRight className={cn(
-                              "w-4 h-4 transition-transform duration-300",
-                              isActive ? "text-royal-blue translate-x-1" : "text-gray-300 group-hover:translate-x-0.5"
-                            )} />
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+          {/* Timeline Wrapper */}
+          <div ref={timelineRef} className="relative mt-8">
+            {/* Central Vertical Line for Desktop (left-aligned for mobile) */}
+            <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-slate-200/80 rounded-full overflow-hidden">
+              <motion.div
+                className="w-full bg-royal-blue origin-top h-full"
+                style={{ scaleY: timelineScaleY }}
+              />
             </div>
 
-            {/* Right Column: Scrolling cards one by one (lg:col-span-7) */}
-            <div className="lg:col-span-7 space-y-24 lg:space-y-36">
+            <div className="space-y-6 md:space-y-8">
               {evolutionJourney.map((item, idx) => {
-                const isActive = activeStoryIndex === idx;
+                const isEven = idx % 2 === 0;
                 return (
-                  <div
+                  <motion.div
                     key={item.phase}
-                    id={`story-era-${idx}`}
-                    className={cn(
-                      "scroll-mt-36 transition-all duration-700 ease-out origin-center",
-                      isActive ? "opacity-100 scale-100 filter-none" : "opacity-40 scale-95 blur-[0.5px]"
-                    )}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.4, delay: 0.05 }}
+                    className="relative flex flex-col md:flex-row items-stretch"
                   >
-                    <div className={cn(
-                      "relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/3] border bg-slate-50 mb-6 transition-all duration-700",
-                      isActive ? "border-royal-blue/30 shadow-royal-blue/5 shadow-2xl" : "border-gray-200/60 shadow-md"
-                    )}>
-                      <div className="absolute inset-0 bg-blueprint-grid opacity-10 pointer-events-none z-10" />
-                      <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/40 pointer-events-none z-10" />
-                      <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/40 pointer-events-none z-10" />
+                    {/* Timeline Node Dot */}
+                    <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1.5 w-3.5 h-3.5 rounded-full border-2.5 border-white bg-royal-blue ring-4 ring-royal-blue/5 z-20" />
 
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={cn(
-                          "w-full h-full object-cover transition-transform duration-1000 ease-out",
-                          isActive ? "scale-105" : "scale-100"
-                        )}
-                      />
+                    {/* Left side content (Desktop only) */}
+                    <div className="hidden md:flex md:w-1/2 pr-10 justify-end text-right">
+                      {isEven && (
+                        <div className="space-y-1 max-w-md">
+                          <span className="text-3xl md:text-4xl font-extrabold text-royal-blue block font-sans tracking-tight leading-none">
+                            {item.year}
+                          </span>
+                          <span className="inline-block px-2 py-0.5 border border-slate-200 text-slate-500 text-[8px] font-bold uppercase tracking-widest rounded-full bg-slate-100/50 backdrop-blur-sm">
+                            {item.phase}
+                          </span>
+                          <h3 className="text-base font-bold text-deep-navy font-heading">
+                            {item.title}
+                          </h3>
+                          <p className="text-xs md:text-[13px] text-gray-550 font-sans font-light leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      )}
                     </div>
 
-                    <div className="space-y-3 px-4 transition-all duration-700">
-                      <span className={cn(
-                        "text-xs font-bold tracking-widest font-heading uppercase transition-colors duration-500",
-                        isActive ? "text-gold-accent" : "text-gray-400"
-                      )}>
-                        Era {idx + 1} — {item.year}
-                      </span>
-                      <h3 className={cn(
-                        "text-xl md:text-2xl font-bold font-heading transition-colors duration-500",
-                        isActive ? "text-deep-navy" : "text-gray-700"
-                      )}>
-                        {item.title}
-                      </h3>
-                      <p className={cn(
-                        "text-sm font-sans font-light leading-relaxed transition-colors duration-500",
-                        isActive ? "text-gray-650" : "text-gray-400"
-                      )}>
-                        {item.description}
-                      </p>
+                    {/* Space offset for central vertical line on Desktop */}
+                    <div className="w-8 hidden md:block" />
+
+                    {/* Right side content (or Left side for mobile) */}
+                    <div className="w-full md:w-1/2 pl-10 md:pl-10 text-left">
+                      {!isEven ? (
+                        <div className="space-y-1 max-w-md">
+                          <span className="text-3xl md:text-4xl font-extrabold text-royal-blue block font-sans tracking-tight leading-none">
+                            {item.year}
+                          </span>
+                          <span className="inline-block px-2 py-0.5 border border-slate-200 text-slate-500 text-[8px] font-bold uppercase tracking-widest rounded-full bg-slate-100/50 backdrop-blur-sm">
+                            {item.phase}
+                          </span>
+                          <h3 className="text-base font-bold text-deep-navy font-heading">
+                            {item.title}
+                          </h3>
+                          <p className="text-xs md:text-[13px] text-gray-550 font-sans font-light leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      ) : (
+                        /* For mobile view of even items */
+                        <div className="space-y-1 max-w-md md:hidden">
+                          <span className="text-3xl md:text-4xl font-extrabold text-royal-blue block font-sans tracking-tight leading-none">
+                            {item.year}
+                          </span>
+                          <span className="inline-block px-2 py-0.5 border border-slate-200 text-slate-500 text-[8px] font-bold uppercase tracking-widest rounded-full bg-slate-100/50 backdrop-blur-sm">
+                            {item.phase}
+                          </span>
+                          <h3 className="text-base font-bold text-deep-navy font-heading">
+                            {item.title}
+                          </h3>
+                          <p className="text-xs md:text-[13px] text-gray-550 font-sans font-light leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
-
           </div>
 
         </div>
@@ -501,64 +451,91 @@ export function About() {
               FOUNDATIONAL PILLARS
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading mt-4 leading-tight">
-              Our Core Purpose
+              Foundational Pillars
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch relative">
 
-            {/* Panel 1: Purpose */}
-            <div className="p-8 rounded-[24px] border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-slate-900/60 hover:border-sky-500/30 hover:translate-y-[-4px] transition-all duration-300 relative group text-left">
-              <div className="absolute top-6 right-6 text-white/10 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-sky-500/30 group-hover:scale-105 select-none">
-                01
+            {/* Panel 1: Vision */}
+            <div className="border border-white/10 bg-slate-900/30 backdrop-blur-xl rounded-[28px] p-8 transition-all duration-500 ease-out shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:bg-slate-900/50 hover:border-sky-500/30 ring-1 ring-white/5 hover:ring-sky-500/20 flex flex-col justify-between min-h-[350px] group text-left">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-white/5 text-sky-400 group-hover:bg-sky-500/10 group-hover:scale-110 transition-all duration-300 ring-1 ring-white/10">
+                      <Compass className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block text-[9px] font-bold text-sky-300 font-heading tracking-widest uppercase bg-slate-950/80 border border-sky-800/30 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
+                      VISION
+                    </span>
+                  </div>
+                  <div className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] font-heading text-5xl font-extrabold tracking-tight select-none transition-all duration-500 group-hover:[-webkit-text-stroke:1px_rgba(56,189,248,0.25)] group-hover:scale-105">
+                    01
+                  </div>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white font-heading leading-tight group-hover:text-sky-300 transition-colors duration-300">
+                  Our Vision – Print Solutions
+                </h3>
               </div>
-              <div className="space-y-6">
-                <span className="inline-block text-[10px] font-bold text-sky-400 font-heading tracking-widest uppercase bg-sky-950/80 border border-sky-800/50 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
-                  PURPOSE
-                </span>
-                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
+              <div className="mt-8 pt-6 border-t border-white/5">
+                <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
+                  At MULTIVISTA our vision is driven by our passion to exceed the expectations of our most valued assets – our customers, our employees and our business partners while being a professionally managed, profitable organization with core values and ethics.
+                </p>
+              </div>
+            </div>
+
+            {/* Panel 2: Mission */}
+            <div className="border border-white/10 bg-slate-900/30 backdrop-blur-xl rounded-[28px] p-8 transition-all duration-500 ease-out shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:bg-slate-900/50 hover:border-amber-500/30 ring-1 ring-white/5 hover:ring-amber-500/20 flex flex-col justify-between min-h-[350px] group text-left">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-white/5 text-amber-400 group-hover:bg-amber-500/10 group-hover:scale-110 transition-all duration-300 ring-1 ring-white/10">
+                      <Award className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block text-[9px] font-bold text-amber-300 font-heading tracking-widest uppercase bg-slate-950/80 border border-amber-800/30 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
+                      MISSION
+                    </span>
+                  </div>
+                  <div className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] font-heading text-5xl font-extrabold tracking-tight select-none transition-all duration-500 group-hover:[-webkit-text-stroke:1px_rgba(245,158,11,0.25)] group-hover:scale-105">
+                    02
+                  </div>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white font-heading leading-tight group-hover:text-amber-300 transition-colors duration-300">
+                  Our Mission – Print Solutions
+                </h3>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/5">
+                <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
+                  To be a Quality driven, cost-effective print solution partner for global book publishers
+                </p>
+              </div>
+            </div>
+
+            {/* Panel 3: Purpose */}
+            <div className="border border-white/10 bg-slate-900/30 backdrop-blur-xl rounded-[28px] p-8 transition-all duration-500 ease-out shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:-translate-y-2 hover:bg-slate-900/50 hover:border-emerald-500/30 ring-1 ring-white/5 hover:ring-emerald-500/20 flex flex-col justify-between min-h-[350px] group text-left">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-white/5 text-emerald-400 group-hover:bg-emerald-500/10 group-hover:scale-110 transition-all duration-300 ring-1 ring-white/10">
+                      <Leaf className="w-5 h-5" />
+                    </div>
+                    <span className="inline-block text-[9px] font-bold text-emerald-300 font-heading tracking-widest uppercase bg-slate-950/80 border border-emerald-800/30 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
+                      PURPOSE
+                    </span>
+                  </div>
+                  <div className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] font-heading text-5xl font-extrabold tracking-tight select-none transition-all duration-500 group-hover:[-webkit-text-stroke:1px_rgba(16,185,129,0.25)] group-hover:scale-105">
+                    03
+                  </div>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white font-heading leading-tight group-hover:text-emerald-300 transition-colors duration-300">
                   Empowering Global Publishing Through Responsible Manufacturing
                 </h3>
               </div>
-              <p className="text-xs md:text-sm text-slate-200 font-sans leading-relaxed pt-8 font-light border-t border-slate-800/60 mt-8">
-                Supporting the distribution of critical ideas, curriculum, and stories with high ethics, solar offsets, and paper loops.
-              </p>
-            </div>
-
-            {/* Panel 2: Vision */}
-            <div className="p-8 rounded-[24px] border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-slate-900/60 hover:border-sky-500/30 hover:translate-y-[-4px] transition-all duration-300 relative group text-left">
-              <div className="absolute top-6 right-6 text-white/10 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-sky-500/30 group-hover:scale-105 select-none">
-                02
+              <div className="mt-8 pt-6 border-t border-white/5">
+                <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
+                  Supporting the distribution of critical ideas, curriculum, and stories with high ethics, solar offsets, and paper loops.
+                </p>
               </div>
-              <div className="space-y-6">
-                <span className="inline-block text-[10px] font-bold text-amber-400 font-heading tracking-widest uppercase bg-amber-950/80 border border-amber-800/50 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
-                  VISION
-                </span>
-                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
-                  Preferred Global Manufacturing Partner for Publishers
-                </h3>
-              </div>
-              <p className="text-xs md:text-sm text-slate-200 font-sans leading-relaxed pt-8 font-light border-t border-slate-800/60 mt-8">
-                Continuously setting global benchmarks for print fidelity, workflow digitalizations, and zero-defect quality parameters.
-              </p>
-            </div>
-
-            {/* Panel 3: Mission */}
-            <div className="p-8 rounded-[24px] border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-lg flex flex-col justify-between hover:shadow-2xl hover:bg-slate-900/60 hover:border-sky-500/30 hover:translate-y-[-4px] transition-all duration-300 relative group text-left">
-              <div className="absolute top-6 right-6 text-white/10 font-heading text-5xl font-bold tracking-tight transition-all duration-300 group-hover:text-sky-500/30 group-hover:scale-105 select-none">
-                03
-              </div>
-              <div className="space-y-6">
-                <span className="inline-block text-[10px] font-bold text-sky-400 font-heading tracking-widest uppercase bg-sky-950/80 border border-sky-800/50 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">
-                  MISSION
-                </span>
-                <h3 className="text-2xl font-bold text-white font-heading leading-tight pt-2">
-                  Delivering World-Class Book Manufacturing Solutions
-                </h3>
-              </div>
-              <p className="text-xs md:text-sm text-slate-200 font-sans leading-relaxed pt-8 font-light border-t border-slate-800/60 mt-8">
-                Providing consistent color density, premium cover styling, dependable logistics, and environmentally friendly outputs.
-              </p>
             </div>
 
           </div>
@@ -739,12 +716,12 @@ export function About() {
                 </div>
               </div>
 
-              {/* Bottom Visual Element */}
               <div className="mt-6 pt-3 border-t border-slate-800/60 h-[160px] rounded-b-[20px] overflow-hidden">
                 <img
-                  src="/Images/about_scale.png"
+                  src="/Images/HERO SECTIONS/INFRASTRUCTURE HERO.jpeg"
                   alt="Area Scale"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -812,12 +789,12 @@ export function About() {
                 </div>
               </div>
 
-              {/* Bottom Visual Element */}
               <div className="mt-6 pt-3 border-t border-slate-800/60 h-[160px] rounded-b-[20px] overflow-hidden">
                 <img
-                  src="/Images/about_volume.png"
+                  src="/Images/FOUNDATION OF EXCELLENCE/OUTPUT DENSITY.jpg"
                   alt="Output Density"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -839,7 +816,7 @@ export function About() {
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] border border-gray-200/50 bg-slate-50">
                 <img
                   src="/Images/Karthick_Narayan.jpeg"
-                  alt="Managing Director"
+                  alt="Director"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                 />
                 <div className="absolute bottom-6 left-6 right-6 bg-deep-navy/95 border border-white/10 p-5 rounded-2xl text-left text-white shadow-xl z-20">
@@ -847,7 +824,7 @@ export function About() {
                     Mr. Karthik Narayan
                   </h4>
                   <p className="text-xs text-gold-accent font-sans mt-0.5">
-                    Managing Director — Multivista Printers
+                    Director — Multivista Global Print Solutions
                   </p>
                 </div>
               </div>
@@ -882,7 +859,7 @@ export function About() {
                     Karthik Narayan
                   </h4>
                   <p className="text-[10px] text-gray-400 font-sans uppercase tracking-wider">
-                    Managing Director
+                    Director
                   </p>
                 </div>
 

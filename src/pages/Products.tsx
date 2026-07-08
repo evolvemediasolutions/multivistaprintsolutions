@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
 import {
   CheckCircle2,
   ArrowRight,
@@ -13,6 +14,8 @@ import {
   Scissors,
   FolderCheck,
   ChevronRight,
+  ChevronLeft,
+  X,
   Droplet,
   Zap,
   Settings,
@@ -22,10 +25,12 @@ import { Button } from "@/components/ui/Button";
 
 function HardcoverCarousel() {
   const images = [
-    "/Book Image/HardCover Books/HC1.JPG",
-    "/Book Image/HardCover Books/HC2.JPG",
-    "/Book Image/HardCover Books/HC3.JPG",
-    "/Book Image/HardCover Books/HC4.JPG"
+    "/Images/HARD BOOKS/HARD COVER 1.jpg",
+    "/Images/HARD BOOKS/HARD COVER 2.jpg",
+    "/Images/HARD BOOKS/HARD COVER 3.jpg",
+    "/Images/HARD BOOKS/HARD COVER 4.jpg",
+    "/Images/HARD BOOKS/HARD COVER 5.jpg",
+    "/Images/HARD BOOKS/HARD COVER 6.jpg"
   ];
   const [index, setIndex] = useState(0);
 
@@ -48,6 +53,7 @@ function HardcoverCarousel() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
         />
       </AnimatePresence>
 
@@ -67,6 +73,70 @@ function HardcoverCarousel() {
   );
 }
 
+function SoftcoverCarousel() {
+  const images = [
+    "/Images/SOFT BOOKS/SOFT COVER 1.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 2.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 3.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 4.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 5.jpg"
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full">
+      <AnimatePresence initial={false}>
+        <motion.img
+          key={index}
+          src={images[index]}
+          alt={`Softcover book showcase ${index + 1}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+      </AnimatePresence>
+
+      {/* Navigation Dot Indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 border border-white/20 cursor-pointer outline-none focus:outline-none ${index === i ? "bg-white w-5" : "bg-white/40 hover:bg-white/70"
+              }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const galleryImages = [
+  "/Images/GALLERY/GALLERY1.jpg",
+  "/Images/GALLERY/GALLERY2.jpg",
+  "/Images/GALLERY/GALLERY3.jpg",
+  "/Images/GALLERY/GALLERY5.jpg",
+  "/Images/GALLERY/GALLERY6.jpg",
+  "/Images/GALLERY/GALLERY7.jpg",
+  "/Images/GALLERY/GALLERY8.jpg",
+  "/Images/GALLERY/GALLERY9.jpg",
+  "/Images/GALLERY/GALLERY10.jpg",
+  "/Images/GALLERY/GALLERY11.jpg",
+  "/Images/GALLERY/GALLERY12.jpg",
+  "/Images/GALLERY/GALLERY13 (1).jpg"
+];
+
 interface FormatSection {
   id: string;
   label: string;
@@ -83,6 +153,42 @@ interface FormatSection {
 }
 
 export function Products() {
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+
+  const openLightbox = (idx: number) => {
+    setLightboxIdx(idx);
+  };
+
+  const closeLightbox = () => {
+    setLightboxIdx(null);
+  };
+
+  const prevLightboxImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIdx !== null) {
+      setLightboxIdx((prev) => (prev === 0 ? galleryImages.length - 1 : (prev as number) - 1));
+    }
+  };
+
+  const nextLightboxImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIdx !== null) {
+      setLightboxIdx((prev) => ((prev as number) + 1) % galleryImages.length);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIdx !== null) {
+        if (e.key === "Escape") closeLightbox();
+        else if (e.key === "ArrowLeft") setLightboxIdx((prev) => (prev === 0 ? galleryImages.length - 1 : (prev as number) - 1));
+        else if (e.key === "ArrowRight") setLightboxIdx((prev) => ((prev as number) + 1) % galleryImages.length);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIdx]);
+
   // Format Sections configuration
 
   const sections: FormatSection[] = [
@@ -142,7 +248,7 @@ export function Products() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 pointer-events-none"
           style={{
-            backgroundImage: `url('/Images/products_hero_bg.png')`
+            backgroundImage: `url('/Images/HERO SECTIONS/PRODUCT HERO.jpg')`
           }}
         />
 
@@ -166,7 +272,7 @@ export function Products() {
               Precision Manufacturing Across Every Book Format
             </h1>
             <p className="text-base md:text-lg text-gray-300 font-sans font-light leading-relaxed max-w-3xl mx-auto pt-2">
-              Every publishing project has a unique purpose. From high-volume educational textbooks to premium collector's editions, our integrated manufacturing capabilities combine advanced technology, skilled craftsmanship, and sustainable practices to deliver books that meet the highest global standards.
+              The times change. Values remain. We combine advanced print manufacturing, skilled craftsmanship, and sustainable practices to produce books that meet global publishing standards.
             </p>
             <div className="h-[2px] w-32 bg-gradient-to-r from-royal-blue to-gold-accent mx-auto"></div>
             <p className="text-xs md:text-sm text-gray-400 font-sans font-light max-w-2xl mx-auto">
@@ -214,7 +320,7 @@ export function Products() {
                 // LAYOUT: FULL-WIDTH MONOGRAPH (Lay-Flat Section)
                 <div className="space-y-16">
                   <div className="grid lg:grid-cols-12 gap-8 items-end">
-                    <div className="lg:col-span-7 space-y-4">
+                    <div className="lg:col-span-12 space-y-4">
                       <span className={`text-[10px] font-bold tracking-widest font-heading uppercase px-3 py-1 rounded-full ${isDark ? 'bg-white text-royal-blue shadow-sm' : 'text-royal-blue bg-royal-blue/5 border border-royal-blue/10'}`}>
                         {sec.label}
                       </span>
@@ -223,11 +329,6 @@ export function Products() {
                       </h2>
                       <p className={`text-xl font-light font-sans ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                         {sec.subhead}
-                      </p>
-                    </div>
-                    <div className="lg:col-span-5">
-                      <p className={`text-sm font-sans font-light leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {sec.description}
                       </p>
                     </div>
                   </div>
@@ -280,6 +381,8 @@ export function Products() {
                       <div className={`relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border ${isDark ? "border-white/10 bg-slate-900" : "border-gray-200/80 bg-white"}`}>
                         {sec.id === "hardcover" ? (
                           <HardcoverCarousel />
+                        ) : sec.id === "softcover" ? (
+                          <SoftcoverCarousel />
                         ) : (
                           <img
                             src={sec.image}
@@ -305,10 +408,6 @@ export function Products() {
                         {sec.subhead}
                       </p>
                     </div>
-
-                    <p className={`text-sm font-sans font-light leading-relaxed ${isDark ? 'text-blue-100/90' : 'text-gray-500'}`}>
-                      {sec.description}
-                    </p>
 
                     {/* Features checklist details */}
                     <div className="space-y-6 pt-4">
@@ -368,6 +467,126 @@ export function Products() {
           </section>
         );
       })}
+
+      {/* SECTION: PRODUCT SHOWCASE GALLERY */}
+      <section className="relative py-24 bg-blueprint-grid bg-white border-t border-b border-gray-200/50 select-text overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-royal-blue/[0.03] blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[10px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/10 px-3.5 py-1.5 rounded-full inline-block mb-4">
+              PRODUCT GALLERY
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-navy-900 font-heading leading-tight">
+              Craftsmanship Showcase
+            </h2>
+            <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed max-w-2xl mx-auto mt-4">
+              Explore our diverse portfolio of books, showcases, and custom finishes manufactured at our state-of-the-art facility.
+            </p>
+            <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
+          </div>
+
+          {/* Mosaic Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+            {galleryImages.map((img, index) => {
+              // Custom span configuration for asymmetric layout
+              let gridClasses = "col-span-1 row-span-1";
+              if (index === 0) gridClasses = "col-span-2 row-span-2";
+              else if (index === 2) gridClasses = "row-span-2";
+              else if (index === 4) gridClasses = "col-span-2";
+              else if (index === 7) gridClasses = "row-span-2";
+              else if (index === 8) gridClasses = "col-span-2";
+              else if (index === 11) gridClasses = "lg:col-span-2 col-span-1";
+
+              return (
+                <div
+                  key={img}
+                  onClick={() => openLightbox(index)}
+                  className={cn(
+                    "group relative rounded-2xl overflow-hidden cursor-pointer border border-gray-200 bg-white shadow-sm hover:shadow-xl hover:border-royal-blue/30 transition-all duration-300",
+                    gridClasses
+                  )}
+                >
+                  <img
+                    src={img}
+                    alt={`Gallery asset ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
+                      <ChevronRight className="w-5 h-5 rotate-[-45deg]" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* LIGHTBOX MODAL */}
+      <AnimatePresence>
+        {lightboxIdx !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 select-none"
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer outline-none"
+              aria-label="Close Lightbox"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Left navigation arrow */}
+            <button
+              onClick={prevLightboxImage}
+              className="absolute left-6 z-40 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer outline-none"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Right navigation arrow */}
+            <button
+              onClick={nextLightboxImage}
+              className="absolute right-6 z-40 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer outline-none"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Main Image */}
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="relative max-w-full max-h-[80vh] rounded-xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={galleryImages[lightboxIdx]}
+                alt={`Expanded showcase ${lightboxIdx + 1}`}
+                className="max-w-full max-h-[80vh] object-contain rounded-xl"
+              />
+            </motion.div>
+
+            {/* Image counter */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 text-xs font-sans tracking-wide">
+              {lightboxIdx + 1} / {galleryImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* SUSTAINABILITY SECTION (Full-Width Parallax) */}
       <section className="relative py-32 bg-slate-950 overflow-hidden border-t border-slate-900 select-text">

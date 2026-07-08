@@ -19,10 +19,10 @@ export function Home() {
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[80vh] lg:min-h-[100dvh] flex items-center justify-center bg-[#0A121E] text-white py-20 px-4 md:py-32 selection:bg-brand-blue selection:text-white border-b border-gray-900 overflow-hidden">
         {/* Layer 1: Background Image */}
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
           style={{
-            backgroundImage: `url('/Images/home_hero_bg.png')`
+            backgroundImage: `url('/Images/FOUNDATION OF EXCELLENCE/PEOPLE.jpeg')`
           }}
         />
 
@@ -52,7 +52,7 @@ export function Home() {
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-12 md:mt-20">
           <AnimatedSection direction="up" className="max-w-3xl mx-auto">
             <div className="inline-flex items-center justify-center px-5 py-1.5 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest rounded-full bg-sky-950/40 backdrop-blur-sm mb-8">
-              Trusted Worldwide
+              Times change, Values Remain
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
               Manufacturing Knowledge. Delivering Sustainability.
@@ -73,17 +73,33 @@ export function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="mt-12 flex flex-col items-center justify-center gap-2 select-none"
+              className="mt-12 flex flex-row items-center justify-center gap-8 select-none"
             >
-              <img 
-                src="/Logo/GPTW 1.svg" 
-                alt="Great Place To Work Certified" 
-                className="h-16 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300 pointer-events-none" 
-              />
-              <span className="text-[10px] text-blue-200/50 uppercase tracking-widest font-bold font-sans">
-                Great Place to Work Certified
-              </span>
+              <div className="flex flex-col items-center gap-2">
+                <img 
+                  src="/Logo/ECOVADIS.png" 
+                  alt="EcoVadis Certified" 
+                  loading="lazy"
+                  className="h-16 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300 pointer-events-none" 
+                />
+                <span className="text-[10px] text-blue-200/50 uppercase tracking-widest font-bold font-sans">
+                  EcoVadis Certified
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <img 
+                  src="/Logo/GPTW.png" 
+                  alt="Great Place to Work" 
+                  loading="lazy"
+                  className="h-16 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300 pointer-events-none" 
+                />
+                <span className="text-[10px] text-blue-200/50 uppercase tracking-widest font-bold font-sans">
+                  Great Place to Work
+                </span>
+              </div>
             </motion.div>
+
+
           </AnimatedSection>
         </div>
 
@@ -91,8 +107,8 @@ export function Home() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
           <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3">Discover Our Ecosystem</span>
           <div className="w-[120px] h-[3px] bg-white/20 rounded-full overflow-hidden relative">
-            <motion.div 
-              animate={{ x: [-120, 120] }} 
+            <motion.div
+              animate={{ x: [-120, 120] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="absolute left-0 top-0 h-full w-[40px] bg-sky-400 rounded-full"
             />
