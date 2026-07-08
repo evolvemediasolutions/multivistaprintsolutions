@@ -62,7 +62,7 @@ export function TheNextChapter() {
             <AnimatedSection direction="left" className="w-full max-w-[620px]">
               <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-gray-100 shadow-xl transition-transform duration-500 hover:scale-[1.02]">
                 <img 
-                  src="/Images/next_chapter.png" 
+                  src="/Images/HOME/PARTNER WITH MULTIVISTA.png" 
                   alt="Multivista Printing Partnership" 
                   className="w-full h-full object-cover"
                 />

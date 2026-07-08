@@ -115,7 +115,7 @@ const zones = {
     title: "Prepress Excellence",
     subtitle: "Automated Precision & Color Fidelity",
     theme: "Precision begins before printing.",
-    image: "/Images/prepress_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/PRE PRESS.jpg",
     description: "Before paper meets ink, our prepress suite ensures absolute layout fidelity, color proofing, and plating accuracy. We combine advanced calibration workflows with computerized Computer-to-Plate (CTP) engines.",
     capabilities: [
       "Color Management (ISO Standards)",
@@ -135,7 +135,7 @@ const zones = {
     title: "Precision Printing",
     subtitle: "Offset & Web-Offset Printing Power",
     theme: "Manufacturing at scale.",
-    image: "/Images/printing_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/PRESS.jpg",
     description: "At the heart of our facility are high-speed multi-color offset presses. Optimized for long production runs, our sheet-fed and web-offset systems maintain absolute color consistency and print sharpness sheet after sheet.",
     capabilities: [
       "High-speed multi-color offset printing",
@@ -155,7 +155,7 @@ const zones = {
     title: "Advanced Binding",
     subtitle: "Premium Finishes & Multi-Format Options",
     theme: "Engineering durability.",
-    image: "/Images/binding_capability_showcase.png",
+    image: "/Images/PRODUCTION STAGE/BINDING.jpg",
     description: "A book's spine is its foundation of durability. Our bindery lines execute high-precision folding, section sewing, thread binding, and thermal gluing, transforming print blocks into premium hardbacks and paperbacks.",
     capabilities: [
       "Automated case-making & case-binding",

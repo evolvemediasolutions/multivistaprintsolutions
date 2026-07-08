@@ -425,7 +425,7 @@ export function Contact() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Panel 1: Office */}
             <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
@@ -470,24 +470,6 @@ export function Contact() {
               </span>
             </div>
 
-            {/* Panel 3: Operating Hours */}
-            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
-              <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-white text-lg">Operating Hours</h4>
-                  <Clock className="w-5 h-5 text-sky-400" />
-                </div>
-                <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
-                  Monday – Friday: 08:30 – 18:00 (IST)<br />
-                  Saturday (Logistics Support): 09:00 – 13:00 (IST)<br />
-                  Production pressroom operates 24/7.
-                </p>
-              </div>
-              <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                Time Zone: GMT+5:30 (IST)
-              </span>
-            </div>
-
             {/* Panel 4: Customer Service Contact */}
             <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
               <div className="space-y-4">
@@ -525,25 +507,6 @@ export function Contact() {
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
                 Global contracts & ESG alignment.
-              </span>
-            </div>
-
-            {/* Panel 6: Email Directory */}
-            <div className="bg-slate-900/40 border border-white/10 backdrop-blur-md hover:bg-slate-900/60 rounded-2xl p-8 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-lg group hover:border-sky-500/30">
-              <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-heading font-bold text-white text-lg">Email Directory</h4>
-                  <Mail className="w-5 h-5 text-sky-400" />
-                </div>
-                <p className="text-slate-300 font-sans text-xs leading-relaxed font-light">
-                  General Info: <a href="mailto:info@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">info@multivista.in</a><br />
-                  Export & Sales: <a href="mailto:sales@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">sales@multivista.in</a><br />
-                  Logistics: <a href="mailto:shipping@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">shipping@multivista.in</a><br />
-                  Careers Desk: <a href="mailto:careers@multivista.in" className="text-sky-400 hover:text-white hover:underline font-medium">careers@multivista.in</a>
-                </p>
-              </div>
-              <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                Centralized general inquiries.
               </span>
             </div>
 

@@ -29,15 +29,7 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-  {
-    name: "Products",
-    href: "/products",
-    children: [
-      { name: "Hardcover Books", href: "/products#hardcover", description: "Timeless craftsmanship. Built to last.", icon: BookOpen },
-      { name: "Softcover Books", href: "/products#softcover", description: "High-volume production excellence.", icon: FileText },
-      { name: "Lay-Flat Books", href: "/products#layflat", description: "Uninterrupted visual storytelling.", icon: Maximize },
-    ]
-  },
+  { name: "Products", href: "/products" },
   { name: "Infrastructure", href: "/infrastructure" },
   { name: "Markets", href: "/markets" },
   { name: "About Us", href: "/about" },

@@ -81,7 +81,7 @@ const pillars = [
     title: "Climate Action",
     desc: "Measuring our footprint to hit near-zero targets. We track Scopes 1, 2, and 3 meticulously, actively reducing emissions through logistics optimizations and solar energy infrastructure.",
     tags: ["SBTi Decarbonization", "Net-Zero Goals", "Carbon Audits"],
-    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=1000",
+    image: "/Images/CORE SUSTAINABLE/CLIMATIC ACTION.jpg",
     icon: Globe
   },
   {
@@ -89,7 +89,7 @@ const pillars = [
     title: "Responsible Procurement",
     desc: "Guaranteeing 100% ethical wood fibers. Over 90% of our paper stock is FSC® and PEFC certified, sourced from responsibly managed forests that preserve biodiversity and support local communities.",
     tags: ["FSC® & PEFC Paper", "Ethical Forestry", "Traceable Supply Chain"],
-    image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1000",
+    image: "/Images/CORE SUSTAINABLE/RESPONSIBLE PROCUMENT.jpg",
     icon: TreePine
   },
   {
@@ -97,7 +97,7 @@ const pillars = [
     title: "Sustainable Manufacturing",
     desc: "Running production loops on clean energy. Our Chennai manufacturing facility leverages high-yield rooftop solar arrays, computer-calibrated press layouts to reduce paper scrap, and zero-process plates.",
     tags: ["Solar Power Grid", "LED Plant Lighting", "VOC-Free Soy Inks"],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    image: "/Images/CORE SUSTAINABLE/SUSTAINABLE MANUFACTURING.jpg",
     icon: Zap
   },
   {
@@ -113,7 +113,7 @@ const pillars = [
     title: "People & Communities",
     desc: "Building an inclusive and ethical workplace. Certified as a Great Place to Work®, we invest in safety protocols, continuous skills training, and sponsor environmental learning loops in neighboring schools.",
     tags: ["Great Place to Work®", "Safe Environments", "Community Outreach"],
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1000",
+    image: "/Images/CORE SUSTAINABLE/PEOPLE & COMMUNITIES.jpeg",
     icon: Heart
   }
 ];

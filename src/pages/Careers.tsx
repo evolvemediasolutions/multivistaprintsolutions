@@ -42,78 +42,33 @@ interface Job {
 // Open Positions Data
 const openJobs: Job[] = [
   {
-    id: "prod-mgr",
-    title: "Production Manager",
+    id: "prod-sup",
+    title: "Production Supervisor",
     department: "Manufacturing Operations",
     location: "Chennai Factory",
-    experience: "8–10 years",
-    type: "Full-Time",
-    description: "Lead daily print production schedules, coordinate press operators, optimize material throughput, and guarantee output quality checks conform to publisher standards.",
-    requirements: [
-      "Degree in Printing Technology or Industrial Engineering",
-      "Proven operations management background inside a book manufacturing plant",
-      "Strong knowledge of sheetfed and web offset capabilities",
-      "Deep understanding of safety guidelines and continuous improvement frameworks"
-    ]
-  },
-  {
-    id: "press-spec",
-    title: "Offset Press Specialist",
-    department: "Press Operations",
-    location: "Chennai Factory",
-    experience: "4–6 years",
-    type: "Full-Time",
-    description: "Set up and operate multi-color offset printing machines, perform real-time ink density adjustments, calibrate plate setups, and conduct primary quality audits.",
-    requirements: [
-      "Vocational training or diploma in Printing Technology",
-      "Hands-on expertise running Heidelberg or Komori multi-color presses",
-      "Strong color discrimination and density assessment capabilities",
-      "Willingness to work in shifts to support volume expansion cycles"
-    ]
-  },
-  {
-    id: "prepress-tech",
-    title: "Pre-Press Digital Specialist",
-    department: "Pre-Press",
-    location: "Chennai Factory",
     experience: "3–5 years",
     type: "Full-Time",
-    description: "Manage pre-flight processes for client digital files, calibrate computer-to-plate (CTP) engine workflows, and double check fold-signatures and layout pagination.",
+    description: "Supervise daily printing production shifts, lead operator teams, monitor machine performance, and ensure alignment with quality benchmarks.",
     requirements: [
-      "Expertise in Adobe Creative Suite, Enfocus PitStop, and CTP layouts",
-      "Familiarity with color matching and profile standard calibrations (Fogra/GRACoL)",
-      "Meticulous attention to spelling, layout margins, and print resolution parameters",
-      "Strong written and spoken communication for publisher coordinators"
+      "Diploma or Degree in Printing Technology or related field",
+      "3+ years of experience supervising offset or post-press operators",
+      "Familiarity with Heidelberg/Komori press workflows and safety protocols",
+      "Strong team leadership and conflict resolution skills"
     ]
   },
   {
-    id: "qc-lead",
-    title: "Quality Control Lead",
-    department: "Quality Assurance",
-    location: "Chennai Factory",
-    experience: "5–8 years",
-    type: "Full-Time",
-    description: "Supervise incoming paper feedstock approvals, perform binding durability pull-tests, verify packaging integrity, and direct process audits.",
-    requirements: [
-      "Quality control inspection certification or engineering background",
-      "Familiarity with ISO 9001 quality audit guidelines",
-      "Experience with material testing tools, paper grain gauges, and spectrophotometers",
-      "Analytical mindset to track and reduce material waste logs"
-    ]
-  },
-  {
-    id: "scm-planner",
-    title: "Supply Chain & Logistics Planner",
-    department: "Logistics",
+    id: "prod-plan",
+    title: "Production Planner",
+    department: "Planning & Scheduling",
     location: "Chennai HQ",
-    experience: "3–5 years",
+    experience: "2–4 years",
     type: "Full-Time",
-    description: "Coordinate ocean cargo shipping channels connecting Chennai HQ to North America, UK, and Europe; track delivery pipelines, and manage custom clearances.",
+    description: "Coordinate raw materials, schedule print queues, calculate plate & ink estimations, and align publisher shipping deadlines with factory outputs.",
     requirements: [
-      "Bachelor's degree in Supply Chain Management, Business, or Logistics",
-      "Experience coordinating international sea/air shipments and freight forwarders",
-      "Strong skills in ERP planning modules and customs paperwork tracking",
-      "Familiarity with export standard documentation and logistics regulations"
+      "Degree in Business Administration, Logistics, or Printing Technology",
+      "Proven track record in production planning/scheduling inside a manufacturing environment",
+      "Excellent numerical proficiency and advanced Excel/ERP planning skills",
+      "Detail-oriented mindset to reduce job changeover and machine idle times"
     ]
   }
 ];
@@ -164,12 +119,12 @@ const culturePillars = [
 
 // Pinterest Gallery
 const galleryItems = [
-  { theme: "Training Programs", desc: "Fully funded technical courses and mentoring for press operations.", size: "h-[300px]", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800", icon: GraduationCap },
-  { theme: "Employee Celebrations", desc: "Recognizing milestones, cultural festivals, and team achievements.", size: "h-[380px]", image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800", icon: Sparkles },
-  { theme: "Team Collaboration", desc: "Cross-functional groups mapping solutions across pre-press and logistics.", size: "h-[320px]", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800", icon: Users },
-  { theme: "Safety Initiatives", desc: "Strict health audits, zero-accident protocols, and safety briefings.", size: "h-[390px]", image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800", icon: ShieldCheck },
-  { theme: "Community Engagement", desc: "Sponsoring print loops and green learnings in neighboring schools.", size: "h-[300px]", image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800", icon: Heart },
-  { theme: "Recognition Programs", desc: "Monthly spot awards honoring accuracy, waste reduction, and leadership.", size: "h-[340px]", image: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&q=80&w=800", icon: Award }
+  { theme: "Training Programs", desc: "Fully funded technical courses and mentoring for press operations.", size: "h-[300px]", image: "/Images/CAREER/TRAINING.png", icon: GraduationCap },
+  { theme: "Employee Celebrations", desc: "Recognizing milestones, cultural festivals, and team achievements.", size: "h-[380px]", image: "/Images/CAREER/EMPLOYEE CELEBRATIONS.png", icon: Sparkles },
+  { theme: "Team Collaboration", desc: "Cross-functional groups mapping solutions across pre-press and logistics.", size: "h-[320px]", image: "/Images/CAREER/TEAM COLLABORATION.png", icon: Users },
+  { theme: "Safety Initiatives", desc: "Strict health audits, zero-accident protocols, and safety briefings.", size: "h-[390px]", image: "/Images/CAREER/SAFETY INITATIVES.png", icon: ShieldCheck },
+  { theme: "Community Engagement", desc: "Sponsoring print loops and green learnings in neighboring schools.", size: "h-[300px]", image: "/Images/CAREER/COMMUNITY ENGAGEMENT.png", icon: Heart },
+  { theme: "Recognition Programs", desc: "Monthly spot awards honoring accuracy, waste reduction, and leadership.", size: "h-[340px]", image: "/Images/CAREER/RECOGNITION PROGRAMS.png", icon: Award }
 ];
 
 
@@ -215,7 +170,7 @@ export function Careers() {
 
 
   // Job selection and application form
-  const [activeJobId, setActiveJobId] = useState<string>("prod-mgr");
+  const [activeJobId, setActiveJobId] = useState<string>("prod-sup");
   const [selectedApplyJob, setSelectedApplyJob] = useState<Job | null>(null);
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
@@ -364,7 +319,7 @@ export function Careers() {
           className="absolute inset-0 z-0 bg-cover bg-center opacity-40 scale-105 transition-transform duration-100 ease-out"
           style={{
             transform: `translateY(${heroScroll * 0.4}px) scale(1.05)`,
-            backgroundImage: `url('/Images/careers_hero_bg.png')`
+            backgroundImage: `url('/Images/HERO SECTIONS/CAREER HERO.jpg')`
           }}
         />
 
@@ -426,7 +381,7 @@ export function Careers() {
                   style={{ transform: `translateY(${whyScroll * 0.05}px)` }}
                 >
                   <SafeImage
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                    src="/Images/CSR/WHY MULTIVISTA.jpg"
                     alt="Why Multivista"
                     className="w-full h-full object-cover"
                     fallbackIcon={Users}
@@ -449,6 +404,190 @@ export function Careers() {
                 <span className="block">We foster a culture built on trust, respect and shared purpose where every individual has the opportunity to learn, contribute and grow.</span>
                 <span className="block text-sm text-gray-500 border-l-2 border-sky-500 pl-4 py-1">Whether on the manufacturing floor, within our quality teams or across leadership and support functions, every employee plays a vital role in delivering excellence to publishers worldwide.</span>
               </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 02.5: COMMUNITY & SOCIAL IMPACT */}
+      <section className="relative py-24 md:py-32 bg-slate-950 overflow-hidden font-sans select-text">
+        {/* Background Image Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80 z-0 pointer-events-none"
+          style={{ backgroundImage: "url('/Images/CSR/CSR.jpg')" }}
+        />
+        {/* Soft overlay for text readability */}
+        <div className="absolute inset-0 bg-black/55 pointer-events-none z-10"></div>
+        {/* Background print grid */}
+        <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none z-10"></div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
+            <span className="text-[9px] font-bold text-sky-300 tracking-widest font-heading uppercase bg-slate-950/90 border border-sky-500/30 px-3.5 py-1.5 rounded-full inline-block shadow-md">
+              Social Impact
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
+              Community & Social Impact
+            </h2>
+            <div className="h-[2px] w-16 bg-sky-500 mx-auto my-4" />
+            <p className="text-sm md:text-base text-slate-200 font-sans font-light leading-relaxed">
+              We believe in creating shared value and driving positive change. Our CSR initiatives focus on lifting local communities, fostering learning, and ensuring environmental stewardship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto justify-center">
+            {[
+              {
+                title: "Community Development",
+                desc: "Supporting local communities through meaningful partnerships, outreach programs, and social development initiatives.",
+                icon: Users,
+                color: "bg-slate-900/40 border-white/10 hover:bg-slate-900/60 hover:border-sky-500/30 shadow-xl",
+                iconColor: "text-sky-400 bg-sky-500/10 border-sky-500/20"
+              },
+              {
+                title: "Education Support",
+                desc: "Contributing to education by supporting schools, learning initiatives, and access to quality educational resources.",
+                icon: BookOpen,
+                color: "bg-slate-900/40 border-white/10 hover:bg-slate-900/60 hover:border-emerald-500/30 shadow-xl",
+                iconColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+              },
+              {
+                title: "Healthcare Initiatives",
+                desc: "Promoting health and wellbeing through medical camps, health awareness programs, and community healthcare support.",
+                icon: Heart,
+                color: "bg-slate-900/40 border-white/10 hover:bg-slate-900/60 hover:border-rose-500/30 shadow-xl",
+                iconColor: "text-rose-400 bg-rose-500/10 border-rose-500/20"
+              },
+              {
+                title: "Employee Volunteering",
+                desc: "Encouraging employees to actively participate in community service and social impact initiatives.",
+                icon: Sparkles,
+                color: "bg-slate-900/40 border-white/10 hover:bg-slate-900/60 hover:border-amber-500/30 shadow-xl",
+                iconColor: "text-amber-400 bg-amber-500/10 border-amber-500/20"
+              },
+              {
+                title: "Environmental Responsibility",
+                desc: "Driving positive environmental impact through sustainable manufacturing, resource conservation, and responsible business practices.",
+                icon: Leaf,
+                color: "bg-slate-900/40 border-white/10 hover:bg-slate-900/60 hover:border-teal-500/30 shadow-xl",
+                iconColor: "text-teal-400 bg-teal-500/10 border-teal-500/20"
+              }
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className={cn(
+                    "p-8 rounded-3xl border transition-all duration-300 flex flex-col justify-between text-left group hover:-translate-y-1 backdrop-blur-md text-white",
+                    item.color
+                  )}
+                >
+                  <div className="space-y-4">
+                    <div className={cn("p-3 rounded-xl border self-start inline-block", item.iconColor)}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white font-heading">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-slate-300 font-sans font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 02.7: DIVERSITY & INCLUSION */}
+      <section className="relative py-28 bg-white border-b border-slate-200/50 overflow-hidden font-sans select-text">
+        {/* Background print grid */}
+        <div className="absolute inset-0 bg-print-grid opacity-[0.04] pointer-events-none z-0"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Left Content with Image */}
+            <div className="lg:col-span-5 space-y-6 text-left">
+              <span className="text-[9px] font-bold text-sky-600 tracking-widest font-heading uppercase bg-sky-500/5 border border-sky-500/10 px-2.5 py-1 rounded-full inline-block">
+                Our Workplace
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight">
+                Diversity & Inclusion
+              </h2>
+              <div className="h-[2px] w-16 bg-sky-500 my-4" />
+              <p className="text-base text-gray-650 font-sans font-light leading-relaxed">
+                We believe diverse perspectives strengthen our business. We are committed to creating an inclusive workplace where every individual is respected, valued, and given equal opportunities to learn, grow, and succeed across our global operations.
+              </p>
+              
+              <div className="relative group rounded-3xl overflow-hidden shadow-lg aspect-[4/3] bg-slate-50 border border-slate-100 mt-8">
+                <img
+                  src="/Images/FOUNDATION OF EXCELLENCE/PEOPLE.jpeg"
+                  alt="Diversity and Inclusion in the Workplace"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/30 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Right Cards Grid */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+              {[
+                {
+                  title: "Equal Opportunities",
+                  desc: "We provide fair and equal opportunities for all employees based on skills, talent, and performance.",
+                  icon: User,
+                  color: "border-sky-500/10 bg-slate-50/50 hover:border-sky-500/30 hover:bg-sky-500/[0.02]",
+                  iconColor: "text-sky-500 bg-sky-500/10 border-sky-500/20"
+                },
+                {
+                  title: "Inclusive Workplace",
+                  desc: "We foster a respectful workplace where every voice is heard and collaboration is encouraged.",
+                  icon: Users,
+                  color: "border-emerald-500/10 bg-slate-50/50 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]",
+                  iconColor: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20"
+                },
+                {
+                  title: "Global Workforce",
+                  desc: "With teams and partnerships across multiple countries, we embrace diverse cultures, experiences, and perspectives.",
+                  icon: Globe,
+                  color: "border-amber-500/10 bg-slate-50/50 hover:border-amber-500/30 hover:bg-amber-500/[0.02]",
+                  iconColor: "text-amber-500 bg-amber-500/10 border-amber-500/20"
+                },
+                {
+                  title: "Respect & Belonging",
+                  desc: "We cultivate an environment where people feel valued, supported, and empowered to contribute their best.",
+                  icon: Heart,
+                  color: "border-purple-500/10 bg-slate-50/50 hover:border-purple-500/30 hover:bg-purple-500/[0.02]",
+                  iconColor: "text-purple-500 bg-purple-500/10 border-purple-500/20"
+                }
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className={cn(
+                      "p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between text-left shadow-sm group hover:-translate-y-1",
+                      item.color
+                    )}
+                  >
+                    <div className="space-y-4">
+                      <div className={cn("p-3 rounded-xl border self-start inline-block", item.iconColor)}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-base font-bold text-deep-navy font-heading">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-gray-500 font-sans font-light leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
           </div>

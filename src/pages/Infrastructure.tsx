@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "motion/react";
 import {
   Cpu,
@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/Button";
 import { CountUp } from "@/components/ui/CountUp";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { cn } from "@/lib/utils";
 
 // Section 2: Infrastructure Categories Data
 const categories = [
@@ -86,8 +87,31 @@ const machineImages = [
   { path: "/Images/MACHINE/MACHINE 19.jpg", name: "Heavy-Duty Case Making Line" }
 ];
 
+const awardsList = [
+  { path: "/Images/AWARDS/AWARD 1.jpg", title: "National Excellence in Printing", category: "Award Category", desc: "Recognizing outstanding achievement in print precision, color accuracy, and overall execution across national publications." },
+  { path: "/Images/AWARDS/AWARD 2.jpg", title: "Best Printer of the Year", category: "Quality Accolade", desc: "Honoring our consistent commitment to manufacturing quality and zero-defect output standards." },
+  { path: "/Images/AWARDS/AWARD 3.jpg", title: "Book Production Laurels", category: "Publishing Benchmark", desc: "Awarded for exceptional bookbindery strength, layout fidelity, and publication durability." },
+  { path: "/Images/AWARDS/AWARD 4.jpg", title: "Sustainable Printing Award", category: "Eco Champion", desc: "Acknowledging our industry leadership in low-carbon paper sourcing and solar-powered operations." },
+  { path: "/Images/AWARDS/AWARD 5.jpg", title: "Outstanding Export Performance", category: "Global Reach", desc: "Commending our supply chain efficiency in delivering print products to international markets." },
+  { path: "/Images/AWARDS/AWARD 6.jpg", title: "Quality & Precision Benchmark", category: "Process Excellence", desc: "Celebrating our compliance with ISO standards and rigorous quality assurance protocols." },
+  { path: "/Images/AWARDS/AWARD 7.jpg", title: "Green Manufacturing Leadership", category: "ESG Accolade", desc: "Presented for pioneering efforts in waste reduction, water conservation, and green logistics." },
+  { path: "/Images/AWARDS/AWARD 8.jpg", title: "Industry Pioneer Recognition", category: "Legacy Achievement", desc: "Honoring nearly five decades of shaping the publishing and printing ecosystem globally." }
+];
+
 export function Infrastructure() {
   const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -227,7 +251,94 @@ export function Infrastructure() {
           </div>
         </div>
       </section>
+      {/* SECTION 3.5: AWARDS & RECOGNITIONS CAROUSEL */}
+      <section className="relative py-24 md:py-32 bg-slate-950 overflow-hidden font-sans select-text border-b border-white/5">
+        {/* Background Image Parallax Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-70 z-0 pointer-events-none"
+          style={{ backgroundImage: "url('/Images/AWARDS/AWARD 8.jpg')" }}
+        />
+        {/* Soft overlay for text readability */}
+        <div className="absolute inset-0 bg-black/60 pointer-events-none z-10"></div>
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none z-10"></div>
 
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
+          
+          {/* Header Row with Controls */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="text-left space-y-4 max-w-2xl">
+              <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-2.5 py-1.5 rounded-full inline-block">
+                Accolades
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
+                Awards & Recognitions
+              </h2>
+              <div className="w-12 h-1 bg-sky-500 mt-4 rounded-full" />
+              <p className="text-sm md:text-base text-slate-200 font-sans font-light leading-relaxed">
+                For nearly five decades, Multivista has been honored with numerous national and international awards for print quality, design excellence, sustainable manufacturing, and customer service.
+              </p>
+            </div>
+
+            {/* Slider Controls */}
+            <div className="flex gap-3 shrink-0 self-start md:self-end">
+              <button
+                onClick={() => scroll("left")}
+                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white hover:text-sky-400 hover:border-sky-400 hover:bg-white/15 transition-all duration-300 flex items-center justify-center cursor-pointer outline-none shadow-sm"
+                aria-label="Previous Awards"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 text-white hover:text-sky-400 hover:border-sky-400 hover:bg-white/15 transition-all duration-300 flex items-center justify-center cursor-pointer outline-none shadow-sm"
+                aria-label="Next Awards"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Carousel Track Container */}
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4"
+          >
+            {awardsList.map((award, index) => (
+              <div
+                key={index}
+                className="flex flex-col shrink-0 w-[280px] sm:w-[320px] snap-start group"
+              >
+                {/* Image Container with standard proportions (Glassmorphic Frame) */}
+                <div className="relative aspect-[3/4] bg-slate-900/40 border border-white/10 backdrop-blur-md rounded-3xl overflow-hidden flex items-center justify-center p-5 shadow-xl hover:shadow-2xl hover:border-sky-500/30 hover:-translate-y-1.5 transition-all duration-350">
+                  <div className="absolute inset-0 bg-slate-950/40 pointer-events-none z-0" />
+                  <img
+                    src={award.path}
+                    alt={award.title}
+                    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105 z-10"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/[0.05] via-transparent to-transparent pointer-events-none z-10" />
+                </div>
+                
+                {/* Description Text */}
+                <div className="pt-4 px-2 text-left space-y-1 text-white">
+                  <span className="text-[9px] font-bold text-sky-400 tracking-wider uppercase font-heading bg-sky-500/10 border border-sky-500/20 px-2 py-0.5 rounded inline-block">
+                    {award.category}
+                  </span>
+                  <h4 className="text-sm font-bold font-heading leading-snug group-hover:text-sky-400 transition-colors">
+                    {award.title}
+                  </h4>
+                  <p className="text-[11px] text-slate-350 font-sans font-light leading-normal line-clamp-2">
+                    {award.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
 
       {/* SECTION 4: INTEGRATED PRODUCTION STAGES */}
       <section className="relative py-28 bg-[#EEEEEE] overflow-hidden select-text">
