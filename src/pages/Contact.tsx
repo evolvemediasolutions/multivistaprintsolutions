@@ -436,7 +436,7 @@ export function Contact() {
                 </div>
                 <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
                   Multivista Global Ltd.<br />
-                  43, Vandalur Kelambakkam Road,<br />
+                  Manufacturing Plant 43, Vandalur Kelambakkam Road,<br />
                   Pudupakkam, Chennai - 603 103,<br />
                   Tamil Nadu, India.
                 </p>
@@ -460,13 +460,13 @@ export function Contact() {
                   <Building className="w-5 h-5 text-sky-400" />
                 </div>
                 <p className="text-slate-300 font-sans text-sm leading-relaxed font-light">
-                  43, Vandalur Kelambakkam Road,<br />
+                  Manufacturing Plant 43, Vandalur Kelambakkam Road,<br />
                   Pudupakkam, Chennai - 603 103,<br />
                   Tamil Nadu, India.
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                FSC®-C123456 Licensed Site
+                FSC®-C0199630 Licensed Site
               </span>
             </div>
 

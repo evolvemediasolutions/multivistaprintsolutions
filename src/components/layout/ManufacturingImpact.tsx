@@ -172,7 +172,7 @@ export function ManufacturingImpact() {
                 Books Manufactured / Year
               </h3>
               <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
-                Continuous high-capacity print lines running 24/7.
+                Continuous high-capacity print lines.
               </p>
             </div>
 

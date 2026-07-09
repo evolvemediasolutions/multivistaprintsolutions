@@ -99,6 +99,13 @@ const evolutionJourney = [
     title: "Muller Martini Ventura",
     description: "Addition of New Muller Martini Ventura sewing machine, providing exceptional thread binding integrity for durable textbook runs.",
     image: "/Images/story_present.png"
+  },
+  {
+    phase: "Capacity Expansion",
+    year: "2025",
+    title: "Ryobi & Bindwell Addition",
+    description: "Addition of third New RYOBI 8 Clr & Bindwell 12 clamp binding machine.",
+    image: "/Images/binding_capability_showcase.png"
   }
 ];
 
@@ -533,7 +540,7 @@ export function About() {
               </div>
               <div className="mt-8 pt-6 border-t border-white/5">
                 <p className="text-xs md:text-sm text-slate-200 font-sans font-light leading-relaxed">
-                  Supporting the distribution of critical ideas, curriculum, and stories with high ethics, solar offsets, and paper loops.
+                  Powering the global distribution of literature and education through ethical production, solar-powered facilities, and sustainable paper sourcing.
                 </p>
               </div>
             </div>

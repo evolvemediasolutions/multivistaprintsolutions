@@ -77,7 +77,7 @@ export function Home() {
             >
               <div className="flex flex-col items-center gap-2">
                 <img 
-                  src="/Logo/ECOVADIS.png" 
+                  src="/Logo/MVGL-Logo.png" 
                   alt="EcoVadis Certified" 
                   loading="lazy"
                   className="h-16 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300 pointer-events-none" 

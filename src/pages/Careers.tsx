@@ -162,10 +162,7 @@ export function Careers() {
   const [heroScroll, setHeroScroll] = useState(0);
   const [whyScroll, setWhyScroll] = useState(0);
 
-  // Culture Scroll Spy states & refs
-  const [activeCultureIndex, setActiveCultureIndex] = useState(0);
-  const isCultureScrollingRef = useRef(false);
-  const cultureScrollTimeoutRef = useRef<number | null>(null);
+
 
 
 
@@ -197,37 +194,6 @@ export function Careers() {
           setWhyScroll(window.innerHeight - rect.top);
         }
       }
-
-
-
-      // Dynamic Active Culture Value Scroll Spy
-      if (!isCultureScrollingRef.current) {
-        const targetOffset = window.innerHeight * 0.35; // 35% from top of viewport
-        let closestIdx = 0;
-        let minDistance = Infinity;
-
-        // Check if we have scrolled to the bottom of the page
-        const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120;
-
-        if (isAtBottom) {
-          closestIdx = culturePillars.length - 1;
-        } else {
-          culturePillars.forEach((_, idx) => {
-            const el = document.getElementById(`culture-section-${idx}`);
-            if (el) {
-              const rect = el.getBoundingClientRect();
-              const distance = Math.abs(rect.top - targetOffset);
-              if (distance < minDistance) {
-                minDistance = distance;
-                closestIdx = idx;
-              }
-            }
-          });
-        }
-        setActiveCultureIndex(closestIdx);
-      }
-
-
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -239,24 +205,6 @@ export function Careers() {
       window.removeEventListener("resize", handleScroll);
     };
   }, []);
-
-  const scrollToCulture = (idx: number) => {
-    isCultureScrollingRef.current = true;
-    setActiveCultureIndex(idx);
-
-    const el = document.getElementById(`culture-section-${idx}`);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    if (cultureScrollTimeoutRef.current) {
-      window.clearTimeout(cultureScrollTimeoutRef.current);
-    }
-
-    cultureScrollTimeoutRef.current = window.setTimeout(() => {
-      isCultureScrollingRef.current = false;
-    }, 800);
-  };
 
   const handleApplyClick = (job: Job) => {
     setSelectedApplyJob(job);
@@ -594,185 +542,81 @@ export function Careers() {
         </div>
       </section>
 
-      {/* SECTION 03: OUR CULTURE (Sticky split scroll spy layout) */}
-      <section className="relative py-24 md:py-32 bg-slate-950 overflow-x-clip scroll-mt-24">
+      {/* SECTION 03: OUR VALUES */}
+      <section className="relative py-24 md:py-32 bg-slate-950 overflow-hidden scroll-mt-24 select-text">
         {/* Background Parallax Layer */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80 z-0 pointer-events-none"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-70 z-0 pointer-events-none"
           style={{ backgroundImage: "url('/Images/COE1.jpg')" }}
         />
-        {/* Soft overlay for text readability */}
-        <div className="absolute inset-0 bg-black/45 pointer-events-none z-10" />
+        {/* Soft overlay for maximum text readability */}
+        <div className="absolute inset-0 bg-black/60 pointer-events-none z-10" />
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none z-10"></div>
+        {/* Soft radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-sky-500/[0.05] blur-3xl pointer-events-none z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-            {/* Left Column: Sticky Pillar Navigation List */}
-            <div className="lg:col-span-5">
-              <div className="lg:sticky lg:top-36 space-y-8">
-                <div className="space-y-4">
-                  <span className="text-[9px] font-bold text-sky-300 tracking-widest font-heading uppercase bg-slate-950/90 border border-sky-500/30 px-3.5 py-1.5 rounded-full inline-block shadow-md">
-                    OUR VALUES
-                  </span>
-                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading font-bold">
-                    A Culture of Excellence & Care
-                  </h2>
-                  <p className="text-sm md:text-base text-slate-300 font-sans font-light leading-relaxed">
-                    We foster an environment of growth, trust, and shared purpose built on five core organizational values. Click any value to explore.
-                  </p>
-                </div>
-
-                {/* Vertical Timeline Card Track */}
-                <div className="relative mt-8">
-                  {/* Vertical Progress Line */}
-                  <div className="absolute left-[18px] top-[36px] bottom-[36px] w-[2px] pointer-events-none">
-                    <div className="absolute inset-0 bg-white/10 rounded-full" />
-                    <div
-                      className="absolute top-0 left-0 w-full bg-sky-500 rounded-full transition-all duration-500 ease-out"
-                      style={{
-                        height: `${(activeCultureIndex / (culturePillars.length - 1)) * 100}%`
-                      }}
-                    />
-                  </div>
-
-                  <div className="space-y-4">
-                    {culturePillars.map((item, idx) => {
-                      const isActive = activeCultureIndex === idx;
-                      const Icon = item.icon;
-                      return (
-                        <div key={item.title} className="relative flex items-center min-h-[72px]">
-                          {/* Timeline dot */}
-                          <button
-                            type="button"
-                            onClick={() => scrollToCulture(idx)}
-                            className={cn(
-                              "absolute left-[18px] -translate-x-1/2 w-4.5 h-4.5 rounded-full border-2 cursor-pointer transition-all duration-300 flex items-center justify-center z-20 outline-none",
-                              isActive
-                                ? "border-sky-500 bg-sky-500 scale-110 ring-4 ring-sky-500/15 shadow-sm"
-                                : "border-white/10 bg-slate-900/60 hover:border-white/30"
-                            )}
-                            aria-label={`Go to ${item.title}`}
-                          >
-                            {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
-                          </button>
-
-                          {/* Button card */}
-                          <button
-                            type="button"
-                            onClick={() => scrollToCulture(idx)}
-                            className={cn(
-                              "w-full text-left ml-9 p-4 rounded-xl border transition-all duration-300 flex items-center justify-between group cursor-pointer backdrop-blur-sm",
-                              isActive
-                                ? "bg-slate-900/60 border-sky-500/40 shadow-xl shadow-sky-500/5 text-white"
-                                : "bg-slate-900/20 border-white/5 hover:bg-slate-900/40 hover:border-white/10 text-slate-400"
-                            )}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className={cn(
-                                "w-8 h-8 rounded-lg flex items-center justify-center border transition-all duration-300",
-                                isActive
-                                  ? "bg-sky-500/10 border-sky-500/20 text-sky-400"
-                                  : "bg-slate-900/60 border-white/5 text-slate-500"
-                              )}>
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="space-y-0.5">
-                                <span className={cn(
-                                  "text-[9px] font-bold font-heading tracking-widest uppercase block transition-colors duration-300",
-                                  isActive ? "text-sky-400" : "text-slate-500"
-                                )}>
-                                  Pillar {item.num}
-                                </span>
-                                <h4 className={cn(
-                                  "text-sm font-bold font-heading transition-colors duration-300",
-                                  isActive ? "text-white" : "text-slate-400 group-hover:text-slate-200"
-                                )}>
-                                  {item.title}
-                                </h4>
-                              </div>
-                            </div>
-                            <ChevronRight className={cn(
-                              "w-4 h-4 transition-transform duration-300",
-                              isActive ? "text-sky-400 translate-x-1" : "text-slate-500 group-hover:translate-x-0.5"
-                            )} />
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Right Column: Scrolling Cards */}
-            <div className="lg:col-span-7 space-y-24 lg:space-y-36">
-              {culturePillars.map((item, idx) => {
-                const isActive = activeCultureIndex === idx;
-                return (
-                  <div
-                    key={item.title}
-                    id={`culture-section-${idx}`}
-                    className={cn(
-                      "scroll-mt-36 transition-all duration-700 ease-out origin-center",
-                      isActive ? "opacity-100 scale-100 filter-none" : "opacity-40 scale-95 blur-[0.5px]"
-                    )}
-                  >
-                    <div className={cn(
-                      "relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/3] border bg-slate-950/60 mb-6 transition-all duration-700",
-                      isActive ? "border-sky-500/30 shadow-sky-500/5 shadow-2xl" : "border-white/5 shadow-md"
-                    )}>
-                      <SafeImage
-                        src={item.image}
-                        alt={item.title}
-                        className={cn(
-                          "w-full h-full object-cover transition-transform duration-1000 ease-out",
-                          isActive ? "scale-105" : "scale-100"
-                        )}
-                        fallbackIcon={item.icon}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent pointer-events-none" />
-                    </div>
-
-                    <div className={cn(
-                      "space-y-3 p-6 rounded-3xl text-left border backdrop-blur-md transition-all duration-700 mt-6",
-                      isActive
-                        ? "bg-slate-900/40 border-white/10 shadow-xl"
-                        : "bg-slate-900/10 border-white/5 opacity-50"
-                    )}>
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {item.tags.map(tag => (
-                          <span
-                            key={tag}
-                            className={cn(
-                              "text-[10px] font-semibold px-2.5 py-1 rounded-md border transition-all duration-500",
-                              isActive
-                                ? "text-sky-400 bg-sky-500/10 border-sky-500/20"
-                                : "text-slate-500 bg-slate-900/40 border-white/5"
-                            )}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <h3 className={cn(
-                        "text-2xl font-bold font-heading leading-tight transition-colors duration-500",
-                        isActive ? "text-white" : "text-slate-400"
-                      )}>
-                        {item.title}
-                      </h3>
-                      <p className={cn(
-                        "text-sm md:text-base font-sans font-light leading-relaxed transition-colors duration-500",
-                        isActive ? "text-slate-300" : "text-slate-500"
-                      )}>
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
+          
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1.5 rounded-full inline-block shadow-sm">
+              OUR VALUES
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading">
+              A Culture of Excellence & Care
+            </h2>
+            <div className="w-12 h-1 bg-sky-500 mx-auto mt-4 rounded-full" />
+            <p className="text-sm md:text-base text-slate-200 font-sans font-light leading-relaxed max-w-2xl mx-auto">
+              We foster an environment of growth, trust, and shared purpose built on five core organizational values.
+            </p>
           </div>
+
+          {/* Grid Layout (5 columns for the 5 values) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {culturePillars.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div 
+                  key={item.title} 
+                  className="bg-slate-900/60 border border-white/15 backdrop-blur-md p-8 rounded-3xl relative overflow-hidden hover:border-sky-500/40 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1.5 transition-all duration-350 flex flex-col justify-between group h-full"
+                >
+                  {/* Large floating number */}
+                  <span className="absolute top-4 right-6 text-5xl font-extrabold text-white/10 font-heading group-hover:text-sky-400/20 transition-colors duration-300">
+                    {item.num}
+                  </span>
+
+                  <div className="flex flex-col">
+                    {/* Icon Container */}
+                    <div className="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-400 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    {/* Title & Description */}
+                    <h3 className="text-lg font-bold text-white font-heading mb-3 group-hover:text-sky-400 transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-200 font-sans font-light leading-relaxed mb-6">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {/* Tags block at the bottom */}
+                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
+                    {item.tags.map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="text-[9px] font-semibold text-sky-300 bg-sky-500/10 border border-sky-500/25 px-2.5 py-1 rounded transition-colors duration-300 group-hover:text-sky-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </section>
 

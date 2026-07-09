@@ -19,7 +19,7 @@ const navigation = {
     { name: "Education", href: "/markets#educational" },
     { name: "STM", href: "/markets#academic" },
     { name: "Children's Books", href: "/markets#stm" },
-    { name: "Trade & Coffee Table Books", href: "/markets#childrens" },
+    { name: "Trade Books", href: "/markets#childrens" },
     { name: "Travel Books", href: "/markets#custom" },
   ],
 };
@@ -100,7 +100,7 @@ export function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   <li className="flex gap-3 text-sm leading-6 text-blue-100">
                     <MapPin className="h-5 w-5 shrink-0 text-cyan-200" />
-                    <span>43, Vandalur Kelambakkam Road,<br/>Pudupakkam, Chennai - 603 103, India</span>
+                    <span>Manufacturing Plant 43, Vandalur Kelambakkam Road,<br/>Pudupakkam, Chennai - 603 103, Tamil Nadu, India.</span>
                   </li>
                   <li className="flex gap-3 text-sm leading-6 text-blue-100">
                     <Mail className="h-5 w-5 shrink-0 text-cyan-200" />

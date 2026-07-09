@@ -81,11 +81,11 @@ const sectors: Sector[] = [
   {
     index: 3,
     id: "childrens",
-    name: "Trade & Coffee Table Books",
+    name: "Trade Books",
     tag: "Premium Finish",
     x: 77,
     y: 77,
-    description: "High-end photography, custom portfolios, art showcases, and luxury coffee table editions with specialty paper and precise binding.",
+    description: "Fiction, non-fiction, biographies, custom portfolios, and general trade literature produced with premium specialty papers and precise binding styles.",
     icon: Book,
     accentColor: "text-brand-blue",
     capabilities: ["Custom Slipcase Sets", "Foil Stamping & Debossing", "Panoramic Lay-Flat Spreads", "Mixed Media Material Wraps"],
@@ -127,7 +127,7 @@ const zones = {
     ],
     stats: [
       { label: "Plate Output Capacity", value: "320+ Plates / Hour" },
-      { label: "Color Calibration Accuracy", value: "99.8% Delta-E Match" }
+      { label: "Color Match Guarantee", value: "Absolute Color Accuracy" }
     ],
     colorClass: "from-blue-500/10 to-sky-500/5 text-royal-blue"
   },

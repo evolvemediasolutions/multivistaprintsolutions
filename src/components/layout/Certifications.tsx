@@ -15,13 +15,7 @@ export function Certifications() {
       pdfPath: "/Certificates/ISO%209001.pdf",
       logoPath: "/Certificate Logo/ISO_9001_2015.png",
     },
-    {
-      title: "FSC® Certified",
-      subtitle: "Forest Stewardship Council",
-      description: "Verifies that our paper products are sourced from responsibly managed forests and verified recycled origins.",
-      pdfPath: "/Certificates/FSC%20Certificate.pdf",
-      logoPath: "/Certificate Logo/FSC1.jpg",
-    },
+
     {
       title: "ISO 14001:2015",
       subtitle: "Environmental Management",

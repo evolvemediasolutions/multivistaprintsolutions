@@ -59,7 +59,7 @@ const categories = [
     name: "Packaging",
     desc: "Safe logistics begin inside the factory. Our automated wrapping and packing systems ensure complete protection against environmental factors during shipping.",
     icon: Package,
-    image: "/Images/PRODUCTION STAGE/PACKAGING.jpg",
+    image: "/Images/PRODUCTION STAGE/PACKAGING1.png",
     equipment: ["Automated poly-shrink wrapping setups", "Heavy-duty custom pallet strapping", "Moisture-controlled transport packing", "Integrated shipping label scanners"]
   }
 ];
@@ -88,19 +88,20 @@ const machineImages = [
 ];
 
 const awardsList = [
-  { path: "/Images/AWARDS/AWARD 1.jpg", title: "National Excellence in Printing", category: "Award Category", desc: "Recognizing outstanding achievement in print precision, color accuracy, and overall execution across national publications." },
-  { path: "/Images/AWARDS/AWARD 2.jpg", title: "Best Printer of the Year", category: "Quality Accolade", desc: "Honoring our consistent commitment to manufacturing quality and zero-defect output standards." },
-  { path: "/Images/AWARDS/AWARD 3.jpg", title: "Book Production Laurels", category: "Publishing Benchmark", desc: "Awarded for exceptional bookbindery strength, layout fidelity, and publication durability." },
-  { path: "/Images/AWARDS/AWARD 4.jpg", title: "Sustainable Printing Award", category: "Eco Champion", desc: "Acknowledging our industry leadership in low-carbon paper sourcing and solar-powered operations." },
-  { path: "/Images/AWARDS/AWARD 5.jpg", title: "Outstanding Export Performance", category: "Global Reach", desc: "Commending our supply chain efficiency in delivering print products to international markets." },
-  { path: "/Images/AWARDS/AWARD 6.jpg", title: "Quality & Precision Benchmark", category: "Process Excellence", desc: "Celebrating our compliance with ISO standards and rigorous quality assurance protocols." },
-  { path: "/Images/AWARDS/AWARD 7.jpg", title: "Green Manufacturing Leadership", category: "ESG Accolade", desc: "Presented for pioneering efforts in waste reduction, water conservation, and green logistics." },
-  { path: "/Images/AWARDS/AWARD 8.jpg", title: "Industry Pioneer Recognition", category: "Legacy Achievement", desc: "Honoring nearly five decades of shaping the publishing and printing ecosystem globally." }
+  { path: "/Images/AWARDS/AWARD 1.jpg", title: "National Excellence in Printing", category: "Award Category", desc: "Recognizing outstanding achievement in print precision, color accuracy, and overall execution across national publications.", rotate: false },
+  { path: "/Images/AWARDS/AWARD 2.jpg", title: "Best Printer of the Year", category: "Quality Accolade", desc: "Honoring our consistent commitment to manufacturing quality and zero-defect output standards.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 3.jpg", title: "Book Production Laurels", category: "Publishing Benchmark", desc: "Awarded for exceptional bookbindery strength, layout fidelity, and publication durability.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 4.jpg", title: "Sustainable Printing Award", category: "Eco Champion", desc: "Acknowledging our industry leadership in low-carbon paper sourcing and solar-powered operations.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 5.jpg", title: "Outstanding Export Performance", category: "Global Reach", desc: "Commending our supply chain efficiency in delivering print products to international markets.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 6.jpg", title: "Quality & Precision Benchmark", category: "Process Excellence", desc: "Celebrating our compliance with ISO standards and rigorous quality assurance protocols.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 7.jpg", title: "Green Manufacturing Leadership", category: "ESG Accolade", desc: "Presented for pioneering efforts in waste reduction, water conservation, and green logistics.", rotate: false },
+  { path: "/Images/AWARDS/AWARD 8.jpg", title: "Industry Pioneer Recognition", category: "Legacy Achievement", desc: "Honoring nearly five decades of shaping the publishing and printing ecosystem globally.", rotate: false }
 ];
 
 export function Infrastructure() {
   const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const machineScrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -113,8 +114,52 @@ export function Infrastructure() {
     }
   };
 
+  const scrollMachine = (direction: "left" | "right") => {
+    if (machineScrollRef.current) {
+      const { scrollLeft, clientWidth } = machineScrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      machineScrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const track = machineScrollRef.current;
+    if (!track) return;
+
+    let animationFrameId: number;
+    const scrollSpeed = 0.55; // Slow, premium auto-scroll speed
+    let currentScroll = track.scrollLeft;
+
+    const scrollStep = () => {
+      // Pause animation if user is hovering
+      if (track.matches(":hover")) {
+        currentScroll = track.scrollLeft;
+        animationFrameId = requestAnimationFrame(scrollStep);
+        return;
+      }
+
+      currentScroll += scrollSpeed;
+
+      const halfWidth = track.scrollWidth / 2;
+      if (currentScroll >= halfWidth) {
+        currentScroll -= halfWidth;
+        track.scrollLeft = currentScroll;
+      } else {
+        track.scrollLeft = currentScroll;
+      }
+
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
@@ -200,55 +245,70 @@ export function Infrastructure() {
         </div>
       </section>
 
-      {/* SECTION: MACHINERY AUTO-SCROLL SHOWCASE */}
-      <section className="relative py-20 bg-[#EEEEEE] border-b border-slate-200/50 overflow-hidden select-text">
+      {/* SECTION: MACHINERY INTERACTIVE CAROUSEL SHOWCASE */}
+      <section className="relative py-24 bg-[#EEEEEE] border-b border-slate-200/50 overflow-hidden select-text">
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 bg-print-grid opacity-15 pointer-events-none"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
-          <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/20 px-2.5 py-1.5 rounded-full inline-block mb-3">
-            Hardware Assets
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy font-heading">
-            Our Machine Fleet
-          </h2>
-          <div className="w-12 h-1 bg-royal-blue mx-auto mt-4 rounded-full" />
-        </div>
-
-        {/* Contained Slider Wrapper */}
-        <div className="relative max-w-6xl mx-auto overflow-hidden py-2">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           
-          {/* Edge Gradient Fades for a premium floating transition (blending with section bg-[#EEEEEE]) */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#EEEEEE] via-[#EEEEEE]/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#EEEEEE] via-[#EEEEEE]/80 to-transparent z-10 pointer-events-none" />
+          {/* Header Row with Controls */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="text-left space-y-4 max-w-2xl">
+              <span className="text-[9px] font-bold text-royal-blue tracking-widest font-heading uppercase bg-royal-blue/5 border border-royal-blue/20 px-2.5 py-1.5 rounded-full inline-block">
+                Advanced Technology
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-deep-navy font-heading leading-tight animate-fade-in">
+                Our Machine Fleet
+              </h2>
+              <div className="w-12 h-1 bg-royal-blue mt-4 rounded-full" />
+              <p className="text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed pt-2">
+                Browse our state-of-the-art prepress, press, and postpress machinery that powers high-volume, premium book production.
+              </p>
+            </div>
 
-          {/* Marquee track */}
-          <div className="overflow-hidden w-full">
-            <div className="animate-marquee flex gap-6">
-              {[...machineImages, ...machineImages].map((img, index) => (
-                <div
-                  key={index}
-                  className="relative shrink-0 w-[24rem] h-64 rounded-2xl overflow-hidden bg-slate-100 group shadow-md hover:shadow-xl transition-all duration-300"
-                >
+            {/* Slider Controls */}
+            <div className="flex gap-3 shrink-0 self-start md:self-end">
+              <button
+                onClick={() => scrollMachine("left")}
+                className="w-12 h-12 rounded-full border border-slate-300 bg-white text-deep-navy hover:text-royal-blue hover:border-royal-blue hover:shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer outline-none shadow-sm"
+                aria-label="Previous Machines"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+              </button>
+              <button
+                onClick={() => scrollMachine("right")}
+                className="w-12 h-12 rounded-full border border-slate-300 bg-white text-deep-navy hover:text-royal-blue hover:border-royal-blue hover:shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer outline-none shadow-sm"
+                aria-label="Next Machines"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Carousel Track Container */}
+          <div 
+            ref={machineScrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-none pb-4"
+          >
+            {[...machineImages, ...machineImages].map((img, index) => (
+              <div
+                key={index}
+                className="flex flex-col shrink-0 w-[290px] sm:w-[480px] group"
+              >
+                {/* Image Container (Framed Box with Hover Effect) */}
+                <div className="relative aspect-[16/10] bg-white border border-slate-200 rounded-3xl overflow-hidden flex items-center justify-center p-3 shadow-sm hover:shadow-xl hover:border-royal-blue/20 hover:-translate-y-1 transition-all duration-355">
                   <img
                     src={img.path}
                     alt={img.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-103"
                     loading="lazy"
                   />
-                  {/* Subtle label overlay */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                    <span className="text-[9px] font-bold text-sky-300 tracking-wider uppercase mb-1">
-                      Operational Asset
-                    </span>
-                    <h4 className="text-sm font-bold text-white font-heading">
-                      {img.name}
-                    </h4>
-                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
       {/* SECTION 3.5: AWARDS & RECOGNITIONS CAROUSEL */}
@@ -315,7 +375,10 @@ export function Infrastructure() {
                   <img
                     src={award.path}
                     alt={award.title}
-                    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105 z-10"
+                    className={cn(
+                      "max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105 z-10",
+                      award.rotate ? "rotate-[-90deg] scale-[1.35]" : ""
+                    )}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/[0.05] via-transparent to-transparent pointer-events-none z-10" />
@@ -397,10 +460,7 @@ export function Infrastructure() {
                   <div className="lg:col-span-6 bg-gradient-to-br from-[#0057B8] via-[#007CDB] to-[#0EA5E9] p-8 md:p-10 rounded-[28px] text-white text-left shadow-2xl flex flex-col justify-between min-h-[420px]">
                     <div>
                       {/* Step Header */}
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="text-[10px] font-bold text-cyan-200 tracking-wider font-sans uppercase">
-                          Stage 0{index + 1} of 06
-                        </span>
+                      <div className="flex items-center justify-end mb-6">
                         <div className="p-3 rounded-2xl bg-white/15 border border-white/10 text-white shadow-sm">
                           <Icon className="w-6 h-6" />
                         </div>
