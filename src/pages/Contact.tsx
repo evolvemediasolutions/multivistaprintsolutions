@@ -601,7 +601,7 @@ export function Contact() {
             <div className="lg:col-span-6">
               <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-xl border border-slate-100/50 transform hover:scale-[1.01] transition-transform duration-500">
                 <img 
-                  src="/Images/contact_leadership.png" 
+                  src="/Images/CONTACT/COUNTRY SERVED.JPG" 
                   alt="Multivista Leadership engagement portrait" 
                   className="w-full h-full object-cover"
                 />

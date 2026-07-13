@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight, ChevronRight as ChevronRightIcon } from "luc
 const industriesImg = [
   { name: "Education", image: "/Images/MANUFACTURING PATH/EDUCATION.jpg" },
   { name: "STM", image: "/Images/MANUFACTURING PATH/STM.jpg" },
-  { name: "Children's Books", image: "/Images/MANUFACTURING PATH/CHILDREN.jpg" },
-  { name: "Trade Books", image: "/Images/MANUFACTURING PATH/TRADE & COFFE TABLE BOOKS.jpg" },
+  { name: "Children's Books", image: "/Images/MANUFACTURING PATH/CHILDREN NEW.jpg" },
+  { name: "Trade Books", image: "/Images/MANUFACTURING PATH/TRADE NEW.jpg" },
   { name: "Travel Books", image: "/Images/MANUFACTURING PATH/TRAVEL.jpg" },
 ];
 

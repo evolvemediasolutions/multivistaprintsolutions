@@ -49,7 +49,7 @@ export function FoundationPrinciples() {
       title: "Ethical Manufacturing",
       description:
         "Integrity shapes every decision we make from responsible sourcing and transparent operations to long-term partnerships built on trust.",
-      imagePath: "/Images/OUR FOUNDATION/ETHICAL MANUFACTURING.jpg",
+      imagePath: "/Images/OUR FOUNDATION/EM.jpg",
     },
     {
       index: 1,
@@ -65,7 +65,7 @@ export function FoundationPrinciples() {
       title: "Uncompromising Quality",
       description:
         "With advanced technology, integrated manufacturing and rigorous quality systems, every book leaving our facility reflects the precision our global partners expect.",
-      imagePath: "/Images/OUR FOUNDATION/UNCOMPROMISING QUALITY.jpg",
+      imagePath: "/Images/OUR FOUNDATION/Uncompromising Quality-1.jpg",
     },
     {
       index: 3,

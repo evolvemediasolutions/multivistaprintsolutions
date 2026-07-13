@@ -25,11 +25,11 @@ import { Button } from "@/components/ui/Button";
 
 function HardcoverCarousel() {
   const images = [
-    "/Images/HARD BOOKS/HARD COVER 1.jpg",
-    "/Images/HARD BOOKS/HARD COVER 2.jpg",
-    "/Images/HARD BOOKS/HARD COVER 3.jpg",
-    "/Images/HARD BOOKS/HARD COVER 4.jpg",
-    "/Images/HARD BOOKS/HARD COVER 5.jpg",
+    "/Images/HARD BOOKS/HARD COVER 10.jpg",
+    "/Images/HARD BOOKS/HARD COVER 7.jpg",
+    "/Images/HARD BOOKS/HARD COVER 8.jpg",
+    "/Images/HARD BOOKS/HARD COVER 9.jpg",
+    "/Images/HARD BOOKS/HARD COVER 11.jpg",
     "/Images/HARD BOOKS/HARD COVER 6.jpg"
   ];
   const [index, setIndex] = useState(0);
@@ -75,10 +75,10 @@ function HardcoverCarousel() {
 
 function SoftcoverCarousel() {
   const images = [
-    "/Images/SOFT BOOKS/SOFT COVER 1.jpg",
-    "/Images/SOFT BOOKS/SOFT COVER 2.jpg",
-    "/Images/SOFT BOOKS/SOFT COVER 3.jpg",
-    "/Images/SOFT BOOKS/SOFT COVER 4.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 6.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 7.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 8.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 9.jpg",
     "/Images/SOFT BOOKS/SOFT COVER 5.jpg"
   ];
   const [index, setIndex] = useState(0);

@@ -88,8 +88,8 @@ const machineImages = [
 ];
 
 const awardsList = [
-  { path: "/Images/AWARDS/AWARD 1.jpg", title: "National Excellence in Printing", category: "Award Category", desc: "Recognizing outstanding achievement in print precision, color accuracy, and overall execution across national publications.", rotate: false },
-  { path: "/Images/AWARDS/AWARD 2.jpg", title: "Best Printer of the Year", category: "Quality Accolade", desc: "Honoring our consistent commitment to manufacturing quality and zero-defect output standards.", rotate: true },
+  { path: "/Images/AWARDS/AWARD 9.jpg", title: "National Excellence in Printing", category: "Award Category", desc: "Recognizing outstanding achievement in print precision, color accuracy, and overall execution across national publications.", rotate: false },
+  { path: "/Images/AWARDS/AWARD 10.jpg", title: "Best Printer of the Year", category: "Quality Accolade", desc: "Honoring our consistent commitment to manufacturing quality and zero-defect output standards.", rotate: true },
   { path: "/Images/AWARDS/AWARD 3.jpg", title: "Book Production Laurels", category: "Publishing Benchmark", desc: "Awarded for exceptional bookbindery strength, layout fidelity, and publication durability.", rotate: true },
   { path: "/Images/AWARDS/AWARD 4.jpg", title: "Sustainable Printing Award", category: "Eco Champion", desc: "Acknowledging our industry leadership in low-carbon paper sourcing and solar-powered operations.", rotate: true },
   { path: "/Images/AWARDS/AWARD 5.jpg", title: "Outstanding Export Performance", category: "Global Reach", desc: "Commending our supply chain efficiency in delivering print products to international markets.", rotate: true },

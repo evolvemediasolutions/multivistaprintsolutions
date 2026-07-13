@@ -176,10 +176,9 @@ export function ManufacturingImpact() {
               </p>
             </div>
 
-            {/* Bottom Visual Element */}
             <div className="mt-4 pt-3 border-t border-white/30 h-[160px] rounded-b-[20px] overflow-hidden">
               <img 
-                src="/Images/STATS/BOOKS.jpg" 
+                src="/Images/HOME/BOOKS MANUFACTURED.jpg" 
                 alt="Books Manufactured" 
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 

@@ -75,7 +75,7 @@ const sectors: Sector[] = [
     icon: Sparkles,
     accentColor: "text-emerald-600",
     capabilities: ["Board Mounting & Glueing", "Die-Cut Board Folds", "Round-Corner Safety Cuts", "Soy-Based Ink Coating"],
-    image: "/Images/MANUFACTURING PATH/CHILDREN.jpg",
+    image: "/Images/MANUFACTURING PATH/CHILDREN NEW.jpg",
     visualTheme: "playful-gradient"
   },
   {
@@ -89,7 +89,7 @@ const sectors: Sector[] = [
     icon: Book,
     accentColor: "text-brand-blue",
     capabilities: ["Custom Slipcase Sets", "Foil Stamping & Debossing", "Panoramic Lay-Flat Spreads", "Mixed Media Material Wraps"],
-    image: "/Images/MANUFACTURING PATH/TRADE & COFFE TABLE BOOKS.jpg",
+    image: "/Images/MANUFACTURING PATH/TRADE NEW.jpg",
     visualTheme: "custom-experimental"
   },
   {
