@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ChevronRight as ChevronRightIcon } from "lucide-react";
 
 const industriesImg = [
-  { name: "Education", image: "/Images/MANUFACTURING PATH/EDUCATION.jpg" },
+  { name: "Education", image: "/Images/MANUFACTURING PATH/EDUCATION NEW.jpg" },
   { name: "STM", image: "/Images/MANUFACTURING PATH/STM.jpg" },
   { name: "Children's Books", image: "/Images/MANUFACTURING PATH/CHILDREN NEW.jpg" },
   { name: "Trade Books", image: "/Images/MANUFACTURING PATH/TRADE NEW.jpg" },

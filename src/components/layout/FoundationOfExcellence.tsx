@@ -33,7 +33,7 @@ export function FoundationOfExcellence() {
       subtitle: "Integrated Quality Systems",
       description:
         "From prepress to final dispatch, every stage is monitored to meet the highest global publishing standards for durability and color precision.",
-      imagePath: "/Images/FOUNDATION OF EXCELLENCE/QUALITY.jpg",
+      imagePath: "/Images/FOUNDATION OF EXCELLENCE/QUALITY NEW.jpg",
     },
     {
       tag: "Pillar 03",

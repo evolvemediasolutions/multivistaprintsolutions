@@ -9,8 +9,6 @@ import {
   ArrowRight,
   ChevronRight,
   ChevronLeft,
-  Play,
-  Pause,
   Download,
   Award,
   Compass,
@@ -191,14 +189,6 @@ const initiatives = [
     image: "/Images/SUSTAINABILITY INITIATIVE/SUSTAINABLE PROCUREMENT.jpg",
     icon: Heart,
     category: "supply"
-  },
-  {
-    num: "10",
-    title: "Water Chiller Plant",
-    desc: "Closed-loop industrial refrigeration saving 80% water on press cooling.",
-    image: "/Images/water_chiller_plant.png?v=1",
-    icon: Droplet,
-    category: "production"
   }
 ];
 
@@ -410,7 +400,6 @@ export function Sustainability() {
 
   // Redesigned Sustainability Journey active index
   const [activeMilestoneIndex, setActiveMilestoneIndex] = useState(0); // Autoplay state for interactive timeline
-  const [isPlaying, setIsPlaying] = useState(true);
 
   // Category switch state for Initiatives Section
   const [activeCategory, setActiveCategory] = useState<'all' | 'materials' | 'production' | 'supply'>('all');
@@ -419,15 +408,6 @@ export function Sustainability() {
   const [activePillarIndex, setActivePillarIndex] = useState(0);
   const isPillarScrollingRef = useRef(false);
   const pillarScrollTimeoutRef = useRef<number | null>(null);
-
-  // Autoplay effect for the timeline journey
-  useEffect(() => {
-    if (!isPlaying) return;
-    const interval = setInterval(() => {
-      setActiveMilestoneIndex((prev) => (prev + 1) % milestones.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [isPlaying]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -749,7 +729,6 @@ export function Sustainability() {
                       type="button"
                       onClick={() => {
                         setActiveMilestoneIndex(idx);
-                        setIsPlaying(false); // Stop autoplay when clicked
                       }}
                       className="group flex items-center gap-4 text-left relative focus:outline-none cursor-pointer"
                     >
@@ -844,27 +823,7 @@ export function Sustainability() {
               </div>
 
               {/* CONTROLS BAR: Play, Pause, Previous, Next */}
-              <div className="mt-8 flex items-center justify-between border-t border-slate-300 pt-6">
-
-                {/* Autoplay & Auto indicator */}
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setIsPlaying(!isPlaying)}
-                    className={cn(
-                      "w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer",
-                      isPlaying
-                        ? "border-sky-500/30 text-sky-700 bg-sky-500/10 shadow-sm"
-                        : "border-slate-300 text-slate-500 hover:text-slate-700 hover:border-slate-400"
-                    )}
-                    aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
-                  >
-                    {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  </button>
-                  <span className="text-[10px] text-slate-500 font-mono">
-                    {isPlaying ? "AUTOPLAYING ROADMAP" : "AUTOPLAY PAUSED"}
-                  </span>
-                </div>
+              <div className="mt-8 flex items-center justify-end border-t border-slate-300 pt-6">
 
                 {/* Left/Right switches */}
                 <div className="flex items-center gap-3">
@@ -872,7 +831,6 @@ export function Sustainability() {
                     type="button"
                     onClick={() => {
                       setActiveMilestoneIndex((prev) => (prev === 0 ? milestones.length - 1 : prev - 1));
-                      setIsPlaying(false);
                     }}
                     className="w-10 h-10 rounded-full border border-slate-300 text-slate-500 hover:text-slate-700 hover:border-slate-400 flex items-center justify-center transition-all duration-300 cursor-pointer"
                     aria-label="Previous milestone"
@@ -883,7 +841,6 @@ export function Sustainability() {
                     type="button"
                     onClick={() => {
                       setActiveMilestoneIndex((prev) => (prev + 1) % milestones.length);
-                      setIsPlaying(false);
                     }}
                     className="w-10 h-10 rounded-full border border-slate-300 text-slate-500 hover:text-slate-700 hover:border-slate-400 flex items-center justify-center transition-all duration-300 cursor-pointer"
                     aria-label="Next milestone"

@@ -159,7 +159,7 @@ export function Contact() {
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-xl border border-slate-100/50 transform hover:scale-[1.01] transition-transform duration-500">
                 <img 
-                  src="/Images/contact_connect.png" 
+                  src="/Images/CONTACT/WHY CONNECT.jpg" 
                   alt="Publisher Consultation & Production Planning" 
                   className="w-full h-full object-cover"
                 />
@@ -466,7 +466,7 @@ export function Contact() {
                 </p>
               </div>
               <span className="text-xs font-semibold text-slate-400 mt-6 font-sans">
-                FSC®-C0199630 Licensed Site
+                FSC®-C199630 Licensed Site
               </span>
             </div>
 

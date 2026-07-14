@@ -120,11 +120,11 @@ const culturePillars = [
 // Pinterest Gallery
 const galleryItems = [
   { theme: "Training Programs", desc: "Fully funded technical courses and mentoring for press operations.", size: "h-[300px]", image: "/Images/CAREER/TRAINING.png", icon: GraduationCap },
-  { theme: "Employee Celebrations", desc: "Recognizing milestones, cultural festivals, and team achievements.", size: "h-[380px]", image: "/Images/CAREER/EMPLOYEE CELEBRATIONS.png", icon: Sparkles },
-  { theme: "Team Collaboration", desc: "Cross-functional groups mapping solutions across pre-press and logistics.", size: "h-[320px]", image: "/Images/CAREER/TEAM COLLABORATION.png", icon: Users },
-  { theme: "Safety Initiatives", desc: "Strict health audits, zero-accident protocols, and safety briefings.", size: "h-[390px]", image: "/Images/CAREER/SAFETY INITATIVES.png", icon: ShieldCheck },
+  { theme: "Employee Celebrations", desc: "Recognizing milestones, cultural festivals, and team achievements.", size: "h-[380px]", image: "/Images/CAREER/EMPLOYEE CELEBRATIONS NEW.jpg", icon: Sparkles },
+  { theme: "Team Collaboration", desc: "Cross-functional groups mapping solutions across pre-press and logistics.", size: "h-[320px]", image: "/Images/CAREER/TEAM COLLABORATION NEW.jpg", icon: Users },
+  { theme: "Safety Initiatives", desc: "Strict health audits, zero-accident protocols, and safety briefings.", size: "h-[390px]", image: "/Images/CAREER/SAFETY INITATIVES NEW 1.jpg", icon: ShieldCheck },
   { theme: "Community Engagement", desc: "Sponsoring print loops and green learnings in neighboring schools.", size: "h-[300px]", image: "/Images/CAREER/COMMUNITY ENGAGEMENT.png", icon: Heart },
-  { theme: "Recognition Programs", desc: "Monthly spot awards honoring accuracy, waste reduction, and leadership.", size: "h-[340px]", image: "/Images/CAREER/RECOGNITION PROGRAMS.png", icon: Award }
+  { theme: "Recognition Programs", desc: "Monthly spot awards honoring accuracy, waste reduction, and leadership.", size: "h-[340px]", image: "/Images/CAREER/RECOGNITION PROGRAMS NEW.jpg", icon: Award }
 ];
 
 
@@ -363,7 +363,7 @@ export function Careers() {
         {/* Background Image Parallax Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80 z-0 pointer-events-none"
-          style={{ backgroundImage: "url('/Images/CSR/CSR.jpg')" }}
+          style={{ backgroundImage: "url('/Images/CAREER/OUR STANDARDS.jpg')" }}
         />
         {/* Soft overlay for text readability */}
         <div className="absolute inset-0 bg-black/55 pointer-events-none z-10"></div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function FoundationPrinciples() {
@@ -99,13 +100,13 @@ export function FoundationPrinciples() {
                 For nearly five decades, our growth has been guided by a clear set of values that shape how we manufacture, innovate and serve publishing partners around the world.
               </p>
               
-              <a 
-                href="/products" 
+              <Link 
+                to="/products" 
                 className="inline-flex items-center gap-2 text-royal-blue font-semibold hover:text-deep-navy transition-colors mt-8 group font-sans text-base"
               >
                 Explore Our Capabilities 
                 <ArrowRight className="w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
 

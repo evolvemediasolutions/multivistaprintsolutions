@@ -214,7 +214,7 @@ export function Products() {
       description: "The standard for high-performance softcover manufacturing. We support high-speed offset book blocks combined with heavy soft covers, perfect bound or section sewn for dependable reading flexibility.",
       image: "/Images/products/softcover_showcase.png",
       idealFor: ["Trade Novels", "Academic Workbooks", "Classroom Materials", "Poetry Anthologies", "Commercial Catalogs"],
-      capabilities: ["Perfect Binding", "Section Sewn Bindings", "PUR Adhesives", "Gloss/Matte/Soft-touch Laminations", "Custom Gatefold Covers"],
+      capabilities: ["Perfect Binding", "Section Sewn Bindings", "Gloss/Matte/Soft-touch Laminations", "Custom Gatefold Covers"],
       bgStyle: "bg-blueprint-grid bg-white border-b border-gray-200/50",
       visualTheme: "blueprint",
       layout: "reverse",

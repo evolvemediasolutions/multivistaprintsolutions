@@ -403,6 +403,45 @@ export function Infrastructure() {
         </div>
       </section>
 
+      {/* SECTION 3.7: CORPORATE TOUR VIDEO */}
+      <section className="relative py-24 md:py-32 bg-slate-900 overflow-hidden font-sans select-text border-b border-white/5">
+        {/* Decorative lighting background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 bg-print-grid opacity-10 pointer-events-none z-10"></div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[9px] font-bold text-sky-400 tracking-widest font-heading uppercase bg-sky-500/10 border border-sky-500/20 px-2.5 py-1.5 rounded-full inline-block mb-4">
+              Infrastructure Tour
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-heading leading-tight">
+              Experience the Facility in Motion
+            </h2>
+            <div className="w-12 h-1 bg-sky-500 mx-auto mt-4 rounded-full" />
+            <p className="text-sm md:text-base text-slate-300 font-sans font-light leading-relaxed mt-4">
+              Take a virtual walkthrough of our state-of-the-art print manufacturing plant. Witness the synergy of scale, speed, and precision in our integrated production lines.
+            </p>
+          </div>
+
+          {/* Video Container (Premium Glassmorphic Frame) */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video bg-slate-950/40 border border-white/10 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl p-2 sm:p-4 hover:border-sky-500/30 hover:shadow-sky-500/5 transition-all duration-550 group">
+              <div className="w-full h-full rounded-2xl overflow-hidden">
+                <iframe
+                  className="w-full h-full border-0"
+                  src="https://www.youtube.com/embed/BXPseWa3D80?rel=0"
+                  title="Multivista Print Solutions - Infrastructure & Facility Tour"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 4: INTEGRATED PRODUCTION STAGES */}
       <section className="relative py-28 bg-[#EEEEEE] overflow-hidden select-text">
         {/* Subtle printing marks/grid paper background (dark lines for light background) */}

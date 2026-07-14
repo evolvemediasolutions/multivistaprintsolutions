@@ -47,7 +47,7 @@ const sectors: Sector[] = [
     icon: BookOpen,
     accentColor: "text-royal-blue",
     capabilities: ["High-Volume Offset runs", "FSC-Sourced Papers", "Reinforced Softcover Bindings", "State-Aligned Specifications"],
-    image: "/Images/MANUFACTURING PATH/EDUCATION.jpg",
+    image: "/Images/MANUFACTURING PATH/EDUCATION NEW.jpg",
     visualTheme: "blueprint-bg"
   },
   {
@@ -108,7 +108,7 @@ const sectors: Sector[] = [
   }
 ];
 
-const journeySteps = ["Concept", "Design", "Printing", "Binding", "Distribution"];
+
 
 const zones = {
   prepress: {
@@ -213,38 +213,11 @@ export function Industries() {
     };
   }, []);
 
-  const getJourneyStep = (secId: string) => {
-    switch (secId) {
-      case "educational":
-        return "Concept";
-      case "academic":
-        return "Design";
-      case "stm":
-        return "Printing";
-      case "childrens":
-        return "Binding";
-      case "custom":
-        return "Distribution";
-      default:
-        return "Concept";
-    }
-  };
 
-  const stepToId = (step: string) => {
-    switch (step) {
-      case "Concept": return "educational";
-      case "Design": return "academic";
-      case "Printing": return "stm";
-      case "Binding": return "childrens";
-      case "Distribution": return "custom";
-      default: return "educational";
-    }
-  };
 
-  const scrollToStep = (step: string) => {
+  const scrollToSection = (sectionId: string) => {
     isJourneyScrollingRef.current = true;
-    const targetId = stepToId(step);
-    const el = document.getElementById(targetId);
+    const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -257,8 +230,6 @@ export function Industries() {
       isJourneyScrollingRef.current = false;
     }, 800);
   };
-
-  const currentJourney = getJourneyStep(activeSection);
 
   return (
     <div className="bg-white relative select-text overflow-x-clip">
@@ -337,44 +308,35 @@ export function Industries() {
 
             {/* STICKY TIMELINE (Visible on desktop) */}
             <div className="hidden lg:block lg:col-span-3 sticky top-36 select-none pl-4 pr-6">
-              <div className="space-y-1 text-left mb-6">
-                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">
-                  PUBLISHING CYCLE
-                </span>
-                <h3 className="text-sm font-bold text-deep-navy font-heading">
-                  Manufacturing Path
-                </h3>
-              </div>
-
               {/* Timeline Flow */}
-              <div className="relative mt-8">
+              <div className="relative">
                 {/* Vertical Progress Line */}
                 <div className="absolute left-[18px] top-[14px] bottom-[14px] w-[2px] pointer-events-none">
                   <div className="absolute inset-0 bg-slate-100 rounded-full" />
                   <div
                     className="absolute top-0 left-0 w-full bg-royal-blue rounded-full transition-all duration-500 ease-out"
                     style={{
-                      height: `${(journeySteps.indexOf(currentJourney) / (journeySteps.length - 1)) * 100}%`
+                      height: `${(sectors.findIndex(s => s.id === activeSection) / (sectors.length - 1)) * 100}%`
                     }}
                   />
                 </div>
 
                 <div className="space-y-6">
-                  {journeySteps.map((step) => {
-                    const isActive = currentJourney === step;
+                  {sectors.map((sec) => {
+                    const isActive = activeSection === sec.id;
                     return (
-                      <div key={step} className="relative flex items-center min-h-[40px]">
+                      <div key={sec.id} className="relative flex items-center min-h-[40px]">
                         {/* Timeline dot */}
                         <button
                           type="button"
-                          onClick={() => scrollToStep(step)}
+                          onClick={() => scrollToSection(sec.id)}
                           className={cn(
                             "absolute left-[18px] -translate-x-1/2 w-4 h-4 rounded-full border-2 bg-white cursor-pointer transition-all duration-300 flex items-center justify-center z-20 outline-none",
                             isActive
                               ? "border-royal-blue bg-royal-blue scale-110 ring-4 ring-royal-blue/15 shadow-sm"
                               : "border-slate-200 hover:border-slate-400"
                           )}
-                          aria-label={`Go to ${step}`}
+                          aria-label={`Go to ${sec.name}`}
                         >
                           {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
                         </button>
@@ -382,13 +344,13 @@ export function Industries() {
                         {/* Button label */}
                         <button
                           type="button"
-                          onClick={() => scrollToStep(step)}
+                          onClick={() => scrollToSection(sec.id)}
                           className={cn(
                             "w-full text-left ml-9 py-1 text-xs font-semibold tracking-wider uppercase font-heading transition-all duration-300 cursor-pointer outline-none hover:text-royal-blue",
-                            isActive ? "text-royal-blue translate-x-1" : "text-gray-400"
+                            isActive ? "text-royal-blue translate-x-1 font-bold" : "text-gray-400 font-normal"
                           )}
                         >
-                          {step}
+                          {sec.name}
                         </button>
                       </div>
                     );
@@ -421,15 +383,6 @@ export function Industries() {
                         "md:col-span-6 space-y-6 text-left",
                         isEven ? "md:order-1" : "md:order-2"
                       )}>
-                        <span className={cn(
-                          "text-[9px] font-bold tracking-widest font-heading uppercase px-2.5 py-1 rounded-full inline-block transition-colors duration-500 border",
-                          isActive
-                            ? "text-gold-accent bg-gold-accent/5 border-gold-accent/20"
-                            : "text-gray-400 bg-gray-50 border-gray-150"
-                        )}>
-                          Market {String(idx + 1).padStart(2, '0')} — {getJourneyStep(sec.id)}
-                        </span>
-
                         <h2 className={cn(
                           "text-3xl md:text-4xl font-bold tracking-tight font-heading leading-tight transition-colors duration-500",
                           isActive ? "text-deep-navy" : "text-gray-705"

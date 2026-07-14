@@ -11,9 +11,6 @@ const navigation = {
   products: [
     { name: "Softcover Books", href: "/products#softcover" },
     { name: "Hardcover Books", href: "/products#hardcover" },
-    { name: "Children's Books", href: "/products#childrens" },
-    { name: "Educational Publishing", href: "/products#educational" },
-    { name: "Commercial Printing", href: "/products#commercial" },
   ],
   markets: [
     { name: "Education", href: "/markets#educational" },

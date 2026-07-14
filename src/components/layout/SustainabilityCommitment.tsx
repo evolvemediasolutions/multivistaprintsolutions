@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Leaf, Recycle, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function SustainabilityCommitment() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -89,13 +90,13 @@ export function SustainabilityCommitment() {
             </div>
 
             <div className="mt-10 self-start">
-              <a
-                href="/sustainability"
+              <Link
+                to="/sustainability"
                 className="inline-flex items-center gap-2.5 px-6 py-3 border border-white/80 text-white rounded-full font-medium hover:bg-gold-accent hover:border-gold-accent hover:text-deep-navy hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group font-sans text-sm"
               >
                 Explore Our Sustainability Journey
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
 
