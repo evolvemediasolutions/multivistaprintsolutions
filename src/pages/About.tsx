@@ -125,7 +125,7 @@ const values = [
     desc: "Engineering quality standards on every single sheet. We ensure clean folding grids, robust thermal bind backbones, and zero-defect packaging checks.",
     icon: Star,
     bg: "from-blue-50/50 to-sky-50/50 text-royal-blue",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/ABOUT US/EXCELLENCE.jpeg"
   },
   {
     title: "Sustainability",

@@ -480,7 +480,7 @@ export function Industries() {
               FACILITY STAGES
             </span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-deep-navy font-heading mb-4">
-              Integrated Production Stages
+              Market-Focused Print Solutions
             </h2>
             <p className="text-base text-slate-650 font-sans font-light">
               Click through our main facility stages to explore the technology and machinery configurations supporting our daily output.
