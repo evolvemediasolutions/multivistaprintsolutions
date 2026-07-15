@@ -37,7 +37,7 @@ export function Footer() {
               <Logo invertText={true} />
             </Link>
             <p className="text-sm leading-6 text-blue-50/90 max-w-sm font-sans font-light">
-              From children's books and educational publishing to premium print production,
+              From children's books, Medical books and educational publishing to premium print production,
               delivering quality print manufacturing built on consistency and responsible sourcing.
             </p>
             <div className="flex space-x-6">

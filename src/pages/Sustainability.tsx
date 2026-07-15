@@ -77,7 +77,7 @@ const pillars = [
   {
     num: "01",
     title: "Climate Action",
-    desc: "Measuring our footprint to hit near-zero targets. We track Scopes 1, 2, and 3 meticulously, actively reducing emissions through logistics optimizations and solar energy infrastructure.",
+    desc: "Measuring our footprint to hit near-zero targets. We track Scopes 1, 2, and 3 meticulously, actively reducing emissions through logistics optimizations and wind energy infrastructure.",
     tags: ["SBTi Decarbonization", "Net-Zero Goals", "Carbon Audits"],
     image: "/Images/CORE SUSTAINABLE/CLIMATIC ACTION.jpg",
     icon: Globe
