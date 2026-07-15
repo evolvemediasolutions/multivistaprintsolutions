@@ -14,6 +14,8 @@ export function Contact() {
   const [activeRequirement, setActiveRequirement] = useState("Hardcover");
   const [activeVolume, setActiveVolume] = useState("10k-50k");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -30,13 +32,42 @@ export function Contact() {
     });
   };
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", company: "", email: "", country: "", phone: "", message: "" });
-      setFormSubmitted(false);
-    }, 4000);
+    setIsSubmitting(true);
+    setFormError(null);
+
+    try {
+      const response = await fetch("/api/partnership", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...formData,
+          segment: activeSegment,
+          requirement: activeRequirement,
+          volume: activeVolume
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormData({ name: "", company: "", email: "", country: "", phone: "", message: "" });
+          setFormSubmitted(false);
+        }, 4500);
+      } else {
+        setFormError(data.error || "Failed to submit inquiry. Please try again.");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setFormError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const pathways = [
@@ -386,13 +417,29 @@ export function Contact() {
                         ></textarea>
                       </div>
 
+                      {formError && (
+                        <p className="text-red-500 text-xs font-sans text-center mt-2">
+                          {formError}
+                        </p>
+                      )}
+
                       {/* Submit */}
                       <button
                         type="submit"
-                        className="w-full py-4 bg-royal-blue hover:bg-royal-blue-hover text-white font-semibold font-heading rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+                        disabled={isSubmitting}
+                        className={`w-full py-4 bg-royal-blue hover:bg-royal-blue-hover text-white font-semibold font-heading rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                       >
-                        <Send className="w-4 h-4" />
-                        <span>Submit Inquiry</span>
+                        {isSubmitting ? (
+                          <>
+                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            <span>Submitting...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4" />
+                            <span>Submit Inquiry</span>
+                          </>
+                        )}
                       </button>
                     </form>
                   )}

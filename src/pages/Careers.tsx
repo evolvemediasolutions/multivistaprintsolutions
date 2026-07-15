@@ -207,13 +207,8 @@ export function Careers() {
   }, []);
 
   const handleApplyClick = (job: Job) => {
-    setSelectedApplyJob(job);
-    setIsSuccess(false);
-    setFormName("");
-    setFormEmail("");
-    setFormPhone("");
-    setFormMessage("");
-    setResumeName(null);
+    const subject = encodeURIComponent(`Application for ${job.title}`);
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=csepress@multivistaglobal.com&su=${subject}`, "_blank");
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
