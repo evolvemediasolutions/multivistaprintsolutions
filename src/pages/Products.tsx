@@ -338,8 +338,7 @@ export function Products() {
                     <img
                       src={sec.image}
                       alt={sec.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
-                    />
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                     <div className={`absolute inset-0 ring-1 ring-inset ${isDark ? "ring-white/10" : "ring-black/10"} rounded-2xl pointer-events-none`} />
                   </div>
@@ -387,8 +386,7 @@ export function Products() {
                           <img
                             src={sec.image}
                             alt={sec.title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                         )}
                         <div className={`absolute inset-0 ring-1 ring-inset ${isDark ? "ring-white/10" : "ring-black/10"} rounded-2xl pointer-events-none`} />
                       </div>
@@ -576,8 +574,7 @@ export function Products() {
               <img
                 src={galleryImages[lightboxIdx]}
                 alt={`Expanded showcase ${lightboxIdx + 1}`}
-                className="max-w-full max-h-[80vh] object-contain rounded-xl"
-              />
+                className="max-w-full max-h-[80vh] object-contain rounded-xl" loading="lazy" />
             </motion.div>
 
             {/* Image counter */}

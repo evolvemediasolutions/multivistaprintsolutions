@@ -151,8 +151,7 @@ export function PublishingEcosystem() {
                     <img 
                       src={active.image} 
                       alt={active.title} 
-                      className="w-full h-full object-cover"
-                    />
+                      className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </motion.div>
               ) : (
@@ -175,8 +174,7 @@ export function PublishingEcosystem() {
                     <img 
                       src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=800" 
                       alt="Integrated Facility Floor" 
-                      className="w-full h-full object-cover"
-                    />
+                      className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </motion.div>
               )}

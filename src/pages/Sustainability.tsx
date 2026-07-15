@@ -346,8 +346,7 @@ function InitiativeCard({ num, title, desc, image, icon: Icon }: InitiativeCardP
             src={image}
             alt={title}
             onError={() => setImageError(true)}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-          />
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-sky-500/10 to-blue-500/5 flex items-center justify-center relative">
             <div className="absolute inset-0 bg-blueprint-grid opacity-5" />
@@ -793,8 +792,7 @@ export function Sustainability() {
                       <img
                         src={milestones[activeMilestoneIndex].image}
                         alt={milestones[activeMilestoneIndex].title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none" />
                     </div>
 
@@ -992,8 +990,7 @@ export function Sustainability() {
                         className={cn(
                           "w-full h-full object-cover transition-transform duration-1000 ease-out",
                           isActive ? "scale-105" : "scale-100"
-                        )}
-                      />
+                        )} loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent pointer-events-none" />
                     </div>
 

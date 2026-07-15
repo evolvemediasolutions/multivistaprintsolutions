@@ -119,8 +119,7 @@ export function Certifications() {
                         <img 
                           src={cert.logoPath} 
                           alt={cert.title} 
-                          className="w-full h-full object-contain" 
-                        />
+                          className="w-full h-full object-contain" loading="lazy" />
                       </div>
                       <span className="text-[10px] font-bold text-slate-500 tracking-wider font-heading uppercase">
                         Certificate 0{index + 1}
@@ -229,8 +228,7 @@ export function Certifications() {
                   <img
                     src={activeCert.logoPath}
                     alt={activeCert.title}
-                    className="max-w-full max-h-full object-contain rounded-xl shadow-lg bg-white p-4"
-                  />
+                    className="max-w-full max-h-full object-contain rounded-xl shadow-lg bg-white p-4" loading="lazy" />
                 )}
               </div>
             </motion.div>

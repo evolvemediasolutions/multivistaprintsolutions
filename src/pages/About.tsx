@@ -588,8 +588,7 @@ export function About() {
                     <img
                       src={v.image}
                       alt={v.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                    />
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" />
                     {/* Dark gradient overlay for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/95 via-deep-navy/50 to-transparent z-10" />
                   </div>
@@ -824,8 +823,7 @@ export function About() {
                 <img
                   src="/Images/Karthick_Narayan.jpeg"
                   alt="Director"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                />
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" />
                 <div className="absolute bottom-6 left-6 right-6 bg-deep-navy/95 border border-white/10 p-5 rounded-2xl text-left text-white shadow-xl z-20">
                   <h4 className="text-base font-bold text-white font-heading">
                     Mr. Karthik Narayan
@@ -937,8 +935,7 @@ export function About() {
                 <img
                   src="/Images/world-dotted-bg.svg"
                   alt="Dotted World Map"
-                  className="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-80"
-                />
+                  className="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-80" loading="lazy" />
 
 
                 {/* Render All 22 Pins */}

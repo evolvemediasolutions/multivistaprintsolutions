@@ -64,8 +64,7 @@ export function TheNextChapter() {
                 <img 
                   src="/Images/HOME/PARTNER WITH MULTIVISTA.png" 
                   alt="Multivista Printing Partnership" 
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full object-cover" loading="lazy" />
               </div>
             </AnimatedSection>
           </div>

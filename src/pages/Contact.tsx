@@ -192,8 +192,7 @@ export function Contact() {
                 <img 
                   src="/Images/CONTACT/WHY CONNECT.jpg" 
                   alt="Publisher Consultation & Production Planning" 
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
 
@@ -650,8 +649,7 @@ export function Contact() {
                 <img 
                   src="/Images/CONTACT/COUNTRY SERVED.JPG" 
                   alt="Multivista Leadership engagement portrait" 
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
 

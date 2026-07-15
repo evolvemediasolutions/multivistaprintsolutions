@@ -198,8 +198,7 @@ export function Navbar() {
             <img 
               src="/Logo/GPTW 1.svg" 
               alt="Great Place To Work Certified" 
-              className="h-14 w-auto object-contain transition-all duration-300 hover:scale-105" 
-            />
+              className="h-14 w-auto object-contain transition-all duration-300 hover:scale-105" loading="lazy" />
             <Button href="/contact" variant={isScrolled || !isDarkHero ? "primary" : "secondary"} className="rounded-full">
               Get In Touch
             </Button>
@@ -331,8 +330,7 @@ export function Navbar() {
                     <img 
                       src="/Logo/GPTW 1.svg" 
                       alt="Great Place To Work Certified" 
-                      className="h-16 w-auto object-contain filter drop-shadow-md" 
-                    />
+                      className="h-16 w-auto object-contain filter drop-shadow-md" loading="lazy" />
                     <Button href="/contact" variant="secondary" className="w-full rounded-full">Get In Touch</Button>
                   </div>
                 </div>

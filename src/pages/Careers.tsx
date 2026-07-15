@@ -147,8 +147,7 @@ function SafeImage({ src, alt, className, fallbackIcon: FallbackIcon = Users }: 
       src={src}
       alt={alt}
       onError={() => setImageError(true)}
-      className={className}
-    />
+      className={className} loading="lazy" />
   ) : (
     <div className={cn("bg-gradient-to-br from-indigo-500/10 to-blue-500/5 flex items-center justify-center relative w-full h-full", className)}>
       <div className="absolute inset-0 bg-blueprint-grid opacity-5" />

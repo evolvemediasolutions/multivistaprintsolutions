@@ -571,8 +571,7 @@ export function Industries() {
                     <img
                       src={zones[activeZone].image}
                       alt={zones[activeZone].title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>

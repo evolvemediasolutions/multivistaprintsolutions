@@ -34,8 +34,7 @@ export function Logo({ className, invertText = false, height = 40 }: LogoProps) 
             "h-full max-w-none absolute left-0 top-0 object-cover transition-all duration-200",
             invertText ? "brightness-0 invert" : "brightness-100"
           )}
-          style={{ width: `${totalWidth}px` }}
-        />
+          style={{ width: `${totalWidth}px` }} loading="lazy" />
       </div>
       {/* Right Part: Badge (Never inverted, retains original blue/gold color) */}
       <div 
@@ -49,8 +48,7 @@ export function Logo({ className, invertText = false, height = 40 }: LogoProps) 
           style={{ 
             width: `${totalWidth}px`,
             left: `-${leftWidth}px`
-          }}
-        />
+          }} loading="lazy" />
       </div>
     </div>
   );
