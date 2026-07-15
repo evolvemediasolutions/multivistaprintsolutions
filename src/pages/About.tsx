@@ -704,10 +704,10 @@ export function About() {
                   Benchmark 01 // Area Scale
                 </span>
                 <div className="text-5xl font-bold tracking-tight text-white font-heading mb-1.5 mt-4">
-                  <CountUp to={100000} suffix="+" />
+                  <CountUp to={125000} suffix="+" />
                 </div>
                 <h3 className="text-base font-bold text-white mb-1 font-heading leading-snug">
-                  Sq Ft Integrated Plant
+                  Sq.Ft Integrated Plant
                 </h3>
                 <p className="text-slate-300 font-sans text-xs leading-relaxed font-light mb-4">
                   Consolidated state-of-the-art print plant situated in Chennai, India. Houses prepress, offset presses, binding lines, and logistics under a single secure roof.
@@ -798,8 +798,8 @@ export function About() {
 
               <div className="mt-6 pt-3 border-t border-slate-800/60 h-[160px] rounded-b-[20px] overflow-hidden">
                 <img
-                  src="/Images/FOUNDATION OF EXCELLENCE/OUTPUT DENSITY.jpg"
-                  alt="Output Density"
+                  src="/Images/ABOUT US/Books Manufactured.jpg"
+                  alt="Books Manufactured"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />

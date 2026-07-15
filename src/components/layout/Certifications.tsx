@@ -41,7 +41,7 @@ export function Certifications() {
       title: "SEDEX",
       subtitle: "Ethical Compliance",
       description: "Emphasizes responsible business practices, ethical sourcing, labor standards, health & safety, and environmental responsibility.",
-      pdfPath: "#",
+      pdfPath: "/Certificates/SEDEX%20PDF.pdf",
       logoPath: "/Certificate Logo/SEDEX.webp",
     },
     {

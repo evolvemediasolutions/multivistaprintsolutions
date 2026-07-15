@@ -686,7 +686,7 @@ export function Careers() {
         {/* Background Parallax Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80 z-0 pointer-events-none"
-          style={{ backgroundImage: "url('/Images/SIR1.jpg')" }}
+          style={{ backgroundImage: "url('/Images/CAREER/OUR STANDARDS NEW.jpeg')" }}
         />
         {/* Soft overlay for text readability */}
         <div className="absolute inset-0 bg-black/45 pointer-events-none z-10" />

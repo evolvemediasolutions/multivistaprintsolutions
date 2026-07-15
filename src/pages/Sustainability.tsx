@@ -162,7 +162,7 @@ const initiatives = [
     num: "06",
     title: "Process-Less Plates",
     desc: "Saving thousands of liters of chemical developer fluids in prepress setups.",
-    image: "/Images/SUSTAINABILITY INITIATIVE/PROCESS LESS PLATES.jpg",
+    image: "/Images/SUSTAINABILITY INITIATIVE/Process-Less Plates.jpeg",
     icon: Layers,
     category: "production"
   },
@@ -178,7 +178,7 @@ const initiatives = [
     num: "08",
     title: "Water Conservation",
     desc: "Closed-loop water systems and efficient chiller technology help reduce water consumption across our manufacturing operations.",
-    image: "/Images/water_conservation.png",
+    image: "/Images/SUSTAINABILITY INITIATIVE/WATER CONVERSION.jpeg",
     icon: Droplet,
     category: "production"
   },
@@ -186,7 +186,7 @@ const initiatives = [
     num: "09",
     title: "Sustainable Procurement",
     desc: "Enforcing rigorous ethical standard checks on 100% of supply chain vendors.",
-    image: "/Images/SUSTAINABILITY INITIATIVE/SUSTAINABLE PROCUREMENT.jpg",
+    image: "/Images/SUSTAINABILITY INITIATIVE/Sustainable Procurement.jpeg",
     icon: Heart,
     category: "supply"
   }

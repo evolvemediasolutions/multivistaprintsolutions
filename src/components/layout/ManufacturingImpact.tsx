@@ -119,7 +119,7 @@ export function ManufacturingImpact() {
             </div>
           </motion.div>
 
-          {/* Card 3: 100,000+ Sq. Ft. Facility */}
+          {/* Card 3: 125,000+ Sq.Ft Facility */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -132,10 +132,10 @@ export function ManufacturingImpact() {
                 Infrastructure
               </span>
               <div className="text-5xl font-bold tracking-tight text-royal-blue font-heading mb-1.5 animate-pulse-slow">
-                <CountUp to={100000} suffix="+" />
+                <CountUp to={125000} suffix="+" />
               </div>
               <h3 className="text-base font-bold text-deep-navy mb-1 font-heading leading-snug">
-                Integrated Facility (Sq. Ft.)
+                Integrated Facility (Sq.Ft)
               </h3>
               <p className="text-slate-600 font-sans text-xs leading-relaxed font-light">
                 An end-to-end production ecosystem designed for scale.

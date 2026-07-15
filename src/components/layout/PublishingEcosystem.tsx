@@ -231,7 +231,7 @@ export function PublishingEcosystem() {
 
               {/* Staggered Floating corner statistics badges */}
               <div className="absolute top-[2%] left-0 text-[9px] font-bold text-deep-navy bg-white border border-gray-100 shadow-sm px-2.5 py-1 rounded-md opacity-50 hover:opacity-100 transition-opacity pointer-events-none">
-                100,000+ Sq. Ft. Facility
+                125,000+ Sq.Ft Facility
               </div>
               <div className="absolute top-[2%] right-0 text-[9px] font-bold text-deep-navy bg-white border border-gray-100 shadow-sm px-2.5 py-1 rounded-md opacity-50 hover:opacity-100 transition-opacity pointer-events-none">
                 Export Focused
