@@ -76,7 +76,7 @@ function HardcoverCarousel() {
 function SoftcoverCarousel() {
   const images = [
     "/Images/SOFT BOOKS/SOFT COVER 6.jpg",
-    "/Images/SOFT BOOKS/SOFT COVER 7.jpg",
+    "/Images/SOFT BOOKS/SOFT COVER 3.jpg",
     "/Images/SOFT BOOKS/SOFT COVER 8.jpg",
     "/Images/SOFT BOOKS/SOFT COVER 9.jpg",
     "/Images/SOFT BOOKS/SOFT COVER 5.jpg"
