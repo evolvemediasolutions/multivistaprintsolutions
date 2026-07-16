@@ -5,6 +5,7 @@ import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -143,6 +144,23 @@ async function startServer() {
       appType: 'spa'
     });
     app.use(vite.middlewares);
+
+    // Fallback route for React Router client-side routes (SPA) in development
+    app.get('*', async (req, res, next) => {
+      const url = req.originalUrl;
+      try {
+        let template = fs.readFileSync(
+          path.resolve(__dirname, 'index.html'),
+          'utf-8'
+        );
+        // Apply Vite HTML transforms (injects HMR client and preambles)
+        template = await vite.transformIndexHtml(url, template);
+        res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
+      }
+    });
   }
 
   const port = process.env.PORT || 3000;
