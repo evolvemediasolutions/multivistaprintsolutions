@@ -75,7 +75,7 @@ const sectors: Sector[] = [
     icon: Sparkles,
     accentColor: "text-emerald-600",
     capabilities: ["Board Mounting & Glueing", "Die-Cut Board Folds", "Round-Corner Safety Cuts", "Soy-Based Ink Coating"],
-    image: "/Images/MANUFACTURING PATH/CHILDREN NEW.jpg",
+    image: "/Images/SOFT BOOKS/SOFT COVER 3.jpg",
     visualTheme: "playful-gradient"
   },
   {
