@@ -51,6 +51,7 @@ async function startServer() {
         console.warn('Neon Database is not configured. Skipping database insertion.');
       }
 
+      let emailSentSuccessfully = false;
       // 2. Send email notification via Resend
       if (resend) {
         const fromEmail = process.env.RESEND_FROM || 'onboarding@resend.dev';
@@ -107,18 +108,23 @@ async function startServer() {
           </div>
         `;
 
-        const { data: emailData, error: emailError } = await resend.emails.send({
-          from: fromEmail,
-          to: toEmail,
-          subject: `New Partnership Inquiry from ${company}`,
-          html: emailHtml,
-        });
+        try {
+          const { data: emailData, error: emailError } = await resend.emails.send({
+            from: fromEmail,
+            to: toEmail,
+            subject: `New Partnership Inquiry from ${company}`,
+            html: emailHtml,
+          });
 
-        if (emailError) {
-          console.error('Resend API error:', emailError);
-          throw new Error(`Email notification failed: ${emailError.message}`);
+          if (emailError) {
+            console.error('Resend API error (non-fatal):', emailError);
+          } else {
+            console.log(`Notification email successfully sent via Resend to ${toEmail}`);
+            emailSentSuccessfully = true;
+          }
+        } catch (emailErr) {
+          console.error('Resend connection error (non-fatal):', emailErr);
         }
-        console.log(`Notification email successfully sent via Resend to ${toEmail}`);
       } else {
         console.warn('Resend API key is not configured. Skipping email sending.');
       }
@@ -127,7 +133,7 @@ async function startServer() {
         success: true, 
         message: 'Inquiry submitted successfully.',
         savedToDb: !!isDbConfigured,
-        emailSent: !!isEmailConfigured 
+        emailSent: emailSentSuccessfully 
       });
 
     } catch (error) {
