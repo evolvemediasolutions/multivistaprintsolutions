@@ -51,7 +51,14 @@ export function Contact() {
         })
       });
 
-      const data = await response.json();
+      let data;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        throw new Error(`Server returned non-JSON response (Status ${response.status}): ${text.substring(0, 100)}`);
+      }
 
       if (response.ok && data.success) {
         setFormSubmitted(true);
@@ -64,7 +71,11 @@ export function Contact() {
       }
     } catch (err) {
       console.error("Form submission error:", err);
-      setFormError("Network error. Please check your connection and try again.");
+      if (err instanceof Error) {
+        setFormError(`Submission failed: ${err.message}`);
+      } else {
+        setFormError("Network error. Please check your connection and try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }

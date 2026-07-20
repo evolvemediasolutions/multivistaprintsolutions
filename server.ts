@@ -107,12 +107,17 @@ async function startServer() {
           </div>
         `;
 
-        await resend.emails.send({
+        const { data: emailData, error: emailError } = await resend.emails.send({
           from: fromEmail,
           to: toEmail,
           subject: `New Partnership Inquiry from ${company}`,
           html: emailHtml,
         });
+
+        if (emailError) {
+          console.error('Resend API error:', emailError);
+          throw new Error(`Email notification failed: ${emailError.message}`);
+        }
         console.log(`Notification email successfully sent via Resend to ${toEmail}`);
       } else {
         console.warn('Resend API key is not configured. Skipping email sending.');
@@ -127,7 +132,10 @@ async function startServer() {
 
     } catch (error) {
       console.error('Failed to process partnership submission:', error);
-      res.status(500).json({ success: false, error: 'Internal server error processing submission.' });
+      res.status(500).json({ 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Internal server error processing submission.' 
+      });
     }
   });
 
