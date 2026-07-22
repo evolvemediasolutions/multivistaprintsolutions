@@ -54,7 +54,7 @@ async function startServer() {
       let emailSentSuccessfully = false;
       // 2. Send email notification via Resend
       if (resend) {
-        const fromEmail = process.env.RESEND_FROM || 'onboarding@resend.dev';
+        const fromEmail = process.env.RESEND_FROM || 'noreply@multivistaprintsolutions.com';
         const toEmail = process.env.RESEND_TO || 'csepress@multivistaglobal.com';
 
         const emailHtml = `
@@ -129,18 +129,18 @@ async function startServer() {
         console.warn('Resend API key is not configured. Skipping email sending.');
       }
 
-      res.status(200).json({ 
-        success: true, 
+      res.status(200).json({
+        success: true,
         message: 'Inquiry submitted successfully.',
         savedToDb: !!isDbConfigured,
-        emailSent: emailSentSuccessfully 
+        emailSent: emailSentSuccessfully
       });
 
     } catch (error) {
       console.error('Failed to process partnership submission:', error);
-      res.status(500).json({ 
-        success: false, 
-        error: error instanceof Error ? error.message : 'Internal server error processing submission.' 
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : 'Internal server error processing submission.'
       });
     }
   });
